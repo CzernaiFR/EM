@@ -1,0 +1,29 @@
+project:
+  type: book
+
+lang: fr-FR
+book:
+  title: "EM"
+  author: "Norah Jones"
+  date-format: "ddd D MMM YYYY"
+  date: 06/01/2024
+  
+  
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: 
+      dark: cyborg
+      light: lux
+    highlight-style: ayu
+
+
+
+
