@@ -1,0 +1,13 @@
+---
+author:
+    - name: "Roger MARTIN"
+      email: Roger57que@free.fr
+date-modified: last-modified
+date-format: "ddd D MMM YYYY"
+date: 2024/06/19
+---
+
+# Notes personnelles
+
+Mes notes, cahier de brouillon, tergiversations diverses et variées…
+

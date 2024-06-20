@@ -1,29 +1,54 @@
 project:
   type: book
   output-dir: docs
+  render: 
+    - "*.qmd"
+    
+toc: true
+toc-location: right
+
+number-sections: true
 
 lang: fr-FR
+
+date-modified: last-modified
+date-format: "ddd D MMM YYYY"
+date: 2024/06/19
+
+reference-location: margin
+citation-location: margin
 book:
-  title: "EM"
-  author: "Norah Jones"
-  date-format: "ddd D MMM YYYY"
-  date: 06/01/2024
-  
+  title: "Décortiquer l'EuroMillions"
   
   chapters:
     - index.qmd
     - intro.qmd
     - summary.qmd
-    - references.qmd
+  appendices: 
+    - part: Références
+      chapters: 
+        - references.qmd
+    - part: Perso
+      chapters: 
+        - NOTES.qmd
 
 bibliography: references.bib
 
 format:
   html:
+    fontsize: 1.20em
     theme: 
-      dark: cyborg
-      light: lux
+      dark: darkly
+      light: flatly
     highlight-style: ayu
+    grid: 
+      sidebar-width: 225px
+      margin-width: 275px
+      body-width: 900px
+      gutter-width: 0.15em
+    
+    
+    
 
 
 

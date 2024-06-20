@@ -1,5 +1,7 @@
 ---
-date-modified: last-modified
+author:
+    - name: "Roger MARTIN"
+      email: Roger57que@free.fr
 ---
 # Introduction
 

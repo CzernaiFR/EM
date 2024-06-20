@@ -1,8 +1,9 @@
 ---
-date-modified: last-modified
+author:
+    - name: "Roger MARTIN"
+      email: Roger57que@free.fr
 ---
-# Preface {.unnumbered}
+# Décortiquer l'EuroMillions ?
 
-This is a Quarto book.
+et rien que ça !
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
