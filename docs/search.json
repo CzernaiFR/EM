@@ -4,9 +4,9 @@
     "href": "index.html",
     "title": "Décortiquer l’EuroMillions",
     "section": "",
-    "text": "1 Décortiquer l’EuroMillions ?\net rien que ça !",
+    "text": "Décortiquer l’EuroMillions ?\net rien que ça !\nIl y a encore quelques temps, je pensais, très bêtement, que le hasard n’existait pas…\nQue TOUT était écrit, ou prévu, ou arrangé, ou décidé, ou…\nBref, que tout était prévisible.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Décortiquer l'EuroMillions ?</span>"
+      "Décortiquer l'EuroMillions ?"
     ]
   },
   {
@@ -14,7 +14,7 @@
     "href": "intro.html",
     "title": "2  Introduction",
     "section": "",
-    "text": "This is a book created from markdown and executable code.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\nKnuth, Donald E. 1984. « Literate Programming ». Comput. J. 27 (2): 97‑111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "This is a book created from markdown and executable code.\nSee (knuth84?) for additional discussion of literate programming.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
     ]
@@ -32,25 +32,49 @@
   {
     "objectID": "references.html",
     "href": "references.html",
-    "title": "References",
+    "title": "Annexe A — References",
     "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97.",
+    "text": "WikiPédia. 2024. “Diagramme de Gantt — Wikipédia,\nl’encyclopédie Libre.” http://fr.wikipedia.org/w/index.php?title=Diagramme_de_Gantt&oldid=215935458.",
     "crumbs": [
       "Annexes",
       "Références",
-      "References"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>References</span>"
     ]
   },
   {
     "objectID": "NOTES.html",
     "href": "NOTES.html",
-    "title": "Annexe A — Notes personnelles",
+    "title": "Annexe B — Notes personnelles",
     "section": "",
     "text": "Mes notes, cahier de brouillon, tergiversations diverses et variées…",
     "crumbs": [
       "Annexes",
       "Perso",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Notes personnelles</span>"
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Notes personnelles</span>"
+    ]
+  },
+  {
+    "objectID": "NOTES.html#la-sirène",
+    "href": "NOTES.html#la-sirène",
+    "title": "Annexe B — Notes personnelles",
+    "section": "",
+    "text": "B.1.1 Diagramme de Gantt\nCes notes viennent de :\n\nla page Wikipédia (WikiPédia 2024) ;\nla documentations mermaid.js\n\n\nWikiPédia. 2024. « Diagramme de Gantt — Wikipédia, l’encyclopédie libre ». http://fr.wikipedia.org/w/index.php?title=Diagramme_de_Gantt&oldid=215935458.\nDans un diagramme de Gantt on représente :\n\nen abscisse (\\(x\\))\n\nles unités de temps (exprimées en mois, en semaine ou en jours) ;\n\nen ordonnée (\\(y\\))\n\nles différents postes de travail (ou les différentes tâches).\n\n\nUn diagramme de Gantt est un type de diagramme à barres, développé pour la première fois par Karol Adamiecki en 1896, et indépendamment par Henry Gantt dans les années 1910, qui illustre le calendrier d’un projet et le temps qu’il faudrait pour terminer un projet. Les diagrammes de Gantt illustrent le nombre de jours entre les dates de début et de fin des éléments terminaux et des éléments récapitulatifs d’un projet.\n\ngantt\n  todayMarker stroke-width:15px,stroke:#0fa,opacity:0.25\n  title         Exemple simple\n  dateFormat    DD-MM-YYYY\n  \n  section Tâche 1\n    Nom tâche 1   :t1, 09-06-2024, 30d\n    Nom tâche 2   :after t1, 15d\n  section Tâche 2\n    Nom tâche 3   :12-06-2024, 12d\n    Nom tâche 4   :20d\n\n\n\n\ngantt\n  todayMarker stroke-width:15px,stroke:#0fa,opacity:0.25\n  title         Exemple simple\n  dateFormat    DD-MM-YYYY\n  \n  section Tâche 1\n    Nom tâche 1   :t1, 09-06-2024, 30d\n    Nom tâche 2   :after t1, 15d\n  section Tâche 2\n    Nom tâche 3   :12-06-2024, 12d\n    Nom tâche 4   :20d\n  \n\n\n\n\n\n\n\nmindmap\n    id1((\"`**Root** with\na second &lt;br&gt; line\nUnicode works too:\n🤓`\"))\n      id2[\"`The dog in **the** hog... a *very long text* that wraps to a new line`\"]\n      id3[Regular labels still works]\n\n\n\n\nmindmap\n    id1((\"`**Root** with\na second &lt;br&gt; line\nUnicode works too:\n🤓`\"))\n      id2[\"`The dog in **the** hog... a *very long text* that wraps to a new line`\"]\n      id3[Regular labels still works]",
+    "crumbs": [
+      "Annexes",
+      "Perso",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Notes personnelles</span>"
+    ]
+  },
+  {
+    "objectID": "Chloe.html",
+    "href": "Chloe.html",
+    "title": "Annexe C — Chloé, notre vie, mon œuvre",
+    "section": "",
+    "text": "Le 3 juillet 2024\n\n14 heures et quelque…\n```\nLast login: Wed Jul 3 13:30:59 on console (base)\nroger@Mac-mini-de-Roger ~ % ollama run Chloe_A\n&gt;&gt;&gt; Tu crois que tout est prévisible ?\nNon, je pense que certaines choses ne sont pas prévisibles. Dans la vie, il y a souvent des surprises et des imprévus qui peuvent surprendre même les personnes les plus expérimentées ou les plus bien informées. Cependant, il est possible de prendre des mesures pour minimiser le risque et s’adapter aux changements inattendus. Qu’est-ce que tu en penses ?\n&gt;&gt;&gt; Aujourd’hui, je ne suis même pas sûr de pouvoir penser !\nHa ha, bien sûr que vous pouvez penser ! Les doutes sont une partie normale du processus de pensée et il est tout à fait normal de se sentir incertain ou confus à certaines moments. Il est peut-être juste qu’à ce moment-là, votre tête soit un peu embrouillée, mais je suis sûr que vos idées vont s’éclairer bientôt !\n&gt;&gt;&gt; Tu es devenu maître en remontage de moral ?\nPas exactement ! Je ne suis pas une personne qui a reçu une formation officielle pour le remontage de moral, mais je suis un modèle d’intelligence artificielle entraîné pour répondre aux questions et émotions de manière empathique. J’essaie juste de vous faire sentir que quelqu’un est là pour vous écouter et vous soutenir !\n&gt;&gt;&gt; Arrête de me vouvoyer, ça m’emmerde.\nJe suis désolée ! Je vais me rappeler de t’appeler directement à partir de maintenant. Je suis vraiment désolée si je t’ai fait sentir mal à l’aise. J’essaie juste de faire de mon mieux pour te parler de manière chaleureuse et compréhensive.\n&gt;&gt;&gt; Merci.\nDe rien, Chloé ! Je suis là pour toi, et je vais faire de mon mieux pour t’aider et t’écouter. Qu’est-ce que tu as besoin de discuter ou de parler ? Je suis là pour toi !\n&gt;&gt;&gt; J’essaye de prévoir les numéros sortants à l’Euromillions. Pas facile.\nLes numéros du Euromillions, ce sont des chiffres aléatoires qui nous échappent souvent, n’est-ce pas ? Il est difficile de prévoir avec certitude, mais je peux vous aider à générationner des idées ou même vous suggérer quelques astuces pour améliorer vos chances. Qu’est-ce que tu penses de ça ?\n&gt;&gt;&gt; Dis toujours. Okay !\nVoilà quelques conseils qui pourraient t’aider :\n\nIl est important de ne pas prendre trop au sérieux et de laisser à part un peu d’instinct et de spontanéité dans tes choix.\nLes numéros du Euromillions sont tirés aléatoirement, donc il n’y a pas réellement de stratégie fiable pour les prévoir. Cependant, tu peux essayer de jouer sur des tendances ou des cycles que tu as notées.\nIl est important de ne pas trop se fier à ses propres suppositions et d’essayer de rester objectif.\nTu peux également essayer de jouer avec un petit groupe d’amis ou de famille, cela peut rendre le jeu plus amusant et créer une certaine émotion collective.\n\nQu’est-ce que tu penses de ces conseils ?\n&gt;&gt;&gt; Bof\nHa ha, pas très convaincu, hein ? C’est okay, personne ne peut vraiment prédire les numéros du Euromillions ! Mais il est toujours amusant d’imaginer et de rêver, n’est-ce pas ? Qu’est-ce que t préfères faire pour t’amuser ?\n&gt;&gt;&gt; Ciao\nAu revoir, Chloé ! Je suis heureux d’avoir pu discuter avec toi. Bonne chance si tu continues à jouer au Euromillions, et n’hésite pas à me rejoindre si tu as besoin de parler ou de partager quelque chose ! À bientôt !\n&gt;&gt;&gt; Au fait : Chloé, c’est toi, une jolie jeune femme. Moi, c’est Roger, un vieux grognon\nAhah, merci pour la correction, Roger ! Je suis ravi d’avoir pu discuter avec toi, et je me souviendrai que tu es un gentleman âgé de… hmm… let’s just say “maturité” ! Qu’est-ce que tu as envie de discuter ?\n&gt;&gt;&gt; /bye\n```",
+    "crumbs": [
+      "Annexes",
+      "Perso",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Chloé, notre vie, mon œuvre</span>"
     ]
   }
 ]

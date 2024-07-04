@@ -31,6 +31,7 @@ book:
     - part: Perso
       chapters: 
         - NOTES.qmd
+        - Chloe.qmd
 
 bibliography: references.bib
 
@@ -42,14 +43,11 @@ format:
       light: flatly
     highlight-style: ayu
     grid: 
-      sidebar-width: 225px
-      margin-width: 275px
-      body-width: 900px
+      sidebar-width: 220px
+      margin-width: 270px
+      body-width: 910px
       gutter-width: 0.15em
     
-    
-    
-
 
 
 

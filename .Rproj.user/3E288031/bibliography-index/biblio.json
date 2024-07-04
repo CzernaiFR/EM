@@ -1,32 +1,23 @@
 {
     "sources": [
         {
-            "DOI": "10.1093/comjnl/27.2.97",
-            "ISSN": "0010-4620",
-            "URL": "https://doi.org/10.1093/comjnl/27.2.97",
+            "URL": "http://fr.wikipedia.org/w/index.php?title=Diagramme_de_Gantt&oldid=215935458",
             "author": [
                 {
-                    "family": "Knuth",
-                    "given": "Donald E."
+                    "family": "WikiPédia"
                 }
             ],
-            "container-title": "Comput. J.",
-            "id": "knuth84",
-            "issue": "2",
+            "id": "GanttDiag",
             "issued": {
                 "date-parts": [
                     [
-                        1984,
-                        5
+                        2024
                     ]
                 ]
             },
-            "page": "97-111",
-            "publisher": "Oxford University Press, Inc.",
-            "publisher-place": "USA",
-            "title": "Literate programming",
-            "type": "article-journal",
-            "volume": "27"
+            "note": "[En ligne; Page disponible le 14-juin-2024]",
+            "title": "Diagramme de gantt — wikipédia, l’encyclopédie libre",
+            "type": ""
         }
     ],
     "project_biblios": [

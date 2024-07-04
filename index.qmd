@@ -3,7 +3,13 @@ author:
     - name: "Roger MARTIN"
       email: Roger57que@free.fr
 ---
-# Décortiquer l'EuroMillions ?
+
+# Décortiquer l'EuroMillions ? {.unnumbered}
 
 et rien que ça !
 
+Il y a encore quelques temps, je pensais, très bêtement, que le hasard n'existait pas…
+
+Que **TOUT** était écrit, ou prévu, ou arrangé, ou décidé, ou…
+
+Bref, que tout était prévisible.
