@@ -1,0 +1,257 @@
+---
+author:
+    - name: "Roger MARTIN"
+      email: Roger57que@free.fr
+execute: 
+  echo: fenced
+---
+
+# Importer les fichiers
+
+Décortiquer des données, c'est très bien. Mais il faut avoir des données. Donc il faut les importer.
+
+Les fichiers `.csv` contenant les données sont disponibles [à cette adresse.](https://www.fdj.fr/jeux-de-tirage/euromillions-my-million/historique)
+
+Il y a eu plusieurs versions de l'EuroMillions. Ce qui change est le nombre d'étoiles. Il y a toujours eu $50$ numéros, de $1$ à $50$. Et jusqu'au 10 mai 2011, les étoiles étaient au nombre de $9$ et environ $1$ chance sur $76$ millions de gagner le pactole de plusieures dizaines de millions d'euros. Puis, jusqu'au 23 septembre 2016, il y eu $11$ étoiles et $1$ chance sur $116$ millions d'espérer le pactole. Depuis le 24 septembre 2016, on peut voir $12$ étoiles avec $1$ chance sur $140$ millions de revoir le gros lot.
+
+Bref, il faut être fou pour jouer à l'EuroMillions^[ce qui en dit long sur ma santé mentale…].
+
+Tout ça pour dire que seuls les $3$ derniers fichiers sont intéressants.
+
+## Le code
+
+Commencer par charger le `tidyverse`.
+
+```{r}
+#| output: false
+library(tidyverse, warn.conflicts = FALSE)
+```
+
+### Adresse des fichiers
+
+```{r}
+adresses_Fichiers <- 
+  c("https://media.fdj.fr/static-draws/csv/euromillions/euromillions_201609.zip",
+    "https://media.fdj.fr/static-draws/csv/euromillions/euromillions_201902.zip",
+    "https://media.fdj.fr/static-draws/csv/euromillions/euromillions_202002.zip")
+```
+
+$R$ sait télécharger et dézipper les fichiers, mais il y a des contraintes :
+
+1.  il faut nommer les fichiers pour les enregistrer sur disque ;
+2.  il faut connaitre les noms des fichiers contenus dans les `zip` ;
+3.  il faut donner un nom concis et clair à chaque fichier.
+
+D'où le code suivant :
+```{r}
+# noms sous lesquels les fichiers .zip seront
+#   stockés sur disque
+fichiers_Provisoires <- c("eurom1.zip",
+                    "eurom2.zip",
+                    "eurom3.zip")
+
+# noms sous lesquels les fichiers .csv seront
+#   stockés sur disque
+fichiers_Csv <- c("eurom1.csv",
+              "eurom2.csv",
+              "eurom3.csv")
+```
+
+### Télécharger les fichiers
+Comme quoi, tout arrive !
+```{r}
+map2(adresses_Fichiers, 
+     fichiers_Provisoires, 
+     ~ download.file(.x, destfile = .y))
+```
+
+Récupérer les noms que la FDJ a donné aux fichiers `.csv` :
+
+```{r}
+noms_fdj <- map(fichiers_Provisoires, ~ unzip(.x, list = TRUE))
+noms_fdj
+```
+
+Rognetudju !!! Le résultat est un objet `list()` de $3$ `dataframe`. Chaque `dataframe` ne contient que $1$ ligne de $3$ colonnes :
+
+`Name`
+
+:   le nom du fichier `csv` ; le but du bazar ;
+
+`Length`et `Date`
+
+:   la taille et la date de mise à jour du `.csv` qui n'intéressent personne^[pas moi, en tous cas…]
+
+### Récupération des `dataframe`
+
+Les `dataframe` sont numérotés de $1$ à $3$, donc il est possible de tout récupérer dans une boucle `for{}` :
+
+```{r}
+#| message: false
+#| warning: false
+# la boucle
+for (i in 1:3) {
+  # récup du nom FDJ
+  nom <- noms_fdj[[i]]$Name
+  
+  # dézipper
+  unzip(fichiers_Provisoires[i])
+  
+  # renommer
+  file.rename(from = nom, to = fichiers_Csv[i])
+  
+  # supprimer le fichier zip
+  file.remove(fichiers_Provisoires[i])
+}
+```
+
+### Fusion à l'arrache
+
+Il y a $3$ fichiers, de `eurom1.csv` à `eurom3.csv`. Il est possible de commencer par la méthode bourrin^[oui, je me dénonce]. Juste fusionner les $3$ fichiers et voir ce qu'il y a à en tirer.
+
+
+```{r}
+#| output: false
+file.append("eurom1.csv", "eurom2.csv")
+file.append("eurom1.csv", "eurom3.csv")
+eurom <- read_csv2("eurom1.csv", show_col_types = FALSE)
+```
+
+```{r}
+a_row <- nrow(eurom)
+a_col <- ncol(eurom)
+
+cat(a_row, "lignes et", a_col, "colonnes")
+```
+
+$75$ colonnes ! Et à regarder de plus près, il y a les rapports, les nombres de gagnants, les dates de forclusion… Beaucoup de renseignements inutiles. Donc je garde l'essentiel :
+
+```{r}
+euromil <- 
+  eurom |> 
+  select(jour_de_tirage, 
+         date_de_tirage,
+         boule_1, boule_2, boule_3, boule_4, boule_5,
+         etoile_1, etoile_2
+         )
+```
+
+#### Vérifier s'il n'y a pas d'intrus
+
+```{r}
+euromil <- arrange(euromil, desc(date_de_tirage))
+head(euromil)
+```
+
+Ce n'est pas bon ! C'est un effet de bord du `file.append()` plus haut. Je me doutais que c'était bourrin.
+
+C'est assez facile à corriger : le `file.append()` a ajouté les entêtes des $2$ derniers fichiers dans le fichier final. Re-donc :
+
+```{r}
+# a_row contient toujours le nombre de lignes
+# récupérer de la troisième à la dernière ligne
+euromil <- slice(euromil, 3:a_row)
+head(euromil)
+tail(euromil)
+```
+
+Tout est 👍
+
+Maintenant je vais prouver que je suis paresseux !
+
+### Raccourcir les noms des variables
+
+```{r}
+euromil <- 
+euromil %>% 
+  rename(jt = jour_de_tirage,
+         dt = date_de_tirage,
+         b1 = boule_1, b2 = boule_2, b3 = boule_3,
+         b4 = boule_4, b5 = boule_5,
+         e1 = etoile_1, e2 = etoile_2)
+
+euromil
+```
+
+Raccourcir les noms des jours de tirage en ne gardant que les $2$ premières lettres :
+
+```{r}
+euromil$jt <- str_sub(euromil$jt, 1,2)
+
+```
+
+Transformer la colonne `dt` en `date()` comprésible par `R` :
+
+```{r}
+euromil$dt <- dmy(euromil$dt)
+```
+
+Et transformer les boules et étoiles en nombre[^0105_creer-donnees-3] et les jours de la semaine en facteur
+
+[^0105_creer-donnees-3]: jusque là, ce sont encore des cjaines de caratères
+
+```{r}
+euromil$jt <- as.factor(euromil$jt)
+euromil$b1 <- as.integer(euromil$b1)
+euromil$b2 <- as.integer(euromil$b2)
+euromil$b3 <- as.integer(euromil$b3)
+euromil$b4 <- as.integer(euromil$b4)
+euromil$b5 <- as.integer(euromil$b5)
+euromil$e1 <- as.integer(euromil$e1)
+euromil$e2 <- as.integer(euromil$e2)
+```
+
+Maintenant que la colonne `dt` est une date, classer les lignes de la plus ancienne à la plus récente. Et voir ce que ça donne.
+
+```{r}
+euromil <- arrange(euromil, dt)
+summary(euromil)
+```
+
+C'est bon. Les dates correspondent, les jours sont des facteurs et les boules et les étoiles sont bien des nombres. Re👍
+
+```{r}
+rien <- 
+  euromil %>% 
+  rowwise() %>%  
+  mutate(rB = pmap(list(b1, b2, b3, b4, b5), lift_vd(sort))) %>% 
+  mutate(rE = pmap(list(e1, e2), lift_vd(sort)))
+```
+
+```{r}
+euromil <- 
+  rien |> 
+  rowwise() |> 
+  mutate(b1 = rB[1]) |> 
+  mutate(b2 = rB[2]) |> 
+  mutate(b3 = rB[3]) |> 
+  mutate(b4 = rB[4]) |> 
+  mutate(b5 = rB[5]) |> 
+  mutate(e1 = rE[1]) |> 
+  mutate(e2 = rE[2])
+
+euromil$rB <- NULL
+euromil$rE <- NULL
+```
+
+et un `summary` plus explicite :
+
+```{r}
+summary(euromil)
+```
+
+Je vais pouvoir passer aux statistiques proprement dites. Juste sauver le tableau des tirages.
+
+```{r}
+euromil <- ungroup(euromil)
+save(euromil, file = "euromil.RData")
+```
+
+Tout est bon jusque là. Un petit coup de balai avant de partir^[il faut toujours laisser un endroit dans l'état dans lequel on aimerais le retrouver] et on passe à la suite. Et on est pas rendu…
+
+```{r}
+remove(list = ls())
+```
+
+
+

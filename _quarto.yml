@@ -3,7 +3,7 @@ project:
   output-dir: docs
   render: 
     - "*.qmd"
-    
+
 toc: true
 toc-location: right
 
@@ -22,8 +22,7 @@ book:
   
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
+    - import.qmd
   appendices: 
     - part: Références
       chapters: 
@@ -31,7 +30,7 @@ book:
     - part: Perso
       chapters: 
         - NOTES.qmd
-        - Chloe.qmd
+        - chloe-001.qmd
 
 bibliography: references.bib
 
@@ -43,8 +42,8 @@ format:
       light: flatly
     highlight-style: ayu
     grid: 
-      sidebar-width: 220px
-      margin-width: 270px
+      sidebar-width: 250px
+      margin-width: 260px
       body-width: 910px
       gutter-width: 0.15em
     

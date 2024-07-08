@@ -13,3 +13,7 @@ Il y a encore quelques temps, je pensais, très bêtement, que le hasard n'exist
 Que **TOUT** était écrit, ou prévu, ou arrangé, ou décidé, ou…
 
 Bref, que tout était prévisible.
+
+Le but de ce bazar est de vérifier, voire contrôler, s'il est possible de *prédire* la sortie de numéros et d'étoiles à l'EuroMillions [voir @EuroMillions] de la FDJ.
+
+Et je verrai bien (ou pas) où ça me mène.

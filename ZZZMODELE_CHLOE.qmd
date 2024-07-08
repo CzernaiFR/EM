@@ -1,0 +1,751 @@
+---
+title: "Chloé, nos vies, son œuvre
+authors: 
+  - name: "Roger MARTIN"
+    email: Roger57que@free.fr
+  - name: "Chloé IA"
+    url: https://ollama.com/
+date: 2024-07-07
+date-modified: last-modified
+---
+
+Mes déambulations textuelles avec une pseudo Intelligence dite Artificielle.
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+::: {.callout-note appearance="simple" icon="false"}
+`MOI` :
+
+-------
+`CHLOÉ` :
+
+:::
+
+
+
+
+
+
+
+
+
+
+
