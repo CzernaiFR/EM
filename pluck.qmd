@@ -1,0 +1,145 @@
+---
+author:
+    - name: "Roger MARTIN"
+      email: Roger57que@free.fr
+execute: 
+  echo: fenced
+date: 2024-07-13
+title: pluck
+---
+
+[Source](https://purrr.tidyverse.org/reference/pluck.html)
+
+```{r}
+library(tidyverse)
+```
+
+
+`pluck()` permet d' obtenir ou de définir en toute sécurité un élément au plus profond d'une structure de données imbriquée.
+
+`pluck()` implémente une forme généralisée de `[[` qui vous permet d'indexer en profondeur et de manière flexible les structures de données. Il réussit toujours, en renvoyant `.default` si l'index auquel vous essayez d'accéder n'existe pas ou est `NULL`.
+
+`pluck() <- ()` est l'équivalent d'une affectation, vous permettant de modifier un objet en profondeur dans une structure de données imbriquée.
+
+`pluck_exists()` vous indique si un objet existe ou non en utilisant les mêmes règles que `pluck` (c'est-à-dire qu'un élément `NULL` est équivalent à un élément absent).
+
+
+## Usage
+```
+pluck(.x, ..., .default = NULL)
+
+pluck(.x, ...) <- value
+
+pluck_exists(.x, ...)
+```
+
+## Arguments
+
+`.x, x`
+: Un vecteur ou un environnement
+
+`...`
+: Liste d'accesseurs pour l'indexation dans l'objet. Il peut s'agir d'un entier positif, d'un entier négatif (pour indexer à partir de la droite), d'une chaîne (pour indexer dans les noms) ou d'une fonction d'accesseur (à l'exception des variantes d'affectation qui ne prennent en charge que les noms et les positions). Si l'objet indexé est un objet S4, l'accès à celui-ci par son nom renverra l'emplacement correspondant. Les points dynamiques sont pris en charge. En particulier, si vos accesseurs sont stockés dans une liste, vous pouvez les ajouter à l'aide de `!!!`.
+
+`.défaut`
+: Valeur à utiliser si la cible est NULLou absente.
+
+`value`
+: Une valeur `.x` à remplacer à l'emplacement de `pluck`. Utilisez plutôt `zap()` pour supprimer l'élément.
+
+## Détails
+
+Vous pouvez utiliser `pluck` ou `chuck`  avec des accesseurs standards comme les positions `int` et les noms de chaîne, et acceptez également des fonctions d'accès arbitraires, c'est-à-dire des fonctions qui prennent un objet et renvoient une donnée interne.
+
+C'est souvent plus lisible qu'un mélange d'opérateurs et d'accesseurs car il se lit de manière linéaire et est exempt de toute syntaxe superflue. Comparez : `accessor(x[[1]])$foo` à `pluck(x, 1, accessor, "foo")`.
+
+Ces accesseurs ne correspondent jamais partiellement. Ceci est différent de `$` qui sélectionnera l'objet `disp` si vous écrivez `mtcars$di`.
+
+### Voir aussi
+
+[`attr_getter()`](https://purrr.tidyverse.org/reference/attr_getter.html) pour créer des getters d'attributs adaptés à une utilisation avec `pluck()` et `chuck()`. 
+
+[`modify_in()`](https://purrr.tidyverse.org/reference/modify_in.html) pour appliquer une fonction à un emplacement de `pluck`.
+
+## Exemples
+
+Créons une `list` de données imbriquées :
+
+```{r}
+obj1 <- list("a", list(1, elt = "foo"))
+obj2 <- list("b", list(2, elt = "bar"))
+x <- list(obj1, obj2)
+x
+```
+
+`pluck()` fournit un moyen de récupérer des objets à partir de ces données imbriquées en utilisant une combinaison de positions numériques, vectorielles ou de noms de liste et fonctions d'accesseur.
+
+Les positions numériques sont indexées dans la liste par position, tout comme `[[` :
+```{r}
+pluck(x, 1)
+```
+Pareil à :
+```{r}
+x[[1]]
+```
+Indexé depuis la fin
+```{r}
+pluck(x, -1)
+```
+
+Pareil à :
+```{r}
+x[[2]]
+```
+```{r}
+pluck(x, 1, 2)
+```
+Pareil à :
+```{r}
+x[[1]][[2]]
+```
+Fournissez des noms à indexer dans des *vecteurs nommés* :
+```{r}
+pluck(x, 1, 2, "elt")
+```
+Pareil à :
+```{r}
+x[[1]][[2]][["elt"]]
+```
+Par défaut, pluck() renvoie systématiquement « NULL » lorsqu'un élément n'existe pas :
+```{r}
+pluck(x, 10)
+```
+```{r}
+try(x[[10]])
+```
+Vous pouvez également fournir une valeur par défaut pour les éléments non existants :
+```{r}
+pluck(x, 10, .default = NA)
+```
+Les fonctions `map()` utilisent `pluck()` par défaut pour récupérer plusieurs valeurs d'une liste :
+```{r}
+map_chr(x, 1)
+map_int(x, c(2, 1))
+```
+`pluck()` supporte aussi les fonctions d'accessions :
+```{r}
+my_element <- function(x) x[[2]]$elt
+pluck(x, 1, my_element)
+pluck(x, 2, my_element)
+```
+Même pour cette structure de données simple, cette forme est plus lisible que la forme alternative car elle nécessite de lire à la fois de droite à gauche et de gauche à droite dans différentes parties de l'expression :
+```{r}
+my_element(x[[1]])
+```
+Si vous avez une liste d'accesseurs^[à mon humble avis, on cotoie la sorcellerie !!!], vous pouvez les joindre avec `!!!` :
+```{r}
+idx <- list(1, my_element)
+pluck(x, !!!idx)
+```
+
+
+
+
+
+

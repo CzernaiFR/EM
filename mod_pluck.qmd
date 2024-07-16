@@ -1,0 +1,80 @@
+---
+author:
+    - name: "Roger MARTIN"
+      email: Roger57que@free.fr
+execute: 
+  echo: fenced
+date: 2024-07-14
+title: "Modifier un emplacement de `pluck()`"
+---
+
+[Source](https://purrr.tidyverse.org/reference/modify_in.html)
+
+```{r}
+library(tidyverse)
+```
+
+`assign_in()`
+: prend une structure de données et un emplacement de `pluck` , y attribue une valeur et renvoie la structure de données modifiée
+
+`modify_in()`
+: applique une fonction à un emplacement de `pluck`, attribue le résultat à cet emplacement avec `assign_in()`, et renvoie la structure de données modifiée
+
+## Usage
+```
+modify_in(.x, .where, .f, ...)
+
+assign_in(x, where, value)
+```
+
+## Arguments
+
+`.x, x`
+: un vecteur ou un environnement
+
+`.where, where`
+: un emplacement de sélection, sous forme de vecteur numérique de positions, de vecteur de caractères de noms ou de liste combinant les deux. *L'emplacement doit exister dans la structure de données*
+
+`.f`
+: une fonction à appliquer à k'emplacement de `pluck` visé par `.where`
+
+`...`
+: arguments passés à `.f`
+
+`value`
+: la valeur `.x` à remplacer à l'emplacement de `pluck` donné par `.where`
+
+### Exemples
+
+Il faut se souvenir que `pluck()` renvoie un composant d'une structure de données qui pourrait être arbitrairement profond
+```{r}
+x <- list(list(bar = 1, foo = 2))
+x
+```
+```{r}
+pluck(x, 1, "foo")
+```
+Utiliser `assign_in()` pour modifier l'emplacement de `pluck` :
+```{r}
+assign_in(x, list(1, "foo"), 100)
+x
+```
+Comme `pluck()`, cela fonctionne même lorsque l'élément (ou ses parents) n'existe pas
+```{r}
+pluck(x, 1, "baz")
+```
+```{r}
+assign_in(x, list(2, "baz"), 100)
+x
+```
+`modifie_in()` applique une fonction à cet emplacement et met à jour l'élément sur place :
+```{r}
+modify_in(x, list(1, "foo"), \(x) x * 200)
+```
+Des arguments supplémentaires sont transmis à la fonction de la manière habituelle :
+```{r}
+modify_in(x, list(1, "foo"), `+`, 100)
+```
+
+
+

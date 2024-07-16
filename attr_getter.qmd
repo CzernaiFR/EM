@@ -1,0 +1,49 @@
+---
+author:
+    - name: "Roger MARTIN"
+      email: Roger57que@free.fr
+execute: 
+  echo: fenced
+date: 2024-07-14
+title: attr_getter
+---
+
+[Source](https://purrr.tidyverse.org/reference/attr_getter.html)
+
+`attr_getter()` permet de créer une fonction de récupération d'attribut
+
+```{r}
+library(tidyverse)
+```
+
+## Usage
+
+````
+attr_getter(attr)
+```
+
+## Arguments
+
+`attr`
+: Un nom d'attribut sous forme de chaîne de caratères
+
+## Exemples
+
+`attr_getter()` prend un nom d'attribut et renvoie une fonction pour accéder à l'attribut :
+```{r}
+get_rownames <- attr_getter("row.names")
+get_rownames(mtcars)
+```
+Ces fonctions `getter` sont pratiques en conjonction avec `pluck()` pour extraire en profondeur une structure de données. Ici, nous allons d'abord extraire par position, puis par attribut :
+```{r}
+obj1 <- structure("obj", obj_attr = "foo")
+obj2 <- structure("obj", obj_attr = "bar")
+x <- list(obj1, obj2)
+x
+```
+```{r}
+pluck(x, 1, attr_getter("obj_attr"))  # depuis le premier objet
+pluck(x, 2, attr_getter("obj_attr"))  # depuis le second objet
+```
+
+

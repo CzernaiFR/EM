@@ -9,6 +9,9 @@ toc-location: right
 
 number-sections: true
 
+license: "CC BY-NC-SA"
+code-block-border-left: true
+code-line-numbers: true
 lang: fr-FR
 
 date-modified: last-modified
@@ -19,17 +22,25 @@ reference-location: margin
 citation-location: margin
 book:
   title: "Décortiquer l'EuroMillions"
+  page-footer: "Merci à [Git](https://git-scm.com/), [Github](https://github.com/), [Quarto](https://quarto.org/), [RStudio Desktop](https://posit.co/download/rstudio-desktop/), [R](https://cran.rstudio.com/) et [Wikipédia](https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal)"
   
   chapters:
     - index.qmd
     - import.qmd
+    - compter.qmd
   appendices: 
     - part: Références
       chapters: 
         - references.qmd
-    - part: Perso
+    - part: Aide
       chapters: 
+        - pluck.qmd
+        - mod_pluck.qmd
+        - attr_getter.qmd
+        - ggplot2.qmd
         - NOTES.qmd
+    - part: "Chloé et moi"
+      chapters:
         - chloe-001.qmd
 
 bibliography: references.bib
@@ -45,7 +56,7 @@ format:
       sidebar-width: 250px
       margin-width: 260px
       body-width: 910px
-      gutter-width: 0.15em
+      gutter-width: 1em
     
 
 

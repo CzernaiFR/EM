@@ -188,7 +188,7 @@ euromil$dt <- dmy(euromil$dt)
 
 Et transformer les boules et étoiles en nombre[^0105_creer-donnees-3] et les jours de la semaine en facteur
 
-[^0105_creer-donnees-3]: jusque là, ce sont encore des cjaines de caratères
+[^0105_creer-donnees-3]: jusque là, ce sont encore des chaînes de caractères
 
 ```{r}
 euromil$jt <- as.factor(euromil$jt)

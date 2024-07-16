@@ -25,5 +25,20 @@
   },
   "import.qmd": {
     "import.html": "616e4610"
+  },
+  "compter.qmd": {
+    "compter.html": "f55283ca"
+  },
+  "pluck.qmd": {
+    "pluck.html": "54f1d5c4"
+  },
+  "attr_getter.qmd": {
+    "attr_getter.html": "0b7e540e"
+  },
+  "mod_pluck.qmd": {
+    "mod_pluck.html": "de2b95f4"
+  },
+  "ggplot2.qmd": {
+    "ggplot2.html": "00eeb0bf"
   }
 }
