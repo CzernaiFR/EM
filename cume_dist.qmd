@@ -1,0 +1,75 @@
+---
+title: cume_dist()
+author: 
+  - name: Gemini
+    url: https://gemini.google.com/app/7f6cba9680c5967c
+---
+:::{.callout-note collapse=false appearance='default' icon=true}
+## Concernant cette page
+
+Elle a été rédigée par Gemini de google.
+:::
+
+## Qu'est-ce que la fonction `cume_dist()` de dplyr ?
+
+Imaginez un groupe d'amis qui se classent dans une course. La fonction `cume_dist()` de dplyr permet de savoir pour chaque ami quelle proportion du groupe est arrivée avant lui ou à égalité avec lui. 
+
+Pour illustrer cela, prenons un exemple concret :
+
+Supposons que nous ayons un ensemble de données contenant les temps de course de chaque ami :
+
+```
+Temps | Nom
+------- | --------
+10.5   | Alice
+12.2   | Bob
+10.5   | Charlie
+11.8   | David
+09.7   | Emily
+```
+
+En utilisant la fonction `cume_dist()`, nous pouvons calculer la proportion d'amis qu'Alice a devancés ou égalés en termes de temps de course. 
+
+```{r}
+library(dplyr, warn.conflicts = FALSE)
+
+df <- tibble(Temps = c(10.5, 12.2, 10.5, 11.8, 9.7), 
+            Nom = c("Alice", "Bob", "Charlie", "David", "Emily"))
+df <-  arrange(df, Temps)
+df <- df %>% mutate(
+  "cume_dist()" = cume_dist(Temps),
+  "1-cume_dist()" = 1-(cume_dist(Temps)))
+print(df)
+
+```
+
+Dans cet exemple, on observe que :
+
+- le temps d'Emily est *SUPÉRIEUR OU ÉGAL* à $20\,\%$ (0.2) des amis ; en fait, le temps est juste égal à son propre temps ;
+- les temps d'Alice et de Charlie sont *SUPÉRIEURS OU ÉGAUX* à $60\,\%$ (0.6) des amis ; leur temps est égal à eux-mêmes et à celui d'Emily ;
+- et les temps de David et Bob sont, selon le même sytème, *SUPÉRIEURS OU ÉGAUX* à $80\,\%$ et $100\,\%$.
+
+Il faut noter que, si on utilise `1 - cume_dist()` on a le classement inverse, mais on perd l'égalité. Le temps d'Emily est *INFÉRIEUR* à $80\,\%$ et celui de Bob, le plus élevé, est *INFÉRIEUR* à personne, $0,00\,\%$.
+
+## Applications de la fonction `cume_dist()`
+
+La fonction `cume_dist()` peut être utile dans diverses situations, notamment :
+
+* **Classement des élèves en fonction de leurs notes :** On peut utiliser `cume_dist()` pour calculer la proportion d'élèves qu'un élève a surpassés en termes de notes.
+
+* **Analyse des performances des ventes :** On peut utiliser `cume_dist()` pour comparer les performances de vente de différents représentants commerciaux et identifier ceux qui surpassent les autres.
+
+* **Suivi des progrès des patients :** On peut utiliser `cume_dist()` pour suivre les progrès des patients dans le temps et comparer leurs progrès à ceux d'autres patients atteints de la même maladie.
+
+
+En résumé, la fonction `cume_dist()` de dplyr est un outil puissant pour calculer la proportion d'éléments d'un groupe qui se trouvent en dessous ou à égalité d'un élément donné en fonction d'une variable numérique. Elle est particulièrement utile pour analyser les classements et les comparaisons au sein d'un groupe.
+
+-----
+
+Si vous souhaitez approfondir vos connaissances sur la fonction cume_dist() ou sur dplyr en général, je vous recommande les ressources suivantes :
+
+[Documentation de dplyr](https://dplyr.tidyverse.org/)
+
+[Tutoriel sur les fonctions de fenêtre dans dplyr](https://dplyr.tidyverse.org/articles/window-functions.html)
+
+[Exemples d'utilisation de la fonction `cume_dist()`]( https://stackoverflow.com/questions/tagged/dplyr)

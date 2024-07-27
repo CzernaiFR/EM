@@ -1,0 +1,15 @@
+{
+  "hash": "780a5f92f8f458259ec8d98801f8e833",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nauthor:\n    - name: \"Roger MARTIN\"\n      email: Roger57que@free.fr\ndate-modified: last-modified\ndate-format: \"ddd D MMM YYYY\"\ndate: 2024/06/19\n---\n\n\n# Notes personnelles\n\nMes notes, cahier de brouillon, tergiversations diverses et variées…\n\n\n::: {.cell}\n\n````{.cell-code}\n```{{r}}\n#| output: false\nlibrary(tidyverse, warn.conflicts = FALSE)\n```\n````\n:::\n\n\n## Sources\n\n[ggplot2 -- JUBA](https://juba.github.io/tidyverse/08-ggplot2.html)\n\n\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

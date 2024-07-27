@@ -24,7 +24,7 @@ Commencer par charger le `tidyverse`.
 
 ```{r}
 #| output: false
-library(tidyverse, warn.conflicts = FALSE)
+library(tidyverse, quietly = TRUE,  warn.conflicts = FALSE)
 ```
 
 ### Adresse des fichiers

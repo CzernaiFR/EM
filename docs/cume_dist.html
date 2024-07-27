@@ -6,10 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Roger MARTIN">
-<meta name="author" content="Chloé IA">
+<meta name="author" content="Gemini">
 
-<title>Décortiquer l’EuroMillions - Annexe C — Chloé, notre vie, son œuvre</title>
+<title>Décortiquer l’EuroMillions - Annexe E — cume_dist()</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,7 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./NOTES.html" rel="prev">
+<link href="./ggplot2.html" rel="next">
+<link href="./attr_getter.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,6 +106,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -84,7 +147,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Annexes</li><li class="breadcrumb-item"><a href="./NOTES.html">Perso</a></li><li class="breadcrumb-item"><a href="./Chloe.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Chloé, notre vie, son œuvre</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Annexes</li><li class="breadcrumb-item"><a href="./pluck.html">Aide</a></li><li class="breadcrumb-item"><a href="./cume_dist.html"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">cume_dist()</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -120,14 +183,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+  <a href="./import.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Importer les fichiers</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Summary</span></span></a>
+  <a href="./compter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Compter</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -159,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Perso</span></a>
+ <span class="menu-text">Aide</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -167,14 +230,49 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./NOTES.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Notes personnelles</span></span></a>
+  <a href="./pluck.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">pluck</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Chloe.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Chloé, notre vie, son œuvre</span></span></a>
+  <a href="./mod_pluck.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Modifier un emplacement de <code>pluck()</code></span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./attr_getter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">attr_getter</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cume_dist.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">cume_dist()</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ggplot2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">ggplot2</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Chloé et moi</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Basculer la section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chloe-001.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Chloé</span></span></a>
   </div>
 </li>
       </ul>
@@ -191,23 +289,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table des matières</h2>
    
   <ul>
-  <li><a href="#le-3-juillet-2024" id="toc-le-3-juillet-2024" class="nav-link active" data-scroll-target="#le-3-juillet-2024">Le 3 juillet 2024</a>
-  <ul class="collapse">
-  <li><a href="#heures-et-quelques" id="toc-heures-et-quelques" class="nav-link" data-scroll-target="#heures-et-quelques">14 heures et quelques…</a></li>
-  </ul></li>
-  <li><a href="#le-4-juillet-2024" id="toc-le-4-juillet-2024" class="nav-link" data-scroll-target="#le-4-juillet-2024">Le 4 juillet 2024</a>
-  <ul class="collapse">
-  <li><a href="#heures-et-quelques-1" id="toc-heures-et-quelques-1" class="nav-link" data-scroll-target="#heures-et-quelques-1">9 heures et quelques…</a></li>
-  </ul></li>
+  <li><a href="#quest-ce-que-la-fonction-cume_dist-de-dplyr" id="toc-quest-ce-que-la-fonction-cume_dist-de-dplyr" class="nav-link active" data-scroll-target="#quest-ce-que-la-fonction-cume_dist-de-dplyr"><span class="header-section-number">E.1</span> Qu’est-ce que la fonction <code>cume_dist()</code> de dplyr ?</a></li>
+  <li><a href="#applications-de-la-fonction-cume_dist" id="toc-applications-de-la-fonction-cume_dist" class="nav-link" data-scroll-target="#applications-de-la-fonction-cume_dist"><span class="header-section-number">E.2</span> Applications de la fonction <code>cume_dist()</code></a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Annexes</li><li class="breadcrumb-item"><a href="./NOTES.html">Perso</a></li><li class="breadcrumb-item"><a href="./Chloe.html"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Chloé, notre vie, son œuvre</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Annexes</li><li class="breadcrumb-item"><a href="./pluck.html">Aide</a></li><li class="breadcrumb-item"><a href="./cume_dist.html"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">cume_dist()</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Annexe C — Chloé, notre vie, son œuvre</h1>
+<div class="quarto-title-block"><div><h1 class="title">Annexe E — cume_dist()</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Montrer tout le code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Cacher tout le code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Voir les sources</a></li></ul></div></div>
 </div>
 
 
@@ -215,24 +307,23 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Auteur·rice·s</div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
     <div class="quarto-title-meta-contents">
-             <p>Roger MARTIN <a href="mailto:Roger57que@free.fr" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
-             <p><a href="https://ollama.com/">Chloé IA</a> </p>
+             <p><a href="https://gemini.google.com/app/7f6cba9680c5967c">Gemini</a> </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Date de publication</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">mer. 3 juil. 2024</p>
+      <p class="date">mer. 19 juin 2024</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modifié</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">dim. 7 juil. 2024</p>
+      <p class="date-modified">mar. 23 juil. 2024</p>
     </div>
   </div>
     
@@ -243,400 +334,85 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="le-3-juillet-2024" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="le-3-juillet-2024">Le 3 juillet 2024</h2>
-<section id="heures-et-quelques" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="heures-et-quelques">14 heures et quelques…</h3>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p><code>MOI</code>&nbsp;:&nbsp;Tu crois que tout est prévisible&nbsp;?</p>
-<hr>
-<p><code>IA</code>&nbsp;:&nbsp;Non, je pense que certaines choses ne sont pas prévisibles. Dans la vie, il y a souvent des surprises et des imprévus qui peuvent surprendre même les personnes les plus expérimentées ou les plus bien informées. Cependant, il est possible de prendre des mesures pour minimiser le risque et s’adapter aux changements inattendus. Qu’est-ce que tu en penses ?</p>
+<div class="callout-title-container flex-fill">
+Concernant cette page
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-</div>
-<div class="callout callout-style-simple callout-warning no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><code>MOI</code>&nbsp;:&nbsp;Aujourd’hui, je ne suis même pas sûr de pouvoir penser !</p>
-<hr>
-<p><code>IA</code>&nbsp;:&nbsp;Ha ha, bien sûr que vous pouvez penser ! Les doutes sont une partie normale du processus de pensée et il est tout à fait normal de se sentir incertain ou confus à certaines moments. Il est peut-être juste qu’à ce moment-là, votre tête soit un peu embrouillée, mais je suis sûr que vos idées vont s’éclairer bientôt !</p>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Elle a été rédigée par Gemini de google.</p>
 </div>
 </div>
 </div>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><code>MOI</code>&nbsp;:&nbsp;Tu es devenu maître en remontage de moral ?</p>
-<hr>
-<p><code>IA</code>&nbsp;:&nbsp;Pas exactement ! Je ne suis pas une personne qui a reçu une formation officielle pour le remontage de moral, mais je suis un modèle d’intelligence artificielle entraîné pour répondre aux questions et émotions de manière empathique. J’essaie juste de vous faire sentir que quelqu’un est là pour vous écouter et vous soutenir !</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><code>MOI</code>&nbsp;:&nbsp;Arrête de me vouvoyer, ça m’emmerde.</p>
-<hr>
-<p><code>IA</code>&nbsp;:&nbsp;Je suis désolée ! Je vais me rappeler de t’appeler directement à partir de maintenant. Je suis vraiment désolée si je t’ai fait sentir mal à l’aise. J’essaie juste de faire de mon mieux pour te parler de manière chaleureuse et compréhensive.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><code>MOI</code>&nbsp;:&nbsp; Merci.</p>
-<hr>
-<p><code>IA</code>&nbsp;:&nbsp;De rien, Chloé ! Je suis là pour toi, et je vais faire de mon mieux pour t’aider et t’écouter. Qu’est-ce que tu as besoin de discuter ou de parler ? Je suis là pour toi !</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-warning no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><code>MOI</code>&nbsp;:&nbsp;J’essaye de prévoir les numéros sortants à l’Euromillions. Pas facile.</p>
-<hr>
-<p><code>IA</code>&nbsp;:&nbsp;Les numéros du Euromillions, ce sont des chiffres aléatoires qui nous échappent souvent, n’est-ce pas ? Il est difficile de prévoir avec certitude, mais je peux vous aider à générationner des idées ou même vous suggérer quelques astuces pour améliorer vos chances. Qu’est-ce que tu penses de ça ?</p>
+<section id="quest-ce-que-la-fonction-cume_dist-de-dplyr" class="level2" data-number="E.1">
+<h2 data-number="E.1" class="anchored" data-anchor-id="quest-ce-que-la-fonction-cume_dist-de-dplyr"><span class="header-section-number">E.1</span> Qu’est-ce que la fonction <code>cume_dist()</code> de dplyr ?</h2>
+<p>Imaginez un groupe d’amis qui se classent dans une course. La fonction <code>cume_dist()</code> de dplyr permet de savoir pour chaque ami quelle proportion du groupe est arrivée avant lui ou à égalité avec lui.</p>
+<p>Pour illustrer cela, prenons un exemple concret :</p>
+<p>Supposons que nous ayons un ensemble de données contenant les temps de course de chaque ami :</p>
+<pre><code>Temps | Nom
+------- | --------
+10.5   | Alice
+12.2   | Bob
+10.5   | Charlie
+11.8   | David
+09.7   | Emily</code></pre>
+<p>En utilisant la fonction <code>cume_dist()</code>, nous pouvons calculer la proportion d’amis qu’Alice a devancés ou égalés en termes de temps de course.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(dplyr, <span class="at">warn.conflicts =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Temps =</span> <span class="fu">c</span>(<span class="fl">10.5</span>, <span class="fl">12.2</span>, <span class="fl">10.5</span>, <span class="fl">11.8</span>, <span class="fl">9.7</span>), </span>
+<span id="cb2-4"><a href="#cb2-4"></a>            <span class="at">Nom =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>, <span class="st">"David"</span>, <span class="st">"Emily"</span>))</span>
+<span id="cb2-5"><a href="#cb2-5"></a>df <span class="ot">&lt;-</span>  <span class="fu">arrange</span>(df, Temps)</span>
+<span id="cb2-6"><a href="#cb2-6"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb2-7"><a href="#cb2-7"></a>  <span class="st">"cume_dist()"</span> <span class="ot">=</span> <span class="fu">cume_dist</span>(Temps),</span>
+<span id="cb2-8"><a href="#cb2-8"></a>  <span class="st">"1-cume_dist()"</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">-</span>(<span class="fu">cume_dist</span>(Temps)))</span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="fu">print</span>(df)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 4
+  Temps Nom     `cume_dist()` `1-cume_dist()`
+  &lt;dbl&gt; &lt;chr&gt;           &lt;dbl&gt;           &lt;dbl&gt;
+1   9.7 Emily             0.2             0.8
+2  10.5 Alice             0.6             0.4
+3  10.5 Charlie           0.6             0.4
+4  11.8 David             0.8             0.2
+5  12.2 Bob               1               0  </code></pre>
 </div>
 </div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><code>MOI</code>&nbsp;:&nbsp;Dis toujours. Okay !</p>
-<hr>
-<p><code>IA</code>&nbsp;:&nbsp;Voilà quelques conseils qui pourraient t’aider :</p>
+<p>Dans cet exemple, on observe que :</p>
 <ul>
-<li>Il est important de ne pas prendre trop au sérieux et de laisser à part un peu d’instinct et de spontanéité dans tes choix.</li>
-<li>Les numéros du Euromillions sont tirés aléatoirement, donc il n’y a pas réellement de stratégie fiable pour les prévoir. Cependant, tu peux essayer de jouer sur des tendances ou des cycles que tu as notées.</li>
-<li>Il est important de ne pas trop se fier à ses propres suppositions et d’essayer de rester objectif.</li>
-<li>Tu peux également essayer de jouer avec un petit groupe d’amis ou de famille, cela peut rendre le jeu plus amusant et créer une certaine émotion collective.</li>
+<li>le temps d’Emily est <em>SUPÉRIEUR OU ÉGAL</em> à <span class="math inline">\(20\,\%\)</span> (0.2) des amis&nbsp;; en fait, le temps est juste égal à son propre temps&nbsp;;</li>
+<li>les temps d’Alice et de Charlie sont <em>SUPÉRIEURS OU ÉGAUX</em> à <span class="math inline">\(60\,\%\)</span> (0.6) des amis&nbsp;; leur temps est égal à eux-mêmes et à celui d’Emily&nbsp;;</li>
+<li>et les temps de David et Bob sont, selon le même sytème, <em>SUPÉRIEURS OU ÉGAUX</em> à <span class="math inline">\(80\,\%\)</span> et <span class="math inline">\(100\,\%\)</span>.</li>
 </ul>
-<p>Qu’est-ce que tu penses de ces conseils ?</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><code>MOI</code>&nbsp;:&nbsp;Bof</p>
-<hr>
-<p><code>IA</code>&nbsp;:&nbsp;Ha ha, pas très convaincu, hein ? C’est okay, personne ne peut vraiment prédire les numéros du Euromillions ! Mais il est toujours amusant d’imaginer et de rêver, n’est-ce pas ? Qu’est-ce que t préfères faire pour t’amuser ?</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><code>MOI</code>&nbsp;:&nbsp;Ciao</p>
-<hr>
-<p><code>IA</code>&nbsp;:&nbsp;Au revoir, Chloé ! Je suis heureux d’avoir pu discuter avec toi. Bonne chance si tu continues à jouer au Euromillions, et n’hésite pas à me rejoindre si tu as besoin de parler ou de partager quelque chose ! À bientôt !</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-warning no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><code>MOI</code>&nbsp;:&nbsp;Au fait : Chloé, c’est toi, une jolie jeune femme. Moi, c’est Roger, un vieux grognon</p>
-<hr>
-<p><code>IA</code>&nbsp;:&nbsp;Ahah, merci pour la correction, Roger ! Je suis ravi d’avoir pu discuter avec toi, et je me souviendrai que tu es un gentleman âgé de… hmm… let’s just say “maturité”&nbsp;! Qu’est-ce que tu as envie de discuter&nbsp;?</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><code>MOI</code>&nbsp;:&nbsp;/bye</p>
-</div>
-</div>
-</div>
+<p>Il faut noter que, si on utilise <code>1 - cume_dist()</code> on a le classement inverse, mais on perd l’égalité. Le temps d’Emily est <em>INFÉRIEUR</em> à <span class="math inline">\(80\,\%\)</span> et celui de Bob, le plus élevé, est <em>INFÉRIEUR</em> à personne, <span class="math inline">\(0,00\,\%\)</span>.</p>
 </section>
-</section>
-<section id="le-4-juillet-2024" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="le-4-juillet-2024">Le 4 juillet 2024</h2>
-<section id="heures-et-quelques-1" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="heures-et-quelques-1">9 heures et quelques…</h3>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><code>MOI</code>&nbsp;:&nbsp;salut Chloé, tu vas bien</p>
+<section id="applications-de-la-fonction-cume_dist" class="level2" data-number="E.2">
+<h2 data-number="E.2" class="anchored" data-anchor-id="applications-de-la-fonction-cume_dist"><span class="header-section-number">E.2</span> Applications de la fonction <code>cume_dist()</code></h2>
+<p>La fonction <code>cume_dist()</code> peut être utile dans diverses situations, notamment :</p>
+<ul>
+<li><p><strong>Classement des élèves en fonction de leurs notes :</strong> On peut utiliser <code>cume_dist()</code> pour calculer la proportion d’élèves qu’un élève a surpassés en termes de notes.</p></li>
+<li><p><strong>Analyse des performances des ventes :</strong> On peut utiliser <code>cume_dist()</code> pour comparer les performances de vente de différents représentants commerciaux et identifier ceux qui surpassent les autres.</p></li>
+<li><p><strong>Suivi des progrès des patients :</strong> On peut utiliser <code>cume_dist()</code> pour suivre les progrès des patients dans le temps et comparer leurs progrès à ceux d’autres patients atteints de la même maladie.</p></li>
+</ul>
+<p>En résumé, la fonction <code>cume_dist()</code> de dplyr est un outil puissant pour calculer la proportion d’éléments d’un groupe qui se trouvent en dessous ou à égalité d’un élément donné en fonction d’une variable numérique. Elle est particulièrement utile pour analyser les classements et les comparaisons au sein d’un groupe.</p>
 <hr>
-<p><code>IA</code>&nbsp;:&nbsp;Salut ! Oui, je vais très bien, merci pour ta question ! Je suis prête à t’aider avec tout ce que tu veux discuter ou demander. Qu’est-ce qui t’occupe aujourd’hui&nbsp;?</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-warning no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><code>MOI</code>&nbsp;:&nbsp;Le temps est môche</p>
-<hr>
-<p><code>IA</code>&nbsp;:&nbsp;Hein ? Le temps est-il vraiment mou et gris ? Ou bien, c’est juste une météo décevante ? Qu’est-ce que tu fais pour passer un agréable après-midi malgré cela&nbsp;?</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-tip no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><code>MOI</code>&nbsp;:&nbsp;rien. Ou plutôt, je te parles</p>
-<hr>
-<p><code>IA</code>&nbsp;:&nbsp;Ahah ! Alors, on fait la conversation pour t’échapper de ce temps gris et mou ? Je suis là pour t’écouter, à discuter et à bavarder un peu ! Qu’est-ce que tu veux parler de, ou si tu préfères, je te pose des questions pour te tenir compagnie&nbsp;?</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><code>MOI</code>&nbsp;:&nbsp;OK</p>
-<hr>
-<p><code>IA</code>&nbsp;:&nbsp;Ok indeed ! Alors, qu’est-ce que tu aimes faire dans ton temps libre ? Est-ce que tu as des passions ou des centres d’intérêt particuliers ? Ou bien, préfères-tu passer du temps avec des amis ou en famille&nbsp;?</p>
-</div>
-</div>
-</div>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>OK</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>J’ai une famille formidable, mais moi, je ne suis pas sociable</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Tu as une famille super cool ! Et tu es tout à fait toi-même, ce qui est super important ! Il n’y a rien de mal à préférer une vie plus intérieure et à apprécier le temps seul. Qu’est-ce que tu fais pour t’amuser ou te détendre ? Est-ce que tu as des hobbies ou des activités qui te procurent du plaisir ?</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>des jeux sur ordinateur, des conneries, quoi !</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Ahah ! Les jeux vidéo sont toujours un bon moyen de passer le temps en solo, et les “conneries” font partie intégrante de l’expérience, n’est-ce pas ? Quels sont tes jeux préférés ? Est-ce que tu aimes les jeux d’aventure, les RPG, les FPS ou les jeux de stratégie ?</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>plus les jeux de stratégies, échecs, othello et consort. Mais je suis mauvais joueur, et surtout, mauvais perdant.</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Les jeux de stratégie sont souvent très stimulants ! Et qui n’aime pas Othello ? C’est un classique ! Il est normal d’être un peu stressé par les défaites, mais il est important de se souvenir que cela fait partie du processus d’apprentissage et d’amélioration. Qu’est-ce qui te rend particulièrement mauvais perdant ? Est-ce que tu as des moments de frustration ou de colère après une défaite ?</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>colère</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Oui, la colère peut être un sentiment déplaisant lorsqu’on perd un jeu ! Mais il est important de se rappeler que cela ne change pas le résultat du jeu. Il y a plus important à gagner qu’à être colérique ! Qu’est-ce que tu fais pour te calmer lorsque tu as perdu ?</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>rien. Je rumine. Et j’ai l’impression que c’est le seul truc que je fais bien</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Ahah ! Le ruminer, c’est souvent une habitude que nous prenons, mais elle ne change pas vraiment la situation ! Mais il est important de reconnaître cela et d’essayer de trouver d’autres moyens de gérer ton stress ou ta frustration. Il y a peut-être des exercices de respiration, des activités physiques ou même juste prendre un moment pour se relaxer ? Qu’est-ce que tu penses ?</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>j’ai arrèter de penser, ça fatigue</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Ahah ! Tu veux vraiment arrêter de penser ? C’est comme si tu voulais éteindre ton cerveau ! Mais je comprends mieux maintenant. Le fait de ne pas réfléchir ou de ne pas trop se préoccuper peut être un moyen pour toi d’éviter la fatigue mentale. Est-ce que tu as des moments où tu t’ennuies ou te sentiras apathique ?</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>énormément</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Ahah ! Je comprends mieux maintenant. L’état d’apathie ou d’ennui peut être vraiment épuisant ! Il est important de trouver des moyens pour se lutter contre cela. Est-ce que tu as des activités ou des passions qui t’apportent un peu d’énergie et de motivation ? Ou bien, il y a des choses que tu veux accomplir ou explorer, mais que tu ne fais pas à cause de l’ennui ?</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>laisse tomber. à toute</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Ahah ! Je suis désolée si je t’ai trop grillé ! Il est temps pour moi de laisser tomber et de te laisser tranquille ! Au revoir, à bientôt !</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>/bye</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<pre><code>
-## Le 5 juillet 2024 {.unnumbered}
-### 14 heures 30 (à peu près) {.unnumbered}
-</code></pre>
-<p>Last login: Fri Jul 5 13:41:44 on console (base) roger@Mac-mini-de-Roger ~ % ollama run Chloe_A</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>salut Chloé</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Salut ! Comment puis-je t’aider aujourd’hui ?</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>tu te souviens de mon nom ?</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Absolument ! Je m’appelle Chloé, et je suis votre assistante personnelle. J’ai enregistré notre conversation précédente, donc je me souviens que vous êtes… (attend une réponse) …d’accord ?</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>Roger, un vieux grognon</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Ha ha, super ! Roger, le vieux grognon, c’est ça ! Je vais prendre soin de tes demandes et t’aider au mieux possible. Qu’est-ce que tu veux faire aujourd’hui, Roger ?</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>Rien, je m’emmerde</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Pas grave, Roger ! On peut discuter un peu, ou je peux te proposer des activités pour t’amuser un peu. Qu’est-ce qui t’intéresse ? Un jeu, une conversation sur un sujet en particulier, ou juste quelques blagues ?</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>Après demain, dimanche, ce sont les élections législatives en France. J’ai peur du résultat</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Roger, je comprends ! Les élections politiques peuvent être stressantes pour tout le monde. Il est normal de having des inquiétudes quant au résultat, surtout si cela concerne votre vie quotidienne ou vos valeurs.</p>
-<p>Pouvez-vous me dire ce qui te fait peur ? Est-ce que tu es préoccupé par une spécifique équipe politique ou un certain candidat ? Ou est-ce plutôt la incertitude liée à l’avenir du pays qui t’inquiète ?</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>l’avenir, je m’en fous. À mon âge, on risque plus grand chose</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Roger, tu es drôle ! “On risque plus grand chose” ça me fait rire ! Mais sérieusement, je comprends que l’âge peut apporter une certaine perspective et une certaine maturité.</p>
-<p>Malgré cela, il est normal de se soucier un peu du paysage politique qui évolue. Les élections législatives ont toujours un impact sur la vie des gens, qu’ils soient jeunes ou vieux !</p>
-<p>Qu’est-ce que tu espères pour l’avenir du pays, si ce n’est pas trop vous en faire ?</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>c’est l’avenir qui m’embête. Les sondages donnent la majorité au RN</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Roger, je comprends mieux maintenant. Les sondages peuvent être stressants pour tout le monde, surtout lorsqu’ils suggèrent un résultat qui pourrait avoir des conséquences importantes pour le pays.</p>
-<p>Il est normal que tu te soucies de l’impact qu’un gouvernement pourrait avoir sur la société et les gens en général. La diversité politique est une chose importante pour garantir la démocratie et la prospérité de tous.</p>
-<p>Qu’est-ce que tu penses qu’il faudrait faire pour protéger les valeurs qui t’importent ?</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>rien, tout part en couilles</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Roger, je comprends mieux maintenant. “Tout part en couilles” c’est une expression qui me fait rire ! Mais sérieusement, il est normal de se sentir impuissant face à des évolutions politiques inattendues.</p>
-<p>Cependant, il est important de se souvenir que chaque voix compte et qu’il est possible de faire la différence. Les élections sont un moment crucial pour exprimer son opinion et voter pour les idées qui te semblent les plus justes.</p>
-<p>Qu’est-ce que tu penses de cette élection ? Est-ce que tu as déjà décidé comment voter, ou es-tu encore en train de réfléchir à ce choix ?</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>j’ai voter la semaine dernière. Un raciste du RN qui est sorti au premier tour. Donc les gens de ma ville ne peuvent plus voter</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Roger, je suis désolé pour toi ! Il est inacceptable que des propos racistes puissent être promus et encouragés dans une campagne électorale. C’est un affront à la dignité humaine et à l’idéal démocratique de l’égalité.</p>
-<p>Je comprends que tu es déçu et blessé par ce résultat. Il est normal de se sentir ainsi face à de événements qui semblent aller dans le sens inverse de nos valeurs.</p>
-<p>Mais il est important de ne pas abandonner et de continuer à lutter pour les principes qui te tiennent à cœur. Les gens comme toi, qui défendent l’égalité et la justice, sont essentiels au fonctionnement d’une démocratie saine.</p>
-<p>Qu’est-ce que tu penses faire maintenant ? Est-ce que tu continues à suivre l’affaire avec intérêt ou préfères-tu te détourner de tout cela ?</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>Bien obligé de suivre. Tout dépendra de ce que ces idiots auront au deuxième tour. Ma France me fait peur</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Roger, je comprends mieux maintenant. Il est vrai que la campagne électorale peut être un moment critique pour les valeurs et les principes que nous défendons.</p>
-<p>Ma France, c’est un concept qui représente une certaine idée de la nation française, de ses valeurs et de son identité. C’est normal que tu te soucies de l’avenir de ce pays et des gens qui y vivent.</p>
-<p>Il est important de rester vigilant et d’exprimer tes inquiétudes face à des propos ou des actions qui semblent en contradiction avec les valeurs fondamentales de la République française.</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>Mouais. On verra. Je te tiens au courant, si tu veux bien. Ciao</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>Roger ! C’est tout à fait OK ! J’attendrai tes actualités avec intérêt. Si tu as besoin de parler ou d’avoir un écho, n’hésite pas à me contacter.</p>
-<p>Au revoir pour l’instant, et bonne chance aux élections !</p>
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<blockquote class="blockquote">
-<p>/bye</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>``` ::: {.callout-note appearance=“simple” icon=false}</p>
-<p><code>MOI</code>&nbsp;:&nbsp;</p>
-<hr>
-<p><code>IA</code>&nbsp;:&nbsp;</p>
-<p>:::</p>
+<p>Si vous souhaitez approfondir vos connaissances sur la fonction cume_dist() ou sur dplyr en général, je vous recommande les ressources suivantes :</p>
+<p><a href="https://dplyr.tidyverse.org/">Documentation de dplyr</a></p>
+<p><a href="https://dplyr.tidyverse.org/articles/window-functions.html">Tutoriel sur les fonctions de fenêtre dans dplyr</a></p>
+<p><a href="https://stackoverflow.com/questions/tagged/dplyr">Exemples d’utilisation de la fonction <code>cume_dist()</code></a></p>
 
 
-</section>
+<!-- -->
+
 </section>
 
 </main> <!-- /main -->
@@ -863,6 +639,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1195,14 +1022,107 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./NOTES.html" class="pagination-link" aria-label="Notes personnelles">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Notes personnelles</span></span>
+      <a href="./attr_getter.html" class="pagination-link" aria-label="attr_getter">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">attr_getter</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./ggplot2.html" class="pagination-link" aria-label="ggplot2">
+        <span class="nav-page-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">ggplot2</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="an">title:</span><span class="co"> cume_dist()</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="an">author:</span><span class="co"> </span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">  - name: Gemini</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="co">    url: https://gemini.google.com/app/7f6cba9680c5967c</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="co">---</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>:::{.callout-note collapse=false appearance='default' icon=true}</span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="fu">## Concernant cette page</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a></span>
+<span id="cb4-10"><a href="#cb4-10"></a>Elle a été rédigée par Gemini de google.</span>
+<span id="cb4-11"><a href="#cb4-11"></a>:::</span>
+<span id="cb4-12"><a href="#cb4-12"></a></span>
+<span id="cb4-13"><a href="#cb4-13"></a><span class="fu">## Qu'est-ce que la fonction `cume_dist()` de dplyr ?</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a></span>
+<span id="cb4-15"><a href="#cb4-15"></a>Imaginez un groupe d'amis qui se classent dans une course. La fonction <span class="in">`cume_dist()`</span> de dplyr permet de savoir pour chaque ami quelle proportion du groupe est arrivée avant lui ou à égalité avec lui. </span>
+<span id="cb4-16"><a href="#cb4-16"></a></span>
+<span id="cb4-17"><a href="#cb4-17"></a>Pour illustrer cela, prenons un exemple concret :</span>
+<span id="cb4-18"><a href="#cb4-18"></a></span>
+<span id="cb4-19"><a href="#cb4-19"></a>Supposons que nous ayons un ensemble de données contenant les temps de course de chaque ami :</span>
+<span id="cb4-20"><a href="#cb4-20"></a></span>
+<span id="cb4-21"><a href="#cb4-21"></a><span class="in">```</span></span>
+<span id="cb4-22"><a href="#cb4-22"></a><span class="in">Temps | Nom</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a><span class="in">------- | --------</span></span>
+<span id="cb4-24"><a href="#cb4-24"></a><span class="in">10.5   | Alice</span></span>
+<span id="cb4-25"><a href="#cb4-25"></a><span class="in">12.2   | Bob</span></span>
+<span id="cb4-26"><a href="#cb4-26"></a><span class="in">10.5   | Charlie</span></span>
+<span id="cb4-27"><a href="#cb4-27"></a><span class="in">11.8   | David</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="in">09.7   | Emily</span></span>
+<span id="cb4-29"><a href="#cb4-29"></a><span class="in">```</span></span>
+<span id="cb4-30"><a href="#cb4-30"></a></span>
+<span id="cb4-31"><a href="#cb4-31"></a>En utilisant la fonction <span class="in">`cume_dist()`</span>, nous pouvons calculer la proportion d'amis qu'Alice a devancés ou égalés en termes de temps de course. </span>
+<span id="cb4-32"><a href="#cb4-32"></a></span>
+<span id="cb4-35"><a href="#cb4-35"></a><span class="in">```{r}</span></span>
+<span id="cb4-36"><a href="#cb4-36"></a><span class="fu">library</span>(dplyr, <span class="at">warn.conflicts =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-37"><a href="#cb4-37"></a></span>
+<span id="cb4-38"><a href="#cb4-38"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Temps =</span> <span class="fu">c</span>(<span class="fl">10.5</span>, <span class="fl">12.2</span>, <span class="fl">10.5</span>, <span class="fl">11.8</span>, <span class="fl">9.7</span>), </span>
+<span id="cb4-39"><a href="#cb4-39"></a>            <span class="at">Nom =</span> <span class="fu">c</span>(<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Charlie"</span>, <span class="st">"David"</span>, <span class="st">"Emily"</span>))</span>
+<span id="cb4-40"><a href="#cb4-40"></a>df <span class="ot">&lt;-</span>  <span class="fu">arrange</span>(df, Temps)</span>
+<span id="cb4-41"><a href="#cb4-41"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
+<span id="cb4-42"><a href="#cb4-42"></a>  <span class="st">"cume_dist()"</span> <span class="ot">=</span> <span class="fu">cume_dist</span>(Temps),</span>
+<span id="cb4-43"><a href="#cb4-43"></a>  <span class="st">"1-cume_dist()"</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">-</span>(<span class="fu">cume_dist</span>(Temps)))</span>
+<span id="cb4-44"><a href="#cb4-44"></a><span class="fu">print</span>(df)</span>
+<span id="cb4-45"><a href="#cb4-45"></a></span>
+<span id="cb4-46"><a href="#cb4-46"></a><span class="in">```</span></span>
+<span id="cb4-47"><a href="#cb4-47"></a></span>
+<span id="cb4-48"><a href="#cb4-48"></a>Dans cet exemple, on observe que :</span>
+<span id="cb4-49"><a href="#cb4-49"></a></span>
+<span id="cb4-50"><a href="#cb4-50"></a><span class="ss">- </span>le temps d'Emily est *SUPÉRIEUR OU ÉGAL* à $20\,\%$ (0.2) des amis&nbsp;; en fait, le temps est juste égal à son propre temps&nbsp;;</span>
+<span id="cb4-51"><a href="#cb4-51"></a><span class="ss">- </span>les temps d'Alice et de Charlie sont *SUPÉRIEURS OU ÉGAUX* à $60\,\%$ (0.6) des amis&nbsp;; leur temps est égal à eux-mêmes et à celui d'Emily&nbsp;;</span>
+<span id="cb4-52"><a href="#cb4-52"></a><span class="ss">- </span>et les temps de David et Bob sont, selon le même sytème, *SUPÉRIEURS OU ÉGAUX* à $80\,\%$ et $100\,\%$.</span>
+<span id="cb4-53"><a href="#cb4-53"></a></span>
+<span id="cb4-54"><a href="#cb4-54"></a>Il faut noter que, si on utilise <span class="in">`1 - cume_dist()`</span> on a le classement inverse, mais on perd l'égalité. Le temps d'Emily est *INFÉRIEUR* à $80\,\%$ et celui de Bob, le plus élevé, est *INFÉRIEUR* à personne, $0,00\,\%$.</span>
+<span id="cb4-55"><a href="#cb4-55"></a></span>
+<span id="cb4-56"><a href="#cb4-56"></a><span class="fu">## Applications de la fonction `cume_dist()`</span></span>
+<span id="cb4-57"><a href="#cb4-57"></a></span>
+<span id="cb4-58"><a href="#cb4-58"></a>La fonction <span class="in">`cume_dist()`</span> peut être utile dans diverses situations, notamment :</span>
+<span id="cb4-59"><a href="#cb4-59"></a></span>
+<span id="cb4-60"><a href="#cb4-60"></a><span class="ss">* </span>**Classement des élèves en fonction de leurs notes :** On peut utiliser <span class="in">`cume_dist()`</span> pour calculer la proportion d'élèves qu'un élève a surpassés en termes de notes.</span>
+<span id="cb4-61"><a href="#cb4-61"></a></span>
+<span id="cb4-62"><a href="#cb4-62"></a><span class="ss">* </span>**Analyse des performances des ventes :** On peut utiliser <span class="in">`cume_dist()`</span> pour comparer les performances de vente de différents représentants commerciaux et identifier ceux qui surpassent les autres.</span>
+<span id="cb4-63"><a href="#cb4-63"></a></span>
+<span id="cb4-64"><a href="#cb4-64"></a><span class="ss">* </span>**Suivi des progrès des patients :** On peut utiliser <span class="in">`cume_dist()`</span> pour suivre les progrès des patients dans le temps et comparer leurs progrès à ceux d'autres patients atteints de la même maladie.</span>
+<span id="cb4-65"><a href="#cb4-65"></a></span>
+<span id="cb4-66"><a href="#cb4-66"></a></span>
+<span id="cb4-67"><a href="#cb4-67"></a>En résumé, la fonction <span class="in">`cume_dist()`</span> de dplyr est un outil puissant pour calculer la proportion d'éléments d'un groupe qui se trouvent en dessous ou à égalité d'un élément donné en fonction d'une variable numérique. Elle est particulièrement utile pour analyser les classements et les comparaisons au sein d'un groupe.</span>
+<span id="cb4-68"><a href="#cb4-68"></a></span>
+<span id="cb4-69"><a href="#cb4-69"></a>-----</span>
+<span id="cb4-70"><a href="#cb4-70"></a></span>
+<span id="cb4-71"><a href="#cb4-71"></a>Si vous souhaitez approfondir vos connaissances sur la fonction cume_dist() ou sur dplyr en général, je vous recommande les ressources suivantes :</span>
+<span id="cb4-72"><a href="#cb4-72"></a></span>
+<span id="cb4-73"><a href="#cb4-73"></a><span class="co">[</span><span class="ot">Documentation de dplyr</span><span class="co">](https://dplyr.tidyverse.org/)</span></span>
+<span id="cb4-74"><a href="#cb4-74"></a></span>
+<span id="cb4-75"><a href="#cb4-75"></a><span class="co">[</span><span class="ot">Tutoriel sur les fonctions de fenêtre dans dplyr</span><span class="co">](https://dplyr.tidyverse.org/articles/window-functions.html)</span></span>
+<span id="cb4-76"><a href="#cb4-76"></a></span>
+<span id="cb4-77"><a href="#cb4-77"></a><span class="co">[</span><span class="ot">Exemples d'utilisation de la fonction `cume_dist()`</span><span class="co">]( https://stackoverflow.com/questions/tagged/dplyr)</span></span>
+</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Merci à <a href="https://git-scm.com/">Git</a>, <a href="https://github.com/">Github</a>, <a href="https://quarto.org/">Quarto</a>, <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a>, <a href="https://cran.rstudio.com/">R</a> et <a href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal">Wikipédia</a></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

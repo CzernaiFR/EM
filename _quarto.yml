@@ -1,8 +1,6 @@
 project:
   type: book
   output-dir: docs
-  render: 
-    - "*.qmd"
 
 toc: true
 toc-location: right
@@ -37,8 +35,8 @@ book:
         - pluck.qmd
         - mod_pluck.qmd
         - attr_getter.qmd
+        - cume_dist.qmd
         - ggplot2.qmd
-        - NOTES.qmd
     - part: "Chloé et moi"
       chapters:
         - chloe-001.qmd
@@ -47,16 +45,18 @@ bibliography: references.bib
 
 format:
   html:
-    fontsize: 1.20em
+    fontsize: 1.3em
+    code-fold: show
+    code-tools: true
+    highlight-style: vim-dark
     theme: 
-      dark: darkly
-      light: flatly
-    highlight-style: ayu
+      dark: [superhero, theme-dark.scss]
+      light: [lux, theme-light.scss]
     grid: 
       sidebar-width: 250px
       margin-width: 260px
-      body-width: 910px
-      gutter-width: 1em
+      body-width: 925px
+      gutter-width: 0.75em
     
 
 

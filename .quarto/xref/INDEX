@@ -40,5 +40,8 @@
   },
   "ggplot2.qmd": {
     "ggplot2.html": "00eeb0bf"
+  },
+  "cume_dist.qmd": {
+    "cume_dist.html": "16e8845c"
   }
 }

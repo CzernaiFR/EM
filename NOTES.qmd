@@ -13,13 +13,35 @@ Mes notes, cahier de brouillon, tergiversations diverses et variées…
 
 ```{r}
 #| echo: fenced
-#| output: true
-library(tidyverse)
+#| output: false
+library(tidyverse, warn.conflicts = FALSE)
 ```
 
+## Sources
+
+[ggplot2 -- JUBA](https://juba.github.io/tidyverse/08-ggplot2.html)
+[`mutate()` -- DPLYR](https://dplyr.tidyverse.org/reference/mutate.html)
+[`percent_rank` -- DPLYR](https://dplyr.tidyverse.org/reference/ranking.html)
 
 
 
+## `Percent_Rank()`
+
+```{r}
+a <- num$S_TO
+a
+```
+
+```{r}
+a <- sort(a)
+ess <- tibble(n = 1:50,
+              a = a)
+ess
+
+mutate(ess, 
+       rang_p = round(percent_rank(a) * 100),
+       rang_c = round(cume_dist(a) * 100))
+```
 
 
 
