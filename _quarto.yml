@@ -3,7 +3,8 @@ project:
   output-dir: docs
 
 toc: true
-toc-location: right
+toc-location: left
+toc-title: "Menu de cette page"
 
 number-sections: true
 
@@ -17,7 +18,7 @@ date-format: "ddd D MMM YYYY"
 date: 2024/06/19
 
 reference-location: margin
-citation-location: margin
+citation-location: document
 book:
   title: "Décortiquer l'EuroMillions"
   page-footer: "Merci à [Git](https://git-scm.com/), [Github](https://github.com/), [Quarto](https://quarto.org/), [RStudio Desktop](https://posit.co/download/rstudio-desktop/), [R](https://cran.rstudio.com/) et [Wikipédia](https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal)"
@@ -45,7 +46,7 @@ bibliography: references.bib
 
 format:
   html:
-    fontsize: 1.3em
+    fontsize: 1.25em
     code-fold: show
     code-tools: true
     highlight-style: vim-dark
@@ -53,10 +54,10 @@ format:
       dark: [superhero, theme-dark.scss]
       light: [lux, theme-light.scss]
     grid: 
-      sidebar-width: 250px
-      margin-width: 260px
-      body-width: 925px
-      gutter-width: 0.75em
+      sidebar-width: 240px
+      margin-width: 240px
+      body-width: 800px
+      gutter-width: 0.5rem
     
 
 

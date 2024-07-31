@@ -8,7 +8,7 @@
 
 <meta name="author" content="Roger MARTIN">
 
-<title>Décortiquer l’EuroMillions - Annexe E — ggplot2</title>
+<title>Décortiquer l’EuroMillions - Annexe F — ggplot2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,8 +85,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./NOTES.html" rel="next">
-<link href="./attr_getter.html" rel="prev">
+<link href="./chloe-001.html" rel="next">
+<link href="./cume_dist.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -167,7 +167,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Annexes</li><li class="breadcrumb-item"><a href="./pluck.html">Aide</a></li><li class="breadcrumb-item"><a href="./ggplot2.html"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">ggplot2</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Annexes</li><li class="breadcrumb-item"><a href="./pluck.html">Aide</a></li><li class="breadcrumb-item"><a href="./ggplot2.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">ggplot2</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -268,14 +268,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ggplot2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">ggplot2</span></span></a>
+  <a href="./cume_dist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">cume_dist()</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./NOTES.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Notes personnelles</span></span></a>
+  <a href="./ggplot2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">ggplot2</span></span></a>
   </div>
 </li>
       </ul>
@@ -301,48 +301,48 @@ window.Quarto = {
   </li>
     </ul>
     </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Menu de cette page</h2>
+   
+  <ul>
+  <li><a href="#préparation" id="toc-préparation" class="nav-link active" data-scroll-target="#préparation"><span class="header-section-number">F.1</span> Préparation</a></li>
+  <li><a href="#initialisation" id="toc-initialisation" class="nav-link" data-scroll-target="#initialisation"><span class="header-section-number">F.2</span> Initialisation</a></li>
+  <li><a href="#exemples-de-geom" id="toc-exemples-de-geom" class="nav-link" data-scroll-target="#exemples-de-geom"><span class="header-section-number">F.3</span> Exemples de geom</a>
+  <ul class="collapse">
+  <li><a href="#geom_boxplot" id="toc-geom_boxplot" class="nav-link" data-scroll-target="#geom_boxplot"><span class="header-section-number">F.3.1</span> geom_boxplot</a></li>
+  </ul></li>
+  <li><a href="#geom_bar-et-geom_col" id="toc-geom_bar-et-geom_col" class="nav-link" data-scroll-target="#geom_bar-et-geom_col"><span class="header-section-number">F.4</span> geom_bar et geom_col</a></li>
+  <li><a href="#mappages" id="toc-mappages" class="nav-link" data-scroll-target="#mappages"><span class="header-section-number">F.5</span> Mappages</a>
+  <ul class="collapse">
+  <li><a href="#exemples-de-mappages" id="toc-exemples-de-mappages" class="nav-link" data-scroll-target="#exemples-de-mappages"><span class="header-section-number">F.5.1</span> Exemples de mappages</a></li>
+  <li><a href="#aes-or-not-aes" id="toc-aes-or-not-aes" class="nav-link" data-scroll-target="#aes-or-not-aes"><span class="header-section-number">F.5.2</span> aes() or not aes() ?</a></li>
+  </ul></li>
+  <li><a href="#geom_bar-et-position" id="toc-geom_bar-et-position" class="nav-link" data-scroll-target="#geom_bar-et-position"><span class="header-section-number">F.6</span> geom_bar et position</a></li>
+  <li><a href="#représenter-plusieurs-geom" id="toc-représenter-plusieurs-geom" class="nav-link" data-scroll-target="#représenter-plusieurs-geom"><span class="header-section-number">F.7</span> Représenter plusieurs geom</a>
+  <ul class="collapse">
+  <li><a href="#plusieurs-sources-de-données" id="toc-plusieurs-sources-de-données" class="nav-link" data-scroll-target="#plusieurs-sources-de-données"><span class="header-section-number">F.7.1</span> Plusieurs sources de données</a></li>
+  </ul></li>
+  <li><a href="#faceting" id="toc-faceting" class="nav-link" data-scroll-target="#faceting"><span class="header-section-number">F.8</span> Faceting</a></li>
+  <li><a href="#scales" id="toc-scales" class="nav-link" data-scroll-target="#scales"><span class="header-section-number">F.9</span> Scales</a>
+  <ul class="collapse">
+  <li><a href="#scale_size" id="toc-scale_size" class="nav-link" data-scroll-target="#scale_size"><span class="header-section-number">F.9.1</span> scale_size</a></li>
+  <li><a href="#scale_x-scale_y" id="toc-scale_x-scale_y" class="nav-link" data-scroll-target="#scale_x-scale_y"><span class="header-section-number">F.9.2</span> scale_x, scale_y</a></li>
+  <li><a href="#scale_color-scale_fill" id="toc-scale_color-scale_fill" class="nav-link" data-scroll-target="#scale_color-scale_fill"><span class="header-section-number">F.9.3</span> scale_color, scale_fill</a></li>
+  </ul></li>
+  <li><a href="#lextension-esquisse" id="toc-lextension-esquisse" class="nav-link" data-scroll-target="#lextension-esquisse"><span class="header-section-number">F.10</span> L’extension esquisse</a></li>
+  </ul>
+</nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table des matières</h2>
-   
-  <ul>
-  <li><a href="#préparation" id="toc-préparation" class="nav-link active" data-scroll-target="#préparation"><span class="header-section-number">E.1</span> Préparation</a></li>
-  <li><a href="#initialisation" id="toc-initialisation" class="nav-link" data-scroll-target="#initialisation"><span class="header-section-number">E.2</span> Initialisation</a></li>
-  <li><a href="#exemples-de-geom" id="toc-exemples-de-geom" class="nav-link" data-scroll-target="#exemples-de-geom"><span class="header-section-number">E.3</span> Exemples de geom</a>
-  <ul class="collapse">
-  <li><a href="#geom_boxplot" id="toc-geom_boxplot" class="nav-link" data-scroll-target="#geom_boxplot"><span class="header-section-number">E.3.1</span> geom_boxplot</a></li>
-  </ul></li>
-  <li><a href="#geom_bar-et-geom_col" id="toc-geom_bar-et-geom_col" class="nav-link" data-scroll-target="#geom_bar-et-geom_col"><span class="header-section-number">E.4</span> geom_bar et geom_col</a></li>
-  <li><a href="#mappages" id="toc-mappages" class="nav-link" data-scroll-target="#mappages"><span class="header-section-number">E.5</span> Mappages</a>
-  <ul class="collapse">
-  <li><a href="#exemples-de-mappages" id="toc-exemples-de-mappages" class="nav-link" data-scroll-target="#exemples-de-mappages"><span class="header-section-number">E.5.1</span> Exemples de mappages</a></li>
-  <li><a href="#aes-or-not-aes" id="toc-aes-or-not-aes" class="nav-link" data-scroll-target="#aes-or-not-aes"><span class="header-section-number">E.5.2</span> aes() or not aes() ?</a></li>
-  </ul></li>
-  <li><a href="#geom_bar-et-position" id="toc-geom_bar-et-position" class="nav-link" data-scroll-target="#geom_bar-et-position"><span class="header-section-number">E.6</span> geom_bar et position</a></li>
-  <li><a href="#représenter-plusieurs-geom" id="toc-représenter-plusieurs-geom" class="nav-link" data-scroll-target="#représenter-plusieurs-geom"><span class="header-section-number">E.7</span> Représenter plusieurs geom</a>
-  <ul class="collapse">
-  <li><a href="#plusieurs-sources-de-données" id="toc-plusieurs-sources-de-données" class="nav-link" data-scroll-target="#plusieurs-sources-de-données"><span class="header-section-number">E.7.1</span> Plusieurs sources de données</a></li>
-  </ul></li>
-  <li><a href="#faceting" id="toc-faceting" class="nav-link" data-scroll-target="#faceting"><span class="header-section-number">E.8</span> Faceting</a></li>
-  <li><a href="#scales" id="toc-scales" class="nav-link" data-scroll-target="#scales"><span class="header-section-number">E.9</span> Scales</a>
-  <ul class="collapse">
-  <li><a href="#scale_size" id="toc-scale_size" class="nav-link" data-scroll-target="#scale_size"><span class="header-section-number">E.9.1</span> scale_size</a></li>
-  <li><a href="#scale_x-scale_y" id="toc-scale_x-scale_y" class="nav-link" data-scroll-target="#scale_x-scale_y"><span class="header-section-number">E.9.2</span> scale_x, scale_y</a></li>
-  <li><a href="#scale_color-scale_fill" id="toc-scale_color-scale_fill" class="nav-link" data-scroll-target="#scale_color-scale_fill"><span class="header-section-number">E.9.3</span> scale_color, scale_fill</a></li>
-  </ul></li>
-  <li><a href="#lextension-esquisse" id="toc-lextension-esquisse" class="nav-link" data-scroll-target="#lextension-esquisse"><span class="header-section-number">E.10</span> L’extension esquisse</a></li>
-  </ul>
-</nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Annexes</li><li class="breadcrumb-item"><a href="./pluck.html">Aide</a></li><li class="breadcrumb-item"><a href="./ggplot2.html"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">ggplot2</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Annexes</li><li class="breadcrumb-item"><a href="./pluck.html">Aide</a></li><li class="breadcrumb-item"><a href="./ggplot2.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">ggplot2</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Annexe E — ggplot2</h1>
+<div class="quarto-title-block"><div><h1 class="title">Annexe F — ggplot2</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Montrer tout le code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Cacher tout le code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Voir les sources</a></li></ul></div></div>
 </div>
 
 
@@ -380,12 +380,15 @@ window.Quarto = {
 <p><a href="https://ggplot2.tidyverse.org/articles/ggplot2.html">Source</a></p>
 <p><a href="https://r-graphics.org/">Cookbook</a></p>
 <p><a href="https://juba.github.io/tidyverse/08-ggplot2.html">Visualiser avec <code>ggplot2</code></a></p>
-<section id="préparation" class="level2" data-number="E.1">
-<h2 data-number="E.1" class="anchored" data-anchor-id="préparation"><span class="header-section-number">E.1</span> Préparation</h2>
+<section id="préparation" class="level2" data-number="F.1">
+<h2 data-number="F.1" class="anchored" data-anchor-id="préparation"><span class="header-section-number">F.1</span> Préparation</h2>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="in">```{r}</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="in">library(tidyverse)</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -398,6 +401,8 @@ window.Quarto = {
 ✖ dplyr::lag()    masks stats::lag()
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="in">```{r}</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="in">library(questionr)</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="in">data(rp2018)</span></span>
@@ -406,19 +411,23 @@ window.Quarto = {
 <span id="cb3-6"><a href="#cb3-6"></a><span class="in">  departement %in% c("Oise", "Rhône", "Hauts-de-Seine", "Lozère", "Bouches-du-Rhône")</span></span>
 <span id="cb3-7"><a href="#cb3-7"></a><span class="in">)</span></span>
 <span id="cb3-8"><a href="#cb3-8"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
-<section id="initialisation" class="level2" data-number="E.2">
-<h2 data-number="E.2" class="anchored" data-anchor-id="initialisation"><span class="header-section-number">E.2</span> Initialisation</h2>
+<section id="initialisation" class="level2" data-number="F.2">
+<h2 data-number="F.2" class="anchored" data-anchor-id="initialisation"><span class="header-section-number">F.2</span> Initialisation</h2>
 <p><code>ggplot2</code> se met en route grace à la fonction <code>ggplot()</code>.</p>
 <p>Les données sont <strong><em>TOUJOURS</em></strong> issues d’un <em>dataframe</em> ou d’un <em>tibble</em>&nbsp;: <code>ggplot(data = rp)</code> ou <code>ggplot(rp)</code>.</p>
 <p>Ensuite ajouter comment représenter, quel <code>geom_</code>, par exemple <code>geom_hitogram()</code>.</p>
 <p>Finalement indiquer quoi représenter, par exemple <code>cadres</code> sur l’axe des <span class="math inline">\(x\)</span>&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="in">```{r}</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="in">  geom_histogram(aes(x = cadres))</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -432,10 +441,13 @@ window.Quarto = {
 </div>
 <p>ou une autre variable&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="in">```{r}</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="in">  geom_histogram(aes(x = ouvr))</span></span>
 <span id="cb6-4"><a href="#cb6-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -450,10 +462,13 @@ window.Quarto = {
 <p>Les colonnes <em><strong>DOIVENT</strong></em> se raporter au jeu de données passé à <code>ggplot()</code>.</p>
 <p>Des <code>geom</code> prennent plus de paramètres. Un nuage de points (<code>geom_point</code>) a besoin de coordonnées <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span>.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="in">```{r}</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="in">  geom_point(aes(x = dipl_sup, y = cadres))</span></span>
 <span id="cb8-4"><a href="#cb8-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -464,6 +479,8 @@ window.Quarto = {
 </div>
 <p>On peut modifier certains attributs graphiques d’un <code>geom</code> en lui passant des arguments supplémentaires. Par exemple, pour un nuage de points, on peut modifier la couleur des points avec l’argument <code>color</code>, leur taille avec l’argument <code>size</code>, et leur transparence avec l’argument <code>alpha</code> :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="in">```{r}</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="in">  geom_point(</span></span>
@@ -471,6 +488,7 @@ window.Quarto = {
 <span id="cb9-5"><a href="#cb9-5"></a><span class="in">    color = "blue", size = 3, alpha = 0.3</span></span>
 <span id="cb9-6"><a href="#cb9-6"></a><span class="in">  )</span></span>
 <span id="cb9-7"><a href="#cb9-7"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -496,19 +514,20 @@ ATTENTION
 </div>
 </div>
 </section>
-<section id="exemples-de-geom" class="level2 page-columns page-full" data-number="E.3">
-<h2 data-number="E.3" class="anchored" data-anchor-id="exemples-de-geom"><span class="header-section-number">E.3</span> Exemples de geom</h2>
+<section id="exemples-de-geom" class="level2" data-number="F.3">
+<h2 data-number="F.3" class="anchored" data-anchor-id="exemples-de-geom"><span class="header-section-number">F.3</span> Exemples de geom</h2>
 <p>Il existe un grand nombre de geom, décrits en détail dans la documentation officielle. Outre les geom_histogram et geom_point que l’on vient de voir, on pourra noter les geom suivants.</p>
-<section id="geom_boxplot" class="level3 page-columns page-full" data-number="E.3.1">
-<h3 data-number="E.3.1" class="anchored" data-anchor-id="geom_boxplot"><span class="header-section-number">E.3.1</span> geom_boxplot</h3>
+<section id="geom_boxplot" class="level3" data-number="F.3.1">
+<h3 data-number="F.3.1" class="anchored" data-anchor-id="geom_boxplot"><span class="header-section-number">F.3.1</span> geom_boxplot</h3>
 <p>geom_boxplot permet de représenter des boîtes à moustaches<span class="citation" data-cites="boitemoustache">(Voir <a href="references.html#ref-boitemoustache" role="doc-biblioref">Wikipédia 2024</a>)</span>. On lui passe en <span class="math inline">\(y\)</span> la variable numérique dont on veut étudier la répartition, et en <span class="math inline">\(x\)</span> la variable qualitative contenant les classes qu’on souhaite comparer. Ainsi, si on veut comparer la répartition du pourcentage de maisons en fonction du département de la commune, on pourra faire :</p>
-<div class="no-row-height column-margin column-container"><div id="ref-boitemoustache" class="csl-entry" role="listitem">
-———. 2024. <span>«&nbsp;Boîte à moustaches — Wikipédia<span>,</span> l’encyclopédie libre&nbsp;»</span>. <a href="http://fr.wikipedia.org/w/index.php?title=Bo%C3%AEte_%C3%A0_moustaches&amp;oldid=213407442">http://fr.wikipedia.org/w/index.php?title=Bo%C3%AEte_%C3%A0_moustaches&amp;oldid=213407442</a>.
-</div></div><div class="cell">
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="in">```{r}</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb10-3"><a href="#cb10-3"></a><span class="in">    geom_boxplot(aes(x = departement, y = maison))</span></span>
 <span id="cb10-4"><a href="#cb10-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -519,11 +538,14 @@ ATTENTION
 </div>
 <p>Un argument utile, <code>varwidth</code>, permet de faire varier la largeur des boîtes en fonction des effectifs de la classe (donc, ici, en fonction du nombre de communes de chaque département) :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1"></a><span class="in">```{r}</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb11-3"><a href="#cb11-3"></a><span class="in">    geom_boxplot(aes(x = departement, y = maison), </span></span>
 <span id="cb11-4"><a href="#cb11-4"></a><span class="in">                 varwidth = TRUE)</span></span>
 <span id="cb11-5"><a href="#cb11-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -534,17 +556,18 @@ ATTENTION
 </div>
 </section>
 </section>
-<section id="geom_bar-et-geom_col" class="level2 page-columns page-full" data-number="E.4">
-<h2 data-number="E.4" class="anchored" data-anchor-id="geom_bar-et-geom_col"><span class="header-section-number">E.4</span> geom_bar et geom_col</h2>
+<section id="geom_bar-et-geom_col" class="level2" data-number="F.4">
+<h2 data-number="F.4" class="anchored" data-anchor-id="geom_bar-et-geom_col"><span class="header-section-number">F.4</span> geom_bar et geom_col</h2>
 <p>geom_bar permet de produire un graphique en bâtons (barplot) <span class="citation" data-cites="diagrammebaton">(Voir <a href="references.html#ref-diagrammebaton" role="doc-biblioref">Wikipédia 2023</a>)</span>. On lui passe en x la variable qualitative dont on souhaite représenter l’effectif de chaque modalité.</p>
-<div class="no-row-height column-margin column-container"><div id="ref-diagrammebaton" class="csl-entry" role="listitem">
-Wikipédia. 2023. <span>«&nbsp;Diagramme à barres — Wikipédia<span>,</span> l’encyclopédie libre&nbsp;»</span>. <a href="http://fr.wikipedia.org/w/index.php?title=Diagramme_%C3%A0_barres&amp;oldid=204360065">http://fr.wikipedia.org/w/index.php?title=Diagramme_%C3%A0_barres&amp;oldid=204360065</a>.
-</div></div><p>Par exemple, si on veut afficher le nombre de communes de notre jeu de données pour chaque département :</p>
+<p>Par exemple, si on veut afficher le nombre de communes de notre jeu de données pour chaque département :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1"></a><span class="in">```{r}</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb12-3"><a href="#cb12-3"></a><span class="in">    geom_bar(aes(x = departement))</span></span>
 <span id="cb12-4"><a href="#cb12-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -555,10 +578,13 @@ Wikipédia. 2023. <span>«&nbsp;Diagramme à barres — Wikipédia<span>,</span>
 </div>
 <p>ou, en remplaçant <span class="math inline">\(x\)</span> par <span class="math inline">\(y\)</span>&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1"></a><span class="in">```{r}</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb13-3"><a href="#cb13-3"></a><span class="in">    geom_bar(aes(y = departement))</span></span>
 <span id="cb13-4"><a href="#cb13-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -568,20 +594,23 @@ Wikipédia. 2023. <span>«&nbsp;Diagramme à barres — Wikipédia<span>,</span>
 </div>
 </div>
 </section>
-<section id="mappages" class="level2" data-number="E.5">
-<h2 data-number="E.5" class="anchored" data-anchor-id="mappages"><span class="header-section-number">E.5</span> Mappages</h2>
+<section id="mappages" class="level2" data-number="F.5">
+<h2 data-number="F.5" class="anchored" data-anchor-id="mappages"><span class="header-section-number">F.5</span> Mappages</h2>
 <p>Un mappage, dans ggplot2, est une mise en relation entre un attribut graphique du geom (position, couleur, taille…) et une variable du tableau de données.</p>
 <p>Ces mappages sont passés aux différents geom via la fonction <code>aes()</code> (abbréviation d’aesthetic).</p>
-<section id="exemples-de-mappages" class="level3" data-number="E.5.1">
-<h3 data-number="E.5.1" class="anchored" data-anchor-id="exemples-de-mappages"><span class="header-section-number">E.5.1</span> Exemples de mappages</h3>
+<section id="exemples-de-mappages" class="level3" data-number="F.5.1">
+<h3 data-number="F.5.1" class="anchored" data-anchor-id="exemples-de-mappages"><span class="header-section-number">F.5.1</span> Exemples de mappages</h3>
 <p>On a déjà vu les mappages <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> pour un nuage de points. Ceux-ci signifient que la position d’un point donné horizontalement (<span class="math inline">\(x\)</span>) et verticalement (<span class="math inline">\(y\)</span>) dépend de la valeur des variables passées comme arguments <code>x</code> et <code>y</code> dans <code>aes()</code>.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1"></a><span class="in">```{r}</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb14-3"><a href="#cb14-3"></a><span class="in">    geom_point(</span></span>
 <span id="cb14-4"><a href="#cb14-4"></a><span class="in">        aes(x = dipl_sup, y = cadres)</span></span>
 <span id="cb14-5"><a href="#cb14-5"></a><span class="in">    )</span></span>
 <span id="cb14-6"><a href="#cb14-6"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -592,6 +621,8 @@ Wikipédia. 2023. <span>«&nbsp;Diagramme à barres — Wikipédia<span>,</span>
 </div>
 <p>Mais on peut ajouter d’autres mappages. Par exemple, <code>color</code> permet de faire varier la couleur des points automatiquement en fonction des valeurs d’une troisième variable. Ainsi, on peut vouloir colorer les points selon le département de la commune correspondante.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1"></a><span class="in">```{r}</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb15-3"><a href="#cb15-3"></a><span class="in">    geom_point(</span></span>
@@ -600,6 +631,7 @@ Wikipédia. 2023. <span>«&nbsp;Diagramme à barres — Wikipédia<span>,</span>
 <span id="cb15-6"><a href="#cb15-6"></a><span class="in">            color = departement)</span></span>
 <span id="cb15-7"><a href="#cb15-7"></a><span class="in">    )</span></span>
 <span id="cb15-8"><a href="#cb15-8"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -610,6 +642,8 @@ Wikipédia. 2023. <span>«&nbsp;Diagramme à barres — Wikipédia<span>,</span>
 </div>
 <p>On peut aussi faire varier la taille des points avec size. Ici, la taille dépend de la population totale de la commune&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1"></a><span class="in">```{r}</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb16-3"><a href="#cb16-3"></a><span class="in">    geom_point(</span></span>
@@ -619,6 +653,7 @@ Wikipédia. 2023. <span>«&nbsp;Diagramme à barres — Wikipédia<span>,</span>
 <span id="cb16-7"><a href="#cb16-7"></a><span class="in">            size = pop_tot)</span></span>
 <span id="cb16-8"><a href="#cb16-8"></a><span class="in">    )</span></span>
 <span id="cb16-9"><a href="#cb16-9"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -629,10 +664,12 @@ Wikipédia. 2023. <span>«&nbsp;Diagramme à barres — Wikipédia<span>,</span>
 </div>
 <p>Chaque geom possède sa propre liste de mappages.</p>
 </section>
-<section id="aes-or-not-aes" class="level3" data-number="E.5.2">
-<h3 data-number="E.5.2" class="anchored" data-anchor-id="aes-or-not-aes"><span class="header-section-number">E.5.2</span> aes() or not aes() ?</h3>
+<section id="aes-or-not-aes" class="level3" data-number="F.5.2">
+<h3 data-number="F.5.2" class="anchored" data-anchor-id="aes-or-not-aes"><span class="header-section-number">F.5.2</span> aes() or not aes() ?</h3>
 <p>Comme on l’a déjà vu, parfois on souhaite changer un attribut sans le relier à une variable : c’est le cas par exemple si on veut représenter tous les points en rouge. Dans ce cas on utilise toujours l’attribut color, mais comme il ne s’agit pas d’un mappage, on le définit à l’extérieur de la fonction <code>aes()</code>.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1"></a><span class="in">```{r}</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb17-3"><a href="#cb17-3"></a><span class="in">    geom_point(</span></span>
@@ -640,6 +677,7 @@ Wikipédia. 2023. <span>«&nbsp;Diagramme à barres — Wikipédia<span>,</span>
 <span id="cb17-5"><a href="#cb17-5"></a><span class="in">        color = "red"</span></span>
 <span id="cb17-6"><a href="#cb17-6"></a><span class="in">    )</span></span>
 <span id="cb17-7"><a href="#cb17-7"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -650,12 +688,15 @@ Wikipédia. 2023. <span>«&nbsp;Diagramme à barres — Wikipédia<span>,</span>
 </div>
 <p>Par contre, si on veut faire varier la couleur en fonction des valeurs prises par une variable, on réalise un mappage, et on doit donc placer l’attribut color à l’intérieur de <code>aes()</code>.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1"></a><span class="in">```{r}</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb18-3"><a href="#cb18-3"></a><span class="in">    geom_point(</span></span>
 <span id="cb18-4"><a href="#cb18-4"></a><span class="in">        aes(x = dipl_sup, y = cadres, color = departement)</span></span>
 <span id="cb18-5"><a href="#cb18-5"></a><span class="in">    )</span></span>
 <span id="cb18-6"><a href="#cb18-6"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -666,6 +707,8 @@ Wikipédia. 2023. <span>«&nbsp;Diagramme à barres — Wikipédia<span>,</span>
 </div>
 <p>On peut mélanger attributs liés à une variable (mappage, donc dans <code>aes()</code>) et attributs constants (donc à l’extérieur). Dans l’exemple suivant, la taille varie en fonction de la variable <code>pop_tot</code>, mais la couleur est constante pour tous les points.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1"></a><span class="in">```{r}</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb19-3"><a href="#cb19-3"></a><span class="in">    geom_point(</span></span>
@@ -673,6 +716,7 @@ Wikipédia. 2023. <span>«&nbsp;Diagramme à barres — Wikipédia<span>,</span>
 <span id="cb19-5"><a href="#cb19-5"></a><span class="in">        color = "royalblue"</span></span>
 <span id="cb19-6"><a href="#cb19-6"></a><span class="in">    )</span></span>
 <span id="cb19-7"><a href="#cb19-7"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -700,14 +744,17 @@ AVERTISSEMENT
 </div>
 </section>
 </section>
-<section id="geom_bar-et-position" class="level2" data-number="E.6">
-<h2 data-number="E.6" class="anchored" data-anchor-id="geom_bar-et-position"><span class="header-section-number">E.6</span> geom_bar et position</h2>
+<section id="geom_bar-et-position" class="level2" data-number="F.6">
+<h2 data-number="F.6" class="anchored" data-anchor-id="geom_bar-et-position"><span class="header-section-number">F.6</span> geom_bar et position</h2>
 <p>Un des mappages possibles de geom_bar est l’attribut <code>fill</code>, qui permet de tracer des barres de couleur différentes selon les modalités d’une deuxième variable :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1"></a><span class="in">```{r}</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb20-3"><a href="#cb20-3"></a><span class="in">    geom_bar(aes(x = departement, fill = pop_cl))</span></span>
 <span id="cb20-4"><a href="#cb20-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -718,6 +765,8 @@ AVERTISSEMENT
 </div>
 <p>L’attribut position de <code>geom_bar</code> permet d’indiquer comment les différentes barres doivent être positionnées. Par défaut l’argument vaut <code>position = "stack"</code> et elles sont donc “empilées”. Mais on peut préciser <code>position = "dodge"</code> pour les mettre côte à côte.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1"></a><span class="in">```{r}</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb21-3"><a href="#cb21-3"></a><span class="in">    geom_bar(</span></span>
@@ -725,6 +774,7 @@ AVERTISSEMENT
 <span id="cb21-5"><a href="#cb21-5"></a><span class="in">        position = "dodge"</span></span>
 <span id="cb21-6"><a href="#cb21-6"></a><span class="in">    )</span></span>
 <span id="cb21-7"><a href="#cb21-7"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -735,6 +785,8 @@ AVERTISSEMENT
 </div>
 <p>Ou encore <code>position = "fill"</code> pour représenter non plus des effectifs, mais des proportions.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1"></a><span class="in">```{r}</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb22-3"><a href="#cb22-3"></a><span class="in">    geom_bar(</span></span>
@@ -742,6 +794,7 @@ AVERTISSEMENT
 <span id="cb22-5"><a href="#cb22-5"></a><span class="in">        position = "fill"</span></span>
 <span id="cb22-6"><a href="#cb22-6"></a><span class="in">    )</span></span>
 <span id="cb22-7"><a href="#cb22-7"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -752,6 +805,8 @@ AVERTISSEMENT
 </div>
 <p>Là encore, on peut utiliser coord_flip() si on souhaite une visualisation avec des barres horizontales.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1"></a><span class="in">```{r}</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb23-3"><a href="#cb23-3"></a><span class="in">    geom_bar(</span></span>
@@ -760,6 +815,7 @@ AVERTISSEMENT
 <span id="cb23-6"><a href="#cb23-6"></a><span class="in">    ) +</span></span>
 <span id="cb23-7"><a href="#cb23-7"></a><span class="in">    coord_flip()</span></span>
 <span id="cb23-8"><a href="#cb23-8"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -769,11 +825,13 @@ AVERTISSEMENT
 </div>
 </div>
 </section>
-<section id="représenter-plusieurs-geom" class="level2" data-number="E.7">
-<h2 data-number="E.7" class="anchored" data-anchor-id="représenter-plusieurs-geom"><span class="header-section-number">E.7</span> Représenter plusieurs geom</h2>
+<section id="représenter-plusieurs-geom" class="level2" data-number="F.7">
+<h2 data-number="F.7" class="anchored" data-anchor-id="représenter-plusieurs-geom"><span class="header-section-number">F.7</span> Représenter plusieurs geom</h2>
 <p>On peut représenter plusieurs geom simultanément sur un même graphique, il suffit de les ajouter à tour de rôle avec l’opérateur +.</p>
 <p>Par exemple, on peut superposer la position des points au-dessus d’un boxplot. On va pour cela ajouter un geom_point après avoir ajouté notre geom_boxplot.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1"></a><span class="in">```{r}</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb24-3"><a href="#cb24-3"></a><span class="in">    geom_boxplot(aes(x = departement, y = maison)) +</span></span>
@@ -782,6 +840,7 @@ AVERTISSEMENT
 <span id="cb24-6"><a href="#cb24-6"></a><span class="in">        col = "red", alpha = 0.2</span></span>
 <span id="cb24-7"><a href="#cb24-7"></a><span class="in">    )</span></span>
 <span id="cb24-8"><a href="#cb24-8"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -792,6 +851,8 @@ AVERTISSEMENT
 </div>
 <p>Pour un résultat un peu plus lisible, on peut remplacer <code>geom_point()</code> par <code>geom_jitter()</code>, qui disperse les points horizontalement et facilite leur visualisation.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1"></a><span class="in">```{r}</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb25-3"><a href="#cb25-3"></a><span class="in">    geom_boxplot(aes(x = departement, y = maison)) +</span></span>
@@ -800,6 +861,7 @@ AVERTISSEMENT
 <span id="cb25-6"><a href="#cb25-6"></a><span class="in">        col = "red", alpha = 0.2</span></span>
 <span id="cb25-7"><a href="#cb25-7"></a><span class="in">    )</span></span>
 <span id="cb25-8"><a href="#cb25-8"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -810,11 +872,14 @@ AVERTISSEMENT
 </div>
 <p>Autre exemple, on peut vouloir ajouter à un nuage de points une ligne de régression linéaire à l’aide de <code>geom_smooth()</code>&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1"></a><span class="in">```{r}</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="in">ggplot(rp, aes(x = dipl_sup, y = cadres)) +</span></span>
 <span id="cb26-3"><a href="#cb26-3"></a><span class="in">    geom_point(alpha = 0.2) +</span></span>
 <span id="cb26-4"><a href="#cb26-4"></a><span class="in">    geom_smooth(method = "lm")</span></span>
 <span id="cb26-5"><a href="#cb26-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -828,12 +893,15 @@ AVERTISSEMENT
 </div>
 <p>Et on peut même superposer une troisième visualisation de la répartition des points dans l’espace avec <code>geom_density2d()</code> :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1"></a><span class="in">```{r}</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a><span class="in">ggplot(rp, aes(x = dipl_sup, y = cadres)) +</span></span>
 <span id="cb28-3"><a href="#cb28-3"></a><span class="in">    geom_point(alpha = 0.2) +</span></span>
 <span id="cb28-4"><a href="#cb28-4"></a><span class="in">    geom_density2d(color = "red") +</span></span>
 <span id="cb28-5"><a href="#cb28-5"></a><span class="in">    geom_smooth(method = "lm")</span></span>
 <span id="cb28-6"><a href="#cb28-6"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -845,21 +913,27 @@ AVERTISSEMENT
 </div>
 </div>
 </div>
-<section id="plusieurs-sources-de-données" class="level3" data-number="E.7.1">
-<h3 data-number="E.7.1" class="anchored" data-anchor-id="plusieurs-sources-de-données"><span class="header-section-number">E.7.1</span> Plusieurs sources de données</h3>
+<section id="plusieurs-sources-de-données" class="level3" data-number="F.7.1">
+<h3 data-number="F.7.1" class="anchored" data-anchor-id="plusieurs-sources-de-données"><span class="header-section-number">F.7.1</span> Plusieurs sources de données</h3>
 <p>On peut associer à différents <code>geom</code> des sources de données différentes. Supposons qu’on souhaite afficher sur un nuage de points les noms des communes de plus de <span class="math inline">\(50\,000\)</span> habitants.</p>
 <p>On commencer par créer un tableau de données contenant uniquement ces communes à l’aide de la fonction <code>filter()</code>.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1"></a><span class="in">```{r}</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a><span class="in">com50 &lt;- filter(rp, pop_tot &gt;= 50000)</span></span>
 <span id="cb30-3"><a href="#cb30-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>On fait ensuite le nuage de points comme précédemment :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1"></a><span class="in">```{r}</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="in">ggplot(data = rp, aes(x = dipl_sup, y = cadres)) +</span></span>
 <span id="cb31-3"><a href="#cb31-3"></a><span class="in">    geom_point(alpha = 0.2)</span></span>
 <span id="cb31-4"><a href="#cb31-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -870,6 +944,8 @@ AVERTISSEMENT
 </div>
 <p>Pour superposer les noms de communes de plus de <span class="math inline">\(50\,000\)</span> habitants, on peut ajouter un <code>geom_text()</code>, mais en spécifiant que les données proviennent du nouveau tableau <code>com50</code> et non de notre tableau initial <code>rp</code>. On le fait en passant un argument <code>data</code> spécifique à <code>geom_text()</code> :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1"></a><span class="in">```{r}</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a><span class="in">ggplot(data = rp, aes(x = dipl_sup, y = cadres)) +</span></span>
 <span id="cb32-3"><a href="#cb32-3"></a><span class="in">    geom_point(alpha = 0.4) +</span></span>
@@ -878,6 +954,7 @@ AVERTISSEMENT
 <span id="cb32-6"><a href="#cb32-6"></a><span class="in">        color = "red", size = 3, alpha = 1</span></span>
 <span id="cb32-7"><a href="#cb32-7"></a><span class="in">    )</span></span>
 <span id="cb32-8"><a href="#cb32-8"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -889,15 +966,18 @@ AVERTISSEMENT
 <p>Ainsi, on obtient un graphique avec deux geom superposés, mais dont les données proviennent de deux tableaux différents.</p>
 </section>
 </section>
-<section id="faceting" class="level2" data-number="E.8">
-<h2 data-number="E.8" class="anchored" data-anchor-id="faceting"><span class="header-section-number">E.8</span> Faceting</h2>
+<section id="faceting" class="level2" data-number="F.8">
+<h2 data-number="F.8" class="anchored" data-anchor-id="faceting"><span class="header-section-number">F.8</span> Faceting</h2>
 <p>Le <em>faceting</em> permet d’effectuer plusieurs fois le même graphique selon les valeurs d’une ou plusieurs variables qualitatives.</p>
 <p>Par exemple, on a vu qu’on peut représenter l’histogramme du pourcentage de cadres dans nos communes avec le code suivant :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1"></a><span class="in">```{r}</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a><span class="in">ggplot(data = rp) +</span></span>
 <span id="cb33-3"><a href="#cb33-3"></a><span class="in">    geom_histogram(aes(x = cadres))</span></span>
 <span id="cb33-4"><a href="#cb33-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -912,11 +992,14 @@ AVERTISSEMENT
 <p>On souhaite comparer cette distribution de la part des cadres selon le département, et donc faire un histogramme pour chacun de ces départements. C’est ce que permettent les fonctions <code>facet_wrap()</code> et <code>facet_grid()</code>.</p>
 <p><code>facet_wrap()</code> prend un paramètre de la forme <code>vars(variable)</code>, où variable est le nom de la variable en fonction de laquelle on souhaite faire les différents graphiques. Ceux-ci sont alors affichés les uns à côté des autres et répartis automatiquement dans la page.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1"></a><span class="in">```{r}</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a><span class="in">ggplot(data = rp) +</span></span>
 <span id="cb35-3"><a href="#cb35-3"></a><span class="in">    geom_histogram(aes(x = cadres)) +</span></span>
 <span id="cb35-4"><a href="#cb35-4"></a><span class="in">    facet_wrap(vars(departement))</span></span>
 <span id="cb35-5"><a href="#cb35-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -930,11 +1013,14 @@ AVERTISSEMENT
 </div>
 <p>Pour <code>facet_grid()</code>, les graphiques sont disposés selon une grille. La fonction prend alors deux arguments, <code>rows =</code> et <code>cols =</code>, auxquels on passe les variables à afficher en ligne ou en colonne via la fonction <code>vars()</code>.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb37-1"><a href="#cb37-1"></a><span class="in">```{r}</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a><span class="in">ggplot(data = rp) +</span></span>
 <span id="cb37-3"><a href="#cb37-3"></a><span class="in">    geom_histogram(aes(x = cadres)) +</span></span>
 <span id="cb37-4"><a href="#cb37-4"></a><span class="in">    facet_grid(rows = vars(departement))</span></span>
 <span id="cb37-5"><a href="#cb37-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -949,6 +1035,8 @@ AVERTISSEMENT
 <p>Un des intérêts du faceting dans <code>ggplot2</code> est que tous les graphiques générés ont les mêmes échelles, ce qui permet une comparaison directe.</p>
 <p>Enfin, notons qu’on peut même faire du faceting sur plusieurs variables à la fois. On peut par exemple faire des histogrammes de la répartition de la part des cadres pour chaque croisement des variables <code>departement</code> et <code>pop_cl</code> :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb39-1"><a href="#cb39-1"></a><span class="in">```{r}</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a><span class="in">ggplot(data = rp) +</span></span>
 <span id="cb39-3"><a href="#cb39-3"></a><span class="in">    geom_histogram(aes(x = cadres)) +</span></span>
@@ -956,6 +1044,7 @@ AVERTISSEMENT
 <span id="cb39-5"><a href="#cb39-5"></a><span class="in">        rows = vars(departement), cols = vars(pop_cl)</span></span>
 <span id="cb39-6"><a href="#cb39-6"></a><span class="in">    )</span></span>
 <span id="cb39-7"><a href="#cb39-7"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -969,21 +1058,24 @@ AVERTISSEMENT
 </div>
 <p>L’histogramme en haut à gauche représente la répartition du pourcentage de cadres parmi les communes de <span class="math inline">\(2\,000\)</span> à <span class="math inline">\(3\,000\)</span> habitants dans les Bouches-du-Rhône, etc.</p>
 </section>
-<section id="scales" class="level2" data-number="E.9">
-<h2 data-number="E.9" class="anchored" data-anchor-id="scales"><span class="header-section-number">E.9</span> Scales</h2>
+<section id="scales" class="level2" data-number="F.9">
+<h2 data-number="F.9" class="anchored" data-anchor-id="scales"><span class="header-section-number">F.9</span> Scales</h2>
 <p>On a vu qu’avec <code>ggplot2</code> on définit des mappages entre des attributs graphiques (position, taille, couleur, etc.) et des variables d’un tableau de données. Ces mappages sont définis, pour chaque <code>geom</code>, via la fonction <code>aes()</code>.</p>
 <p>Les scales dans <code>ggplot2</code> permettent de modifier la manière dont un attribut graphique va être relié aux valeurs d’une variable, et dont la légende correspondante va être affichée. Par exemple, pour l’attribut <code>color</code>, on pourra définir la palette de couleur utilisée. Pour <code>size</code>, les tailles minimales et maximales, etc.</p>
 <p>Pour modifier une scale existante, on ajoute un nouvel élément à notre objet ggplot2 avec l’opérateur +. Cet élément prend la forme <code>scale_&lt;attribut&gt;_&lt;type&gt;</code>.</p>
 <p>Voyons tout de suite quelques exemples.</p>
-<section id="scale_size" class="level3" data-number="E.9.1">
-<h3 data-number="E.9.1" class="anchored" data-anchor-id="scale_size"><span class="header-section-number">E.9.1</span> scale_size</h3>
+<section id="scale_size" class="level3" data-number="F.9.1">
+<h3 data-number="F.9.1" class="anchored" data-anchor-id="scale_size"><span class="header-section-number">F.9.1</span> scale_size</h3>
 <p>Si on souhaite modifier les tailles minimales et maximales des objets quand on a effectué un mappage de type <code>size =</code>, on peut utiliser la fonction <code>scale_size()</code> et son argument <code>range =</code>.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb41-1"><a href="#cb41-1"></a><span class="in">```{r}</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb41-3"><a href="#cb41-3"></a><span class="in">    geom_point(aes(x = dipl_sup, y = cadres, size = pop_tot)) +</span></span>
 <span id="cb41-4"><a href="#cb41-4"></a><span class="in">    scale_size(range = c(0, 20))</span></span>
 <span id="cb41-5"><a href="#cb41-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -994,11 +1086,14 @@ AVERTISSEMENT
 </div>
 <p>ou</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb42-1"><a href="#cb42-1"></a><span class="in">```{r}</span></span>
 <span id="cb42-2"><a href="#cb42-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb42-3"><a href="#cb42-3"></a><span class="in">    geom_point(aes(x = dipl_sup, y = cadres, size = pop_tot)) +</span></span>
 <span id="cb42-4"><a href="#cb42-4"></a><span class="in">    scale_size(range = c(3, 11))</span></span>
 <span id="cb42-5"><a href="#cb42-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1009,6 +1104,8 @@ AVERTISSEMENT
 </div>
 <p>On peut ajouter d’autres paramètres à <code>scale_size()</code>. Le premier argument est toujours le titre donné à la légende.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb43-1"><a href="#cb43-1"></a><span class="in">```{r}</span></span>
 <span id="cb43-2"><a href="#cb43-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb43-3"><a href="#cb43-3"></a><span class="in">    geom_point(aes(x = dipl_sup, y = cadres, size = pop_tot)) +</span></span>
@@ -1017,6 +1114,7 @@ AVERTISSEMENT
 <span id="cb43-6"><a href="#cb43-6"></a><span class="in">        range = c(0, 15)</span></span>
 <span id="cb43-7"><a href="#cb43-7"></a><span class="in">    )</span></span>
 <span id="cb43-8"><a href="#cb43-8"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1027,6 +1125,8 @@ AVERTISSEMENT
 </div>
 <p>On peut aussi définir manuellement les éléments de légende représentés.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb44-1"><a href="#cb44-1"></a><span class="in">```{r}</span></span>
 <span id="cb44-2"><a href="#cb44-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb44-3"><a href="#cb44-3"></a><span class="in">    geom_point(aes(x = dipl_sup, y = cadres, size = pop_tot)) +</span></span>
@@ -1036,6 +1136,7 @@ AVERTISSEMENT
 <span id="cb44-7"><a href="#cb44-7"></a><span class="in">        breaks = c(1000, 5000, 10000, 50000)</span></span>
 <span id="cb44-8"><a href="#cb44-8"></a><span class="in">    )</span></span>
 <span id="cb44-9"><a href="#cb44-9"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1045,16 +1146,19 @@ AVERTISSEMENT
 </div>
 </div>
 </section>
-<section id="scale_x-scale_y" class="level3" data-number="E.9.2">
-<h3 data-number="E.9.2" class="anchored" data-anchor-id="scale_x-scale_y"><span class="header-section-number">E.9.2</span> scale_x, scale_y</h3>
+<section id="scale_x-scale_y" class="level3" data-number="F.9.2">
+<h3 data-number="F.9.2" class="anchored" data-anchor-id="scale_x-scale_y"><span class="header-section-number">F.9.2</span> scale_x, scale_y</h3>
 <p>Les scales <code>scale_x_&lt;type&gt;</code> et <code>scale_y_&lt;type&gt;</code> modifient les axes <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> du graphique.</p>
 <p><code>scale_x_continuous</code> et <code>scale_y_continuous</code> s’appliquent lorsque la variable <span class="math inline">\(x\)</span> ou <span class="math inline">\(y\)</span> est numérique (quantitative).</p>
 <p>C’est le cas de notre nuage de points croisant part de cadres et part de diplômés du supérieur.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb45-1"><a href="#cb45-1"></a><span class="in">```{r}</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb45-3"><a href="#cb45-3"></a><span class="in">    geom_point(aes(x = dipl_sup, y = cadres))</span></span>
 <span id="cb45-4"><a href="#cb45-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1065,12 +1169,15 @@ AVERTISSEMENT
 </div>
 <p>Comme on représente des pourcentages, on peut vouloir forcer les axes <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span> à s’étendre des valeurs <span class="math inline">\(0\)</span> à <span class="math inline">\(100\)</span>. On peut le faire en ajoutant un élément <code>scale_x_continuous()</code> et un élément <code>scale_y_continuous()</code>, et en utilisant leur argument <code>limits =</code>.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb46-1"><a href="#cb46-1"></a><span class="in">```{r}</span></span>
 <span id="cb46-2"><a href="#cb46-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb46-3"><a href="#cb46-3"></a><span class="in">    geom_point(aes(x = dipl_sup, y = cadres)) +</span></span>
 <span id="cb46-4"><a href="#cb46-4"></a><span class="in">    scale_x_continuous(limits = c(0, 100)) +</span></span>
 <span id="cb46-5"><a href="#cb46-5"></a><span class="in">    scale_y_continuous(limits = c(0, 100))</span></span>
 <span id="cb46-6"><a href="#cb46-6"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1081,12 +1188,15 @@ AVERTISSEMENT
 </div>
 <p>Là aussi, on peut modifier les étiquettes des axes en indiquant une chaîne de caractères en premier argument.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb47-1"><a href="#cb47-1"></a><span class="in">```{r}</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb47-3"><a href="#cb47-3"></a><span class="in">    geom_point(aes(x = dipl_sup, y = cadres)) +</span></span>
 <span id="cb47-4"><a href="#cb47-4"></a><span class="in">    scale_x_continuous("Part des diplômés du supérieur (%)", limits = c(0, 100)) +</span></span>
 <span id="cb47-5"><a href="#cb47-5"></a><span class="in">    scale_y_continuous("Part des cadres (%)", limits = c(0, 100))</span></span>
 <span id="cb47-6"><a href="#cb47-6"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1097,12 +1207,15 @@ AVERTISSEMENT
 </div>
 <p>On peut utiliser <code>scale_x_log10()</code> et <code>scale_y_log10()</code> pour passer un axe à une échelle logarithmique.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb48-1"><a href="#cb48-1"></a><span class="in">```{r}</span></span>
 <span id="cb48-2"><a href="#cb48-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb48-3"><a href="#cb48-3"></a><span class="in">  geom_point(aes(x = dipl_sup, y = cadres)) +</span></span>
 <span id="cb48-4"><a href="#cb48-4"></a><span class="in">  scale_x_log10("Pourcentage de diplômés du supérieur") +</span></span>
 <span id="cb48-5"><a href="#cb48-5"></a><span class="in">  scale_y_log10("Pourcentage de cadres")</span></span>
 <span id="cb48-6"><a href="#cb48-6"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1113,11 +1226,14 @@ AVERTISSEMENT
 </div>
 <p><code>scale_x_discrete()</code> et <code>scale_y_discrete()</code> s’appliquent lorsque l’axe correspond à une variable discrète (qualitative). C’est le cas par exemple de l’axe des <span class="math inline">\(x\)</span> dans un diagramme en barres.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb49-1"><a href="#cb49-1"></a><span class="in">```{r}</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb49-3"><a href="#cb49-3"></a><span class="in">    geom_bar(aes(x = departement)) +</span></span>
 <span id="cb49-4"><a href="#cb49-4"></a><span class="in">    scale_x_discrete("Département")</span></span>
 <span id="cb49-5"><a href="#cb49-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1128,11 +1244,14 @@ AVERTISSEMENT
 </div>
 <p>L’argument <code>limits =</code> de <code>scale_x_discrete()</code> permet d’indiquer quelles valeurs sont affichées et dans quel ordre.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb50-1"><a href="#cb50-1"></a><span class="in">```{r}</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb50-3"><a href="#cb50-3"></a><span class="in">    geom_bar(aes(x = departement)) +</span></span>
 <span id="cb50-4"><a href="#cb50-4"></a><span class="in">    scale_x_discrete("Département", limits = c("Oise", "Lozère", "Rhône"))</span></span>
 <span id="cb50-5"><a href="#cb50-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 150 rows containing non-finite outside the scale range
 (`stat_count()`).</code></pre>
@@ -1146,17 +1265,20 @@ AVERTISSEMENT
 </div>
 </div>
 </section>
-<section id="scale_color-scale_fill" class="level3" data-number="E.9.3">
-<h3 data-number="E.9.3" class="anchored" data-anchor-id="scale_color-scale_fill"><span class="header-section-number">E.9.3</span> scale_color, scale_fill</h3>
+<section id="scale_color-scale_fill" class="level3" data-number="F.9.3">
+<h3 data-number="F.9.3" class="anchored" data-anchor-id="scale_color-scale_fill"><span class="header-section-number">F.9.3</span> scale_color, scale_fill</h3>
 <p>Ces scales permettent, entre autre, de modifier les palettes de couleur utilisées pour le dessin (<code>color</code>) ou le remplissage (<code>fill</code>) des éléments graphiques. Dans ce qui suit, pour chaque fonction <code>scale_color()</code> présentée il existe une fonction <code>scale_fill()</code> équivalente et avec en général les mêmes arguments.</p>
-<section id="variables-quantitatives" class="level4" data-number="E.9.3.1">
-<h4 data-number="E.9.3.1" class="anchored" data-anchor-id="variables-quantitatives"><span class="header-section-number">E.9.3.1</span> Variables quantitatives</h4>
+<section id="variables-quantitatives" class="level4" data-number="F.9.3.1">
+<h4 data-number="F.9.3.1" class="anchored" data-anchor-id="variables-quantitatives"><span class="header-section-number">F.9.3.1</span> Variables quantitatives</h4>
 <p>Le graphique suivant colore les points selon la valeur d’une variable numérique quantitative (ici la part de chômeurs) :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb52-1"><a href="#cb52-1"></a><span class="in">```{r}</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb52-3"><a href="#cb52-3"></a><span class="in">    geom_point(aes(x = dipl_sup, y = cadres, color = chom))</span></span>
 <span id="cb52-4"><a href="#cb52-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1167,11 +1289,14 @@ AVERTISSEMENT
 </div>
 <p>On peut modifier les couleurs utilisées avec les arguments <code>low =</code> et <code>high =</code> de la fonction <code>scale_color_gradient()</code>. Ici on souhaite que la valeur la plus faible soit blanche, et la plus élevée rouge :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb53-1"><a href="#cb53-1"></a><span class="in">```{r}</span></span>
 <span id="cb53-2"><a href="#cb53-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb53-3"><a href="#cb53-3"></a><span class="in">    geom_point(aes(x = dipl_sup, y = cadres, color = chom)) +</span></span>
 <span id="cb53-4"><a href="#cb53-4"></a><span class="in">    scale_color_gradient("Taux de chômage", low = "green", high = "red")</span></span>
 <span id="cb53-5"><a href="#cb53-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1182,11 +1307,14 @@ AVERTISSEMENT
 </div>
 <p>On peut aussi utiliser des palettes prédéfinies. L’une des plus populaires est la palette viridis, accessible en utilisant scale_color_viridis_c :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb54-1"><a href="#cb54-1"></a><span class="in">```{r}</span></span>
 <span id="cb54-2"><a href="#cb54-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb54-3"><a href="#cb54-3"></a><span class="in">    geom_point(aes(x = dipl_sup, y = cadres, color = chom)) +</span></span>
 <span id="cb54-4"><a href="#cb54-4"></a><span class="in">    scale_color_viridis_c("Taux de chômage")</span></span>
 <span id="cb54-5"><a href="#cb54-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1196,14 +1324,17 @@ AVERTISSEMENT
 </div>
 </div>
 </section>
-<section id="variables-qualitatives" class="level4" data-number="E.9.3.2">
-<h4 data-number="E.9.3.2" class="anchored" data-anchor-id="variables-qualitatives"><span class="header-section-number">E.9.3.2</span> Variables qualitatives</h4>
+<section id="variables-qualitatives" class="level4" data-number="F.9.3.2">
+<h4 data-number="F.9.3.2" class="anchored" data-anchor-id="variables-qualitatives"><span class="header-section-number">F.9.3.2</span> Variables qualitatives</h4>
 <p>Si on a fait un mappage avec une variable discrète (qualitative), comme ici avec le département :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb55-1"><a href="#cb55-1"></a><span class="in">```{r}</span></span>
 <span id="cb55-2"><a href="#cb55-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb55-3"><a href="#cb55-3"></a><span class="in">    geom_point(aes(x = dipl_sup, y = cadres, color = departement))</span></span>
 <span id="cb55-4"><a href="#cb55-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1214,6 +1345,8 @@ AVERTISSEMENT
 </div>
 <p>Une première possibilité est de modifier la palette manuellement avec <code>scale_color_manual()</code> et son argument <code>values =</code> :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb56-1"><a href="#cb56-1"></a><span class="in">```{r}</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb56-3"><a href="#cb56-3"></a><span class="in">    geom_point(aes(x = dipl_sup, y = cadres, color = departement)) +</span></span>
@@ -1222,6 +1355,7 @@ AVERTISSEMENT
 <span id="cb56-6"><a href="#cb56-6"></a><span class="in">        values = c("red", "#FFDD45", rgb(0.1, 0.2, 0.6), "darkgreen", "grey80")</span></span>
 <span id="cb56-7"><a href="#cb56-7"></a><span class="in">    )</span></span>
 <span id="cb56-8"><a href="#cb56-8"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1250,11 +1384,14 @@ Note
 <p>Il est cependant souvent plus pertinent d’utiliser des palettes prédéfinies. Celles du site <a href="http://colorbrewer2.org/">Colorbrewer</a>, initialement prévues pour la cartographie, permettent une bonne lisibilité, et peuvent être adaptées pour certains types de daltonisme.</p>
 <p>Ces palettes s’utilisent via la fonction <code>scale_color_brewer()</code>, en passant le nom de la palette via l’argument <code>palette =</code>. Par exemple, si on veut utiliser la palette <code>Set1</code> :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb57-1"><a href="#cb57-1"></a><span class="in">```{r}</span></span>
 <span id="cb57-2"><a href="#cb57-2"></a><span class="in">ggplot(rp) +</span></span>
 <span id="cb57-3"><a href="#cb57-3"></a><span class="in">    geom_point(aes(x = dipl_sup, y = cadres, color = departement)) +</span></span>
 <span id="cb57-4"><a href="#cb57-4"></a><span class="in">    scale_color_brewer("Département", palette = "Set1")</span></span>
 <span id="cb57-5"><a href="#cb57-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1268,11 +1405,14 @@ Note
 <p><img src="Rplot.png" class="img-fluid" alt="liste"> ## Thèmes Les thèmes permettent de contrôler l’affichage de tous les éléments du graphique qui ne sont pas reliés aux données : titres, grilles, fonds, etc.</p>
 <p>Il existe un certain nombre de thèmes préexistants, par exemple le thème <code>theme_bw</code> :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb59-1"><a href="#cb59-1"></a><span class="in">```{r}</span></span>
 <span id="cb59-2"><a href="#cb59-2"></a><span class="in">ggplot(data = rp) +</span></span>
 <span id="cb59-3"><a href="#cb59-3"></a><span class="in">    geom_histogram(aes(x = cadres)) +</span></span>
 <span id="cb59-4"><a href="#cb59-4"></a><span class="in">    theme_bw()</span></span>
 <span id="cb59-5"><a href="#cb59-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -1286,11 +1426,14 @@ Note
 </div>
 <p>Ou le thème <code>theme_minimal</code> :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb61-1"><a href="#cb61-1"></a><span class="in">```{r}</span></span>
 <span id="cb61-2"><a href="#cb61-2"></a><span class="in">ggplot(data = rp) +</span></span>
 <span id="cb61-3"><a href="#cb61-3"></a><span class="in">    geom_histogram(aes(x = cadres)) +</span></span>
 <span id="cb61-4"><a href="#cb61-4"></a><span class="in">    theme_minimal()</span></span>
 <span id="cb61-5"><a href="#cb61-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -1304,6 +1447,8 @@ Note
 </div>
 <p>On peut cependant modifier manuellement les différents éléments. Par exemple, les fonctions <code>ggtitle()</code>, <code>xlab()</code> et <code>ylab()</code> permettent d’ajouter ou de modifier le titre du graphique, ainsi que les étiquettes des axes <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span>&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb63-1"><a href="#cb63-1"></a><span class="in">```{r}</span></span>
 <span id="cb63-2"><a href="#cb63-2"></a><span class="in">ggplot(data = rp) +</span></span>
 <span id="cb63-3"><a href="#cb63-3"></a><span class="in">    geom_histogram(aes(x = cadres)) +</span></span>
@@ -1311,6 +1456,7 @@ Note
 <span id="cb63-5"><a href="#cb63-5"></a><span class="in">    xlab("Pourcentage de cadres") +</span></span>
 <span id="cb63-6"><a href="#cb63-6"></a><span class="in">    ylab("Effectif")</span></span>
 <span id="cb63-7"><a href="#cb63-7"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
@@ -1325,6 +1471,8 @@ Note
 <p>Les éléments personnalisables étant nombreux, un bon moyen de se familiariser avec tous les arguments est sans doute l’addin RStudio <code>ggThemeAssist</code>. Pour l’utiliser il suffit d’installer le package du même nom, de sélectionner dans son script RStudio le code correspondant à un graphique ggplot2, puis d’aller dans le menu Addins et choisir ggplot Theme Assistant. Une interface graphique s’affiche alors permettant de modifier les différents éléments. Si on clique sur Done, le code sélectionné dans le script est alors automatiquement mis à jour pour correspondre aux modifications effectuées.</p>
 <p>Ce qui permet d’obtenir très facilement des résultats extrêmement moches :</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb65-1"><a href="#cb65-1"></a><span class="in">```{r}</span></span>
 <span id="cb65-2"><a href="#cb65-2"></a><span class="in">ggplot(data = rp) +</span></span>
 <span id="cb65-3"><a href="#cb65-3"></a><span class="in">    geom_histogram(aes(x = cadres)) +</span></span>
@@ -1347,6 +1495,7 @@ Note
 <span id="cb65-20"><a href="#cb65-20"></a><span class="in">        plot.background = element_rect(fill = "blueviolet")</span></span>
 <span id="cb65-21"><a href="#cb65-21"></a><span class="in">    )</span></span>
 <span id="cb65-22"><a href="#cb65-22"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.
 ℹ Please use the `linewidth` argument instead.</code></pre>
@@ -1365,12 +1514,21 @@ Note
 </section>
 </section>
 </section>
-<section id="lextension-esquisse" class="level2 page-columns page-full" data-number="E.10">
-<h2 data-number="E.10" class="anchored" data-anchor-id="lextension-esquisse"><span class="header-section-number">E.10</span> L’extension esquisse</h2>
+<section id="lextension-esquisse" class="level2 page-columns page-full" data-number="F.10">
+<h2 data-number="F.10" class="anchored" data-anchor-id="lextension-esquisse"><span class="header-section-number">F.10</span> L’extension esquisse</h2>
 <p><a href="https://juba.github.io/tidyverse/08-ggplot2.html#ladd-in-esquisse">Voir ici</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 
 
-<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Je suis définitivement paresseux&nbsp;!</p></div></div>
+<!-- -->
+
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Je suis définitivement paresseux&nbsp;!</p></div></div><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-diagrammebaton" class="csl-entry" role="listitem">
+Wikipédia. 2023. <span>«&nbsp;Diagramme à barres — Wikipédia<span>,</span> l’encyclopédie libre&nbsp;»</span>. <a href="http://fr.wikipedia.org/w/index.php?title=Diagramme_%C3%A0_barres&amp;oldid=204360065">http://fr.wikipedia.org/w/index.php?title=Diagramme_%C3%A0_barres&amp;oldid=204360065</a>.
+</div>
+<div id="ref-boitemoustache" class="csl-entry" role="listitem">
+———. 2024. <span>«&nbsp;Boîte à moustaches — Wikipédia<span>,</span> l’encyclopédie libre&nbsp;»</span>. <a href="http://fr.wikipedia.org/w/index.php?title=Bo%C3%AEte_%C3%A0_moustaches&amp;oldid=213407442">http://fr.wikipedia.org/w/index.php?title=Bo%C3%AEte_%C3%A0_moustaches&amp;oldid=213407442</a>.
+</div>
+</div>
 </section>
 
 
@@ -1598,6 +1756,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1930,16 +2139,502 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./attr_getter.html" class="pagination-link" aria-label="attr_getter">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">attr_getter</span></span>
+      <a href="./cume_dist.html" class="pagination-link" aria-label="cume_dist()">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">cume_dist()</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./NOTES.html" class="pagination-link" aria-label="Notes personnelles">
-        <span class="nav-page-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Notes personnelles</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chloe-001.html" class="pagination-link" aria-label="Chloé">
+        <span class="nav-page-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Chloé</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb68" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb68-1"><a href="#cb68-1"></a><span class="co">---</span></span>
+<span id="cb68-2"><a href="#cb68-2"></a><span class="an">author:</span></span>
+<span id="cb68-3"><a href="#cb68-3"></a><span class="co">    - name: "Roger MARTIN"</span></span>
+<span id="cb68-4"><a href="#cb68-4"></a><span class="co">      email: Roger57que@free.fr</span></span>
+<span id="cb68-5"><a href="#cb68-5"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb68-6"><a href="#cb68-6"></a><span class="co">  echo: fenced</span></span>
+<span id="cb68-7"><a href="#cb68-7"></a><span class="an">date:</span><span class="co"> 2024-07-15</span></span>
+<span id="cb68-8"><a href="#cb68-8"></a><span class="an">title:</span><span class="co"> ggplot2</span></span>
+<span id="cb68-9"><a href="#cb68-9"></a><span class="co">---</span></span>
+<span id="cb68-10"><a href="#cb68-10"></a></span>
+<span id="cb68-11"><a href="#cb68-11"></a><span class="co">[</span><span class="ot">Source</span><span class="co">](https://ggplot2.tidyverse.org/articles/ggplot2.html)</span></span>
+<span id="cb68-12"><a href="#cb68-12"></a></span>
+<span id="cb68-13"><a href="#cb68-13"></a><span class="co">[</span><span class="ot">Cookbook</span><span class="co">](https://r-graphics.org/)</span></span>
+<span id="cb68-14"><a href="#cb68-14"></a></span>
+<span id="cb68-15"><a href="#cb68-15"></a><span class="co">[</span><span class="ot">Visualiser avec `ggplot2`</span><span class="co">](https://juba.github.io/tidyverse/08-ggplot2.html)</span></span>
+<span id="cb68-16"><a href="#cb68-16"></a></span>
+<span id="cb68-17"><a href="#cb68-17"></a><span class="fu">## Préparation</span></span>
+<span id="cb68-18"><a href="#cb68-18"></a></span>
+<span id="cb68-21"><a href="#cb68-21"></a><span class="in">```{r}</span></span>
+<span id="cb68-22"><a href="#cb68-22"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb68-23"><a href="#cb68-23"></a><span class="fu">library</span>(questionr)</span>
+<span id="cb68-24"><a href="#cb68-24"></a><span class="fu">data</span>(rp2018)</span>
+<span id="cb68-25"><a href="#cb68-25"></a>rp <span class="ot">&lt;-</span> <span class="fu">filter</span>(</span>
+<span id="cb68-26"><a href="#cb68-26"></a>  rp2018,</span>
+<span id="cb68-27"><a href="#cb68-27"></a>  departement <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Oise"</span>, <span class="st">"Rhône"</span>, <span class="st">"Hauts-de-Seine"</span>, <span class="st">"Lozère"</span>, <span class="st">"Bouches-du-Rhône"</span>)</span>
+<span id="cb68-28"><a href="#cb68-28"></a>)</span>
+<span id="cb68-29"><a href="#cb68-29"></a><span class="in">```</span></span>
+<span id="cb68-30"><a href="#cb68-30"></a></span>
+<span id="cb68-31"><a href="#cb68-31"></a><span class="fu">## Initialisation</span></span>
+<span id="cb68-32"><a href="#cb68-32"></a><span class="in">`ggplot2`</span> se met en route grace à la fonction <span class="in">`ggplot()`</span>.</span>
+<span id="cb68-33"><a href="#cb68-33"></a></span>
+<span id="cb68-34"><a href="#cb68-34"></a>Les données sont __*TOUJOURS*__ issues d'un *dataframe* ou d'un *tibble*&nbsp;: <span class="in">`ggplot(data = rp)`</span> ou <span class="in">`ggplot(rp)`</span>.</span>
+<span id="cb68-35"><a href="#cb68-35"></a></span>
+<span id="cb68-36"><a href="#cb68-36"></a>Ensuite ajouter comment représenter, quel <span class="in">`geom_`</span>, par exemple <span class="in">`geom_hitogram()`</span>.</span>
+<span id="cb68-37"><a href="#cb68-37"></a></span>
+<span id="cb68-38"><a href="#cb68-38"></a>Finalement indiquer quoi représenter, par exemple <span class="in">`cadres`</span> sur l'axe des $x$&nbsp;:</span>
+<span id="cb68-41"><a href="#cb68-41"></a><span class="in">```{r}</span></span>
+<span id="cb68-42"><a href="#cb68-42"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-43"><a href="#cb68-43"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> cadres))</span>
+<span id="cb68-44"><a href="#cb68-44"></a><span class="in">```</span></span>
+<span id="cb68-45"><a href="#cb68-45"></a>ou une autre variable&nbsp;:</span>
+<span id="cb68-48"><a href="#cb68-48"></a><span class="in">```{r}</span></span>
+<span id="cb68-49"><a href="#cb68-49"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-50"><a href="#cb68-50"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> ouvr))</span>
+<span id="cb68-51"><a href="#cb68-51"></a><span class="in">```</span></span>
+<span id="cb68-52"><a href="#cb68-52"></a></span>
+<span id="cb68-53"><a href="#cb68-53"></a>Les colonnes *__DOIVENT__* se raporter au jeu de données passé à <span class="in">`ggplot()`</span>.</span>
+<span id="cb68-54"><a href="#cb68-54"></a></span>
+<span id="cb68-55"><a href="#cb68-55"></a>Des <span class="in">`geom`</span> prennent plus de paramètres. Un nuage de points (<span class="in">`geom_point`</span>) a besoin de coordonnées $x$ et $y$.</span>
+<span id="cb68-56"><a href="#cb68-56"></a></span>
+<span id="cb68-59"><a href="#cb68-59"></a><span class="in">```{r}</span></span>
+<span id="cb68-60"><a href="#cb68-60"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-61"><a href="#cb68-61"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres))</span>
+<span id="cb68-62"><a href="#cb68-62"></a><span class="in">```</span></span>
+<span id="cb68-63"><a href="#cb68-63"></a></span>
+<span id="cb68-64"><a href="#cb68-64"></a>On peut modifier certains attributs graphiques d’un <span class="in">`geom`</span> en lui passant des arguments supplémentaires. Par exemple, pour un nuage de points, on peut modifier la couleur des points avec l’argument <span class="in">`color`</span>, leur taille avec l’argument <span class="in">`size`</span>, et leur transparence avec l’argument <span class="in">`alpha`</span> :</span>
+<span id="cb68-67"><a href="#cb68-67"></a><span class="in">```{r}</span></span>
+<span id="cb68-68"><a href="#cb68-68"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-69"><a href="#cb68-69"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb68-70"><a href="#cb68-70"></a>    <span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres),</span>
+<span id="cb68-71"><a href="#cb68-71"></a>    <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.3</span></span>
+<span id="cb68-72"><a href="#cb68-72"></a>  )</span>
+<span id="cb68-73"><a href="#cb68-73"></a><span class="in">```</span></span>
+<span id="cb68-74"><a href="#cb68-74"></a></span>
+<span id="cb68-75"><a href="#cb68-75"></a>:::{.callout-caution collapse=false appearance='default' icon=true}</span>
+<span id="cb68-76"><a href="#cb68-76"></a><span class="fu">## ATTENTION</span></span>
+<span id="cb68-77"><a href="#cb68-77"></a>On notera que dans ce cas les arguments sont dans la fonction <span class="in">`geom`</span> mais à l’extérieur du <span class="in">`aes()`</span>. Plus d’explications sur ce point dans quelques instants.</span>
+<span id="cb68-78"><a href="#cb68-78"></a>:::</span>
+<span id="cb68-79"><a href="#cb68-79"></a></span>
+<span id="cb68-80"><a href="#cb68-80"></a><span class="fu">## Exemples de geom</span></span>
+<span id="cb68-81"><a href="#cb68-81"></a>Il existe un grand nombre de geom, décrits en détail dans la documentation officielle. Outre les geom_histogram et geom_point que l’on vient de voir, on pourra noter les geom suivants.</span>
+<span id="cb68-82"><a href="#cb68-82"></a></span>
+<span id="cb68-83"><a href="#cb68-83"></a><span class="fu">### geom_boxplot</span></span>
+<span id="cb68-84"><a href="#cb68-84"></a>geom_boxplot permet de représenter des boîtes à moustaches<span class="co">[</span><span class="ot">Voir @boitemoustache</span><span class="co">]</span>. On lui passe en $y$ la variable numérique dont on veut étudier la répartition, et en $x$ la variable qualitative contenant les classes qu’on souhaite comparer. Ainsi, si on veut comparer la répartition du pourcentage de maisons en fonction du département de la commune, on pourra faire :</span>
+<span id="cb68-85"><a href="#cb68-85"></a></span>
+<span id="cb68-88"><a href="#cb68-88"></a><span class="in">```{r}</span></span>
+<span id="cb68-89"><a href="#cb68-89"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-90"><a href="#cb68-90"></a>    <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> departement, <span class="at">y =</span> maison))</span>
+<span id="cb68-91"><a href="#cb68-91"></a><span class="in">```</span></span>
+<span id="cb68-92"><a href="#cb68-92"></a>Un argument utile, <span class="in">`varwidth`</span>, permet de faire varier la largeur des boîtes en fonction des effectifs de la classe (donc, ici, en fonction du nombre de communes de chaque département) :</span>
+<span id="cb68-95"><a href="#cb68-95"></a><span class="in">```{r}</span></span>
+<span id="cb68-96"><a href="#cb68-96"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-97"><a href="#cb68-97"></a>    <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> departement, <span class="at">y =</span> maison), </span>
+<span id="cb68-98"><a href="#cb68-98"></a>                 <span class="at">varwidth =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb68-99"><a href="#cb68-99"></a><span class="in">```</span></span>
+<span id="cb68-100"><a href="#cb68-100"></a></span>
+<span id="cb68-101"><a href="#cb68-101"></a><span class="fu">## geom_bar et geom_col</span></span>
+<span id="cb68-102"><a href="#cb68-102"></a>geom_bar permet de produire un graphique en bâtons (barplot) <span class="co">[</span><span class="ot">Voir @diagrammebaton</span><span class="co">]</span>. On lui passe en x la variable qualitative dont on souhaite représenter l’effectif de chaque modalité.</span>
+<span id="cb68-103"><a href="#cb68-103"></a></span>
+<span id="cb68-104"><a href="#cb68-104"></a>Par exemple, si on veut afficher le nombre de communes de notre jeu de données pour chaque département :</span>
+<span id="cb68-107"><a href="#cb68-107"></a><span class="in">```{r}</span></span>
+<span id="cb68-108"><a href="#cb68-108"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-109"><a href="#cb68-109"></a>    <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> departement))</span>
+<span id="cb68-110"><a href="#cb68-110"></a><span class="in">```</span></span>
+<span id="cb68-111"><a href="#cb68-111"></a>ou, en remplaçant $x$ par $y$&nbsp;:</span>
+<span id="cb68-114"><a href="#cb68-114"></a><span class="in">```{r}</span></span>
+<span id="cb68-115"><a href="#cb68-115"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-116"><a href="#cb68-116"></a>    <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">y =</span> departement))</span>
+<span id="cb68-117"><a href="#cb68-117"></a><span class="in">```</span></span>
+<span id="cb68-118"><a href="#cb68-118"></a><span class="fu">## Mappages</span></span>
+<span id="cb68-119"><a href="#cb68-119"></a>Un mappage, dans ggplot2, est une mise en relation entre un attribut graphique du geom (position, couleur, taille…) et une variable du tableau de données.</span>
+<span id="cb68-120"><a href="#cb68-120"></a></span>
+<span id="cb68-121"><a href="#cb68-121"></a>Ces mappages sont passés aux différents geom via la fonction <span class="in">`aes()`</span> (abbréviation d’aesthetic).</span>
+<span id="cb68-122"><a href="#cb68-122"></a></span>
+<span id="cb68-123"><a href="#cb68-123"></a><span class="fu">### Exemples de mappages</span></span>
+<span id="cb68-124"><a href="#cb68-124"></a>On a déjà vu les mappages $x$ et $y$ pour un nuage de points. Ceux-ci signifient que la position d’un point donné horizontalement ($x$) et verticalement ($y$) dépend de la valeur des variables passées comme arguments <span class="in">`x`</span> et <span class="in">`y`</span> dans <span class="in">`aes()`</span>.</span>
+<span id="cb68-127"><a href="#cb68-127"></a><span class="in">```{r}</span></span>
+<span id="cb68-128"><a href="#cb68-128"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-129"><a href="#cb68-129"></a>    <span class="fu">geom_point</span>(</span>
+<span id="cb68-130"><a href="#cb68-130"></a>        <span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres)</span>
+<span id="cb68-131"><a href="#cb68-131"></a>    )</span>
+<span id="cb68-132"><a href="#cb68-132"></a><span class="in">```</span></span>
+<span id="cb68-133"><a href="#cb68-133"></a>Mais on peut ajouter d’autres mappages. Par exemple, <span class="in">`color`</span> permet de faire varier la couleur des points automatiquement en fonction des valeurs d’une troisième variable. Ainsi, on peut vouloir colorer les points selon le département de la commune correspondante.</span>
+<span id="cb68-136"><a href="#cb68-136"></a><span class="in">```{r}</span></span>
+<span id="cb68-137"><a href="#cb68-137"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-138"><a href="#cb68-138"></a>    <span class="fu">geom_point</span>(</span>
+<span id="cb68-139"><a href="#cb68-139"></a>        <span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, </span>
+<span id="cb68-140"><a href="#cb68-140"></a>            <span class="at">y =</span> cadres, </span>
+<span id="cb68-141"><a href="#cb68-141"></a>            <span class="at">color =</span> departement)</span>
+<span id="cb68-142"><a href="#cb68-142"></a>    )</span>
+<span id="cb68-143"><a href="#cb68-143"></a><span class="in">```</span></span>
+<span id="cb68-144"><a href="#cb68-144"></a>On peut aussi faire varier la taille des points avec size. Ici, la taille dépend de la population totale de la commune&nbsp;:</span>
+<span id="cb68-147"><a href="#cb68-147"></a><span class="in">```{r}</span></span>
+<span id="cb68-148"><a href="#cb68-148"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-149"><a href="#cb68-149"></a>    <span class="fu">geom_point</span>(</span>
+<span id="cb68-150"><a href="#cb68-150"></a>        <span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, </span>
+<span id="cb68-151"><a href="#cb68-151"></a>            <span class="at">y =</span> cadres, </span>
+<span id="cb68-152"><a href="#cb68-152"></a>            <span class="at">color =</span> departement, </span>
+<span id="cb68-153"><a href="#cb68-153"></a>            <span class="at">size =</span> pop_tot)</span>
+<span id="cb68-154"><a href="#cb68-154"></a>    )</span>
+<span id="cb68-155"><a href="#cb68-155"></a><span class="in">```</span></span>
+<span id="cb68-156"><a href="#cb68-156"></a>Chaque geom possède sa propre liste de mappages.</span>
+<span id="cb68-157"><a href="#cb68-157"></a></span>
+<span id="cb68-158"><a href="#cb68-158"></a><span class="fu">### aes() or not aes() ?</span></span>
+<span id="cb68-159"><a href="#cb68-159"></a>Comme on l’a déjà vu, parfois on souhaite changer un attribut sans le relier à une variable : c’est le cas par exemple si on veut représenter tous les points en rouge. Dans ce cas on utilise toujours l’attribut color, mais comme il ne s’agit pas d’un mappage, on le définit à l’extérieur de la fonction <span class="in">`aes()`</span>.</span>
+<span id="cb68-162"><a href="#cb68-162"></a><span class="in">```{r}</span></span>
+<span id="cb68-163"><a href="#cb68-163"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-164"><a href="#cb68-164"></a>    <span class="fu">geom_point</span>(</span>
+<span id="cb68-165"><a href="#cb68-165"></a>        <span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres),</span>
+<span id="cb68-166"><a href="#cb68-166"></a>        <span class="at">color =</span> <span class="st">"red"</span></span>
+<span id="cb68-167"><a href="#cb68-167"></a>    )</span>
+<span id="cb68-168"><a href="#cb68-168"></a><span class="in">```</span></span>
+<span id="cb68-169"><a href="#cb68-169"></a>Par contre, si on veut faire varier la couleur en fonction des valeurs prises par une variable, on réalise un mappage, et on doit donc placer l’attribut color à l’intérieur de <span class="in">`aes()`</span>.</span>
+<span id="cb68-172"><a href="#cb68-172"></a><span class="in">```{r}</span></span>
+<span id="cb68-173"><a href="#cb68-173"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-174"><a href="#cb68-174"></a>    <span class="fu">geom_point</span>(</span>
+<span id="cb68-175"><a href="#cb68-175"></a>        <span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres, <span class="at">color =</span> departement)</span>
+<span id="cb68-176"><a href="#cb68-176"></a>    )</span>
+<span id="cb68-177"><a href="#cb68-177"></a><span class="in">```</span></span>
+<span id="cb68-178"><a href="#cb68-178"></a>On peut mélanger attributs liés à une variable (mappage, donc dans <span class="in">`aes()`</span>) et attributs constants (donc à l’extérieur). Dans l’exemple suivant, la taille varie en fonction de la variable <span class="in">`pop_tot`</span>, mais la couleur est constante pour tous les points.</span>
+<span id="cb68-181"><a href="#cb68-181"></a><span class="in">```{r}</span></span>
+<span id="cb68-182"><a href="#cb68-182"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-183"><a href="#cb68-183"></a>    <span class="fu">geom_point</span>(</span>
+<span id="cb68-184"><a href="#cb68-184"></a>        <span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres, <span class="at">size =</span> pop_tot),</span>
+<span id="cb68-185"><a href="#cb68-185"></a>        <span class="at">color =</span> <span class="st">"royalblue"</span></span>
+<span id="cb68-186"><a href="#cb68-186"></a>    )</span>
+<span id="cb68-187"><a href="#cb68-187"></a><span class="in">```</span></span>
+<span id="cb68-188"><a href="#cb68-188"></a>:::{.callout-caution collapse=false appearance='default' icon=true}</span>
+<span id="cb68-189"><a href="#cb68-189"></a><span class="fu">## AVERTISSEMENT</span></span>
+<span id="cb68-190"><a href="#cb68-190"></a>**La règle est donc simple mais très importante :**</span>
+<span id="cb68-191"><a href="#cb68-191"></a></span>
+<span id="cb68-192"><a href="#cb68-192"></a>Si on établit un lien entre les valeurs d’une variable et un attribut graphique, on définit un mappage, et on le déclare dans <span class="in">`aes()`</span>. Sinon, on modifie l’attribut de la même manière pour tous les points, et on le définit en-dehors de la fonction <span class="in">`aes()`</span>.</span>
+<span id="cb68-193"><a href="#cb68-193"></a>:::</span>
+<span id="cb68-194"><a href="#cb68-194"></a></span>
+<span id="cb68-195"><a href="#cb68-195"></a><span class="fu">## geom_bar et position</span></span>
+<span id="cb68-196"><a href="#cb68-196"></a>Un des mappages possibles de geom_bar est l'attribut <span class="in">`fill`</span>, qui permet de tracer des barres de couleur différentes selon les modalités d’une deuxième variable :</span>
+<span id="cb68-199"><a href="#cb68-199"></a><span class="in">```{r}</span></span>
+<span id="cb68-200"><a href="#cb68-200"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-201"><a href="#cb68-201"></a>    <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> departement, <span class="at">fill =</span> pop_cl))</span>
+<span id="cb68-202"><a href="#cb68-202"></a><span class="in">```</span></span>
+<span id="cb68-203"><a href="#cb68-203"></a>L’attribut position de <span class="in">`geom_bar`</span> permet d’indiquer comment les différentes barres doivent être positionnées. Par défaut l’argument vaut <span class="in">`position = "stack"`</span> et elles sont donc “empilées”. Mais on peut préciser <span class="in">`position = "dodge"`</span> pour les mettre côte à côte.</span>
+<span id="cb68-206"><a href="#cb68-206"></a><span class="in">```{r}</span></span>
+<span id="cb68-207"><a href="#cb68-207"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-208"><a href="#cb68-208"></a>    <span class="fu">geom_bar</span>(</span>
+<span id="cb68-209"><a href="#cb68-209"></a>        <span class="fu">aes</span>(<span class="at">x =</span> departement, <span class="at">fill =</span> pop_cl),</span>
+<span id="cb68-210"><a href="#cb68-210"></a>        <span class="at">position =</span> <span class="st">"dodge"</span></span>
+<span id="cb68-211"><a href="#cb68-211"></a>    )</span>
+<span id="cb68-212"><a href="#cb68-212"></a><span class="in">```</span></span>
+<span id="cb68-213"><a href="#cb68-213"></a>Ou encore <span class="in">`position = "fill"`</span> pour représenter non plus des effectifs, mais des proportions.</span>
+<span id="cb68-216"><a href="#cb68-216"></a><span class="in">```{r}</span></span>
+<span id="cb68-217"><a href="#cb68-217"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-218"><a href="#cb68-218"></a>    <span class="fu">geom_bar</span>(</span>
+<span id="cb68-219"><a href="#cb68-219"></a>        <span class="fu">aes</span>(<span class="at">x =</span> departement, <span class="at">fill =</span> pop_cl),</span>
+<span id="cb68-220"><a href="#cb68-220"></a>        <span class="at">position =</span> <span class="st">"fill"</span></span>
+<span id="cb68-221"><a href="#cb68-221"></a>    )</span>
+<span id="cb68-222"><a href="#cb68-222"></a><span class="in">```</span></span>
+<span id="cb68-223"><a href="#cb68-223"></a>Là encore, on peut utiliser coord_flip() si on souhaite une visualisation avec des barres horizontales.</span>
+<span id="cb68-226"><a href="#cb68-226"></a><span class="in">```{r}</span></span>
+<span id="cb68-227"><a href="#cb68-227"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-228"><a href="#cb68-228"></a>    <span class="fu">geom_bar</span>(</span>
+<span id="cb68-229"><a href="#cb68-229"></a>        <span class="fu">aes</span>(<span class="at">x =</span> departement, <span class="at">fill =</span> pop_cl),</span>
+<span id="cb68-230"><a href="#cb68-230"></a>        <span class="at">position =</span> <span class="st">"fill"</span></span>
+<span id="cb68-231"><a href="#cb68-231"></a>    ) <span class="sc">+</span></span>
+<span id="cb68-232"><a href="#cb68-232"></a>    <span class="fu">coord_flip</span>()</span>
+<span id="cb68-233"><a href="#cb68-233"></a><span class="in">```</span></span>
+<span id="cb68-234"><a href="#cb68-234"></a><span class="fu">## Représenter plusieurs geom</span></span>
+<span id="cb68-235"><a href="#cb68-235"></a>On peut représenter plusieurs geom simultanément sur un même graphique, il suffit de les ajouter à tour de rôle avec l’opérateur +.</span>
+<span id="cb68-236"><a href="#cb68-236"></a></span>
+<span id="cb68-237"><a href="#cb68-237"></a>Par exemple, on peut superposer la position des points au-dessus d’un boxplot. On va pour cela ajouter un geom_point après avoir ajouté notre geom_boxplot.</span>
+<span id="cb68-240"><a href="#cb68-240"></a><span class="in">```{r}</span></span>
+<span id="cb68-241"><a href="#cb68-241"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-242"><a href="#cb68-242"></a>    <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> departement, <span class="at">y =</span> maison)) <span class="sc">+</span></span>
+<span id="cb68-243"><a href="#cb68-243"></a>    <span class="fu">geom_point</span>(</span>
+<span id="cb68-244"><a href="#cb68-244"></a>        <span class="fu">aes</span>(<span class="at">x =</span> departement, <span class="at">y =</span> maison),</span>
+<span id="cb68-245"><a href="#cb68-245"></a>        <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span></span>
+<span id="cb68-246"><a href="#cb68-246"></a>    )</span>
+<span id="cb68-247"><a href="#cb68-247"></a><span class="in">```</span></span>
+<span id="cb68-248"><a href="#cb68-248"></a>Pour un résultat un peu plus lisible, on peut remplacer <span class="in">`geom_point()`</span> par <span class="in">`geom_jitter()`</span>, qui disperse les points horizontalement et facilite leur visualisation.</span>
+<span id="cb68-251"><a href="#cb68-251"></a><span class="in">```{r}</span></span>
+<span id="cb68-252"><a href="#cb68-252"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-253"><a href="#cb68-253"></a>    <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> departement, <span class="at">y =</span> maison)) <span class="sc">+</span></span>
+<span id="cb68-254"><a href="#cb68-254"></a>    <span class="fu">geom_jitter</span>(</span>
+<span id="cb68-255"><a href="#cb68-255"></a>        <span class="fu">aes</span>(<span class="at">x =</span> departement, <span class="at">y =</span> maison),</span>
+<span id="cb68-256"><a href="#cb68-256"></a>        <span class="at">col =</span> <span class="st">"red"</span>, <span class="at">alpha =</span> <span class="fl">0.2</span></span>
+<span id="cb68-257"><a href="#cb68-257"></a>    )</span>
+<span id="cb68-258"><a href="#cb68-258"></a><span class="in">```</span></span>
+<span id="cb68-259"><a href="#cb68-259"></a>Autre exemple, on peut vouloir ajouter à un nuage de points une ligne de régression linéaire à l’aide de <span class="in">`geom_smooth()`</span>&nbsp;:</span>
+<span id="cb68-262"><a href="#cb68-262"></a><span class="in">```{r}</span></span>
+<span id="cb68-263"><a href="#cb68-263"></a><span class="fu">ggplot</span>(rp, <span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres)) <span class="sc">+</span></span>
+<span id="cb68-264"><a href="#cb68-264"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb68-265"><a href="#cb68-265"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb68-266"><a href="#cb68-266"></a><span class="in">```</span></span>
+<span id="cb68-267"><a href="#cb68-267"></a>Et on peut même superposer une troisième visualisation de la répartition des points dans l’espace avec <span class="in">`geom_density2d()`</span> :</span>
+<span id="cb68-270"><a href="#cb68-270"></a><span class="in">```{r}</span></span>
+<span id="cb68-271"><a href="#cb68-271"></a><span class="fu">ggplot</span>(rp, <span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres)) <span class="sc">+</span></span>
+<span id="cb68-272"><a href="#cb68-272"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb68-273"><a href="#cb68-273"></a>    <span class="fu">geom_density2d</span>(<span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb68-274"><a href="#cb68-274"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>)</span>
+<span id="cb68-275"><a href="#cb68-275"></a><span class="in">```</span></span>
+<span id="cb68-276"><a href="#cb68-276"></a><span class="fu">###  Plusieurs sources de données</span></span>
+<span id="cb68-277"><a href="#cb68-277"></a>On peut associer à différents <span class="in">`geom`</span> des sources de données différentes. Supposons qu’on souhaite afficher sur un nuage de points les noms des communes de plus de $50\,000$ habitants.</span>
+<span id="cb68-278"><a href="#cb68-278"></a></span>
+<span id="cb68-279"><a href="#cb68-279"></a>On commencer par créer un tableau de données contenant uniquement ces communes à l'aide de la fonction <span class="in">`filter()`</span>.</span>
+<span id="cb68-282"><a href="#cb68-282"></a><span class="in">```{r}</span></span>
+<span id="cb68-283"><a href="#cb68-283"></a>com50 <span class="ot">&lt;-</span> <span class="fu">filter</span>(rp, pop_tot <span class="sc">&gt;=</span> <span class="dv">50000</span>)</span>
+<span id="cb68-284"><a href="#cb68-284"></a><span class="in">```</span></span>
+<span id="cb68-285"><a href="#cb68-285"></a>On fait ensuite le nuage de points comme précédemment :</span>
+<span id="cb68-288"><a href="#cb68-288"></a><span class="in">```{r}</span></span>
+<span id="cb68-289"><a href="#cb68-289"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rp, <span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres)) <span class="sc">+</span></span>
+<span id="cb68-290"><a href="#cb68-290"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>)</span>
+<span id="cb68-291"><a href="#cb68-291"></a><span class="in">```</span></span>
+<span id="cb68-292"><a href="#cb68-292"></a>Pour superposer les noms de communes de plus de $50\,000$ habitants, on peut ajouter un <span class="in">`geom_text()`</span>, mais en spécifiant que les données proviennent du nouveau tableau <span class="in">`com50`</span> et non de notre tableau initial <span class="in">`rp`</span>. On le fait en passant un argument <span class="in">`data`</span> spécifique à <span class="in">`geom_text()`</span> :</span>
+<span id="cb68-295"><a href="#cb68-295"></a><span class="in">```{r}</span></span>
+<span id="cb68-296"><a href="#cb68-296"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rp, <span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres)) <span class="sc">+</span></span>
+<span id="cb68-297"><a href="#cb68-297"></a>    <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb68-298"><a href="#cb68-298"></a>    <span class="fu">geom_text</span>(</span>
+<span id="cb68-299"><a href="#cb68-299"></a>        <span class="at">data =</span> com50, <span class="fu">aes</span>(<span class="at">label =</span> commune),</span>
+<span id="cb68-300"><a href="#cb68-300"></a>        <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="dv">1</span></span>
+<span id="cb68-301"><a href="#cb68-301"></a>    )</span>
+<span id="cb68-302"><a href="#cb68-302"></a><span class="in">```</span></span>
+<span id="cb68-303"><a href="#cb68-303"></a>Ainsi, on obtient un graphique avec deux geom superposés, mais dont les données proviennent de deux tableaux différents.</span>
+<span id="cb68-304"><a href="#cb68-304"></a></span>
+<span id="cb68-305"><a href="#cb68-305"></a><span class="fu">## Faceting</span></span>
+<span id="cb68-306"><a href="#cb68-306"></a>Le *faceting* permet d'effectuer plusieurs fois le même graphique selon les valeurs d'une ou plusieurs variables qualitatives.</span>
+<span id="cb68-307"><a href="#cb68-307"></a></span>
+<span id="cb68-308"><a href="#cb68-308"></a>Par exemple, on a vu qu’on peut représenter l’histogramme du pourcentage de cadres dans nos communes avec le code suivant :</span>
+<span id="cb68-311"><a href="#cb68-311"></a><span class="in">```{r}</span></span>
+<span id="cb68-312"><a href="#cb68-312"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rp) <span class="sc">+</span></span>
+<span id="cb68-313"><a href="#cb68-313"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> cadres))</span>
+<span id="cb68-314"><a href="#cb68-314"></a><span class="in">```</span></span>
+<span id="cb68-315"><a href="#cb68-315"></a>On souhaite comparer cette distribution de la part des cadres selon le département, et donc faire un histogramme pour chacun de ces départements. C’est ce que permettent les fonctions <span class="in">`facet_wrap()`</span> et <span class="in">`facet_grid()`</span>.</span>
+<span id="cb68-316"><a href="#cb68-316"></a></span>
+<span id="cb68-317"><a href="#cb68-317"></a><span class="in">`facet_wrap()`</span> prend un paramètre de la forme <span class="in">`vars(variable)`</span>, où variable est le nom de la variable en fonction de laquelle on souhaite faire les différents graphiques. Ceux-ci sont alors affichés les uns à côté des autres et répartis automatiquement dans la page.</span>
+<span id="cb68-320"><a href="#cb68-320"></a><span class="in">```{r}</span></span>
+<span id="cb68-321"><a href="#cb68-321"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rp) <span class="sc">+</span></span>
+<span id="cb68-322"><a href="#cb68-322"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> cadres)) <span class="sc">+</span></span>
+<span id="cb68-323"><a href="#cb68-323"></a>    <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(departement))</span>
+<span id="cb68-324"><a href="#cb68-324"></a><span class="in">```</span></span>
+<span id="cb68-325"><a href="#cb68-325"></a>Pour <span class="in">`facet_grid()`</span>, les graphiques sont disposés selon une grille. La fonction prend alors deux arguments, <span class="in">`rows =`</span> et <span class="in">`cols =`</span>, auxquels on passe les variables à afficher en ligne ou en colonne via la fonction <span class="in">`vars()`</span>.</span>
+<span id="cb68-328"><a href="#cb68-328"></a><span class="in">```{r}</span></span>
+<span id="cb68-329"><a href="#cb68-329"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rp) <span class="sc">+</span></span>
+<span id="cb68-330"><a href="#cb68-330"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> cadres)) <span class="sc">+</span></span>
+<span id="cb68-331"><a href="#cb68-331"></a>    <span class="fu">facet_grid</span>(<span class="at">rows =</span> <span class="fu">vars</span>(departement))</span>
+<span id="cb68-332"><a href="#cb68-332"></a><span class="in">```</span></span>
+<span id="cb68-333"><a href="#cb68-333"></a>Un des intérêts du faceting dans <span class="in">`ggplot2`</span> est que tous les graphiques générés ont les mêmes échelles, ce qui permet une comparaison directe.</span>
+<span id="cb68-334"><a href="#cb68-334"></a></span>
+<span id="cb68-335"><a href="#cb68-335"></a>Enfin, notons qu’on peut même faire du faceting sur plusieurs variables à la fois. On peut par exemple faire des histogrammes de la répartition de la part des cadres pour chaque croisement des variables <span class="in">`departement`</span> et <span class="in">`pop_cl`</span> :</span>
+<span id="cb68-338"><a href="#cb68-338"></a><span class="in">```{r}</span></span>
+<span id="cb68-339"><a href="#cb68-339"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rp) <span class="sc">+</span></span>
+<span id="cb68-340"><a href="#cb68-340"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> cadres)) <span class="sc">+</span></span>
+<span id="cb68-341"><a href="#cb68-341"></a>    <span class="fu">facet_grid</span>(</span>
+<span id="cb68-342"><a href="#cb68-342"></a>        <span class="at">rows =</span> <span class="fu">vars</span>(departement), <span class="at">cols =</span> <span class="fu">vars</span>(pop_cl)</span>
+<span id="cb68-343"><a href="#cb68-343"></a>    )</span>
+<span id="cb68-344"><a href="#cb68-344"></a><span class="in">```</span></span>
+<span id="cb68-345"><a href="#cb68-345"></a>L’histogramme en haut à gauche représente la répartition du pourcentage de cadres parmi les communes de $2\,000$ à $3\,000$ habitants dans les Bouches-du-Rhône, etc.</span>
+<span id="cb68-346"><a href="#cb68-346"></a></span>
+<span id="cb68-347"><a href="#cb68-347"></a><span class="fu">## Scales</span></span>
+<span id="cb68-348"><a href="#cb68-348"></a>On a vu qu’avec <span class="in">`ggplot2`</span> on définit des mappages entre des attributs graphiques (position, taille, couleur, etc.) et des variables d’un tableau de données. Ces mappages sont définis, pour chaque <span class="in">`geom`</span>, via la fonction <span class="in">`aes()`</span>.</span>
+<span id="cb68-349"><a href="#cb68-349"></a></span>
+<span id="cb68-350"><a href="#cb68-350"></a>Les scales dans <span class="in">`ggplot2`</span> permettent de modifier la manière dont un attribut graphique va être relié aux valeurs d’une variable, et dont la légende correspondante va être affichée. Par exemple, pour l’attribut <span class="in">`color`</span>, on pourra définir la palette de couleur utilisée. Pour <span class="in">`size`</span>, les tailles minimales et maximales, etc.</span>
+<span id="cb68-351"><a href="#cb68-351"></a></span>
+<span id="cb68-352"><a href="#cb68-352"></a>Pour modifier une scale existante, on ajoute un nouvel élément à notre objet ggplot2 avec l’opérateur +. Cet élément prend la forme <span class="in">`scale_&lt;attribut&gt;_&lt;type&gt;`</span>.</span>
+<span id="cb68-353"><a href="#cb68-353"></a></span>
+<span id="cb68-354"><a href="#cb68-354"></a>Voyons tout de suite quelques exemples.</span>
+<span id="cb68-355"><a href="#cb68-355"></a></span>
+<span id="cb68-356"><a href="#cb68-356"></a><span class="fu">### scale_size</span></span>
+<span id="cb68-357"><a href="#cb68-357"></a>Si on souhaite modifier les tailles minimales et maximales des objets quand on a effectué un mappage de type <span class="in">`size =`</span>, on peut utiliser la fonction <span class="in">`scale_size()`</span> et son argument <span class="in">`range =`</span>.</span>
+<span id="cb68-360"><a href="#cb68-360"></a><span class="in">```{r}</span></span>
+<span id="cb68-361"><a href="#cb68-361"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-362"><a href="#cb68-362"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres, <span class="at">size =</span> pop_tot)) <span class="sc">+</span></span>
+<span id="cb68-363"><a href="#cb68-363"></a>    <span class="fu">scale_size</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20</span>))</span>
+<span id="cb68-364"><a href="#cb68-364"></a><span class="in">```</span></span>
+<span id="cb68-365"><a href="#cb68-365"></a>ou</span>
+<span id="cb68-368"><a href="#cb68-368"></a><span class="in">```{r}</span></span>
+<span id="cb68-369"><a href="#cb68-369"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-370"><a href="#cb68-370"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres, <span class="at">size =</span> pop_tot)) <span class="sc">+</span></span>
+<span id="cb68-371"><a href="#cb68-371"></a>    <span class="fu">scale_size</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">11</span>))</span>
+<span id="cb68-372"><a href="#cb68-372"></a><span class="in">```</span></span>
+<span id="cb68-373"><a href="#cb68-373"></a>On peut ajouter d’autres paramètres à <span class="in">`scale_size()`</span>. Le premier argument est toujours le titre donné à la légende.</span>
+<span id="cb68-376"><a href="#cb68-376"></a><span class="in">```{r}</span></span>
+<span id="cb68-377"><a href="#cb68-377"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-378"><a href="#cb68-378"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres, <span class="at">size =</span> pop_tot)) <span class="sc">+</span></span>
+<span id="cb68-379"><a href="#cb68-379"></a>    <span class="fu">scale_size</span>(</span>
+<span id="cb68-380"><a href="#cb68-380"></a>        <span class="st">"Population"</span>,</span>
+<span id="cb68-381"><a href="#cb68-381"></a>        <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">15</span>)</span>
+<span id="cb68-382"><a href="#cb68-382"></a>    )</span>
+<span id="cb68-383"><a href="#cb68-383"></a><span class="in">```</span></span>
+<span id="cb68-384"><a href="#cb68-384"></a>On peut aussi définir manuellement les éléments de légende représentés.</span>
+<span id="cb68-387"><a href="#cb68-387"></a><span class="in">```{r}</span></span>
+<span id="cb68-388"><a href="#cb68-388"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-389"><a href="#cb68-389"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres, <span class="at">size =</span> pop_tot)) <span class="sc">+</span></span>
+<span id="cb68-390"><a href="#cb68-390"></a>    <span class="fu">scale_size</span>(</span>
+<span id="cb68-391"><a href="#cb68-391"></a>        <span class="st">"Population"</span>,</span>
+<span id="cb68-392"><a href="#cb68-392"></a>        <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">15</span>),</span>
+<span id="cb68-393"><a href="#cb68-393"></a>        <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1000</span>, <span class="dv">5000</span>, <span class="dv">10000</span>, <span class="dv">50000</span>)</span>
+<span id="cb68-394"><a href="#cb68-394"></a>    )</span>
+<span id="cb68-395"><a href="#cb68-395"></a><span class="in">```</span></span>
+<span id="cb68-396"><a href="#cb68-396"></a><span class="fu">### scale_x, scale_y</span></span>
+<span id="cb68-397"><a href="#cb68-397"></a>Les scales <span class="in">`scale_x_&lt;type&gt;`</span> et <span class="in">`scale_y_&lt;type&gt;`</span> modifient les axes $x$ et $y$ du graphique.</span>
+<span id="cb68-398"><a href="#cb68-398"></a></span>
+<span id="cb68-399"><a href="#cb68-399"></a><span class="in">`scale_x_continuous`</span> et <span class="in">`scale_y_continuous`</span> s’appliquent lorsque la variable $x$ ou $y$ est numérique (quantitative).</span>
+<span id="cb68-400"><a href="#cb68-400"></a></span>
+<span id="cb68-401"><a href="#cb68-401"></a>C’est le cas de notre nuage de points croisant part de cadres et part de diplômés du supérieur.</span>
+<span id="cb68-404"><a href="#cb68-404"></a><span class="in">```{r}</span></span>
+<span id="cb68-405"><a href="#cb68-405"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-406"><a href="#cb68-406"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres))</span>
+<span id="cb68-407"><a href="#cb68-407"></a><span class="in">```</span></span>
+<span id="cb68-408"><a href="#cb68-408"></a>Comme on représente des pourcentages, on peut vouloir forcer les axes $x$ et $y$ à s’étendre des valeurs $0$ à $100$. On peut le faire en ajoutant un élément <span class="in">`scale_x_continuous()`</span> et un élément <span class="in">`scale_y_continuous()`</span>, et en utilisant leur argument <span class="in">`limits =`</span>.</span>
+<span id="cb68-411"><a href="#cb68-411"></a><span class="in">```{r}</span></span>
+<span id="cb68-412"><a href="#cb68-412"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-413"><a href="#cb68-413"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres)) <span class="sc">+</span></span>
+<span id="cb68-414"><a href="#cb68-414"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>)) <span class="sc">+</span></span>
+<span id="cb68-415"><a href="#cb68-415"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>))</span>
+<span id="cb68-416"><a href="#cb68-416"></a><span class="in">```</span></span>
+<span id="cb68-417"><a href="#cb68-417"></a>Là aussi, on peut modifier les étiquettes des axes en indiquant une chaîne de caractères en premier argument.</span>
+<span id="cb68-420"><a href="#cb68-420"></a><span class="in">```{r}</span></span>
+<span id="cb68-421"><a href="#cb68-421"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-422"><a href="#cb68-422"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres)) <span class="sc">+</span></span>
+<span id="cb68-423"><a href="#cb68-423"></a>    <span class="fu">scale_x_continuous</span>(<span class="st">"Part des diplômés du supérieur (%)"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>)) <span class="sc">+</span></span>
+<span id="cb68-424"><a href="#cb68-424"></a>    <span class="fu">scale_y_continuous</span>(<span class="st">"Part des cadres (%)"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>))</span>
+<span id="cb68-425"><a href="#cb68-425"></a><span class="in">```</span></span>
+<span id="cb68-426"><a href="#cb68-426"></a>On peut utiliser <span class="in">`scale_x_log10()`</span> et <span class="in">`scale_y_log10()`</span> pour passer un axe à une échelle logarithmique.</span>
+<span id="cb68-429"><a href="#cb68-429"></a><span class="in">```{r}</span></span>
+<span id="cb68-430"><a href="#cb68-430"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-431"><a href="#cb68-431"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres)) <span class="sc">+</span></span>
+<span id="cb68-432"><a href="#cb68-432"></a>  <span class="fu">scale_x_log10</span>(<span class="st">"Pourcentage de diplômés du supérieur"</span>) <span class="sc">+</span></span>
+<span id="cb68-433"><a href="#cb68-433"></a>  <span class="fu">scale_y_log10</span>(<span class="st">"Pourcentage de cadres"</span>)</span>
+<span id="cb68-434"><a href="#cb68-434"></a><span class="in">```</span></span>
+<span id="cb68-435"><a href="#cb68-435"></a><span class="in">`scale_x_discrete()`</span> et <span class="in">`scale_y_discrete()`</span> s’appliquent lorsque l’axe correspond à une variable discrète (qualitative). C’est le cas par exemple de l’axe des $x$ dans un diagramme en barres.</span>
+<span id="cb68-438"><a href="#cb68-438"></a><span class="in">```{r}</span></span>
+<span id="cb68-439"><a href="#cb68-439"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-440"><a href="#cb68-440"></a>    <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> departement)) <span class="sc">+</span></span>
+<span id="cb68-441"><a href="#cb68-441"></a>    <span class="fu">scale_x_discrete</span>(<span class="st">"Département"</span>)</span>
+<span id="cb68-442"><a href="#cb68-442"></a><span class="in">```</span></span>
+<span id="cb68-443"><a href="#cb68-443"></a>L’argument <span class="in">`limits =`</span> de <span class="in">`scale_x_discrete()`</span> permet d’indiquer quelles valeurs sont affichées et dans quel ordre.</span>
+<span id="cb68-446"><a href="#cb68-446"></a><span class="in">```{r}</span></span>
+<span id="cb68-447"><a href="#cb68-447"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-448"><a href="#cb68-448"></a>    <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> departement)) <span class="sc">+</span></span>
+<span id="cb68-449"><a href="#cb68-449"></a>    <span class="fu">scale_x_discrete</span>(<span class="st">"Département"</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="st">"Oise"</span>, <span class="st">"Lozère"</span>, <span class="st">"Rhône"</span>))</span>
+<span id="cb68-450"><a href="#cb68-450"></a><span class="in">```</span></span>
+<span id="cb68-451"><a href="#cb68-451"></a><span class="fu">### scale_color, scale_fill</span></span>
+<span id="cb68-452"><a href="#cb68-452"></a>Ces scales permettent, entre autre, de modifier les palettes de couleur utilisées pour le dessin (<span class="in">`color`</span>) ou le remplissage (<span class="in">`fill`</span>) des éléments graphiques. Dans ce qui suit, pour chaque fonction <span class="in">`scale_color()`</span> présentée il existe une fonction <span class="in">`scale_fill()`</span> équivalente et avec en général les mêmes arguments.</span>
+<span id="cb68-453"><a href="#cb68-453"></a></span>
+<span id="cb68-454"><a href="#cb68-454"></a><span class="fu">#### Variables quantitatives</span></span>
+<span id="cb68-455"><a href="#cb68-455"></a>Le graphique suivant colore les points selon la valeur d’une variable numérique quantitative (ici la part de chômeurs) :</span>
+<span id="cb68-458"><a href="#cb68-458"></a><span class="in">```{r}</span></span>
+<span id="cb68-459"><a href="#cb68-459"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-460"><a href="#cb68-460"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres, <span class="at">color =</span> chom))</span>
+<span id="cb68-461"><a href="#cb68-461"></a><span class="in">```</span></span>
+<span id="cb68-462"><a href="#cb68-462"></a>On peut modifier les couleurs utilisées avec les arguments <span class="in">`low =`</span> et <span class="in">`high =`</span> de la fonction <span class="in">`scale_color_gradient()`</span>. Ici on souhaite que la valeur la plus faible soit blanche, et la plus élevée rouge :</span>
+<span id="cb68-465"><a href="#cb68-465"></a><span class="in">```{r}</span></span>
+<span id="cb68-466"><a href="#cb68-466"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-467"><a href="#cb68-467"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres, <span class="at">color =</span> chom)) <span class="sc">+</span></span>
+<span id="cb68-468"><a href="#cb68-468"></a>    <span class="fu">scale_color_gradient</span>(<span class="st">"Taux de chômage"</span>, <span class="at">low =</span> <span class="st">"green"</span>, <span class="at">high =</span> <span class="st">"red"</span>)</span>
+<span id="cb68-469"><a href="#cb68-469"></a><span class="in">```</span></span>
+<span id="cb68-470"><a href="#cb68-470"></a>On peut aussi utiliser des palettes prédéfinies. L’une des plus populaires est la palette viridis, accessible en utilisant scale_color_viridis_c :</span>
+<span id="cb68-473"><a href="#cb68-473"></a><span class="in">```{r}</span></span>
+<span id="cb68-474"><a href="#cb68-474"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-475"><a href="#cb68-475"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres, <span class="at">color =</span> chom)) <span class="sc">+</span></span>
+<span id="cb68-476"><a href="#cb68-476"></a>    <span class="fu">scale_color_viridis_c</span>(<span class="st">"Taux de chômage"</span>)</span>
+<span id="cb68-477"><a href="#cb68-477"></a><span class="in">```</span></span>
+<span id="cb68-478"><a href="#cb68-478"></a></span>
+<span id="cb68-479"><a href="#cb68-479"></a><span class="fu">#### Variables qualitatives</span></span>
+<span id="cb68-480"><a href="#cb68-480"></a>Si on a fait un mappage avec une variable discrète (qualitative), comme ici avec le département :</span>
+<span id="cb68-483"><a href="#cb68-483"></a><span class="in">```{r}</span></span>
+<span id="cb68-484"><a href="#cb68-484"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-485"><a href="#cb68-485"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres, <span class="at">color =</span> departement))</span>
+<span id="cb68-486"><a href="#cb68-486"></a><span class="in">```</span></span>
+<span id="cb68-487"><a href="#cb68-487"></a>Une première possibilité est de modifier la palette manuellement avec <span class="in">`scale_color_manual()`</span> et son argument <span class="in">`values =`</span> :</span>
+<span id="cb68-490"><a href="#cb68-490"></a><span class="in">```{r}</span></span>
+<span id="cb68-491"><a href="#cb68-491"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-492"><a href="#cb68-492"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres, <span class="at">color =</span> departement)) <span class="sc">+</span></span>
+<span id="cb68-493"><a href="#cb68-493"></a>    <span class="fu">scale_color_manual</span>(</span>
+<span id="cb68-494"><a href="#cb68-494"></a>        <span class="st">"Département"</span>,</span>
+<span id="cb68-495"><a href="#cb68-495"></a>        <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"#FFDD45"</span>, <span class="fu">rgb</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.6</span>), <span class="st">"darkgreen"</span>, <span class="st">"grey80"</span>)</span>
+<span id="cb68-496"><a href="#cb68-496"></a>    )</span>
+<span id="cb68-497"><a href="#cb68-497"></a><span class="in">```</span></span>
+<span id="cb68-498"><a href="#cb68-498"></a>:::{.callout-note collapse=false appearance='default' icon=true}</span>
+<span id="cb68-499"><a href="#cb68-499"></a></span>
+<span id="cb68-500"><a href="#cb68-500"></a>L’exemple précédent montre plusieurs manières de définir manuellement des couleurs dans R :</span>
+<span id="cb68-501"><a href="#cb68-501"></a></span>
+<span id="cb68-502"><a href="#cb68-502"></a>Par code hexadécimal : "#FFDD45"</span>
+<span id="cb68-503"><a href="#cb68-503"></a>En utilisant la fonction rgb et en spécifiant les composantes rouge, vert, bleu par des nombres entre 0 et 1 (et optionnellement une quatrième composante d’opacité, toujours entre 0 et 1) : rgb(0.1,0.2,0.6)</span>
+<span id="cb68-504"><a href="#cb68-504"></a>En donnant un nom de couleur : "red", "darkgreen"</span>
+<span id="cb68-505"><a href="#cb68-505"></a>La liste complète des noms de couleurs connus par R peut être obtenu avec la fonction colors(). Vous pouvez aussi retrouver en ligne <span class="co">[</span><span class="ot">la liste des couleurs et leur nom</span><span class="co">](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)</span> (PDF).</span>
+<span id="cb68-506"><a href="#cb68-506"></a>:::</span>
+<span id="cb68-507"><a href="#cb68-507"></a></span>
+<span id="cb68-508"><a href="#cb68-508"></a>Il est cependant souvent plus pertinent d’utiliser des palettes prédéfinies. Celles du site <span class="co">[</span><span class="ot">Colorbrewer</span><span class="co">](http://colorbrewer2.org/)</span>, initialement prévues pour la cartographie, permettent une bonne lisibilité, et peuvent être adaptées pour certains types de daltonisme.</span>
+<span id="cb68-509"><a href="#cb68-509"></a></span>
+<span id="cb68-510"><a href="#cb68-510"></a>Ces palettes s’utilisent via la fonction <span class="in">`scale_color_brewer()`</span>, en passant le nom de la palette via l’argument <span class="in">`palette =`</span>. Par exemple, si on veut utiliser la palette <span class="in">`Set1`</span> :</span>
+<span id="cb68-513"><a href="#cb68-513"></a><span class="in">```{r}</span></span>
+<span id="cb68-514"><a href="#cb68-514"></a><span class="fu">ggplot</span>(rp) <span class="sc">+</span></span>
+<span id="cb68-515"><a href="#cb68-515"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> dipl_sup, <span class="at">y =</span> cadres, <span class="at">color =</span> departement)) <span class="sc">+</span></span>
+<span id="cb68-516"><a href="#cb68-516"></a>    <span class="fu">scale_color_brewer</span>(<span class="st">"Département"</span>, <span class="at">palette =</span> <span class="st">"Set1"</span>)</span>
+<span id="cb68-517"><a href="#cb68-517"></a><span class="in">```</span></span>
+<span id="cb68-518"><a href="#cb68-518"></a>Le graphique suivant, accessible via la fonction <span class="in">`display.brewer.all()`</span>, montre la liste de toutes les palettes disponibles via <span class="in">`scale_color_brewer()`</span>. Elles sont réparties en trois familles : les palettes séquentielles (pour une variable quantitative), les palettes qualitatives, et les palettes divergentes (typiquement pour une variable quantitative avec une valeur de référence, souvent $0$, et deux palettes continues distinctes pour les valeurs inférieures et pour les valeurs supérieures).</span>
+<span id="cb68-519"><a href="#cb68-519"></a><span class="in">```</span></span>
+<span id="cb68-520"><a href="#cb68-520"></a><span class="in">RColorBrewer::display.brewer.all()</span></span>
+<span id="cb68-521"><a href="#cb68-521"></a><span class="in">```</span></span>
+<span id="cb68-522"><a href="#cb68-522"></a><span class="al">![liste](Rplot.png)</span></span>
+<span id="cb68-523"><a href="#cb68-523"></a><span class="fu">## Thèmes</span></span>
+<span id="cb68-524"><a href="#cb68-524"></a>Les thèmes permettent de contrôler l’affichage de tous les éléments du graphique qui ne sont pas reliés aux données : titres, grilles, fonds, etc.</span>
+<span id="cb68-525"><a href="#cb68-525"></a></span>
+<span id="cb68-526"><a href="#cb68-526"></a>Il existe un certain nombre de thèmes préexistants, par exemple le thème <span class="in">`theme_bw`</span> :</span>
+<span id="cb68-529"><a href="#cb68-529"></a><span class="in">```{r}</span></span>
+<span id="cb68-530"><a href="#cb68-530"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rp) <span class="sc">+</span></span>
+<span id="cb68-531"><a href="#cb68-531"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> cadres)) <span class="sc">+</span></span>
+<span id="cb68-532"><a href="#cb68-532"></a>    <span class="fu">theme_bw</span>()</span>
+<span id="cb68-533"><a href="#cb68-533"></a><span class="in">```</span></span>
+<span id="cb68-534"><a href="#cb68-534"></a>Ou le thème <span class="in">`theme_minimal`</span> :</span>
+<span id="cb68-537"><a href="#cb68-537"></a><span class="in">```{r}</span></span>
+<span id="cb68-538"><a href="#cb68-538"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rp) <span class="sc">+</span></span>
+<span id="cb68-539"><a href="#cb68-539"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> cadres)) <span class="sc">+</span></span>
+<span id="cb68-540"><a href="#cb68-540"></a>    <span class="fu">theme_minimal</span>()</span>
+<span id="cb68-541"><a href="#cb68-541"></a><span class="in">```</span></span>
+<span id="cb68-542"><a href="#cb68-542"></a>On peut cependant modifier manuellement les différents éléments. Par exemple, les fonctions <span class="in">`ggtitle()`</span>, <span class="in">`xlab()`</span> et <span class="in">`ylab()`</span> permettent d’ajouter ou de modifier le titre du graphique, ainsi que les étiquettes des axes $x$ et $y$&nbsp;:</span>
+<span id="cb68-545"><a href="#cb68-545"></a><span class="in">```{r}</span></span>
+<span id="cb68-546"><a href="#cb68-546"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rp) <span class="sc">+</span></span>
+<span id="cb68-547"><a href="#cb68-547"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> cadres)) <span class="sc">+</span></span>
+<span id="cb68-548"><a href="#cb68-548"></a>    <span class="fu">ggtitle</span>(<span class="st">"Un bien bel histogramme"</span>) <span class="sc">+</span></span>
+<span id="cb68-549"><a href="#cb68-549"></a>    <span class="fu">xlab</span>(<span class="st">"Pourcentage de cadres"</span>) <span class="sc">+</span></span>
+<span id="cb68-550"><a href="#cb68-550"></a>    <span class="fu">ylab</span>(<span class="st">"Effectif"</span>)</span>
+<span id="cb68-551"><a href="#cb68-551"></a><span class="in">```</span></span>
+<span id="cb68-552"><a href="#cb68-552"></a>Les éléments personnalisables étant nombreux, un bon moyen de se familiariser avec tous les arguments est sans doute l’addin RStudio <span class="in">`ggThemeAssist`</span>. Pour l’utiliser il suffit d’installer le package du même nom, de sélectionner dans son script RStudio le code correspondant à un graphique ggplot2, puis d’aller dans le menu Addins et choisir ggplot Theme Assistant. Une interface graphique s’affiche alors permettant de modifier les différents éléments. Si on clique sur Done, le code sélectionné dans le script est alors automatiquement mis à jour pour correspondre aux modifications effectuées.</span>
+<span id="cb68-553"><a href="#cb68-553"></a></span>
+<span id="cb68-554"><a href="#cb68-554"></a>Ce qui permet d’obtenir très facilement des résultats extrêmement moches :</span>
+<span id="cb68-557"><a href="#cb68-557"></a><span class="in">```{r}</span></span>
+<span id="cb68-558"><a href="#cb68-558"></a><span class="fu">ggplot</span>(<span class="at">data =</span> rp) <span class="sc">+</span></span>
+<span id="cb68-559"><a href="#cb68-559"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> cadres)) <span class="sc">+</span></span>
+<span id="cb68-560"><a href="#cb68-560"></a>    <span class="fu">theme</span>(</span>
+<span id="cb68-561"><a href="#cb68-561"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(</span>
+<span id="cb68-562"><a href="#cb68-562"></a>            <span class="at">colour =</span> <span class="st">"dodgerblue"</span>,</span>
+<span id="cb68-563"><a href="#cb68-563"></a>            <span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">linetype =</span> <span class="st">"dotdash"</span></span>
+<span id="cb68-564"><a href="#cb68-564"></a>        ), <span class="at">axis.title =</span> <span class="fu">element_text</span>(</span>
+<span id="cb68-565"><a href="#cb68-565"></a>            <span class="at">family =</span> <span class="st">"serif"</span>,</span>
+<span id="cb68-566"><a href="#cb68-566"></a>            <span class="at">size =</span> <span class="dv">18</span>, <span class="at">face =</span> <span class="st">"italic"</span>, <span class="at">colour =</span> <span class="st">"white"</span></span>
+<span id="cb68-567"><a href="#cb68-567"></a>        ),</span>
+<span id="cb68-568"><a href="#cb68-568"></a>        <span class="at">axis.text =</span> <span class="fu">element_text</span>(</span>
+<span id="cb68-569"><a href="#cb68-569"></a>            <span class="at">family =</span> <span class="st">"serif"</span>,</span>
+<span id="cb68-570"><a href="#cb68-570"></a>            <span class="at">size =</span> <span class="dv">15</span>, <span class="at">face =</span> <span class="st">"bold"</span></span>
+<span id="cb68-571"><a href="#cb68-571"></a>        ), <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"mono"</span>),</span>
+<span id="cb68-572"><a href="#cb68-572"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"serif"</span>),</span>
+<span id="cb68-573"><a href="#cb68-573"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"serif"</span>),</span>
+<span id="cb68-574"><a href="#cb68-574"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"serif"</span>),</span>
+<span id="cb68-575"><a href="#cb68-575"></a>        <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"coral"</span>),</span>
+<span id="cb68-576"><a href="#cb68-576"></a>        <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"blueviolet"</span>)</span>
+<span id="cb68-577"><a href="#cb68-577"></a>    )</span>
+<span id="cb68-578"><a href="#cb68-578"></a><span class="in">```</span></span>
+<span id="cb68-579"><a href="#cb68-579"></a></span>
+<span id="cb68-580"><a href="#cb68-580"></a><span class="fu">## L'extension esquisse</span></span>
+<span id="cb68-581"><a href="#cb68-581"></a><span class="co">[</span><span class="ot">Voir ici</span><span class="co">](https://juba.github.io/tidyverse/08-ggplot2.html#ladd-in-esquisse)</span>^<span class="co">[</span><span class="ot">Je suis définitivement paresseux&nbsp;!</span><span class="co">]</span></span>
+<span id="cb68-582"><a href="#cb68-582"></a></span>
+<span id="cb68-583"><a href="#cb68-583"></a></span>
+<span id="cb68-584"><a href="#cb68-584"></a></span>
+</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

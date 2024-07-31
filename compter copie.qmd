@@ -195,7 +195,7 @@ for (i in 1:150) {
   else  {
     # si le test du jour a raté
     # afficher le tirage incriminé
-    print("HORREUR, Y A ERREUR !!!!!!!!!")
+    print("HORREUR, ERREUR")
     print(a)
     # et on arrête tout
     break
@@ -261,95 +261,73 @@ summary(eto$So_TO)
 ```
 
 ```{r}
-head(num)
+num
+```
+
+Puisqu'il faudra (re)classer les données après chaque tirage, autant faire des fonctions pour le classement :
+
+```{r}
+classer_num <- function() {
+  tibble(numero = 1:50, 
+         So_MA = round(percent_rank(num$So_MA) * 100),
+         So_VE = round(percent_rank(num$So_VE) * 100),
+#         So_TO = round(cume_dist(num$So_TO) * 100),
+         # Ec_MA = round(cume_dist(num$Ec_MA) * 100),
+         # Ec_VE = round(cume_dist(num$Ec_VE) * 100),
+         # Ec_TO = round(cume_dist(num$Ec_TO) * 100)
+         )
+}
+
+classer_eto <- function() {
+  tibble(etoile = 1:12, 
+         So_MA = round(percent_rank(eto$So_MA) * 100),
+         So_VE = round(percent_rank(eto$So_VE) * 100),
+#         So_TO = round(cume_dist(eto$So_TO) * 100),
+         # Ec_MA = round(cume_dist(eto$Ec_MA) * 100),
+         # Ec_VE = round(cume_dist(eto$Ec_VE) * 100),
+         # Ec_TO = round(cume_dist(eto$Ec_TO) * 100)
+         )
+}
+```
+
+```{r}
+C_num <- classer_num()
+print(C_num, n = 5)
+```
+
+```{r}
+C_eto <- classer_eto()
+print(C_eto)
 ```
 
 
-
-
-
 ```{r}
-num_long <- 
-  num |> 
-  select(numero:So_VE) |> 
-  pivot_longer(cols = c(So_MA, So_VE),
-               values_to = "sorties",
-               names_to = "jour")
+C_num_long <- 
+  pivot_longer(C_num,
+               cols = !numero,
+               values_to = "clas",
+               names_to = "type")
 
-eto_long <- 
-  eto |> 
-  select(etoile:So_VE) |> 
-  pivot_longer(cols = So_MA:So_VE,
-               values_to = "sorties",
-               names_to = "jour")
+C_eto_long <- 
+  pivot_longer(C_eto,
+               cols = !etoile,
+               values_to = "clas",
+               names_to = "type")
 ```
 
 ```{r}
-num_long
-eto_long
+C_num_long
+C_eto_long
 ```
 
 Pas très explicite. Faut essayer de faire mieux :
 
-
-
 ```{r}
-ggplot(eto_long) +
-  aes(x = factor(etoile), 
-      y = sorties, 
-      fill = jour) +
-  geom_bar(stat = "summary", 
-           fun = "sum",
-           position = "dodge2") +
-  labs(
-    x = "étoiles",
-    y = "nombre de sorties",
-    title = "Nombres de sorties par jour des étoiles"
-  )
-```
-À vue de nez, il n'y a que la $4$ et la $11$ qui soient au même nombre de sorties. Il ne semble pas y avoir de règle pour les autres étoiles.
+ggplot(C_eto_long) +
+  aes(x = factor(etoile), y = 
+        clas, fill = type) +
+  geom_col(position = "dodge")
 
-Je vais partager le tableau des numéros en deux pour que ce soit plus visible.
-```{r}
-num_long1 <- 
-  num_long |> 
-  slice(1:50)
-num_long2 <- 
-  num_long |> 
-  slice(51:100)
 ```
-
-Voyons !
-
-```{r}
-ggplot(num_long1) +
-  aes(x = factor(numero), 
-      y = sorties, 
-      fill = jour) +
-  geom_bar(stat = "summary", 
-           fun = "sum",
-           position = "dodge2") +
-  labs(
-    x = "numéros de 1 à 25",
-    y = "nombre de sorties",
-    title = "Nombres de sorties par jour des numéros de 1 à 25"
-  )
-```
-
-```{r}
-ggplot(num_long2) +
-  aes(x = factor(numero), 
-      y = sorties, 
-      fill = jour) +
-  geom_bar(stat = "summary", 
-           fun = "sum",
-           position = "dodge2") +
-  labs(
-    x = "numéros de 26 à 50",
-    y = "nombre de sorties",
-    title = "Nombres de sorties par jour des numéros de 26 à 50"
-  )
-```
-Là aussi, à part les $11$, $26$ et $48$^[Ces affirmations sont exactes le 30-07-2024], il y a disparité…
 
 

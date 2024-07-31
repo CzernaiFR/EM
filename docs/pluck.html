@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./attr_getter.html" rel="next">
+<link href="./mod_pluck.html" rel="next">
 <link href="./references.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -207,14 +207,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./attr_getter.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">attr_getter</span></span></a>
+  <a href="./mod_pluck.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Modifier un emplacement de <code>pluck()</code></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./NOTES.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Notes personnelles</span></span></a>
+  <a href="./attr_getter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">attr_getter</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cume_dist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">cume_dist()</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ggplot2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">ggplot2</span></span></a>
   </div>
 </li>
       </ul>
@@ -231,7 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chloe-001.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Chloé</span></span></a>
+ <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">Chloé</span></span></a>
   </div>
 </li>
       </ul>
@@ -240,12 +252,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
     </ul>
     </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table des matières</h2>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Menu de cette page</h2>
    
   <ul>
   <li><a href="#usage" id="toc-usage" class="nav-link active" data-scroll-target="#usage"><span class="header-section-number">B.1</span> Usage</a></li>
@@ -257,13 +265,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#exemples" id="toc-exemples" class="nav-link" data-scroll-target="#exemples"><span class="header-section-number">B.4</span> Exemples</a></li>
   </ul>
 </nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Annexes</li><li class="breadcrumb-item"><a href="./pluck.html">Aide</a></li><li class="breadcrumb-item"><a href="./pluck.html"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">pluck</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Annexe B — pluck</h1>
+<div class="quarto-title-block"><div><h1 class="title">Annexe B — pluck</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Montrer tout le code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Cacher tout le code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Voir les sources</a></li></ul></div></div>
 </div>
 
 
@@ -300,9 +312,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p><a href="https://purrr.tidyverse.org/reference/pluck.html">Source</a></p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="in">```{r}</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="in">library(tidyverse)</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -364,12 +379,15 @@ Une valeur <code>.x</code> à remplacer à l’emplacement de <code>pluck</code>
 <h2 data-number="B.4" class="anchored" data-anchor-id="exemples"><span class="header-section-number">B.4</span> Exemples</h2>
 <p>Créons une <code>list</code> de données imbriquées&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="in">```{r}</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="in">obj1 &lt;- list("a", list(1, elt = "foo"))</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="in">obj2 &lt;- list("b", list(2, elt = "bar"))</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a><span class="in">x &lt;- list(obj1, obj2)</span></span>
 <span id="cb4-5"><a href="#cb4-5"></a><span class="in">x</span></span>
 <span id="cb4-6"><a href="#cb4-6"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [[1]][[1]]
@@ -399,9 +417,12 @@ Une valeur <code>.x</code> à remplacer à l’emplacement de <code>pluck</code>
 <p><code>pluck()</code> fournit un moyen de récupérer des objets à partir de ces données imbriquées en utilisant une combinaison de positions numériques, vectorielles ou de noms de liste et fonctions d’accesseur.</p>
 <p>Les positions numériques sont indexées dans la liste par position, tout comme <code>[[</code>&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="in">```{r}</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="in">pluck(x, 1)</span></span>
 <span id="cb6-3"><a href="#cb6-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "a"
@@ -416,9 +437,12 @@ Une valeur <code>.x</code> à remplacer à l’emplacement de <code>pluck</code>
 </div>
 <p>Pareil à&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="in">```{r}</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="in">x[[1]]</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "a"
@@ -433,9 +457,12 @@ Une valeur <code>.x</code> à remplacer à l’emplacement de <code>pluck</code>
 </div>
 <p>Indexé depuis la fin</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="in">```{r}</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="in">pluck(x, -1)</span></span>
 <span id="cb10-3"><a href="#cb10-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "b"
@@ -450,9 +477,12 @@ Une valeur <code>.x</code> à remplacer à l’emplacement de <code>pluck</code>
 </div>
 <p>Pareil à&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1"></a><span class="in">```{r}</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a><span class="in">x[[2]]</span></span>
 <span id="cb12-3"><a href="#cb12-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "b"
@@ -466,9 +496,12 @@ Une valeur <code>.x</code> à remplacer à l’emplacement de <code>pluck</code>
 </div>
 </div>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1"></a><span class="in">```{r}</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a><span class="in">pluck(x, 1, 2)</span></span>
 <span id="cb14-3"><a href="#cb14-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] 1
@@ -479,9 +512,12 @@ $elt
 </div>
 <p>Pareil à&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1"></a><span class="in">```{r}</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="in">x[[1]][[2]]</span></span>
 <span id="cb16-3"><a href="#cb16-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] 1
@@ -492,54 +528,72 @@ $elt
 </div>
 <p>Fournissez des noms à indexer dans des <em>vecteurs nommés</em>&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1"></a><span class="in">```{r}</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a><span class="in">pluck(x, 1, 2, "elt")</span></span>
 <span id="cb18-3"><a href="#cb18-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "foo"</code></pre>
 </div>
 </div>
 <p>Pareil à&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1"></a><span class="in">```{r}</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a><span class="in">x[[1]][[2]][["elt"]]</span></span>
 <span id="cb20-3"><a href="#cb20-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "foo"</code></pre>
 </div>
 </div>
 <p>Par défaut, pluck() renvoie systématiquement «&nbsp;NULL&nbsp;» lorsqu’un élément n’existe pas&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1"></a><span class="in">```{r}</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a><span class="in">pluck(x, 10)</span></span>
 <span id="cb22-3"><a href="#cb22-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>NULL</code></pre>
 </div>
 </div>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1"></a><span class="in">```{r}</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="in">try(x[[10]])</span></span>
 <span id="cb24-3"><a href="#cb24-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Error in x[[10]] : subscript out of bounds</code></pre>
 </div>
 </div>
 <p>Vous pouvez également fournir une valeur par défaut pour les éléments non existants&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1"></a><span class="in">```{r}</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="in">pluck(x, 10, .default = NA)</span></span>
 <span id="cb26-3"><a href="#cb26-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] NA</code></pre>
 </div>
 </div>
 <p>Les fonctions <code>map()</code> utilisent <code>pluck()</code> par défaut pour récupérer plusieurs valeurs d’une liste&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1"></a><span class="in">```{r}</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a><span class="in">map_chr(x, 1)</span></span>
 <span id="cb28-3"><a href="#cb28-3"></a><span class="in">map_int(x, c(2, 1))</span></span>
 <span id="cb28-4"><a href="#cb28-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "a" "b"
 [1] 1 2</code></pre>
@@ -547,11 +601,14 @@ $elt
 </div>
 <p><code>pluck()</code> supporte aussi les fonctions d’accessions&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1"></a><span class="in">```{r}</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a><span class="in">my_element &lt;- function(x) x[[2]]$elt</span></span>
 <span id="cb30-3"><a href="#cb30-3"></a><span class="in">pluck(x, 1, my_element)</span></span>
 <span id="cb30-4"><a href="#cb30-4"></a><span class="in">pluck(x, 2, my_element)</span></span>
 <span id="cb30-5"><a href="#cb30-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "foo"
 [1] "bar"</code></pre>
@@ -559,24 +616,32 @@ $elt
 </div>
 <p>Même pour cette structure de données simple, cette forme est plus lisible que la forme alternative car elle nécessite de lire à la fois de droite à gauche et de gauche à droite dans différentes parties de l’expression&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1"></a><span class="in">```{r}</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a><span class="in">my_element(x[[1]])</span></span>
 <span id="cb32-3"><a href="#cb32-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "foo"</code></pre>
 </div>
 </div>
 <p>Si vous avez une liste d’accesseurs<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, vous pouvez les joindre avec <code>!!!</code>&nbsp;:</p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;à mon humble avis, on cotoie la sorcellerie&nbsp;!!!</p></div></div><div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb34-1"><a href="#cb34-1"></a><span class="in">```{r}</span></span>
 <span id="cb34-2"><a href="#cb34-2"></a><span class="in">idx &lt;- list(1, my_element)</span></span>
 <span id="cb34-3"><a href="#cb34-3"></a><span class="in">pluck(x, !!!idx)</span></span>
 <span id="cb34-4"><a href="#cb34-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "foo"</code></pre>
 </div>
 </div>
 
+
+<!-- -->
 
 </section>
 
@@ -805,6 +870,57 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1142,11 +1258,157 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./attr_getter.html" class="pagination-link" aria-label="attr_getter">
-        <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">attr_getter</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./mod_pluck.html" class="pagination-link" aria-label="Modifier un emplacement de `pluck()`">
+        <span class="nav-page-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Modifier un emplacement de <code>pluck()</code></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
-</nav>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb36" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb36-1"><a href="#cb36-1"></a><span class="co">---</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a><span class="an">author:</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a><span class="co">    - name: "Roger MARTIN"</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a><span class="co">      email: Roger57que@free.fr</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb36-6"><a href="#cb36-6"></a><span class="co">  echo: fenced</span></span>
+<span id="cb36-7"><a href="#cb36-7"></a><span class="an">date:</span><span class="co"> 2024-07-13</span></span>
+<span id="cb36-8"><a href="#cb36-8"></a><span class="an">title:</span><span class="co"> pluck</span></span>
+<span id="cb36-9"><a href="#cb36-9"></a><span class="co">---</span></span>
+<span id="cb36-10"><a href="#cb36-10"></a></span>
+<span id="cb36-11"><a href="#cb36-11"></a><span class="co">[</span><span class="ot">Source</span><span class="co">](https://purrr.tidyverse.org/reference/pluck.html)</span></span>
+<span id="cb36-12"><a href="#cb36-12"></a></span>
+<span id="cb36-15"><a href="#cb36-15"></a><span class="in">```{r}</span></span>
+<span id="cb36-16"><a href="#cb36-16"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb36-17"><a href="#cb36-17"></a><span class="in">```</span></span>
+<span id="cb36-18"><a href="#cb36-18"></a></span>
+<span id="cb36-19"><a href="#cb36-19"></a></span>
+<span id="cb36-20"><a href="#cb36-20"></a><span class="in">`pluck()`</span> permet d' obtenir ou de définir en toute sécurité un élément au plus profond d'une structure de données imbriquée.</span>
+<span id="cb36-21"><a href="#cb36-21"></a></span>
+<span id="cb36-22"><a href="#cb36-22"></a><span class="in">`pluck()`</span> implémente une forme généralisée de <span class="in">`[[`</span> qui vous permet d'indexer en profondeur et de manière flexible les structures de données. Il réussit toujours, en renvoyant <span class="in">`.default`</span> si l'index auquel vous essayez d'accéder n'existe pas ou est <span class="in">`NULL`</span>.</span>
+<span id="cb36-23"><a href="#cb36-23"></a></span>
+<span id="cb36-24"><a href="#cb36-24"></a><span class="in">`pluck() &lt;- ()`</span> est l'équivalent d'une affectation, vous permettant de modifier un objet en profondeur dans une structure de données imbriquée.</span>
+<span id="cb36-25"><a href="#cb36-25"></a></span>
+<span id="cb36-26"><a href="#cb36-26"></a><span class="in">`pluck_exists()`</span> vous indique si un objet existe ou non en utilisant les mêmes règles que <span class="in">`pluck`</span> (c'est-à-dire qu'un élément <span class="in">`NULL`</span> est équivalent à un élément absent).</span>
+<span id="cb36-27"><a href="#cb36-27"></a></span>
+<span id="cb36-28"><a href="#cb36-28"></a></span>
+<span id="cb36-29"><a href="#cb36-29"></a><span class="fu">## Usage</span></span>
+<span id="cb36-30"><a href="#cb36-30"></a><span class="in">```</span></span>
+<span id="cb36-31"><a href="#cb36-31"></a><span class="in">pluck(.x, ..., .default = NULL)</span></span>
+<span id="cb36-32"><a href="#cb36-32"></a></span>
+<span id="cb36-33"><a href="#cb36-33"></a><span class="in">pluck(.x, ...) &lt;- value</span></span>
+<span id="cb36-34"><a href="#cb36-34"></a></span>
+<span id="cb36-35"><a href="#cb36-35"></a><span class="in">pluck_exists(.x, ...)</span></span>
+<span id="cb36-36"><a href="#cb36-36"></a><span class="in">```</span></span>
+<span id="cb36-37"><a href="#cb36-37"></a></span>
+<span id="cb36-38"><a href="#cb36-38"></a><span class="fu">## Arguments</span></span>
+<span id="cb36-39"><a href="#cb36-39"></a></span>
+<span id="cb36-40"><a href="#cb36-40"></a><span class="in">`.x, x`</span></span>
+<span id="cb36-41"><a href="#cb36-41"></a>: Un vecteur ou un environnement</span>
+<span id="cb36-42"><a href="#cb36-42"></a></span>
+<span id="cb36-43"><a href="#cb36-43"></a><span class="in">`...`</span></span>
+<span id="cb36-44"><a href="#cb36-44"></a>: Liste d'accesseurs pour l'indexation dans l'objet. Il peut s'agir d'un entier positif, d'un entier négatif (pour indexer à partir de la droite), d'une chaîne (pour indexer dans les noms) ou d'une fonction d'accesseur (à l'exception des variantes d'affectation qui ne prennent en charge que les noms et les positions). Si l'objet indexé est un objet S4, l'accès à celui-ci par son nom renverra l'emplacement correspondant. Les points dynamiques sont pris en charge. En particulier, si vos accesseurs sont stockés dans une liste, vous pouvez les ajouter à l'aide de <span class="in">`!!!`</span>.</span>
+<span id="cb36-45"><a href="#cb36-45"></a></span>
+<span id="cb36-46"><a href="#cb36-46"></a><span class="in">`.défaut`</span></span>
+<span id="cb36-47"><a href="#cb36-47"></a>: Valeur à utiliser si la cible est NULLou absente.</span>
+<span id="cb36-48"><a href="#cb36-48"></a></span>
+<span id="cb36-49"><a href="#cb36-49"></a><span class="in">`value`</span></span>
+<span id="cb36-50"><a href="#cb36-50"></a>: Une valeur <span class="in">`.x`</span> à remplacer à l'emplacement de <span class="in">`pluck`</span>. Utilisez plutôt <span class="in">`zap()`</span> pour supprimer l'élément.</span>
+<span id="cb36-51"><a href="#cb36-51"></a></span>
+<span id="cb36-52"><a href="#cb36-52"></a><span class="fu">## Détails</span></span>
+<span id="cb36-53"><a href="#cb36-53"></a></span>
+<span id="cb36-54"><a href="#cb36-54"></a>Vous pouvez utiliser <span class="in">`pluck`</span> ou <span class="in">`chuck`</span>  avec des accesseurs standards comme les positions <span class="in">`int`</span> et les noms de chaîne, et acceptez également des fonctions d'accès arbitraires, c'est-à-dire des fonctions qui prennent un objet et renvoient une donnée interne.</span>
+<span id="cb36-55"><a href="#cb36-55"></a></span>
+<span id="cb36-56"><a href="#cb36-56"></a>C'est souvent plus lisible qu'un mélange d'opérateurs et d'accesseurs car il se lit de manière linéaire et est exempt de toute syntaxe superflue. Comparez : <span class="in">`accessor(x[[1]])$foo`</span> à <span class="in">`pluck(x, 1, accessor, "foo")`</span>.</span>
+<span id="cb36-57"><a href="#cb36-57"></a></span>
+<span id="cb36-58"><a href="#cb36-58"></a>Ces accesseurs ne correspondent jamais partiellement. Ceci est différent de <span class="in">`$`</span> qui sélectionnera l'objet <span class="in">`disp`</span> si vous écrivez <span class="in">`mtcars$di`</span>.</span>
+<span id="cb36-59"><a href="#cb36-59"></a></span>
+<span id="cb36-60"><a href="#cb36-60"></a><span class="fu">### Voir aussi</span></span>
+<span id="cb36-61"><a href="#cb36-61"></a></span>
+<span id="cb36-62"><a href="#cb36-62"></a><span class="co">[</span><span class="ot">`attr_getter()`</span><span class="co">](https://purrr.tidyverse.org/reference/attr_getter.html)</span> pour créer des getters d'attributs adaptés à une utilisation avec <span class="in">`pluck()`</span> et <span class="in">`chuck()`</span>. </span>
+<span id="cb36-63"><a href="#cb36-63"></a></span>
+<span id="cb36-64"><a href="#cb36-64"></a><span class="co">[</span><span class="ot">`modify_in()`</span><span class="co">](https://purrr.tidyverse.org/reference/modify_in.html)</span> pour appliquer une fonction à un emplacement de <span class="in">`pluck`</span>.</span>
+<span id="cb36-65"><a href="#cb36-65"></a></span>
+<span id="cb36-66"><a href="#cb36-66"></a><span class="fu">## Exemples</span></span>
+<span id="cb36-67"><a href="#cb36-67"></a></span>
+<span id="cb36-68"><a href="#cb36-68"></a>Créons une <span class="in">`list`</span> de données imbriquées&nbsp;:</span>
+<span id="cb36-69"><a href="#cb36-69"></a></span>
+<span id="cb36-72"><a href="#cb36-72"></a><span class="in">```{r}</span></span>
+<span id="cb36-73"><a href="#cb36-73"></a>obj1 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"a"</span>, <span class="fu">list</span>(<span class="dv">1</span>, <span class="at">elt =</span> <span class="st">"foo"</span>))</span>
+<span id="cb36-74"><a href="#cb36-74"></a>obj2 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"b"</span>, <span class="fu">list</span>(<span class="dv">2</span>, <span class="at">elt =</span> <span class="st">"bar"</span>))</span>
+<span id="cb36-75"><a href="#cb36-75"></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(obj1, obj2)</span>
+<span id="cb36-76"><a href="#cb36-76"></a>x</span>
+<span id="cb36-77"><a href="#cb36-77"></a><span class="in">```</span></span>
+<span id="cb36-78"><a href="#cb36-78"></a></span>
+<span id="cb36-79"><a href="#cb36-79"></a><span class="in">`pluck()`</span> fournit un moyen de récupérer des objets à partir de ces données imbriquées en utilisant une combinaison de positions numériques, vectorielles ou de noms de liste et fonctions d'accesseur.</span>
+<span id="cb36-80"><a href="#cb36-80"></a></span>
+<span id="cb36-81"><a href="#cb36-81"></a>Les positions numériques sont indexées dans la liste par position, tout comme <span class="in">`[[`</span>&nbsp;:</span>
+<span id="cb36-84"><a href="#cb36-84"></a><span class="in">```{r}</span></span>
+<span id="cb36-85"><a href="#cb36-85"></a><span class="fu">pluck</span>(x, <span class="dv">1</span>)</span>
+<span id="cb36-86"><a href="#cb36-86"></a><span class="in">```</span></span>
+<span id="cb36-87"><a href="#cb36-87"></a>Pareil à&nbsp;:</span>
+<span id="cb36-90"><a href="#cb36-90"></a><span class="in">```{r}</span></span>
+<span id="cb36-91"><a href="#cb36-91"></a>x[[<span class="dv">1</span>]]</span>
+<span id="cb36-92"><a href="#cb36-92"></a><span class="in">```</span></span>
+<span id="cb36-93"><a href="#cb36-93"></a>Indexé depuis la fin</span>
+<span id="cb36-96"><a href="#cb36-96"></a><span class="in">```{r}</span></span>
+<span id="cb36-97"><a href="#cb36-97"></a><span class="fu">pluck</span>(x, <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb36-98"><a href="#cb36-98"></a><span class="in">```</span></span>
+<span id="cb36-99"><a href="#cb36-99"></a></span>
+<span id="cb36-100"><a href="#cb36-100"></a>Pareil à&nbsp;:</span>
+<span id="cb36-103"><a href="#cb36-103"></a><span class="in">```{r}</span></span>
+<span id="cb36-104"><a href="#cb36-104"></a>x[[<span class="dv">2</span>]]</span>
+<span id="cb36-105"><a href="#cb36-105"></a><span class="in">```</span></span>
+<span id="cb36-108"><a href="#cb36-108"></a><span class="in">```{r}</span></span>
+<span id="cb36-109"><a href="#cb36-109"></a><span class="fu">pluck</span>(x, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb36-110"><a href="#cb36-110"></a><span class="in">```</span></span>
+<span id="cb36-111"><a href="#cb36-111"></a>Pareil à&nbsp;:</span>
+<span id="cb36-114"><a href="#cb36-114"></a><span class="in">```{r}</span></span>
+<span id="cb36-115"><a href="#cb36-115"></a>x[[<span class="dv">1</span>]][[<span class="dv">2</span>]]</span>
+<span id="cb36-116"><a href="#cb36-116"></a><span class="in">```</span></span>
+<span id="cb36-117"><a href="#cb36-117"></a>Fournissez des noms à indexer dans des *vecteurs nommés*&nbsp;:</span>
+<span id="cb36-120"><a href="#cb36-120"></a><span class="in">```{r}</span></span>
+<span id="cb36-121"><a href="#cb36-121"></a><span class="fu">pluck</span>(x, <span class="dv">1</span>, <span class="dv">2</span>, <span class="st">"elt"</span>)</span>
+<span id="cb36-122"><a href="#cb36-122"></a><span class="in">```</span></span>
+<span id="cb36-123"><a href="#cb36-123"></a>Pareil à&nbsp;:</span>
+<span id="cb36-126"><a href="#cb36-126"></a><span class="in">```{r}</span></span>
+<span id="cb36-127"><a href="#cb36-127"></a>x[[<span class="dv">1</span>]][[<span class="dv">2</span>]][[<span class="st">"elt"</span>]]</span>
+<span id="cb36-128"><a href="#cb36-128"></a><span class="in">```</span></span>
+<span id="cb36-129"><a href="#cb36-129"></a>Par défaut, pluck() renvoie systématiquement «&nbsp;NULL&nbsp;» lorsqu'un élément n'existe pas&nbsp;:</span>
+<span id="cb36-132"><a href="#cb36-132"></a><span class="in">```{r}</span></span>
+<span id="cb36-133"><a href="#cb36-133"></a><span class="fu">pluck</span>(x, <span class="dv">10</span>)</span>
+<span id="cb36-134"><a href="#cb36-134"></a><span class="in">```</span></span>
+<span id="cb36-137"><a href="#cb36-137"></a><span class="in">```{r}</span></span>
+<span id="cb36-138"><a href="#cb36-138"></a><span class="fu">try</span>(x[[<span class="dv">10</span>]])</span>
+<span id="cb36-139"><a href="#cb36-139"></a><span class="in">```</span></span>
+<span id="cb36-140"><a href="#cb36-140"></a>Vous pouvez également fournir une valeur par défaut pour les éléments non existants&nbsp;:</span>
+<span id="cb36-143"><a href="#cb36-143"></a><span class="in">```{r}</span></span>
+<span id="cb36-144"><a href="#cb36-144"></a><span class="fu">pluck</span>(x, <span class="dv">10</span>, <span class="at">.default =</span> <span class="cn">NA</span>)</span>
+<span id="cb36-145"><a href="#cb36-145"></a><span class="in">```</span></span>
+<span id="cb36-146"><a href="#cb36-146"></a>Les fonctions <span class="in">`map()`</span> utilisent <span class="in">`pluck()`</span> par défaut pour récupérer plusieurs valeurs d'une liste&nbsp;:</span>
+<span id="cb36-149"><a href="#cb36-149"></a><span class="in">```{r}</span></span>
+<span id="cb36-150"><a href="#cb36-150"></a><span class="fu">map_chr</span>(x, <span class="dv">1</span>)</span>
+<span id="cb36-151"><a href="#cb36-151"></a><span class="fu">map_int</span>(x, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>))</span>
+<span id="cb36-152"><a href="#cb36-152"></a><span class="in">```</span></span>
+<span id="cb36-153"><a href="#cb36-153"></a><span class="in">`pluck()`</span> supporte aussi les fonctions d'accessions&nbsp;:</span>
+<span id="cb36-156"><a href="#cb36-156"></a><span class="in">```{r}</span></span>
+<span id="cb36-157"><a href="#cb36-157"></a>my_element <span class="ot">&lt;-</span> <span class="cf">function</span>(x) x[[<span class="dv">2</span>]]<span class="sc">$</span>elt</span>
+<span id="cb36-158"><a href="#cb36-158"></a><span class="fu">pluck</span>(x, <span class="dv">1</span>, my_element)</span>
+<span id="cb36-159"><a href="#cb36-159"></a><span class="fu">pluck</span>(x, <span class="dv">2</span>, my_element)</span>
+<span id="cb36-160"><a href="#cb36-160"></a><span class="in">```</span></span>
+<span id="cb36-161"><a href="#cb36-161"></a>Même pour cette structure de données simple, cette forme est plus lisible que la forme alternative car elle nécessite de lire à la fois de droite à gauche et de gauche à droite dans différentes parties de l'expression&nbsp;:</span>
+<span id="cb36-164"><a href="#cb36-164"></a><span class="in">```{r}</span></span>
+<span id="cb36-165"><a href="#cb36-165"></a><span class="fu">my_element</span>(x[[<span class="dv">1</span>]])</span>
+<span id="cb36-166"><a href="#cb36-166"></a><span class="in">```</span></span>
+<span id="cb36-167"><a href="#cb36-167"></a>Si vous avez une liste d'accesseurs^<span class="co">[</span><span class="ot">à mon humble avis, on cotoie la sorcellerie&nbsp;!!!</span><span class="co">]</span>, vous pouvez les joindre avec <span class="in">`!!!`</span>&nbsp;:</span>
+<span id="cb36-170"><a href="#cb36-170"></a><span class="in">```{r}</span></span>
+<span id="cb36-171"><a href="#cb36-171"></a>idx <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, my_element)</span>
+<span id="cb36-172"><a href="#cb36-172"></a><span class="fu">pluck</span>(x, <span class="sc">!!!</span>idx)</span>
+<span id="cb36-173"><a href="#cb36-173"></a><span class="in">```</span></span>
+<span id="cb36-174"><a href="#cb36-174"></a></span>
+<span id="cb36-175"><a href="#cb36-175"></a></span>
+<span id="cb36-176"><a href="#cb36-176"></a></span>
+<span id="cb36-177"><a href="#cb36-177"></a></span>
+<span id="cb36-178"><a href="#cb36-178"></a></span>
+</code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
