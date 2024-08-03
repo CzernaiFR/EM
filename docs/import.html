@@ -693,41 +693,34 @@ window.Quarto = {
 <span id="cb24-6"><a href="#cb24-6"></a><span class="in">  mutate(rE = pmap(list(e1, e2), lift_vd(sort)))</span></span>
 <span id="cb24-7"><a href="#cb24-7"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: There was 1 warning in `mutate()`.
-ℹ In argument: `rB = pmap(list(b1, b2, b3, b4, b5), lift_vd(sort))`.
-ℹ In row 1.
-Caused by warning:
-! `lift_vd()` was deprecated in purrr 1.0.0.</code></pre>
-</div>
 </div>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1"></a><span class="in">```{r}</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="in">euromil &lt;- </span></span>
-<span id="cb26-3"><a href="#cb26-3"></a><span class="in">  rien |&gt; </span></span>
-<span id="cb26-4"><a href="#cb26-4"></a><span class="in">  rowwise() |&gt; </span></span>
-<span id="cb26-5"><a href="#cb26-5"></a><span class="in">  mutate(b1 = rB[1]) |&gt; </span></span>
-<span id="cb26-6"><a href="#cb26-6"></a><span class="in">  mutate(b2 = rB[2]) |&gt; </span></span>
-<span id="cb26-7"><a href="#cb26-7"></a><span class="in">  mutate(b3 = rB[3]) |&gt; </span></span>
-<span id="cb26-8"><a href="#cb26-8"></a><span class="in">  mutate(b4 = rB[4]) |&gt; </span></span>
-<span id="cb26-9"><a href="#cb26-9"></a><span class="in">  mutate(b5 = rB[5]) |&gt; </span></span>
-<span id="cb26-10"><a href="#cb26-10"></a><span class="in">  mutate(e1 = rE[1]) |&gt; </span></span>
-<span id="cb26-11"><a href="#cb26-11"></a><span class="in">  mutate(e2 = rE[2])</span></span>
-<span id="cb26-12"><a href="#cb26-12"></a></span>
-<span id="cb26-13"><a href="#cb26-13"></a><span class="in">euromil$rB &lt;- NULL</span></span>
-<span id="cb26-14"><a href="#cb26-14"></a><span class="in">euromil$rE &lt;- NULL</span></span>
-<span id="cb26-15"><a href="#cb26-15"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="in">euromil &lt;- </span></span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="in">  rien |&gt; </span></span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="in">  rowwise() |&gt; </span></span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="in">  mutate(b1 = rB[1]) |&gt; </span></span>
+<span id="cb25-6"><a href="#cb25-6"></a><span class="in">  mutate(b2 = rB[2]) |&gt; </span></span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="in">  mutate(b3 = rB[3]) |&gt; </span></span>
+<span id="cb25-8"><a href="#cb25-8"></a><span class="in">  mutate(b4 = rB[4]) |&gt; </span></span>
+<span id="cb25-9"><a href="#cb25-9"></a><span class="in">  mutate(b5 = rB[5]) |&gt; </span></span>
+<span id="cb25-10"><a href="#cb25-10"></a><span class="in">  mutate(e1 = rE[1]) |&gt; </span></span>
+<span id="cb25-11"><a href="#cb25-11"></a><span class="in">  mutate(e2 = rE[2])</span></span>
+<span id="cb25-12"><a href="#cb25-12"></a></span>
+<span id="cb25-13"><a href="#cb25-13"></a><span class="in">euromil$rB &lt;- NULL</span></span>
+<span id="cb25-14"><a href="#cb25-14"></a><span class="in">euromil$rE &lt;- NULL</span></span>
+<span id="cb25-15"><a href="#cb25-15"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>et un <code>summary</code> plus explicite&nbsp;:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1"></a><span class="in">```{r}</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="in">summary(euromil)</span></span>
-<span id="cb27-3"><a href="#cb27-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1"></a><span class="in">```{r}</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="in">summary(euromil)</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  jt            dt                   b1             b2              b3       
@@ -750,19 +743,19 @@ Caused by warning:
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1"></a><span class="in">```{r}</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a><span class="in">euromil &lt;- ungroup(euromil)</span></span>
-<span id="cb29-3"><a href="#cb29-3"></a><span class="in">save(euromil, file = "euromil.RData")</span></span>
-<span id="cb29-4"><a href="#cb29-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1"></a><span class="in">```{r}</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="in">euromil &lt;- ungroup(euromil)</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="in">save(euromil, file = "euromil.RData")</span></span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Tout est bon jusque là. Un petit coup de balai avant de partir<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> et on passe à la suite. Et on est pas rendu…</p>
 <div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;il faut toujours laisser un endroit dans l’état dans lequel on aimerais le retrouver</p></div></div><div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1"></a><span class="in">```{r}</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a><span class="in">remove(list = ls())</span></span>
-<span id="cb30-3"><a href="#cb30-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1"></a><span class="in">```{r}</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="in">remove(list = ls())</span></span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 
@@ -1390,262 +1383,262 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb31" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1"></a><span class="co">---</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="an">author:</span></span>
-<span id="cb31-3"><a href="#cb31-3"></a><span class="co">    - name: "Roger MARTIN"</span></span>
-<span id="cb31-4"><a href="#cb31-4"></a><span class="co">      email: Roger57que@free.fr</span></span>
-<span id="cb31-5"><a href="#cb31-5"></a><span class="an">execute:</span><span class="co"> </span></span>
-<span id="cb31-6"><a href="#cb31-6"></a><span class="co">  echo: fenced</span></span>
-<span id="cb31-7"><a href="#cb31-7"></a><span class="co">---</span></span>
-<span id="cb31-8"><a href="#cb31-8"></a></span>
-<span id="cb31-9"><a href="#cb31-9"></a><span class="fu"># Importer les fichiers</span></span>
-<span id="cb31-10"><a href="#cb31-10"></a></span>
-<span id="cb31-11"><a href="#cb31-11"></a>Décortiquer des données, c'est très bien. Mais il faut avoir des données. Donc il faut les importer.</span>
-<span id="cb31-12"><a href="#cb31-12"></a></span>
-<span id="cb31-13"><a href="#cb31-13"></a>Les fichiers <span class="in">`.csv`</span> contenant les données sont disponibles <span class="co">[</span><span class="ot">à cette adresse.</span><span class="co">](https://www.fdj.fr/jeux-de-tirage/euromillions-my-million/historique)</span></span>
-<span id="cb31-14"><a href="#cb31-14"></a></span>
-<span id="cb31-15"><a href="#cb31-15"></a>Il y a eu plusieurs versions de l'EuroMillions. Ce qui change est le nombre d'étoiles. Il y a toujours eu $50$ numéros, de $1$ à $50$. Et jusqu'au 10 mai 2011, les étoiles étaient au nombre de $9$ et environ $1$ chance sur $76$ millions de gagner le pactole de plusieures dizaines de millions d'euros. Puis, jusqu'au 23 septembre 2016, il y eu $11$ étoiles et $1$ chance sur $116$ millions d'espérer le pactole. Depuis le 24 septembre 2016, on peut voir $12$ étoiles avec $1$ chance sur $140$ millions de revoir le gros lot.</span>
-<span id="cb31-16"><a href="#cb31-16"></a></span>
-<span id="cb31-17"><a href="#cb31-17"></a>Bref, il faut être fou pour jouer à l'EuroMillions^<span class="co">[</span><span class="ot">ce qui en dit long sur ma santé mentale…</span><span class="co">]</span>.</span>
-<span id="cb31-18"><a href="#cb31-18"></a></span>
-<span id="cb31-19"><a href="#cb31-19"></a>Tout ça pour dire que seuls les $3$ derniers fichiers sont intéressants.</span>
-<span id="cb31-20"><a href="#cb31-20"></a></span>
-<span id="cb31-21"><a href="#cb31-21"></a><span class="fu">## Le code</span></span>
-<span id="cb31-22"><a href="#cb31-22"></a></span>
-<span id="cb31-23"><a href="#cb31-23"></a>Commencer par charger le <span class="in">`tidyverse`</span>.</span>
-<span id="cb31-24"><a href="#cb31-24"></a></span>
-<span id="cb31-27"><a href="#cb31-27"></a><span class="in">```{r}</span></span>
-<span id="cb31-28"><a href="#cb31-28"></a><span class="co">#| output: false</span></span>
-<span id="cb31-29"><a href="#cb31-29"></a><span class="fu">library</span>(tidyverse, <span class="at">quietly =</span> <span class="cn">TRUE</span>,  <span class="at">warn.conflicts =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb31-30"><a href="#cb31-30"></a><span class="in">```</span></span>
-<span id="cb31-31"><a href="#cb31-31"></a></span>
-<span id="cb31-32"><a href="#cb31-32"></a><span class="fu">### Adresse des fichiers</span></span>
-<span id="cb31-33"><a href="#cb31-33"></a></span>
-<span id="cb31-36"><a href="#cb31-36"></a><span class="in">```{r}</span></span>
-<span id="cb31-37"><a href="#cb31-37"></a>adresses_Fichiers <span class="ot">&lt;-</span> </span>
-<span id="cb31-38"><a href="#cb31-38"></a>  <span class="fu">c</span>(<span class="st">"https://media.fdj.fr/static-draws/csv/euromillions/euromillions_201609.zip"</span>,</span>
-<span id="cb31-39"><a href="#cb31-39"></a>    <span class="st">"https://media.fdj.fr/static-draws/csv/euromillions/euromillions_201902.zip"</span>,</span>
-<span id="cb31-40"><a href="#cb31-40"></a>    <span class="st">"https://media.fdj.fr/static-draws/csv/euromillions/euromillions_202002.zip"</span>)</span>
-<span id="cb31-41"><a href="#cb31-41"></a><span class="in">```</span></span>
-<span id="cb31-42"><a href="#cb31-42"></a></span>
-<span id="cb31-43"><a href="#cb31-43"></a>$R$ sait télécharger et dézipper les fichiers, mais il y a des contraintes&nbsp;:</span>
-<span id="cb31-44"><a href="#cb31-44"></a></span>
-<span id="cb31-45"><a href="#cb31-45"></a><span class="ss">1.  </span>il faut nommer les fichiers pour les enregistrer sur disque&nbsp;;</span>
-<span id="cb31-46"><a href="#cb31-46"></a><span class="ss">2.  </span>il faut connaitre les noms des fichiers contenus dans les <span class="in">`zip`</span>&nbsp;;</span>
-<span id="cb31-47"><a href="#cb31-47"></a><span class="ss">3.  </span>il faut donner un nom concis et clair à chaque fichier.</span>
-<span id="cb31-48"><a href="#cb31-48"></a></span>
-<span id="cb31-49"><a href="#cb31-49"></a>D'où le code suivant&nbsp;:</span>
-<span id="cb31-52"><a href="#cb31-52"></a><span class="in">```{r}</span></span>
-<span id="cb31-53"><a href="#cb31-53"></a><span class="co"># noms sous lesquels les fichiers .zip seront</span></span>
-<span id="cb31-54"><a href="#cb31-54"></a><span class="co">#   stockés sur disque</span></span>
-<span id="cb31-55"><a href="#cb31-55"></a>fichiers_Provisoires <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"eurom1.zip"</span>,</span>
-<span id="cb31-56"><a href="#cb31-56"></a>                    <span class="st">"eurom2.zip"</span>,</span>
-<span id="cb31-57"><a href="#cb31-57"></a>                    <span class="st">"eurom3.zip"</span>)</span>
-<span id="cb31-58"><a href="#cb31-58"></a></span>
-<span id="cb31-59"><a href="#cb31-59"></a><span class="co"># noms sous lesquels les fichiers .csv seront</span></span>
-<span id="cb31-60"><a href="#cb31-60"></a><span class="co">#   stockés sur disque</span></span>
-<span id="cb31-61"><a href="#cb31-61"></a>fichiers_Csv <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"eurom1.csv"</span>,</span>
-<span id="cb31-62"><a href="#cb31-62"></a>              <span class="st">"eurom2.csv"</span>,</span>
-<span id="cb31-63"><a href="#cb31-63"></a>              <span class="st">"eurom3.csv"</span>)</span>
-<span id="cb31-64"><a href="#cb31-64"></a><span class="in">```</span></span>
-<span id="cb31-65"><a href="#cb31-65"></a></span>
-<span id="cb31-66"><a href="#cb31-66"></a><span class="fu">### Télécharger les fichiers</span></span>
-<span id="cb31-67"><a href="#cb31-67"></a>Comme quoi, tout arrive&nbsp;!</span>
-<span id="cb31-70"><a href="#cb31-70"></a><span class="in">```{r}</span></span>
-<span id="cb31-71"><a href="#cb31-71"></a><span class="fu">map2</span>(adresses_Fichiers, </span>
-<span id="cb31-72"><a href="#cb31-72"></a>     fichiers_Provisoires, </span>
-<span id="cb31-73"><a href="#cb31-73"></a>     <span class="sc">~</span> <span class="fu">download.file</span>(.x, <span class="at">destfile =</span> .y))</span>
-<span id="cb31-74"><a href="#cb31-74"></a><span class="in">```</span></span>
-<span id="cb31-75"><a href="#cb31-75"></a></span>
-<span id="cb31-76"><a href="#cb31-76"></a>Récupérer les noms que la FDJ a donné aux fichiers <span class="in">`.csv`</span>&nbsp;:</span>
-<span id="cb31-77"><a href="#cb31-77"></a></span>
-<span id="cb31-80"><a href="#cb31-80"></a><span class="in">```{r}</span></span>
-<span id="cb31-81"><a href="#cb31-81"></a>noms_fdj <span class="ot">&lt;-</span> <span class="fu">map</span>(fichiers_Provisoires, <span class="sc">~</span> <span class="fu">unzip</span>(.x, <span class="at">list =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb31-82"><a href="#cb31-82"></a>noms_fdj</span>
-<span id="cb31-83"><a href="#cb31-83"></a><span class="in">```</span></span>
-<span id="cb31-84"><a href="#cb31-84"></a></span>
-<span id="cb31-85"><a href="#cb31-85"></a>Rognetudju !!! Le résultat est un objet <span class="in">`list()`</span> de $3$ <span class="in">`dataframe`</span>. Chaque <span class="in">`dataframe`</span> ne contient que $1$ ligne de $3$ colonnes&nbsp;:</span>
-<span id="cb31-86"><a href="#cb31-86"></a></span>
-<span id="cb31-87"><a href="#cb31-87"></a><span class="in">`Name`</span></span>
-<span id="cb31-88"><a href="#cb31-88"></a></span>
-<span id="cb31-89"><a href="#cb31-89"></a>:   le nom du fichier <span class="in">`csv`</span>&nbsp;; le but du bazar&nbsp;;</span>
-<span id="cb31-90"><a href="#cb31-90"></a></span>
-<span id="cb31-91"><a href="#cb31-91"></a><span class="in">`Length`</span>et <span class="in">`Date`</span></span>
-<span id="cb31-92"><a href="#cb31-92"></a></span>
-<span id="cb31-93"><a href="#cb31-93"></a>:   la taille et la date de mise à jour du <span class="in">`.csv`</span> qui n'intéressent personne^<span class="co">[</span><span class="ot">pas moi, en tous cas…</span><span class="co">]</span></span>
-<span id="cb31-94"><a href="#cb31-94"></a></span>
-<span id="cb31-95"><a href="#cb31-95"></a><span class="fu">### Récupération des `dataframe`</span></span>
-<span id="cb31-96"><a href="#cb31-96"></a></span>
-<span id="cb31-97"><a href="#cb31-97"></a>Les <span class="in">`dataframe`</span> sont numérotés de $1$ à $3$, donc il est possible de tout récupérer dans une boucle <span class="in">`for{}`</span>&nbsp;:</span>
-<span id="cb31-98"><a href="#cb31-98"></a></span>
-<span id="cb31-101"><a href="#cb31-101"></a><span class="in">```{r}</span></span>
-<span id="cb31-102"><a href="#cb31-102"></a><span class="co">#| message: false</span></span>
-<span id="cb31-103"><a href="#cb31-103"></a><span class="co">#| warning: false</span></span>
-<span id="cb31-104"><a href="#cb31-104"></a><span class="co"># la boucle</span></span>
-<span id="cb31-105"><a href="#cb31-105"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
-<span id="cb31-106"><a href="#cb31-106"></a>  <span class="co"># récup du nom FDJ</span></span>
-<span id="cb31-107"><a href="#cb31-107"></a>  nom <span class="ot">&lt;-</span> noms_fdj[[i]]<span class="sc">$</span>Name</span>
-<span id="cb31-108"><a href="#cb31-108"></a>  </span>
-<span id="cb31-109"><a href="#cb31-109"></a>  <span class="co"># dézipper</span></span>
-<span id="cb31-110"><a href="#cb31-110"></a>  <span class="fu">unzip</span>(fichiers_Provisoires[i])</span>
-<span id="cb31-111"><a href="#cb31-111"></a>  </span>
-<span id="cb31-112"><a href="#cb31-112"></a>  <span class="co"># renommer</span></span>
-<span id="cb31-113"><a href="#cb31-113"></a>  <span class="fu">file.rename</span>(<span class="at">from =</span> nom, <span class="at">to =</span> fichiers_Csv[i])</span>
-<span id="cb31-114"><a href="#cb31-114"></a>  </span>
-<span id="cb31-115"><a href="#cb31-115"></a>  <span class="co"># supprimer le fichier zip</span></span>
-<span id="cb31-116"><a href="#cb31-116"></a>  <span class="fu">file.remove</span>(fichiers_Provisoires[i])</span>
-<span id="cb31-117"><a href="#cb31-117"></a>}</span>
-<span id="cb31-118"><a href="#cb31-118"></a><span class="in">```</span></span>
-<span id="cb31-119"><a href="#cb31-119"></a></span>
-<span id="cb31-120"><a href="#cb31-120"></a><span class="fu">### Fusion à l'arrache</span></span>
-<span id="cb31-121"><a href="#cb31-121"></a></span>
-<span id="cb31-122"><a href="#cb31-122"></a>Il y a $3$ fichiers, de <span class="in">`eurom1.csv`</span> à <span class="in">`eurom3.csv`</span>. Il est possible de commencer par la méthode bourrin^<span class="co">[</span><span class="ot">oui, je me dénonce</span><span class="co">]</span>. Juste fusionner les $3$ fichiers et voir ce qu'il y a à en tirer.</span>
-<span id="cb31-123"><a href="#cb31-123"></a></span>
-<span id="cb31-124"><a href="#cb31-124"></a></span>
-<span id="cb31-127"><a href="#cb31-127"></a><span class="in">```{r}</span></span>
-<span id="cb31-128"><a href="#cb31-128"></a><span class="co">#| output: false</span></span>
-<span id="cb31-129"><a href="#cb31-129"></a><span class="fu">file.append</span>(<span class="st">"eurom1.csv"</span>, <span class="st">"eurom2.csv"</span>)</span>
-<span id="cb31-130"><a href="#cb31-130"></a><span class="fu">file.append</span>(<span class="st">"eurom1.csv"</span>, <span class="st">"eurom3.csv"</span>)</span>
-<span id="cb31-131"><a href="#cb31-131"></a>eurom <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"eurom1.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb31-132"><a href="#cb31-132"></a><span class="in">```</span></span>
-<span id="cb31-133"><a href="#cb31-133"></a></span>
-<span id="cb31-136"><a href="#cb31-136"></a><span class="in">```{r}</span></span>
-<span id="cb31-137"><a href="#cb31-137"></a>a_row <span class="ot">&lt;-</span> <span class="fu">nrow</span>(eurom)</span>
-<span id="cb31-138"><a href="#cb31-138"></a>a_col <span class="ot">&lt;-</span> <span class="fu">ncol</span>(eurom)</span>
-<span id="cb31-139"><a href="#cb31-139"></a></span>
-<span id="cb31-140"><a href="#cb31-140"></a><span class="fu">cat</span>(a_row, <span class="st">"lignes et"</span>, a_col, <span class="st">"colonnes"</span>)</span>
-<span id="cb31-141"><a href="#cb31-141"></a><span class="in">```</span></span>
-<span id="cb31-142"><a href="#cb31-142"></a></span>
-<span id="cb31-143"><a href="#cb31-143"></a>$75$ colonnes&nbsp;! Et à regarder de plus près, il y a les rapports, les nombres de gagnants, les dates de forclusion… Beaucoup de renseignements inutiles. Donc je garde l'essentiel&nbsp;:</span>
-<span id="cb31-144"><a href="#cb31-144"></a></span>
-<span id="cb31-147"><a href="#cb31-147"></a><span class="in">```{r}</span></span>
-<span id="cb31-148"><a href="#cb31-148"></a>euromil <span class="ot">&lt;-</span> </span>
-<span id="cb31-149"><a href="#cb31-149"></a>  eurom <span class="sc">|&gt;</span> </span>
-<span id="cb31-150"><a href="#cb31-150"></a>  <span class="fu">select</span>(jour_de_tirage, </span>
-<span id="cb31-151"><a href="#cb31-151"></a>         date_de_tirage,</span>
-<span id="cb31-152"><a href="#cb31-152"></a>         boule_1, boule_2, boule_3, boule_4, boule_5,</span>
-<span id="cb31-153"><a href="#cb31-153"></a>         etoile_1, etoile_2</span>
-<span id="cb31-154"><a href="#cb31-154"></a>         )</span>
-<span id="cb31-155"><a href="#cb31-155"></a><span class="in">```</span></span>
-<span id="cb31-156"><a href="#cb31-156"></a></span>
-<span id="cb31-157"><a href="#cb31-157"></a><span class="fu">#### Vérifier s'il n'y a pas d'intrus</span></span>
-<span id="cb31-158"><a href="#cb31-158"></a></span>
-<span id="cb31-161"><a href="#cb31-161"></a><span class="in">```{r}</span></span>
-<span id="cb31-162"><a href="#cb31-162"></a>euromil <span class="ot">&lt;-</span> <span class="fu">arrange</span>(euromil, <span class="fu">desc</span>(date_de_tirage))</span>
-<span id="cb31-163"><a href="#cb31-163"></a><span class="fu">head</span>(euromil)</span>
-<span id="cb31-164"><a href="#cb31-164"></a><span class="in">```</span></span>
-<span id="cb31-165"><a href="#cb31-165"></a></span>
-<span id="cb31-166"><a href="#cb31-166"></a>Ce n'est pas bon&nbsp;! C'est un effet de bord du <span class="in">`file.append()`</span> plus haut. Je me doutais que c'était bourrin.</span>
-<span id="cb31-167"><a href="#cb31-167"></a></span>
-<span id="cb31-168"><a href="#cb31-168"></a>C'est assez facile à corriger&nbsp;: le <span class="in">`file.append()`</span> a ajouté les entêtes des $2$ derniers fichiers dans le fichier final. Re-donc&nbsp;:</span>
-<span id="cb31-169"><a href="#cb31-169"></a></span>
-<span id="cb31-172"><a href="#cb31-172"></a><span class="in">```{r}</span></span>
-<span id="cb31-173"><a href="#cb31-173"></a><span class="co"># a_row contient toujours le nombre de lignes</span></span>
-<span id="cb31-174"><a href="#cb31-174"></a><span class="co"># récupérer de la troisième à la dernière ligne</span></span>
-<span id="cb31-175"><a href="#cb31-175"></a>euromil <span class="ot">&lt;-</span> <span class="fu">slice</span>(euromil, <span class="dv">3</span><span class="sc">:</span>a_row)</span>
-<span id="cb31-176"><a href="#cb31-176"></a><span class="fu">head</span>(euromil)</span>
-<span id="cb31-177"><a href="#cb31-177"></a><span class="fu">tail</span>(euromil)</span>
-<span id="cb31-178"><a href="#cb31-178"></a><span class="in">```</span></span>
-<span id="cb31-179"><a href="#cb31-179"></a></span>
-<span id="cb31-180"><a href="#cb31-180"></a>Tout est 👍</span>
-<span id="cb31-181"><a href="#cb31-181"></a></span>
-<span id="cb31-182"><a href="#cb31-182"></a>Maintenant je vais prouver que je suis paresseux&nbsp;!</span>
-<span id="cb31-183"><a href="#cb31-183"></a></span>
-<span id="cb31-184"><a href="#cb31-184"></a><span class="fu">### Raccourcir les noms des variables</span></span>
-<span id="cb31-185"><a href="#cb31-185"></a></span>
-<span id="cb31-188"><a href="#cb31-188"></a><span class="in">```{r}</span></span>
-<span id="cb31-189"><a href="#cb31-189"></a>euromil <span class="ot">&lt;-</span> </span>
-<span id="cb31-190"><a href="#cb31-190"></a>euromil <span class="sc">%&gt;%</span> </span>
-<span id="cb31-191"><a href="#cb31-191"></a>  <span class="fu">rename</span>(<span class="at">jt =</span> jour_de_tirage,</span>
-<span id="cb31-192"><a href="#cb31-192"></a>         <span class="at">dt =</span> date_de_tirage,</span>
-<span id="cb31-193"><a href="#cb31-193"></a>         <span class="at">b1 =</span> boule_1, <span class="at">b2 =</span> boule_2, <span class="at">b3 =</span> boule_3,</span>
-<span id="cb31-194"><a href="#cb31-194"></a>         <span class="at">b4 =</span> boule_4, <span class="at">b5 =</span> boule_5,</span>
-<span id="cb31-195"><a href="#cb31-195"></a>         <span class="at">e1 =</span> etoile_1, <span class="at">e2 =</span> etoile_2)</span>
-<span id="cb31-196"><a href="#cb31-196"></a></span>
-<span id="cb31-197"><a href="#cb31-197"></a>euromil</span>
-<span id="cb31-198"><a href="#cb31-198"></a><span class="in">```</span></span>
-<span id="cb31-199"><a href="#cb31-199"></a></span>
-<span id="cb31-200"><a href="#cb31-200"></a>Raccourcir les noms des jours de tirage en ne gardant que les $2$ premières lettres&nbsp;:</span>
-<span id="cb31-201"><a href="#cb31-201"></a></span>
-<span id="cb31-204"><a href="#cb31-204"></a><span class="in">```{r}</span></span>
-<span id="cb31-205"><a href="#cb31-205"></a>euromil<span class="sc">$</span>jt <span class="ot">&lt;-</span> <span class="fu">str_sub</span>(euromil<span class="sc">$</span>jt, <span class="dv">1</span>,<span class="dv">2</span>)</span>
-<span id="cb31-206"><a href="#cb31-206"></a></span>
-<span id="cb31-207"><a href="#cb31-207"></a><span class="in">```</span></span>
-<span id="cb31-208"><a href="#cb31-208"></a></span>
-<span id="cb31-209"><a href="#cb31-209"></a>Transformer la colonne <span class="in">`dt`</span> en <span class="in">`date()`</span> comprésible par <span class="in">`R`</span>&nbsp;:</span>
-<span id="cb31-210"><a href="#cb31-210"></a></span>
-<span id="cb31-213"><a href="#cb31-213"></a><span class="in">```{r}</span></span>
-<span id="cb31-214"><a href="#cb31-214"></a>euromil<span class="sc">$</span>dt <span class="ot">&lt;-</span> <span class="fu">dmy</span>(euromil<span class="sc">$</span>dt)</span>
-<span id="cb31-215"><a href="#cb31-215"></a><span class="in">```</span></span>
-<span id="cb31-216"><a href="#cb31-216"></a></span>
-<span id="cb31-217"><a href="#cb31-217"></a>Et transformer les boules et étoiles en nombre<span class="ot">[^0105_creer-donnees-3]</span> et les jours de la semaine en facteur</span>
-<span id="cb31-218"><a href="#cb31-218"></a></span>
-<span id="cb31-219"><a href="#cb31-219"></a><span class="ot">[^0105_creer-donnees-3]: </span>jusque là, ce sont encore des chaînes de caractères</span>
-<span id="cb31-220"><a href="#cb31-220"></a></span>
-<span id="cb31-223"><a href="#cb31-223"></a><span class="in">```{r}</span></span>
-<span id="cb31-224"><a href="#cb31-224"></a>euromil<span class="sc">$</span>jt <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(euromil<span class="sc">$</span>jt)</span>
-<span id="cb31-225"><a href="#cb31-225"></a>euromil<span class="sc">$</span>b1 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(euromil<span class="sc">$</span>b1)</span>
-<span id="cb31-226"><a href="#cb31-226"></a>euromil<span class="sc">$</span>b2 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(euromil<span class="sc">$</span>b2)</span>
-<span id="cb31-227"><a href="#cb31-227"></a>euromil<span class="sc">$</span>b3 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(euromil<span class="sc">$</span>b3)</span>
-<span id="cb31-228"><a href="#cb31-228"></a>euromil<span class="sc">$</span>b4 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(euromil<span class="sc">$</span>b4)</span>
-<span id="cb31-229"><a href="#cb31-229"></a>euromil<span class="sc">$</span>b5 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(euromil<span class="sc">$</span>b5)</span>
-<span id="cb31-230"><a href="#cb31-230"></a>euromil<span class="sc">$</span>e1 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(euromil<span class="sc">$</span>e1)</span>
-<span id="cb31-231"><a href="#cb31-231"></a>euromil<span class="sc">$</span>e2 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(euromil<span class="sc">$</span>e2)</span>
-<span id="cb31-232"><a href="#cb31-232"></a><span class="in">```</span></span>
-<span id="cb31-233"><a href="#cb31-233"></a></span>
-<span id="cb31-234"><a href="#cb31-234"></a>Maintenant que la colonne <span class="in">`dt`</span> est une date, classer les lignes de la plus ancienne à la plus récente. Et voir ce que ça donne.</span>
-<span id="cb31-235"><a href="#cb31-235"></a></span>
-<span id="cb31-238"><a href="#cb31-238"></a><span class="in">```{r}</span></span>
-<span id="cb31-239"><a href="#cb31-239"></a>euromil <span class="ot">&lt;-</span> <span class="fu">arrange</span>(euromil, dt)</span>
-<span id="cb31-240"><a href="#cb31-240"></a><span class="fu">summary</span>(euromil)</span>
-<span id="cb31-241"><a href="#cb31-241"></a><span class="in">```</span></span>
-<span id="cb31-242"><a href="#cb31-242"></a></span>
-<span id="cb31-243"><a href="#cb31-243"></a>C'est bon. Les dates correspondent, les jours sont des facteurs et les boules et les étoiles sont bien des nombres. Re👍</span>
-<span id="cb31-244"><a href="#cb31-244"></a></span>
-<span id="cb31-247"><a href="#cb31-247"></a><span class="in">```{r}</span></span>
-<span id="cb31-248"><a href="#cb31-248"></a>rien <span class="ot">&lt;-</span> </span>
-<span id="cb31-249"><a href="#cb31-249"></a>  euromil <span class="sc">%&gt;%</span> </span>
-<span id="cb31-250"><a href="#cb31-250"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span>  </span>
-<span id="cb31-251"><a href="#cb31-251"></a>  <span class="fu">mutate</span>(<span class="at">rB =</span> <span class="fu">pmap</span>(<span class="fu">list</span>(b1, b2, b3, b4, b5), <span class="fu">lift_vd</span>(sort))) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-252"><a href="#cb31-252"></a>  <span class="fu">mutate</span>(<span class="at">rE =</span> <span class="fu">pmap</span>(<span class="fu">list</span>(e1, e2), <span class="fu">lift_vd</span>(sort)))</span>
-<span id="cb31-253"><a href="#cb31-253"></a><span class="in">```</span></span>
-<span id="cb31-254"><a href="#cb31-254"></a></span>
-<span id="cb31-257"><a href="#cb31-257"></a><span class="in">```{r}</span></span>
-<span id="cb31-258"><a href="#cb31-258"></a>euromil <span class="ot">&lt;-</span> </span>
-<span id="cb31-259"><a href="#cb31-259"></a>  rien <span class="sc">|&gt;</span> </span>
-<span id="cb31-260"><a href="#cb31-260"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb31-261"><a href="#cb31-261"></a>  <span class="fu">mutate</span>(<span class="at">b1 =</span> rB[<span class="dv">1</span>]) <span class="sc">|&gt;</span> </span>
-<span id="cb31-262"><a href="#cb31-262"></a>  <span class="fu">mutate</span>(<span class="at">b2 =</span> rB[<span class="dv">2</span>]) <span class="sc">|&gt;</span> </span>
-<span id="cb31-263"><a href="#cb31-263"></a>  <span class="fu">mutate</span>(<span class="at">b3 =</span> rB[<span class="dv">3</span>]) <span class="sc">|&gt;</span> </span>
-<span id="cb31-264"><a href="#cb31-264"></a>  <span class="fu">mutate</span>(<span class="at">b4 =</span> rB[<span class="dv">4</span>]) <span class="sc">|&gt;</span> </span>
-<span id="cb31-265"><a href="#cb31-265"></a>  <span class="fu">mutate</span>(<span class="at">b5 =</span> rB[<span class="dv">5</span>]) <span class="sc">|&gt;</span> </span>
-<span id="cb31-266"><a href="#cb31-266"></a>  <span class="fu">mutate</span>(<span class="at">e1 =</span> rE[<span class="dv">1</span>]) <span class="sc">|&gt;</span> </span>
-<span id="cb31-267"><a href="#cb31-267"></a>  <span class="fu">mutate</span>(<span class="at">e2 =</span> rE[<span class="dv">2</span>])</span>
-<span id="cb31-268"><a href="#cb31-268"></a></span>
-<span id="cb31-269"><a href="#cb31-269"></a>euromil<span class="sc">$</span>rB <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb31-270"><a href="#cb31-270"></a>euromil<span class="sc">$</span>rE <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb31-271"><a href="#cb31-271"></a><span class="in">```</span></span>
-<span id="cb31-272"><a href="#cb31-272"></a></span>
-<span id="cb31-273"><a href="#cb31-273"></a>et un <span class="in">`summary`</span> plus explicite&nbsp;:</span>
-<span id="cb31-274"><a href="#cb31-274"></a></span>
-<span id="cb31-277"><a href="#cb31-277"></a><span class="in">```{r}</span></span>
-<span id="cb31-278"><a href="#cb31-278"></a><span class="fu">summary</span>(euromil)</span>
-<span id="cb31-279"><a href="#cb31-279"></a><span class="in">```</span></span>
-<span id="cb31-280"><a href="#cb31-280"></a></span>
-<span id="cb31-281"><a href="#cb31-281"></a>Je vais pouvoir passer aux statistiques proprement dites. Juste sauver le tableau des tirages.</span>
-<span id="cb31-282"><a href="#cb31-282"></a></span>
-<span id="cb31-285"><a href="#cb31-285"></a><span class="in">```{r}</span></span>
-<span id="cb31-286"><a href="#cb31-286"></a>euromil <span class="ot">&lt;-</span> <span class="fu">ungroup</span>(euromil)</span>
-<span id="cb31-287"><a href="#cb31-287"></a><span class="fu">save</span>(euromil, <span class="at">file =</span> <span class="st">"euromil.RData"</span>)</span>
-<span id="cb31-288"><a href="#cb31-288"></a><span class="in">```</span></span>
-<span id="cb31-289"><a href="#cb31-289"></a></span>
-<span id="cb31-290"><a href="#cb31-290"></a>Tout est bon jusque là. Un petit coup de balai avant de partir^<span class="co">[</span><span class="ot">il faut toujours laisser un endroit dans l'état dans lequel on aimerais le retrouver</span><span class="co">]</span> et on passe à la suite. Et on est pas rendu…</span>
-<span id="cb31-291"><a href="#cb31-291"></a></span>
-<span id="cb31-294"><a href="#cb31-294"></a><span class="in">```{r}</span></span>
-<span id="cb31-295"><a href="#cb31-295"></a><span class="fu">remove</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb31-296"><a href="#cb31-296"></a><span class="in">```</span></span>
-<span id="cb31-297"><a href="#cb31-297"></a></span>
-<span id="cb31-298"><a href="#cb31-298"></a></span>
+<div class="sourceCode" id="cb30" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1"></a><span class="co">---</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="an">author:</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="co">    - name: "Roger MARTIN"</span></span>
+<span id="cb30-4"><a href="#cb30-4"></a><span class="co">      email: Roger57que@free.fr</span></span>
+<span id="cb30-5"><a href="#cb30-5"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb30-6"><a href="#cb30-6"></a><span class="co">  echo: fenced</span></span>
+<span id="cb30-7"><a href="#cb30-7"></a><span class="co">---</span></span>
+<span id="cb30-8"><a href="#cb30-8"></a></span>
+<span id="cb30-9"><a href="#cb30-9"></a><span class="fu"># Importer les fichiers</span></span>
+<span id="cb30-10"><a href="#cb30-10"></a></span>
+<span id="cb30-11"><a href="#cb30-11"></a>Décortiquer des données, c'est très bien. Mais il faut avoir des données. Donc il faut les importer.</span>
+<span id="cb30-12"><a href="#cb30-12"></a></span>
+<span id="cb30-13"><a href="#cb30-13"></a>Les fichiers <span class="in">`.csv`</span> contenant les données sont disponibles <span class="co">[</span><span class="ot">à cette adresse.</span><span class="co">](https://www.fdj.fr/jeux-de-tirage/euromillions-my-million/historique)</span></span>
+<span id="cb30-14"><a href="#cb30-14"></a></span>
+<span id="cb30-15"><a href="#cb30-15"></a>Il y a eu plusieurs versions de l'EuroMillions. Ce qui change est le nombre d'étoiles. Il y a toujours eu $50$ numéros, de $1$ à $50$. Et jusqu'au 10 mai 2011, les étoiles étaient au nombre de $9$ et environ $1$ chance sur $76$ millions de gagner le pactole de plusieures dizaines de millions d'euros. Puis, jusqu'au 23 septembre 2016, il y eu $11$ étoiles et $1$ chance sur $116$ millions d'espérer le pactole. Depuis le 24 septembre 2016, on peut voir $12$ étoiles avec $1$ chance sur $140$ millions de revoir le gros lot.</span>
+<span id="cb30-16"><a href="#cb30-16"></a></span>
+<span id="cb30-17"><a href="#cb30-17"></a>Bref, il faut être fou pour jouer à l'EuroMillions^<span class="co">[</span><span class="ot">ce qui en dit long sur ma santé mentale…</span><span class="co">]</span>.</span>
+<span id="cb30-18"><a href="#cb30-18"></a></span>
+<span id="cb30-19"><a href="#cb30-19"></a>Tout ça pour dire que seuls les $3$ derniers fichiers sont intéressants.</span>
+<span id="cb30-20"><a href="#cb30-20"></a></span>
+<span id="cb30-21"><a href="#cb30-21"></a><span class="fu">## Le code</span></span>
+<span id="cb30-22"><a href="#cb30-22"></a></span>
+<span id="cb30-23"><a href="#cb30-23"></a>Commencer par charger le <span class="in">`tidyverse`</span>.</span>
+<span id="cb30-24"><a href="#cb30-24"></a></span>
+<span id="cb30-27"><a href="#cb30-27"></a><span class="in">```{r}</span></span>
+<span id="cb30-28"><a href="#cb30-28"></a><span class="co">#| output: false</span></span>
+<span id="cb30-29"><a href="#cb30-29"></a><span class="fu">library</span>(tidyverse, <span class="at">quietly =</span> <span class="cn">TRUE</span>,  <span class="at">warn.conflicts =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb30-30"><a href="#cb30-30"></a><span class="in">```</span></span>
+<span id="cb30-31"><a href="#cb30-31"></a></span>
+<span id="cb30-32"><a href="#cb30-32"></a><span class="fu">### Adresse des fichiers</span></span>
+<span id="cb30-33"><a href="#cb30-33"></a></span>
+<span id="cb30-36"><a href="#cb30-36"></a><span class="in">```{r}</span></span>
+<span id="cb30-37"><a href="#cb30-37"></a>adresses_Fichiers <span class="ot">&lt;-</span> </span>
+<span id="cb30-38"><a href="#cb30-38"></a>  <span class="fu">c</span>(<span class="st">"https://media.fdj.fr/static-draws/csv/euromillions/euromillions_201609.zip"</span>,</span>
+<span id="cb30-39"><a href="#cb30-39"></a>    <span class="st">"https://media.fdj.fr/static-draws/csv/euromillions/euromillions_201902.zip"</span>,</span>
+<span id="cb30-40"><a href="#cb30-40"></a>    <span class="st">"https://media.fdj.fr/static-draws/csv/euromillions/euromillions_202002.zip"</span>)</span>
+<span id="cb30-41"><a href="#cb30-41"></a><span class="in">```</span></span>
+<span id="cb30-42"><a href="#cb30-42"></a></span>
+<span id="cb30-43"><a href="#cb30-43"></a>$R$ sait télécharger et dézipper les fichiers, mais il y a des contraintes&nbsp;:</span>
+<span id="cb30-44"><a href="#cb30-44"></a></span>
+<span id="cb30-45"><a href="#cb30-45"></a><span class="ss">1.  </span>il faut nommer les fichiers pour les enregistrer sur disque&nbsp;;</span>
+<span id="cb30-46"><a href="#cb30-46"></a><span class="ss">2.  </span>il faut connaitre les noms des fichiers contenus dans les <span class="in">`zip`</span>&nbsp;;</span>
+<span id="cb30-47"><a href="#cb30-47"></a><span class="ss">3.  </span>il faut donner un nom concis et clair à chaque fichier.</span>
+<span id="cb30-48"><a href="#cb30-48"></a></span>
+<span id="cb30-49"><a href="#cb30-49"></a>D'où le code suivant&nbsp;:</span>
+<span id="cb30-52"><a href="#cb30-52"></a><span class="in">```{r}</span></span>
+<span id="cb30-53"><a href="#cb30-53"></a><span class="co"># noms sous lesquels les fichiers .zip seront</span></span>
+<span id="cb30-54"><a href="#cb30-54"></a><span class="co">#   stockés sur disque</span></span>
+<span id="cb30-55"><a href="#cb30-55"></a>fichiers_Provisoires <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"eurom1.zip"</span>,</span>
+<span id="cb30-56"><a href="#cb30-56"></a>                    <span class="st">"eurom2.zip"</span>,</span>
+<span id="cb30-57"><a href="#cb30-57"></a>                    <span class="st">"eurom3.zip"</span>)</span>
+<span id="cb30-58"><a href="#cb30-58"></a></span>
+<span id="cb30-59"><a href="#cb30-59"></a><span class="co"># noms sous lesquels les fichiers .csv seront</span></span>
+<span id="cb30-60"><a href="#cb30-60"></a><span class="co">#   stockés sur disque</span></span>
+<span id="cb30-61"><a href="#cb30-61"></a>fichiers_Csv <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"eurom1.csv"</span>,</span>
+<span id="cb30-62"><a href="#cb30-62"></a>              <span class="st">"eurom2.csv"</span>,</span>
+<span id="cb30-63"><a href="#cb30-63"></a>              <span class="st">"eurom3.csv"</span>)</span>
+<span id="cb30-64"><a href="#cb30-64"></a><span class="in">```</span></span>
+<span id="cb30-65"><a href="#cb30-65"></a></span>
+<span id="cb30-66"><a href="#cb30-66"></a><span class="fu">### Télécharger les fichiers</span></span>
+<span id="cb30-67"><a href="#cb30-67"></a>Comme quoi, tout arrive&nbsp;!</span>
+<span id="cb30-70"><a href="#cb30-70"></a><span class="in">```{r}</span></span>
+<span id="cb30-71"><a href="#cb30-71"></a><span class="fu">map2</span>(adresses_Fichiers, </span>
+<span id="cb30-72"><a href="#cb30-72"></a>     fichiers_Provisoires, </span>
+<span id="cb30-73"><a href="#cb30-73"></a>     <span class="sc">~</span> <span class="fu">download.file</span>(.x, <span class="at">destfile =</span> .y))</span>
+<span id="cb30-74"><a href="#cb30-74"></a><span class="in">```</span></span>
+<span id="cb30-75"><a href="#cb30-75"></a></span>
+<span id="cb30-76"><a href="#cb30-76"></a>Récupérer les noms que la FDJ a donné aux fichiers <span class="in">`.csv`</span>&nbsp;:</span>
+<span id="cb30-77"><a href="#cb30-77"></a></span>
+<span id="cb30-80"><a href="#cb30-80"></a><span class="in">```{r}</span></span>
+<span id="cb30-81"><a href="#cb30-81"></a>noms_fdj <span class="ot">&lt;-</span> <span class="fu">map</span>(fichiers_Provisoires, <span class="sc">~</span> <span class="fu">unzip</span>(.x, <span class="at">list =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb30-82"><a href="#cb30-82"></a>noms_fdj</span>
+<span id="cb30-83"><a href="#cb30-83"></a><span class="in">```</span></span>
+<span id="cb30-84"><a href="#cb30-84"></a></span>
+<span id="cb30-85"><a href="#cb30-85"></a>Rognetudju !!! Le résultat est un objet <span class="in">`list()`</span> de $3$ <span class="in">`dataframe`</span>. Chaque <span class="in">`dataframe`</span> ne contient que $1$ ligne de $3$ colonnes&nbsp;:</span>
+<span id="cb30-86"><a href="#cb30-86"></a></span>
+<span id="cb30-87"><a href="#cb30-87"></a><span class="in">`Name`</span></span>
+<span id="cb30-88"><a href="#cb30-88"></a></span>
+<span id="cb30-89"><a href="#cb30-89"></a>:   le nom du fichier <span class="in">`csv`</span>&nbsp;; le but du bazar&nbsp;;</span>
+<span id="cb30-90"><a href="#cb30-90"></a></span>
+<span id="cb30-91"><a href="#cb30-91"></a><span class="in">`Length`</span>et <span class="in">`Date`</span></span>
+<span id="cb30-92"><a href="#cb30-92"></a></span>
+<span id="cb30-93"><a href="#cb30-93"></a>:   la taille et la date de mise à jour du <span class="in">`.csv`</span> qui n'intéressent personne^<span class="co">[</span><span class="ot">pas moi, en tous cas…</span><span class="co">]</span></span>
+<span id="cb30-94"><a href="#cb30-94"></a></span>
+<span id="cb30-95"><a href="#cb30-95"></a><span class="fu">### Récupération des `dataframe`</span></span>
+<span id="cb30-96"><a href="#cb30-96"></a></span>
+<span id="cb30-97"><a href="#cb30-97"></a>Les <span class="in">`dataframe`</span> sont numérotés de $1$ à $3$, donc il est possible de tout récupérer dans une boucle <span class="in">`for{}`</span>&nbsp;:</span>
+<span id="cb30-98"><a href="#cb30-98"></a></span>
+<span id="cb30-101"><a href="#cb30-101"></a><span class="in">```{r}</span></span>
+<span id="cb30-102"><a href="#cb30-102"></a><span class="co">#| message: false</span></span>
+<span id="cb30-103"><a href="#cb30-103"></a><span class="co">#| warning: false</span></span>
+<span id="cb30-104"><a href="#cb30-104"></a><span class="co"># la boucle</span></span>
+<span id="cb30-105"><a href="#cb30-105"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
+<span id="cb30-106"><a href="#cb30-106"></a>  <span class="co"># récup du nom FDJ</span></span>
+<span id="cb30-107"><a href="#cb30-107"></a>  nom <span class="ot">&lt;-</span> noms_fdj[[i]]<span class="sc">$</span>Name</span>
+<span id="cb30-108"><a href="#cb30-108"></a>  </span>
+<span id="cb30-109"><a href="#cb30-109"></a>  <span class="co"># dézipper</span></span>
+<span id="cb30-110"><a href="#cb30-110"></a>  <span class="fu">unzip</span>(fichiers_Provisoires[i])</span>
+<span id="cb30-111"><a href="#cb30-111"></a>  </span>
+<span id="cb30-112"><a href="#cb30-112"></a>  <span class="co"># renommer</span></span>
+<span id="cb30-113"><a href="#cb30-113"></a>  <span class="fu">file.rename</span>(<span class="at">from =</span> nom, <span class="at">to =</span> fichiers_Csv[i])</span>
+<span id="cb30-114"><a href="#cb30-114"></a>  </span>
+<span id="cb30-115"><a href="#cb30-115"></a>  <span class="co"># supprimer le fichier zip</span></span>
+<span id="cb30-116"><a href="#cb30-116"></a>  <span class="fu">file.remove</span>(fichiers_Provisoires[i])</span>
+<span id="cb30-117"><a href="#cb30-117"></a>}</span>
+<span id="cb30-118"><a href="#cb30-118"></a><span class="in">```</span></span>
+<span id="cb30-119"><a href="#cb30-119"></a></span>
+<span id="cb30-120"><a href="#cb30-120"></a><span class="fu">### Fusion à l'arrache</span></span>
+<span id="cb30-121"><a href="#cb30-121"></a></span>
+<span id="cb30-122"><a href="#cb30-122"></a>Il y a $3$ fichiers, de <span class="in">`eurom1.csv`</span> à <span class="in">`eurom3.csv`</span>. Il est possible de commencer par la méthode bourrin^<span class="co">[</span><span class="ot">oui, je me dénonce</span><span class="co">]</span>. Juste fusionner les $3$ fichiers et voir ce qu'il y a à en tirer.</span>
+<span id="cb30-123"><a href="#cb30-123"></a></span>
+<span id="cb30-124"><a href="#cb30-124"></a></span>
+<span id="cb30-127"><a href="#cb30-127"></a><span class="in">```{r}</span></span>
+<span id="cb30-128"><a href="#cb30-128"></a><span class="co">#| output: false</span></span>
+<span id="cb30-129"><a href="#cb30-129"></a><span class="fu">file.append</span>(<span class="st">"eurom1.csv"</span>, <span class="st">"eurom2.csv"</span>)</span>
+<span id="cb30-130"><a href="#cb30-130"></a><span class="fu">file.append</span>(<span class="st">"eurom1.csv"</span>, <span class="st">"eurom3.csv"</span>)</span>
+<span id="cb30-131"><a href="#cb30-131"></a>eurom <span class="ot">&lt;-</span> <span class="fu">read_csv2</span>(<span class="st">"eurom1.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb30-132"><a href="#cb30-132"></a><span class="in">```</span></span>
+<span id="cb30-133"><a href="#cb30-133"></a></span>
+<span id="cb30-136"><a href="#cb30-136"></a><span class="in">```{r}</span></span>
+<span id="cb30-137"><a href="#cb30-137"></a>a_row <span class="ot">&lt;-</span> <span class="fu">nrow</span>(eurom)</span>
+<span id="cb30-138"><a href="#cb30-138"></a>a_col <span class="ot">&lt;-</span> <span class="fu">ncol</span>(eurom)</span>
+<span id="cb30-139"><a href="#cb30-139"></a></span>
+<span id="cb30-140"><a href="#cb30-140"></a><span class="fu">cat</span>(a_row, <span class="st">"lignes et"</span>, a_col, <span class="st">"colonnes"</span>)</span>
+<span id="cb30-141"><a href="#cb30-141"></a><span class="in">```</span></span>
+<span id="cb30-142"><a href="#cb30-142"></a></span>
+<span id="cb30-143"><a href="#cb30-143"></a>$75$ colonnes&nbsp;! Et à regarder de plus près, il y a les rapports, les nombres de gagnants, les dates de forclusion… Beaucoup de renseignements inutiles. Donc je garde l'essentiel&nbsp;:</span>
+<span id="cb30-144"><a href="#cb30-144"></a></span>
+<span id="cb30-147"><a href="#cb30-147"></a><span class="in">```{r}</span></span>
+<span id="cb30-148"><a href="#cb30-148"></a>euromil <span class="ot">&lt;-</span> </span>
+<span id="cb30-149"><a href="#cb30-149"></a>  eurom <span class="sc">|&gt;</span> </span>
+<span id="cb30-150"><a href="#cb30-150"></a>  <span class="fu">select</span>(jour_de_tirage, </span>
+<span id="cb30-151"><a href="#cb30-151"></a>         date_de_tirage,</span>
+<span id="cb30-152"><a href="#cb30-152"></a>         boule_1, boule_2, boule_3, boule_4, boule_5,</span>
+<span id="cb30-153"><a href="#cb30-153"></a>         etoile_1, etoile_2</span>
+<span id="cb30-154"><a href="#cb30-154"></a>         )</span>
+<span id="cb30-155"><a href="#cb30-155"></a><span class="in">```</span></span>
+<span id="cb30-156"><a href="#cb30-156"></a></span>
+<span id="cb30-157"><a href="#cb30-157"></a><span class="fu">#### Vérifier s'il n'y a pas d'intrus</span></span>
+<span id="cb30-158"><a href="#cb30-158"></a></span>
+<span id="cb30-161"><a href="#cb30-161"></a><span class="in">```{r}</span></span>
+<span id="cb30-162"><a href="#cb30-162"></a>euromil <span class="ot">&lt;-</span> <span class="fu">arrange</span>(euromil, <span class="fu">desc</span>(date_de_tirage))</span>
+<span id="cb30-163"><a href="#cb30-163"></a><span class="fu">head</span>(euromil)</span>
+<span id="cb30-164"><a href="#cb30-164"></a><span class="in">```</span></span>
+<span id="cb30-165"><a href="#cb30-165"></a></span>
+<span id="cb30-166"><a href="#cb30-166"></a>Ce n'est pas bon&nbsp;! C'est un effet de bord du <span class="in">`file.append()`</span> plus haut. Je me doutais que c'était bourrin.</span>
+<span id="cb30-167"><a href="#cb30-167"></a></span>
+<span id="cb30-168"><a href="#cb30-168"></a>C'est assez facile à corriger&nbsp;: le <span class="in">`file.append()`</span> a ajouté les entêtes des $2$ derniers fichiers dans le fichier final. Re-donc&nbsp;:</span>
+<span id="cb30-169"><a href="#cb30-169"></a></span>
+<span id="cb30-172"><a href="#cb30-172"></a><span class="in">```{r}</span></span>
+<span id="cb30-173"><a href="#cb30-173"></a><span class="co"># a_row contient toujours le nombre de lignes</span></span>
+<span id="cb30-174"><a href="#cb30-174"></a><span class="co"># récupérer de la troisième à la dernière ligne</span></span>
+<span id="cb30-175"><a href="#cb30-175"></a>euromil <span class="ot">&lt;-</span> <span class="fu">slice</span>(euromil, <span class="dv">3</span><span class="sc">:</span>a_row)</span>
+<span id="cb30-176"><a href="#cb30-176"></a><span class="fu">head</span>(euromil)</span>
+<span id="cb30-177"><a href="#cb30-177"></a><span class="fu">tail</span>(euromil)</span>
+<span id="cb30-178"><a href="#cb30-178"></a><span class="in">```</span></span>
+<span id="cb30-179"><a href="#cb30-179"></a></span>
+<span id="cb30-180"><a href="#cb30-180"></a>Tout est 👍</span>
+<span id="cb30-181"><a href="#cb30-181"></a></span>
+<span id="cb30-182"><a href="#cb30-182"></a>Maintenant je vais prouver que je suis paresseux&nbsp;!</span>
+<span id="cb30-183"><a href="#cb30-183"></a></span>
+<span id="cb30-184"><a href="#cb30-184"></a><span class="fu">### Raccourcir les noms des variables</span></span>
+<span id="cb30-185"><a href="#cb30-185"></a></span>
+<span id="cb30-188"><a href="#cb30-188"></a><span class="in">```{r}</span></span>
+<span id="cb30-189"><a href="#cb30-189"></a>euromil <span class="ot">&lt;-</span> </span>
+<span id="cb30-190"><a href="#cb30-190"></a>euromil <span class="sc">%&gt;%</span> </span>
+<span id="cb30-191"><a href="#cb30-191"></a>  <span class="fu">rename</span>(<span class="at">jt =</span> jour_de_tirage,</span>
+<span id="cb30-192"><a href="#cb30-192"></a>         <span class="at">dt =</span> date_de_tirage,</span>
+<span id="cb30-193"><a href="#cb30-193"></a>         <span class="at">b1 =</span> boule_1, <span class="at">b2 =</span> boule_2, <span class="at">b3 =</span> boule_3,</span>
+<span id="cb30-194"><a href="#cb30-194"></a>         <span class="at">b4 =</span> boule_4, <span class="at">b5 =</span> boule_5,</span>
+<span id="cb30-195"><a href="#cb30-195"></a>         <span class="at">e1 =</span> etoile_1, <span class="at">e2 =</span> etoile_2)</span>
+<span id="cb30-196"><a href="#cb30-196"></a></span>
+<span id="cb30-197"><a href="#cb30-197"></a>euromil</span>
+<span id="cb30-198"><a href="#cb30-198"></a><span class="in">```</span></span>
+<span id="cb30-199"><a href="#cb30-199"></a></span>
+<span id="cb30-200"><a href="#cb30-200"></a>Raccourcir les noms des jours de tirage en ne gardant que les $2$ premières lettres&nbsp;:</span>
+<span id="cb30-201"><a href="#cb30-201"></a></span>
+<span id="cb30-204"><a href="#cb30-204"></a><span class="in">```{r}</span></span>
+<span id="cb30-205"><a href="#cb30-205"></a>euromil<span class="sc">$</span>jt <span class="ot">&lt;-</span> <span class="fu">str_sub</span>(euromil<span class="sc">$</span>jt, <span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb30-206"><a href="#cb30-206"></a></span>
+<span id="cb30-207"><a href="#cb30-207"></a><span class="in">```</span></span>
+<span id="cb30-208"><a href="#cb30-208"></a></span>
+<span id="cb30-209"><a href="#cb30-209"></a>Transformer la colonne <span class="in">`dt`</span> en <span class="in">`date()`</span> comprésible par <span class="in">`R`</span>&nbsp;:</span>
+<span id="cb30-210"><a href="#cb30-210"></a></span>
+<span id="cb30-213"><a href="#cb30-213"></a><span class="in">```{r}</span></span>
+<span id="cb30-214"><a href="#cb30-214"></a>euromil<span class="sc">$</span>dt <span class="ot">&lt;-</span> <span class="fu">dmy</span>(euromil<span class="sc">$</span>dt)</span>
+<span id="cb30-215"><a href="#cb30-215"></a><span class="in">```</span></span>
+<span id="cb30-216"><a href="#cb30-216"></a></span>
+<span id="cb30-217"><a href="#cb30-217"></a>Et transformer les boules et étoiles en nombre<span class="ot">[^0105_creer-donnees-3]</span> et les jours de la semaine en facteur</span>
+<span id="cb30-218"><a href="#cb30-218"></a></span>
+<span id="cb30-219"><a href="#cb30-219"></a><span class="ot">[^0105_creer-donnees-3]: </span>jusque là, ce sont encore des chaînes de caractères</span>
+<span id="cb30-220"><a href="#cb30-220"></a></span>
+<span id="cb30-223"><a href="#cb30-223"></a><span class="in">```{r}</span></span>
+<span id="cb30-224"><a href="#cb30-224"></a>euromil<span class="sc">$</span>jt <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(euromil<span class="sc">$</span>jt)</span>
+<span id="cb30-225"><a href="#cb30-225"></a>euromil<span class="sc">$</span>b1 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(euromil<span class="sc">$</span>b1)</span>
+<span id="cb30-226"><a href="#cb30-226"></a>euromil<span class="sc">$</span>b2 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(euromil<span class="sc">$</span>b2)</span>
+<span id="cb30-227"><a href="#cb30-227"></a>euromil<span class="sc">$</span>b3 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(euromil<span class="sc">$</span>b3)</span>
+<span id="cb30-228"><a href="#cb30-228"></a>euromil<span class="sc">$</span>b4 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(euromil<span class="sc">$</span>b4)</span>
+<span id="cb30-229"><a href="#cb30-229"></a>euromil<span class="sc">$</span>b5 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(euromil<span class="sc">$</span>b5)</span>
+<span id="cb30-230"><a href="#cb30-230"></a>euromil<span class="sc">$</span>e1 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(euromil<span class="sc">$</span>e1)</span>
+<span id="cb30-231"><a href="#cb30-231"></a>euromil<span class="sc">$</span>e2 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(euromil<span class="sc">$</span>e2)</span>
+<span id="cb30-232"><a href="#cb30-232"></a><span class="in">```</span></span>
+<span id="cb30-233"><a href="#cb30-233"></a></span>
+<span id="cb30-234"><a href="#cb30-234"></a>Maintenant que la colonne <span class="in">`dt`</span> est une date, classer les lignes de la plus ancienne à la plus récente. Et voir ce que ça donne.</span>
+<span id="cb30-235"><a href="#cb30-235"></a></span>
+<span id="cb30-238"><a href="#cb30-238"></a><span class="in">```{r}</span></span>
+<span id="cb30-239"><a href="#cb30-239"></a>euromil <span class="ot">&lt;-</span> <span class="fu">arrange</span>(euromil, dt)</span>
+<span id="cb30-240"><a href="#cb30-240"></a><span class="fu">summary</span>(euromil)</span>
+<span id="cb30-241"><a href="#cb30-241"></a><span class="in">```</span></span>
+<span id="cb30-242"><a href="#cb30-242"></a></span>
+<span id="cb30-243"><a href="#cb30-243"></a>C'est bon. Les dates correspondent, les jours sont des facteurs et les boules et les étoiles sont bien des nombres. Re👍</span>
+<span id="cb30-244"><a href="#cb30-244"></a></span>
+<span id="cb30-247"><a href="#cb30-247"></a><span class="in">```{r}</span></span>
+<span id="cb30-248"><a href="#cb30-248"></a>rien <span class="ot">&lt;-</span> </span>
+<span id="cb30-249"><a href="#cb30-249"></a>  euromil <span class="sc">%&gt;%</span> </span>
+<span id="cb30-250"><a href="#cb30-250"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span>  </span>
+<span id="cb30-251"><a href="#cb30-251"></a>  <span class="fu">mutate</span>(<span class="at">rB =</span> <span class="fu">pmap</span>(<span class="fu">list</span>(b1, b2, b3, b4, b5), <span class="fu">lift_vd</span>(sort))) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-252"><a href="#cb30-252"></a>  <span class="fu">mutate</span>(<span class="at">rE =</span> <span class="fu">pmap</span>(<span class="fu">list</span>(e1, e2), <span class="fu">lift_vd</span>(sort)))</span>
+<span id="cb30-253"><a href="#cb30-253"></a><span class="in">```</span></span>
+<span id="cb30-254"><a href="#cb30-254"></a></span>
+<span id="cb30-257"><a href="#cb30-257"></a><span class="in">```{r}</span></span>
+<span id="cb30-258"><a href="#cb30-258"></a>euromil <span class="ot">&lt;-</span> </span>
+<span id="cb30-259"><a href="#cb30-259"></a>  rien <span class="sc">|&gt;</span> </span>
+<span id="cb30-260"><a href="#cb30-260"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb30-261"><a href="#cb30-261"></a>  <span class="fu">mutate</span>(<span class="at">b1 =</span> rB[<span class="dv">1</span>]) <span class="sc">|&gt;</span> </span>
+<span id="cb30-262"><a href="#cb30-262"></a>  <span class="fu">mutate</span>(<span class="at">b2 =</span> rB[<span class="dv">2</span>]) <span class="sc">|&gt;</span> </span>
+<span id="cb30-263"><a href="#cb30-263"></a>  <span class="fu">mutate</span>(<span class="at">b3 =</span> rB[<span class="dv">3</span>]) <span class="sc">|&gt;</span> </span>
+<span id="cb30-264"><a href="#cb30-264"></a>  <span class="fu">mutate</span>(<span class="at">b4 =</span> rB[<span class="dv">4</span>]) <span class="sc">|&gt;</span> </span>
+<span id="cb30-265"><a href="#cb30-265"></a>  <span class="fu">mutate</span>(<span class="at">b5 =</span> rB[<span class="dv">5</span>]) <span class="sc">|&gt;</span> </span>
+<span id="cb30-266"><a href="#cb30-266"></a>  <span class="fu">mutate</span>(<span class="at">e1 =</span> rE[<span class="dv">1</span>]) <span class="sc">|&gt;</span> </span>
+<span id="cb30-267"><a href="#cb30-267"></a>  <span class="fu">mutate</span>(<span class="at">e2 =</span> rE[<span class="dv">2</span>])</span>
+<span id="cb30-268"><a href="#cb30-268"></a></span>
+<span id="cb30-269"><a href="#cb30-269"></a>euromil<span class="sc">$</span>rB <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb30-270"><a href="#cb30-270"></a>euromil<span class="sc">$</span>rE <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb30-271"><a href="#cb30-271"></a><span class="in">```</span></span>
+<span id="cb30-272"><a href="#cb30-272"></a></span>
+<span id="cb30-273"><a href="#cb30-273"></a>et un <span class="in">`summary`</span> plus explicite&nbsp;:</span>
+<span id="cb30-274"><a href="#cb30-274"></a></span>
+<span id="cb30-277"><a href="#cb30-277"></a><span class="in">```{r}</span></span>
+<span id="cb30-278"><a href="#cb30-278"></a><span class="fu">summary</span>(euromil)</span>
+<span id="cb30-279"><a href="#cb30-279"></a><span class="in">```</span></span>
+<span id="cb30-280"><a href="#cb30-280"></a></span>
+<span id="cb30-281"><a href="#cb30-281"></a>Je vais pouvoir passer aux statistiques proprement dites. Juste sauver le tableau des tirages.</span>
+<span id="cb30-282"><a href="#cb30-282"></a></span>
+<span id="cb30-285"><a href="#cb30-285"></a><span class="in">```{r}</span></span>
+<span id="cb30-286"><a href="#cb30-286"></a>euromil <span class="ot">&lt;-</span> <span class="fu">ungroup</span>(euromil)</span>
+<span id="cb30-287"><a href="#cb30-287"></a><span class="fu">save</span>(euromil, <span class="at">file =</span> <span class="st">"euromil.RData"</span>)</span>
+<span id="cb30-288"><a href="#cb30-288"></a><span class="in">```</span></span>
+<span id="cb30-289"><a href="#cb30-289"></a></span>
+<span id="cb30-290"><a href="#cb30-290"></a>Tout est bon jusque là. Un petit coup de balai avant de partir^<span class="co">[</span><span class="ot">il faut toujours laisser un endroit dans l'état dans lequel on aimerais le retrouver</span><span class="co">]</span> et on passe à la suite. Et on est pas rendu…</span>
+<span id="cb30-291"><a href="#cb30-291"></a></span>
+<span id="cb30-294"><a href="#cb30-294"></a><span class="in">```{r}</span></span>
+<span id="cb30-295"><a href="#cb30-295"></a><span class="fu">remove</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb30-296"><a href="#cb30-296"></a><span class="in">```</span></span>
+<span id="cb30-297"><a href="#cb30-297"></a></span>
+<span id="cb30-298"><a href="#cb30-298"></a></span>
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
@@ -1655,7 +1648,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Merci à <a href="https://git-scm.com/">Git</a>, <a href="https://github.com/">Github</a>, <a href="https://quarto.org/">Quarto</a>, <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a>, <a href="https://cran.rstudio.com/">R</a> et <a href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal">Wikipédia</a></p>
+<p>Merci à <a href="https://git-scm.com/">Git</a>, <a href="https://github.com/">Github</a>, <a href="https://quarto.org/">Quarto</a>, <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a>, <a href="https://cran.rstudio.com/">R</a>, <a href="https://www.tidyverse.org/packages/">Tidyverse</a> et <a href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal">Wikipédia</a></p>
 </div>
     <div class="nav-footer-right">
       &nbsp;

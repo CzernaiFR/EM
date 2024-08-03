@@ -16,4 +16,54 @@ Bref, que tout était prévisible.
 
 Le but de ce bazar est de vérifier, voire contrôler, s'il est possible de *prédire* la sortie de numéros et d'étoiles à l'EuroMillions [voir @EuroMillions] de la FDJ.
 
-Et je verrai bien (ou pas) où ça me mène.
+Et je verrai bien (ou pas) où ça me mène, voire nulle part.
+
+## Bon à savoir
+
+Ce site a été réalisé avec amour et tendresse, bien évidemment. Mais aussi avec :
+
+-   [RStudio Desktop](https://posit.co/download/rstudio-desktop/), **THE** ide ;
+-   [Quarto](https://quarto.org/)[^index-1] ;
+-   [Git](https://git-scm.com/) ; on peut faire sans, mais qu'est-ce que ce serait embêtant ;
+-   [Github](https://github.com/), voir ci-dessus ;
+-   [R](https://cran.rstudio.com/), parce qu'il faut être encore plus fou que moi[^index-2] pour essayer de faire des statistiques sans $R$ ;
+-   [Tidyverse](https://www.tidyverse.org/packages/)
+-   [Wikipédia](https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal).
+
+[^index-1]: voir @Quarto_2024
+
+[^index-2]: et ça court pas les rues, ce genre de bestiau
+
+## Personalisation
+
+Un interrupteur en haut à gauche, permet de passer d'un fond sombre à un fond clair. Et vice versa.
+
+![](Images-Explicatives/Monter-inter.png){fig-align="left" width="40%"}
+
+------------------------------------------------------------------------
+
+En haut à droite :
+
+::: {layout-ncol="2"}
+![Fermé](Images-Explicatives/Code-Principal-ferme%20-%20Moyenne.png){width="40%"}
+
+![Ouvert](Images-Explicatives/Code-Principal-Ouvert.png){width="70%"}
+:::
+
+Ce `</>CODE` est cliquable. Il se transforme alors en l'image de droite. Le code, c'est ça :
+
+```{r}
+1 + 1
+```
+
+Si on choisit « Cacher tout le code », on se retrouve avec :
+
+![](images/Capture d’écran 2024-08-03 à 09.50.42.png)
+
+La fenêtre de code ne s'affiche plus, un indice signale qu'il y a du code et le résultat reste afficher. En cliquant sur
+
+![Affichage au dessus d'une fenêtre de code fermée](Images-Explicatives/Code-Dessus-Ferme - Moyenne.png){fig-align="left"}
+
+« Code » la fenêtre [^index-3] s'ouvre et on voit le code qui a généré le résultat.
+
+[^index-3]: en $R$ on appelle ça un \`chunk\`

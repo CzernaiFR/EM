@@ -362,7 +362,9 @@ window.Quarto = {
 
 
 <p>On a les tirages bien propres sur eux. Et on va apprendre à compter après avoir chargé le <code>tidyverse</code><span class="citation" data-cites="tidyverse">(voir <a href="references.html#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span> et les données.</p>
-<div class="cell">
+<div class="no-row-height column-margin column-container"><div id="ref-tidyverse" class="csl-entry" role="listitem">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>«&nbsp;Welcome to the <span>tidyverse</span>&nbsp;»</span>. <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div></div><div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="in">```{r}</span></span>
@@ -370,18 +372,6 @@ window.Quarto = {
 <span id="cb1-3"><a href="#cb1-3"></a><span class="in">library(tidyverse, quietly = TRUE, warn.conflicts = FALSE)</span></span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
 </div>
 <section id="les-groupes" class="level2 page-columns page-full" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="les-groupes"><span class="header-section-number">2.1</span> Les groupes</h2>
@@ -581,110 +571,112 @@ Par exemple
 <div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;pas vide, mais rempli de <span class="math inline">\(0\)</span></p></div></div><div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="in">num &lt;- tibble(numero = 1:50,</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="in">               So_MA = 0, So_VE = 0, So_TO = 0,</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="in">               Ec_MA = 0, Ec_VE = 0, Ec_TO = 0)</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="in">num &lt;- tibble(numero = 1:50,</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="in">               So_MA = 0, So_VE = 0, So_TO = 0,</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="in">               Ec_MA = 0, Ec_VE = 0, Ec_TO = 0)</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>et pour les étoiles, même motif, même punition&nbsp;:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="in">```{r}</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="in">eto &lt;- tibble(etoile = 1:12,</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="in">               So_MA = 0, So_VE = 0, So_TO = 0,</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="in">               Ec_MA = 0, Ec_VE = 0, Ec_TO = 0)</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="in">eto &lt;- tibble(etoile = 1:12,</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="in">               So_MA = 0, So_VE = 0, So_TO = 0,</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="in">               Ec_MA = 0, Ec_VE = 0, Ec_TO = 0)</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
 <section id="classement" class="level3 page-columns page-full" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="classement"><span class="header-section-number">2.2.2</span> Classement</h3>
 <p>Je vais utiliser les verbes de <code>dplyr</code><span class="citation" data-cites="dplyr">(voir <a href="references.html#ref-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span>.</p>
-<p>Le fonctionnement de <span class="math inline">\(R\)</span> est basé sur les vecteurs. <code>dplyr</code> est basé sur les <code>tibble</code>. C’est précisé en première <a href="https://dplyr.tidyverse.org/articles/base.html">page de la présentation de <code>dplyr</code></a></p>
+<div class="no-row-height column-margin column-container"><div id="ref-dplyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, et Davis Vaughan. 2023. <em>dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
+</div></div><p>Le fonctionnement de <span class="math inline">\(R\)</span> est basé sur les vecteurs. <code>dplyr</code> est basé sur les <code>tibble</code>. C’est précisé en première <a href="https://dplyr.tidyverse.org/articles/base.html">page de la présentation de <code>dplyr</code></a></p>
 <blockquote class="blockquote">
 <p>Aperçu : Le code dplyr n’utilise en entrée et en sortie que des jeux de données. Cela contraste avec les fonctions <span class="math inline">\(R\)</span> de base qui fonctionnent plus fréquemment avec des vecteurs individuels.</p>
 </blockquote>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="in">for (i in 1:150) {</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="in">  a &lt;- </span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="in">    euromil |&gt; </span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="in">    slice(i)</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="in">  j &lt;- a$jt</span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="in">  b &lt;- c(a$b1, a$b2, a$b3, a$b4, a$b5)</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="in">  e &lt;- c(a$e1, a$e2)</span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="in">  </span></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="in">  # pour être sûr que les jours ne soient QUE MA ou VE</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="in">  #   un petit test ne fait pas de mal</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="in">  flag_jour &lt;- FALSE</span></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="in">  </span></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="in">  # pour les tirages du MArdi</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a><span class="in">  if (j == "MA") {</span></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="in">    flag_jour &lt;- TRUE</span></span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="in">    # incrémente les sorties des numéros</span></span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="in">    num$So_MA[b] &lt;- num$So_MA[b] + 1</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a><span class="in">    # incrémente les sorties des étoiles</span></span>
-<span id="cb6-20"><a href="#cb6-20"></a><span class="in">    eto$So_MA[e] &lt;- eto$So_MA[e] + 1</span></span>
-<span id="cb6-21"><a href="#cb6-21"></a><span class="in">    # incrémente tous les écarts des numéros</span></span>
-<span id="cb6-22"><a href="#cb6-22"></a><span class="in">    num$Ec_MA &lt;- num$Ec_MA + 1</span></span>
-<span id="cb6-23"><a href="#cb6-23"></a><span class="in">    # incrémente tous les écarts des étoiles</span></span>
-<span id="cb6-24"><a href="#cb6-24"></a><span class="in">    eto$Ec_MA &lt;- eto$Ec_MA + 1</span></span>
-<span id="cb6-25"><a href="#cb6-25"></a><span class="in">    # met les écarts des numéros sortis à 0</span></span>
-<span id="cb6-26"><a href="#cb6-26"></a><span class="in">    num$Ec_MA[b] &lt;- 0</span></span>
-<span id="cb6-27"><a href="#cb6-27"></a><span class="in">    # met les écarts des étoiles sorties à 0</span></span>
-<span id="cb6-28"><a href="#cb6-28"></a><span class="in">    eto$Ec_MA[e] &lt;- 0</span></span>
-<span id="cb6-29"><a href="#cb6-29"></a><span class="in">  }   # fin du test   if (j == "MA")</span></span>
-<span id="cb6-30"><a href="#cb6-30"></a><span class="in">  </span></span>
-<span id="cb6-31"><a href="#cb6-31"></a><span class="in">  # pour les tirages du VEndredi</span></span>
-<span id="cb6-32"><a href="#cb6-32"></a><span class="in">  if (j == "VE") {</span></span>
-<span id="cb6-33"><a href="#cb6-33"></a><span class="in">    flag_jour &lt;- TRUE</span></span>
-<span id="cb6-34"><a href="#cb6-34"></a><span class="in">    # incrémente les sorties des numéros</span></span>
-<span id="cb6-35"><a href="#cb6-35"></a><span class="in">    num$So_VE[b] &lt;- num$So_VE[b] + 1</span></span>
-<span id="cb6-36"><a href="#cb6-36"></a><span class="in">    # incrémente les sorties des étoiles</span></span>
-<span id="cb6-37"><a href="#cb6-37"></a><span class="in">    eto$So_VE[e] &lt;- eto$So_VE[e] + 1</span></span>
-<span id="cb6-38"><a href="#cb6-38"></a><span class="in">    # incrémente tous les écarts des numéros</span></span>
-<span id="cb6-39"><a href="#cb6-39"></a><span class="in">    num$Ec_VE &lt;- num$Ec_VE + 1</span></span>
-<span id="cb6-40"><a href="#cb6-40"></a><span class="in">    # incrémente tous les écarts des étoiles</span></span>
-<span id="cb6-41"><a href="#cb6-41"></a><span class="in">    eto$Ec_VE &lt;- eto$Ec_VE + 1</span></span>
-<span id="cb6-42"><a href="#cb6-42"></a><span class="in">    # met les écarts des numéros sortis à 0</span></span>
-<span id="cb6-43"><a href="#cb6-43"></a><span class="in">    num$Ec_VE[b] &lt;- 0</span></span>
-<span id="cb6-44"><a href="#cb6-44"></a><span class="in">    # met les écarts des étoiles sorties à 0</span></span>
-<span id="cb6-45"><a href="#cb6-45"></a><span class="in">    eto$Ec_VE[e] &lt;- 0</span></span>
-<span id="cb6-46"><a href="#cb6-46"></a><span class="in">  }   # fin du test   if (j == "VE")</span></span>
-<span id="cb6-47"><a href="#cb6-47"></a><span class="in">  </span></span>
-<span id="cb6-48"><a href="#cb6-48"></a><span class="in">  # si c'est bien un MA ou un VE qui a été </span></span>
-<span id="cb6-49"><a href="#cb6-49"></a><span class="in">  #   traité avant</span></span>
-<span id="cb6-50"><a href="#cb6-50"></a><span class="in">  # traite les tirages en TOut</span></span>
-<span id="cb6-51"><a href="#cb6-51"></a><span class="in">  if (flag_jour == TRUE)  {</span></span>
-<span id="cb6-52"><a href="#cb6-52"></a><span class="in">     # incrémente les sorties des numéros</span></span>
-<span id="cb6-53"><a href="#cb6-53"></a><span class="in">    num$So_TO[b] &lt;- num$So_TO[b] + 1</span></span>
-<span id="cb6-54"><a href="#cb6-54"></a><span class="in">    # incrémente les sorties des étoiles</span></span>
-<span id="cb6-55"><a href="#cb6-55"></a><span class="in">    eto$So_TO[e] &lt;- eto$So_TO[e] + 1</span></span>
-<span id="cb6-56"><a href="#cb6-56"></a><span class="in">    # incrémente tous les écarts des numéros</span></span>
-<span id="cb6-57"><a href="#cb6-57"></a><span class="in">    num$Ec_TO &lt;- num$Ec_TO + 1</span></span>
-<span id="cb6-58"><a href="#cb6-58"></a><span class="in">    # incrémente tous les écarts des étoiles</span></span>
-<span id="cb6-59"><a href="#cb6-59"></a><span class="in">    eto$Ec_TO &lt;- eto$Ec_TO + 1</span></span>
-<span id="cb6-60"><a href="#cb6-60"></a><span class="in">    # met les écarts des numéros sortis à 0</span></span>
-<span id="cb6-61"><a href="#cb6-61"></a><span class="in">    num$Ec_TO[b] &lt;- 0</span></span>
-<span id="cb6-62"><a href="#cb6-62"></a><span class="in">    # met les écarts des étoiles sorties à 0</span></span>
-<span id="cb6-63"><a href="#cb6-63"></a><span class="in">    eto$Ec_TO[e] &lt;- 0</span></span>
-<span id="cb6-64"><a href="#cb6-64"></a><span class="in">  }   # fin du test   if (flag_jour == TRUE)</span></span>
-<span id="cb6-65"><a href="#cb6-65"></a><span class="in">  else  {</span></span>
-<span id="cb6-66"><a href="#cb6-66"></a><span class="in">    # si le test du jour a raté</span></span>
-<span id="cb6-67"><a href="#cb6-67"></a><span class="in">    # afficher le tirage incriminé</span></span>
-<span id="cb6-68"><a href="#cb6-68"></a><span class="in">    print("HORREUR, Y A ERREUR&nbsp;!!!!!!!!!")</span></span>
-<span id="cb6-69"><a href="#cb6-69"></a><span class="in">    print(a)</span></span>
-<span id="cb6-70"><a href="#cb6-70"></a><span class="in">    # et on arrête tout</span></span>
-<span id="cb6-71"><a href="#cb6-71"></a><span class="in">    break</span></span>
-<span id="cb6-72"><a href="#cb6-72"></a><span class="in">  }   # fin du else</span></span>
-<span id="cb6-73"><a href="#cb6-73"></a><span class="in">  </span></span>
-<span id="cb6-74"><a href="#cb6-74"></a><span class="in">}   # fin de la boucle  for (i in 1:XX)</span></span>
-<span id="cb6-75"><a href="#cb6-75"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="in">for (i in 1:150) {</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="in">  a &lt;- </span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="in">    euromil |&gt; </span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="in">    slice(i)</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="in">  j &lt;- a$jt</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="in">  b &lt;- c(a$b1, a$b2, a$b3, a$b4, a$b5)</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="in">  e &lt;- c(a$e1, a$e2)</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="in">  </span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="in">  # pour être sûr que les jours ne soient QUE MA ou VE</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="in">  #   un petit test ne fait pas de mal</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="in">  flag_jour &lt;- FALSE</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="in">  </span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="in">  # pour les tirages du MArdi</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="in">  if (j == "MA") {</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="in">    flag_jour &lt;- TRUE</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="in">    # incrémente les sorties des numéros</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a><span class="in">    num$So_MA[b] &lt;- num$So_MA[b] + 1</span></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="in">    # incrémente les sorties des étoiles</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a><span class="in">    eto$So_MA[e] &lt;- eto$So_MA[e] + 1</span></span>
+<span id="cb5-21"><a href="#cb5-21"></a><span class="in">    # incrémente tous les écarts des numéros</span></span>
+<span id="cb5-22"><a href="#cb5-22"></a><span class="in">    num$Ec_MA &lt;- num$Ec_MA + 1</span></span>
+<span id="cb5-23"><a href="#cb5-23"></a><span class="in">    # incrémente tous les écarts des étoiles</span></span>
+<span id="cb5-24"><a href="#cb5-24"></a><span class="in">    eto$Ec_MA &lt;- eto$Ec_MA + 1</span></span>
+<span id="cb5-25"><a href="#cb5-25"></a><span class="in">    # met les écarts des numéros sortis à 0</span></span>
+<span id="cb5-26"><a href="#cb5-26"></a><span class="in">    num$Ec_MA[b] &lt;- 0</span></span>
+<span id="cb5-27"><a href="#cb5-27"></a><span class="in">    # met les écarts des étoiles sorties à 0</span></span>
+<span id="cb5-28"><a href="#cb5-28"></a><span class="in">    eto$Ec_MA[e] &lt;- 0</span></span>
+<span id="cb5-29"><a href="#cb5-29"></a><span class="in">  }   # fin du test   if (j == "MA")</span></span>
+<span id="cb5-30"><a href="#cb5-30"></a><span class="in">  </span></span>
+<span id="cb5-31"><a href="#cb5-31"></a><span class="in">  # pour les tirages du VEndredi</span></span>
+<span id="cb5-32"><a href="#cb5-32"></a><span class="in">  if (j == "VE") {</span></span>
+<span id="cb5-33"><a href="#cb5-33"></a><span class="in">    flag_jour &lt;- TRUE</span></span>
+<span id="cb5-34"><a href="#cb5-34"></a><span class="in">    # incrémente les sorties des numéros</span></span>
+<span id="cb5-35"><a href="#cb5-35"></a><span class="in">    num$So_VE[b] &lt;- num$So_VE[b] + 1</span></span>
+<span id="cb5-36"><a href="#cb5-36"></a><span class="in">    # incrémente les sorties des étoiles</span></span>
+<span id="cb5-37"><a href="#cb5-37"></a><span class="in">    eto$So_VE[e] &lt;- eto$So_VE[e] + 1</span></span>
+<span id="cb5-38"><a href="#cb5-38"></a><span class="in">    # incrémente tous les écarts des numéros</span></span>
+<span id="cb5-39"><a href="#cb5-39"></a><span class="in">    num$Ec_VE &lt;- num$Ec_VE + 1</span></span>
+<span id="cb5-40"><a href="#cb5-40"></a><span class="in">    # incrémente tous les écarts des étoiles</span></span>
+<span id="cb5-41"><a href="#cb5-41"></a><span class="in">    eto$Ec_VE &lt;- eto$Ec_VE + 1</span></span>
+<span id="cb5-42"><a href="#cb5-42"></a><span class="in">    # met les écarts des numéros sortis à 0</span></span>
+<span id="cb5-43"><a href="#cb5-43"></a><span class="in">    num$Ec_VE[b] &lt;- 0</span></span>
+<span id="cb5-44"><a href="#cb5-44"></a><span class="in">    # met les écarts des étoiles sorties à 0</span></span>
+<span id="cb5-45"><a href="#cb5-45"></a><span class="in">    eto$Ec_VE[e] &lt;- 0</span></span>
+<span id="cb5-46"><a href="#cb5-46"></a><span class="in">  }   # fin du test   if (j == "VE")</span></span>
+<span id="cb5-47"><a href="#cb5-47"></a><span class="in">  </span></span>
+<span id="cb5-48"><a href="#cb5-48"></a><span class="in">  # si c'est bien un MA ou un VE qui a été </span></span>
+<span id="cb5-49"><a href="#cb5-49"></a><span class="in">  #   traité avant</span></span>
+<span id="cb5-50"><a href="#cb5-50"></a><span class="in">  # traite les tirages en TOut</span></span>
+<span id="cb5-51"><a href="#cb5-51"></a><span class="in">  if (flag_jour == TRUE)  {</span></span>
+<span id="cb5-52"><a href="#cb5-52"></a><span class="in">     # incrémente les sorties des numéros</span></span>
+<span id="cb5-53"><a href="#cb5-53"></a><span class="in">    num$So_TO[b] &lt;- num$So_TO[b] + 1</span></span>
+<span id="cb5-54"><a href="#cb5-54"></a><span class="in">    # incrémente les sorties des étoiles</span></span>
+<span id="cb5-55"><a href="#cb5-55"></a><span class="in">    eto$So_TO[e] &lt;- eto$So_TO[e] + 1</span></span>
+<span id="cb5-56"><a href="#cb5-56"></a><span class="in">    # incrémente tous les écarts des numéros</span></span>
+<span id="cb5-57"><a href="#cb5-57"></a><span class="in">    num$Ec_TO &lt;- num$Ec_TO + 1</span></span>
+<span id="cb5-58"><a href="#cb5-58"></a><span class="in">    # incrémente tous les écarts des étoiles</span></span>
+<span id="cb5-59"><a href="#cb5-59"></a><span class="in">    eto$Ec_TO &lt;- eto$Ec_TO + 1</span></span>
+<span id="cb5-60"><a href="#cb5-60"></a><span class="in">    # met les écarts des numéros sortis à 0</span></span>
+<span id="cb5-61"><a href="#cb5-61"></a><span class="in">    num$Ec_TO[b] &lt;- 0</span></span>
+<span id="cb5-62"><a href="#cb5-62"></a><span class="in">    # met les écarts des étoiles sorties à 0</span></span>
+<span id="cb5-63"><a href="#cb5-63"></a><span class="in">    eto$Ec_TO[e] &lt;- 0</span></span>
+<span id="cb5-64"><a href="#cb5-64"></a><span class="in">  }   # fin du test   if (flag_jour == TRUE)</span></span>
+<span id="cb5-65"><a href="#cb5-65"></a><span class="in">  else  {</span></span>
+<span id="cb5-66"><a href="#cb5-66"></a><span class="in">    # si le test du jour a raté</span></span>
+<span id="cb5-67"><a href="#cb5-67"></a><span class="in">    # afficher le tirage incriminé</span></span>
+<span id="cb5-68"><a href="#cb5-68"></a><span class="in">    print("HORREUR, Y A ERREUR&nbsp;!!!!!!!!!")</span></span>
+<span id="cb5-69"><a href="#cb5-69"></a><span class="in">    print(a)</span></span>
+<span id="cb5-70"><a href="#cb5-70"></a><span class="in">    # et on arrête tout</span></span>
+<span id="cb5-71"><a href="#cb5-71"></a><span class="in">    break</span></span>
+<span id="cb5-72"><a href="#cb5-72"></a><span class="in">  }   # fin du else</span></span>
+<span id="cb5-73"><a href="#cb5-73"></a><span class="in">  </span></span>
+<span id="cb5-74"><a href="#cb5-74"></a><span class="in">}   # fin de la boucle  for (i in 1:XX)</span></span>
+<span id="cb5-75"><a href="#cb5-75"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <section id="récapitulatif-des-numéros" class="level4" data-number="2.2.2.1">
@@ -711,6 +703,12 @@ Note
 </div>
 <p>Pour mardi&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="in">summary(num$So_MA)</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
     3.0     6.0     7.0     7.5     9.0    14.0 </code></pre>
@@ -718,6 +716,12 @@ Note
 </div>
 <p>Pour vendredi&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="in">summary(num$So_VE)</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
     2.0     6.0     7.5     7.5     9.0    13.0 </code></pre>
@@ -725,6 +729,12 @@ Note
 </div>
 <p>En tout&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="in">summary(num$So_TO)</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
    7.00   13.00   15.00   15.00   16.75   24.00 </code></pre>
@@ -739,6 +749,12 @@ Note
 <p>Dont acte&nbsp;:</p>
 <p>Pour mardi&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1"></a><span class="in">```{r}</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="in">summary(eto$So_MA)</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
    9.00   10.75   12.00   12.50   15.00   16.00 </code></pre>
@@ -746,6 +762,12 @@ Note
 </div>
 <p>Pour vendredi&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1"></a><span class="in">```{r}</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="in">summary(eto$So_VE)</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
     7.0    10.5    12.0    12.5    13.5    21.0 </code></pre>
@@ -753,6 +775,12 @@ Note
 </div>
 <p>Et en tout&nbsp;:</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1"></a><span class="in">```{r}</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="in">summary(eto$So_TO)</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   17.00   21.50   24.50   25.00   28.75   33.00 </code></pre>
@@ -761,9 +789,9 @@ Note
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="in">head(num)</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1"></a><span class="in">```{r}</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="in">head(num)</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 7
@@ -780,30 +808,30 @@ Note
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1"></a><span class="in">```{r}</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="in">num_long &lt;- </span></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="in">  num |&gt; </span></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="in">  select(numero:So_VE) |&gt; </span></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="in">  pivot_longer(cols = c(So_MA, So_VE),</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a><span class="in">               values_to = "sorties",</span></span>
-<span id="cb15-7"><a href="#cb15-7"></a><span class="in">               names_to = "jour")</span></span>
-<span id="cb15-8"><a href="#cb15-8"></a></span>
-<span id="cb15-9"><a href="#cb15-9"></a><span class="in">eto_long &lt;- </span></span>
-<span id="cb15-10"><a href="#cb15-10"></a><span class="in">  eto |&gt; </span></span>
-<span id="cb15-11"><a href="#cb15-11"></a><span class="in">  select(etoile:So_VE) |&gt; </span></span>
-<span id="cb15-12"><a href="#cb15-12"></a><span class="in">  pivot_longer(cols = So_MA:So_VE,</span></span>
-<span id="cb15-13"><a href="#cb15-13"></a><span class="in">               values_to = "sorties",</span></span>
-<span id="cb15-14"><a href="#cb15-14"></a><span class="in">               names_to = "jour")</span></span>
-<span id="cb15-15"><a href="#cb15-15"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="in">num_long &lt;- </span></span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="in">  num |&gt; </span></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="in">  select(numero:So_VE) |&gt; </span></span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="in">  pivot_longer(cols = c(So_MA, So_VE),</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a><span class="in">               values_to = "sorties",</span></span>
+<span id="cb20-7"><a href="#cb20-7"></a><span class="in">               names_to = "jour")</span></span>
+<span id="cb20-8"><a href="#cb20-8"></a></span>
+<span id="cb20-9"><a href="#cb20-9"></a><span class="in">eto_long &lt;- </span></span>
+<span id="cb20-10"><a href="#cb20-10"></a><span class="in">  eto |&gt; </span></span>
+<span id="cb20-11"><a href="#cb20-11"></a><span class="in">  select(etoile:So_VE) |&gt; </span></span>
+<span id="cb20-12"><a href="#cb20-12"></a><span class="in">  pivot_longer(cols = So_MA:So_VE,</span></span>
+<span id="cb20-13"><a href="#cb20-13"></a><span class="in">               values_to = "sorties",</span></span>
+<span id="cb20-14"><a href="#cb20-14"></a><span class="in">               names_to = "jour")</span></span>
+<span id="cb20-15"><a href="#cb20-15"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1"></a><span class="in">```{r}</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="in">num_long</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="in">eto_long</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="in">num_long</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="in">eto_long</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 100 × 3
@@ -840,20 +868,20 @@ Note
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1"></a><span class="in">```{r}</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="in">ggplot(eto_long) +</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="in">  aes(x = factor(etoile), </span></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="in">      y = sorties, </span></span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="in">      fill = jour) +</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a><span class="in">  geom_bar(stat = "summary", </span></span>
-<span id="cb18-7"><a href="#cb18-7"></a><span class="in">           fun = "sum",</span></span>
-<span id="cb18-8"><a href="#cb18-8"></a><span class="in">           position = "dodge2") +</span></span>
-<span id="cb18-9"><a href="#cb18-9"></a><span class="in">  labs(</span></span>
-<span id="cb18-10"><a href="#cb18-10"></a><span class="in">    x = "étoiles",</span></span>
-<span id="cb18-11"><a href="#cb18-11"></a><span class="in">    y = "nombre de sorties",</span></span>
-<span id="cb18-12"><a href="#cb18-12"></a><span class="in">    title = "Nombres de sorties par jour des étoiles"</span></span>
-<span id="cb18-13"><a href="#cb18-13"></a><span class="in">  )</span></span>
-<span id="cb18-14"><a href="#cb18-14"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1"></a><span class="in">```{r}</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="in">ggplot(eto_long) +</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="in">  aes(x = factor(etoile), </span></span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="in">      y = sorties, </span></span>
+<span id="cb23-5"><a href="#cb23-5"></a><span class="in">      fill = jour) +</span></span>
+<span id="cb23-6"><a href="#cb23-6"></a><span class="in">  geom_bar(stat = "summary", </span></span>
+<span id="cb23-7"><a href="#cb23-7"></a><span class="in">           fun = "sum",</span></span>
+<span id="cb23-8"><a href="#cb23-8"></a><span class="in">           position = "dodge2") +</span></span>
+<span id="cb23-9"><a href="#cb23-9"></a><span class="in">  labs(</span></span>
+<span id="cb23-10"><a href="#cb23-10"></a><span class="in">    x = "étoiles",</span></span>
+<span id="cb23-11"><a href="#cb23-11"></a><span class="in">    y = "nombre de sorties",</span></span>
+<span id="cb23-12"><a href="#cb23-12"></a><span class="in">    title = "Nombres de sorties par jour des étoiles"</span></span>
+<span id="cb23-13"><a href="#cb23-13"></a><span class="in">  )</span></span>
+<span id="cb23-14"><a href="#cb23-14"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -868,34 +896,34 @@ Note
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1"></a><span class="in">```{r}</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="in">num_long1 &lt;- </span></span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="in">  num_long |&gt; </span></span>
-<span id="cb19-4"><a href="#cb19-4"></a><span class="in">  slice(1:50)</span></span>
-<span id="cb19-5"><a href="#cb19-5"></a><span class="in">num_long2 &lt;- </span></span>
-<span id="cb19-6"><a href="#cb19-6"></a><span class="in">  num_long |&gt; </span></span>
-<span id="cb19-7"><a href="#cb19-7"></a><span class="in">  slice(51:100)</span></span>
-<span id="cb19-8"><a href="#cb19-8"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1"></a><span class="in">```{r}</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="in">num_long1 &lt;- </span></span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="in">  num_long |&gt; </span></span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="in">  slice(1:50)</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a><span class="in">num_long2 &lt;- </span></span>
+<span id="cb24-6"><a href="#cb24-6"></a><span class="in">  num_long |&gt; </span></span>
+<span id="cb24-7"><a href="#cb24-7"></a><span class="in">  slice(51:100)</span></span>
+<span id="cb24-8"><a href="#cb24-8"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Voyons !</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1"></a><span class="in">```{r}</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="in">ggplot(num_long1) +</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a><span class="in">  aes(x = factor(numero), </span></span>
-<span id="cb20-4"><a href="#cb20-4"></a><span class="in">      y = sorties, </span></span>
-<span id="cb20-5"><a href="#cb20-5"></a><span class="in">      fill = jour) +</span></span>
-<span id="cb20-6"><a href="#cb20-6"></a><span class="in">  geom_bar(stat = "summary", </span></span>
-<span id="cb20-7"><a href="#cb20-7"></a><span class="in">           fun = "sum",</span></span>
-<span id="cb20-8"><a href="#cb20-8"></a><span class="in">           position = "dodge2") +</span></span>
-<span id="cb20-9"><a href="#cb20-9"></a><span class="in">  labs(</span></span>
-<span id="cb20-10"><a href="#cb20-10"></a><span class="in">    x = "numéros de 1 à 25",</span></span>
-<span id="cb20-11"><a href="#cb20-11"></a><span class="in">    y = "nombre de sorties",</span></span>
-<span id="cb20-12"><a href="#cb20-12"></a><span class="in">    title = "Nombres de sorties par jour des numéros de 1 à 25"</span></span>
-<span id="cb20-13"><a href="#cb20-13"></a><span class="in">  )</span></span>
-<span id="cb20-14"><a href="#cb20-14"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1"></a><span class="in">```{r}</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="in">ggplot(num_long1) +</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="in">  aes(x = factor(numero), </span></span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="in">      y = sorties, </span></span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="in">      fill = jour) +</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a><span class="in">  geom_bar(stat = "summary", </span></span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="in">           fun = "sum",</span></span>
+<span id="cb25-8"><a href="#cb25-8"></a><span class="in">           position = "dodge2") +</span></span>
+<span id="cb25-9"><a href="#cb25-9"></a><span class="in">  labs(</span></span>
+<span id="cb25-10"><a href="#cb25-10"></a><span class="in">    x = "numéros de 1 à 25",</span></span>
+<span id="cb25-11"><a href="#cb25-11"></a><span class="in">    y = "nombre de sorties",</span></span>
+<span id="cb25-12"><a href="#cb25-12"></a><span class="in">    title = "Nombres de sorties par jour des numéros de 1 à 25"</span></span>
+<span id="cb25-13"><a href="#cb25-13"></a><span class="in">  )</span></span>
+<span id="cb25-14"><a href="#cb25-14"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -908,20 +936,21 @@ Note
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1"></a><span class="in">```{r}</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="in">ggplot(num_long2) +</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="in">  aes(x = factor(numero), </span></span>
-<span id="cb21-4"><a href="#cb21-4"></a><span class="in">      y = sorties, </span></span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="in">      fill = jour) +</span></span>
-<span id="cb21-6"><a href="#cb21-6"></a><span class="in">  geom_bar(stat = "summary", </span></span>
-<span id="cb21-7"><a href="#cb21-7"></a><span class="in">           fun = "sum",</span></span>
-<span id="cb21-8"><a href="#cb21-8"></a><span class="in">           position = "dodge2") +</span></span>
-<span id="cb21-9"><a href="#cb21-9"></a><span class="in">  labs(</span></span>
-<span id="cb21-10"><a href="#cb21-10"></a><span class="in">    x = "numéros de 26 à 50",</span></span>
-<span id="cb21-11"><a href="#cb21-11"></a><span class="in">    y = "nombre de sorties",</span></span>
-<span id="cb21-12"><a href="#cb21-12"></a><span class="in">    title = "Nombres de sorties par jour des numéros de 26 à 50"</span></span>
-<span id="cb21-13"><a href="#cb21-13"></a><span class="in">  )</span></span>
-<span id="cb21-14"><a href="#cb21-14"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1"></a><span class="in">```{r}</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="in">#| eval: true</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="in">ggplot(num_long2) +</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a><span class="in">  aes(x = factor(numero), </span></span>
+<span id="cb26-5"><a href="#cb26-5"></a><span class="in">      y = sorties, </span></span>
+<span id="cb26-6"><a href="#cb26-6"></a><span class="in">      fill = jour) +</span></span>
+<span id="cb26-7"><a href="#cb26-7"></a><span class="in">  geom_bar(stat = "summary", </span></span>
+<span id="cb26-8"><a href="#cb26-8"></a><span class="in">           fun = "sum",</span></span>
+<span id="cb26-9"><a href="#cb26-9"></a><span class="in">           position = "dodge2") +</span></span>
+<span id="cb26-10"><a href="#cb26-10"></a><span class="in">  labs(</span></span>
+<span id="cb26-11"><a href="#cb26-11"></a><span class="in">    x = "numéros de 26 à 50",</span></span>
+<span id="cb26-12"><a href="#cb26-12"></a><span class="in">    y = "nombre de sorties",</span></span>
+<span id="cb26-13"><a href="#cb26-13"></a><span class="in">    title = "Nombres de sorties par jour des numéros de 26 à 50"</span></span>
+<span id="cb26-14"><a href="#cb26-14"></a><span class="in">  )</span></span>
+<span id="cb26-15"><a href="#cb26-15"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -936,14 +965,7 @@ Note
 
 <!-- -->
 
-<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Ces affirmations sont exactes le 30-07-2024</p></div></div><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-tidyverse" class="csl-entry" role="listitem">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>«&nbsp;Welcome to the <span>tidyverse</span>&nbsp;»</span>. <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
-</div>
-<div id="ref-dplyr" class="csl-entry" role="listitem">
-Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, et Davis Vaughan. 2023. <em>dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
-</div>
-</div>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;Ces affirmations sont exactes le 30-07-2024</p></div></div>
 </section>
 </section>
 </section>
@@ -1566,360 +1588,356 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb22" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1"></a><span class="co">---</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="an">author:</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="co">    - name: "Roger MARTIN"</span></span>
-<span id="cb22-4"><a href="#cb22-4"></a><span class="co">      email: Roger57que@free.fr</span></span>
-<span id="cb22-5"><a href="#cb22-5"></a><span class="an">execute:</span><span class="co"> </span></span>
-<span id="cb22-6"><a href="#cb22-6"></a><span class="co">  echo: fenced</span></span>
-<span id="cb22-7"><a href="#cb22-7"></a><span class="an">date:</span><span class="co"> 2024-07-08</span></span>
-<span id="cb22-8"><a href="#cb22-8"></a><span class="co">---</span></span>
-<span id="cb22-9"><a href="#cb22-9"></a></span>
-<span id="cb22-10"><a href="#cb22-10"></a>On a les tirages bien propres sur eux. Et on va apprendre à compter après avoir chargé le <span class="in">`tidyverse`</span><span class="co">[</span><span class="ot">voir @tidyverse</span><span class="co">]</span> et les données.</span>
-<span id="cb22-11"><a href="#cb22-11"></a></span>
-<span id="cb22-14"><a href="#cb22-14"></a><span class="in">```{r}</span></span>
-<span id="cb22-15"><a href="#cb22-15"></a><span class="fu">load</span>(<span class="st">"~/PROJETS/EM/euromil.RData"</span>)</span>
-<span id="cb22-16"><a href="#cb22-16"></a><span class="fu">library</span>(tidyverse, <span class="at">quietly =</span> <span class="cn">TRUE</span>, <span class="at">warn.conflicts =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb22-17"><a href="#cb22-17"></a><span class="in">```</span></span>
-<span id="cb22-18"><a href="#cb22-18"></a></span>
-<span id="cb22-19"><a href="#cb22-19"></a><span class="fu"># Compter</span></span>
-<span id="cb22-20"><a href="#cb22-20"></a></span>
-<span id="cb22-21"><a href="#cb22-21"></a><span class="fu">## Les groupes</span></span>
-<span id="cb22-22"><a href="#cb22-22"></a></span>
-<span id="cb22-23"><a href="#cb22-23"></a>Je pense qu'il est illusoire et inutile de se baser simplement sur les numéros sortis. Si c'était possible, cela aurait surement déjà était fait. Et comme ce n'est pas la cas…</span>
-<span id="cb22-24"><a href="#cb22-24"></a></span>
-<span id="cb22-25"><a href="#cb22-25"></a><span class="fu">### Les sorties et les écarts</span></span>
-<span id="cb22-26"><a href="#cb22-26"></a></span>
-<span id="cb22-27"><a href="#cb22-27"></a>Les sorties correspondant aux nombres de fois que chaque numéro et étoile est sorti<span class="ot">[^compter-1]</span>.</span>
-<span id="cb22-28"><a href="#cb22-28"></a></span>
-<span id="cb22-29"><a href="#cb22-29"></a><span class="ot">[^compter-1]: </span>en bon français, on appelle ça «&nbsp;enfoncer une porte ouverte&nbsp;»</span>
-<span id="cb22-30"><a href="#cb22-30"></a></span>
-<span id="cb22-31"><a href="#cb22-31"></a>Les écarts correspondent aux nonbre de tirages entre deux sorties.</span>
-<span id="cb22-32"><a href="#cb22-32"></a></span>
-<span id="cb22-33"><a href="#cb22-33"></a>::: callout-note</span>
-<span id="cb22-34"><a href="#cb22-34"></a><span class="fu">## Par exemple</span></span>
-<span id="cb22-35"><a href="#cb22-35"></a></span>
-<span id="cb22-36"><a href="#cb22-36"></a>Soient les $3$ tirages suivants&nbsp;:</span>
-<span id="cb22-37"><a href="#cb22-37"></a></span>
-<span id="cb22-38"><a href="#cb22-38"></a><span class="in">```         </span></span>
-<span id="cb22-39"><a href="#cb22-39"></a><span class="in"> T1  1  2  3</span></span>
-<span id="cb22-40"><a href="#cb22-40"></a><span class="in"> T2  2  4  5</span></span>
-<span id="cb22-41"><a href="#cb22-41"></a><span class="in"> T3  1  3  6</span></span>
-<span id="cb22-42"><a href="#cb22-42"></a><span class="in">```</span></span>
-<span id="cb22-43"><a href="#cb22-43"></a>:::</span>
-<span id="cb22-44"><a href="#cb22-44"></a></span>
-<span id="cb22-45"><a href="#cb22-45"></a>On part du principe que avant ce tirage toutes les sorties et tous les écarts étaient à $0$.</span>
-<span id="cb22-46"><a href="#cb22-46"></a></span>
-<span id="cb22-47"><a href="#cb22-47"></a>pour le tirage T1 tous les sorties et les écarts sont à $0$</span>
-<span id="cb22-48"><a href="#cb22-48"></a></span>
-<span id="cb22-49"><a href="#cb22-49"></a>| numéros |  1  |  2  |  3  |  4  |  5  |  6  |</span>
-<span id="cb22-50"><a href="#cb22-50"></a>|:-------:|:---:|:---:|:---:|:---:|:---:|:---:|</span>
-<span id="cb22-51"><a href="#cb22-51"></a>| sorties |  0  |  0  |  0  |  0  |  0  |  0  |</span>
-<span id="cb22-52"><a href="#cb22-52"></a>| écarts  |  0  |  0  |  0  |  0  |  0  |  0  |</span>
-<span id="cb22-53"><a href="#cb22-53"></a></span>
-<span id="cb22-54"><a href="#cb22-54"></a>pour le tirage T2 les sorties du tirage précédent augmentent de $1$ alors que les écarts restent à $0$&nbsp;; par contre les écarts des numéros *non sortis* augmentent de $1$&nbsp;;</span>
-<span id="cb22-55"><a href="#cb22-55"></a></span>
-<span id="cb22-56"><a href="#cb22-56"></a>| numéros |  1  |  2  |  3  |  4  |  5  |  6  |</span>
-<span id="cb22-57"><a href="#cb22-57"></a>|:-------:|:---:|:---:|:---:|:---:|:---:|:---:|</span>
-<span id="cb22-58"><a href="#cb22-58"></a>| sorties |  1  |  1  |  1  |  0  |  0  |  0  |</span>
-<span id="cb22-59"><a href="#cb22-59"></a>| écarts  |  0  |  0  |  0  |  1  |  1  |  1  |</span>
-<span id="cb22-60"><a href="#cb22-60"></a></span>
-<span id="cb22-61"><a href="#cb22-61"></a>pour le tirage T3, c'est pareil</span>
-<span id="cb22-62"><a href="#cb22-62"></a></span>
-<span id="cb22-63"><a href="#cb22-63"></a>| numéros |  1  |  2  |  3  |  4  |  5  |  6  |</span>
-<span id="cb22-64"><a href="#cb22-64"></a>|:-------:|:---:|:---:|:---:|:---:|:---:|:---:|</span>
-<span id="cb22-65"><a href="#cb22-65"></a>| sorties |  1  |  2  |  1  |  1  |  1  |  0  |</span>
-<span id="cb22-66"><a href="#cb22-66"></a>| écarts  |  1  |  0  |  1  |  0  |  0  |  2  |</span>
-<span id="cb22-67"><a href="#cb22-67"></a></span>
-<span id="cb22-68"><a href="#cb22-68"></a>pour le tirage T4, on met à jour les d'après le tirage T3</span>
-<span id="cb22-69"><a href="#cb22-69"></a></span>
-<span id="cb22-70"><a href="#cb22-70"></a>| numéros |  1  |  2  |  3  |  4  |  5  |  6  |</span>
-<span id="cb22-71"><a href="#cb22-71"></a>|:-------:|:---:|:---:|:---:|:---:|:---:|:---:|</span>
-<span id="cb22-72"><a href="#cb22-72"></a>| sorties |  2  |  2  |  2  |  1  |  1  |  1  |</span>
-<span id="cb22-73"><a href="#cb22-73"></a>| écarts  |  0  |  1  |  0  |  1  |  1  |  0  |</span>
-<span id="cb22-74"><a href="#cb22-74"></a></span>
-<span id="cb22-75"><a href="#cb22-75"></a>etc.</span>
-<span id="cb22-76"><a href="#cb22-76"></a></span>
-<span id="cb22-77"><a href="#cb22-77"></a><span class="fu">## Le code</span></span>
-<span id="cb22-78"><a href="#cb22-78"></a></span>
-<span id="cb22-79"><a href="#cb22-79"></a>On va fabriquer deux <span class="in">`tibble`</span></span>
-<span id="cb22-80"><a href="#cb22-80"></a></span>
-<span id="cb22-81"><a href="#cb22-81"></a><span class="fu">### Les colonnes</span></span>
-<span id="cb22-82"><a href="#cb22-82"></a></span>
-<span id="cb22-83"><a href="#cb22-83"></a><span class="in">`S_MA`</span></span>
-<span id="cb22-84"><a href="#cb22-84"></a></span>
-<span id="cb22-85"><a href="#cb22-85"></a>:   pour le nombre de sorties du mardli</span>
-<span id="cb22-86"><a href="#cb22-86"></a></span>
-<span id="cb22-87"><a href="#cb22-87"></a><span class="in">`S_VE`</span></span>
-<span id="cb22-88"><a href="#cb22-88"></a></span>
-<span id="cb22-89"><a href="#cb22-89"></a>:   pour le nombre de sorties du vendredi</span>
-<span id="cb22-90"><a href="#cb22-90"></a></span>
-<span id="cb22-91"><a href="#cb22-91"></a><span class="in">`S_TO`</span></span>
-<span id="cb22-92"><a href="#cb22-92"></a></span>
-<span id="cb22-93"><a href="#cb22-93"></a>:   pour le nombre de sorties en tout</span>
-<span id="cb22-94"><a href="#cb22-94"></a></span>
-<span id="cb22-95"><a href="#cb22-95"></a><span class="in">`E_MA`</span></span>
-<span id="cb22-96"><a href="#cb22-96"></a></span>
-<span id="cb22-97"><a href="#cb22-97"></a>:   pour les écarts du mardi</span>
-<span id="cb22-98"><a href="#cb22-98"></a></span>
-<span id="cb22-99"><a href="#cb22-99"></a><span class="in">`E_VE`</span></span>
-<span id="cb22-100"><a href="#cb22-100"></a></span>
-<span id="cb22-101"><a href="#cb22-101"></a>:   pour les écarts du vendredi</span>
-<span id="cb22-102"><a href="#cb22-102"></a></span>
-<span id="cb22-103"><a href="#cb22-103"></a><span class="in">`E_TO`</span></span>
-<span id="cb22-104"><a href="#cb22-104"></a></span>
-<span id="cb22-105"><a href="#cb22-105"></a>:   pour les écarts en tout</span>
-<span id="cb22-106"><a href="#cb22-106"></a></span>
-<span id="cb22-107"><a href="#cb22-107"></a>Construire le <span class="in">`tibble`</span> vide<span class="ot">[^compter-2]</span> pour les numéros&nbsp;:</span>
-<span id="cb22-108"><a href="#cb22-108"></a></span>
-<span id="cb22-109"><a href="#cb22-109"></a><span class="ot">[^compter-2]: </span>pas vide, mais rempli de $0$</span>
-<span id="cb22-110"><a href="#cb22-110"></a></span>
-<span id="cb22-113"><a href="#cb22-113"></a><span class="in">```{r}</span></span>
-<span id="cb22-114"><a href="#cb22-114"></a>num <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">numero =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>,</span>
-<span id="cb22-115"><a href="#cb22-115"></a>               <span class="at">So_MA =</span> <span class="dv">0</span>, <span class="at">So_VE =</span> <span class="dv">0</span>, <span class="at">So_TO =</span> <span class="dv">0</span>,</span>
-<span id="cb22-116"><a href="#cb22-116"></a>               <span class="at">Ec_MA =</span> <span class="dv">0</span>, <span class="at">Ec_VE =</span> <span class="dv">0</span>, <span class="at">Ec_TO =</span> <span class="dv">0</span>)</span>
-<span id="cb22-117"><a href="#cb22-117"></a><span class="in">```</span></span>
-<span id="cb22-118"><a href="#cb22-118"></a></span>
-<span id="cb22-119"><a href="#cb22-119"></a>et pour les étoiles, même motif, même punition&nbsp;:</span>
-<span id="cb22-120"><a href="#cb22-120"></a></span>
-<span id="cb22-123"><a href="#cb22-123"></a><span class="in">```{r}</span></span>
-<span id="cb22-124"><a href="#cb22-124"></a>eto <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">etoile =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,</span>
-<span id="cb22-125"><a href="#cb22-125"></a>               <span class="at">So_MA =</span> <span class="dv">0</span>, <span class="at">So_VE =</span> <span class="dv">0</span>, <span class="at">So_TO =</span> <span class="dv">0</span>,</span>
-<span id="cb22-126"><a href="#cb22-126"></a>               <span class="at">Ec_MA =</span> <span class="dv">0</span>, <span class="at">Ec_VE =</span> <span class="dv">0</span>, <span class="at">Ec_TO =</span> <span class="dv">0</span>)</span>
-<span id="cb22-127"><a href="#cb22-127"></a><span class="in">```</span></span>
-<span id="cb22-128"><a href="#cb22-128"></a></span>
-<span id="cb22-129"><a href="#cb22-129"></a><span class="fu">### Classement</span></span>
-<span id="cb22-130"><a href="#cb22-130"></a></span>
-<span id="cb22-131"><a href="#cb22-131"></a>Je vais utiliser les verbes de <span class="in">`dplyr`</span><span class="co">[</span><span class="ot">voir @dplyr</span><span class="co">]</span>.</span>
-<span id="cb22-132"><a href="#cb22-132"></a></span>
-<span id="cb22-133"><a href="#cb22-133"></a>Le fonctionnement de $R$ est basé sur les vecteurs. <span class="in">`dplyr`</span> est basé sur les <span class="in">`tibble`</span>. C'est précisé en première <span class="co">[</span><span class="ot">page de la présentation de `dplyr`</span><span class="co">](https://dplyr.tidyverse.org/articles/base.html)</span></span>
-<span id="cb22-134"><a href="#cb22-134"></a></span>
-<span id="cb22-135"><a href="#cb22-135"></a><span class="at">&gt; Aperçu : Le code dplyr n'utilise en entrée et en sortie que des jeux de données. Cela contraste avec les fonctions $R$ de base qui fonctionnent plus fréquemment avec des vecteurs individuels.</span></span>
-<span id="cb22-136"><a href="#cb22-136"></a></span>
-<span id="cb22-139"><a href="#cb22-139"></a><span class="in">```{r}</span></span>
-<span id="cb22-140"><a href="#cb22-140"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">150</span>) {</span>
-<span id="cb22-141"><a href="#cb22-141"></a>  a <span class="ot">&lt;-</span> </span>
-<span id="cb22-142"><a href="#cb22-142"></a>    euromil <span class="sc">|&gt;</span> </span>
-<span id="cb22-143"><a href="#cb22-143"></a>    <span class="fu">slice</span>(i)</span>
-<span id="cb22-144"><a href="#cb22-144"></a>  j <span class="ot">&lt;-</span> a<span class="sc">$</span>jt</span>
-<span id="cb22-145"><a href="#cb22-145"></a>  b <span class="ot">&lt;-</span> <span class="fu">c</span>(a<span class="sc">$</span>b1, a<span class="sc">$</span>b2, a<span class="sc">$</span>b3, a<span class="sc">$</span>b4, a<span class="sc">$</span>b5)</span>
-<span id="cb22-146"><a href="#cb22-146"></a>  e <span class="ot">&lt;-</span> <span class="fu">c</span>(a<span class="sc">$</span>e1, a<span class="sc">$</span>e2)</span>
-<span id="cb22-147"><a href="#cb22-147"></a>  </span>
-<span id="cb22-148"><a href="#cb22-148"></a>  <span class="co"># pour être sûr que les jours ne soient QUE MA ou VE</span></span>
-<span id="cb22-149"><a href="#cb22-149"></a>  <span class="co">#   un petit test ne fait pas de mal</span></span>
-<span id="cb22-150"><a href="#cb22-150"></a>  flag_jour <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
-<span id="cb22-151"><a href="#cb22-151"></a>  </span>
-<span id="cb22-152"><a href="#cb22-152"></a>  <span class="co"># pour les tirages du MArdi</span></span>
-<span id="cb22-153"><a href="#cb22-153"></a>  <span class="cf">if</span> (j <span class="sc">==</span> <span class="st">"MA"</span>) {</span>
-<span id="cb22-154"><a href="#cb22-154"></a>    flag_jour <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb22-155"><a href="#cb22-155"></a>    <span class="co"># incrémente les sorties des numéros</span></span>
-<span id="cb22-156"><a href="#cb22-156"></a>    num<span class="sc">$</span>So_MA[b] <span class="ot">&lt;-</span> num<span class="sc">$</span>So_MA[b] <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-157"><a href="#cb22-157"></a>    <span class="co"># incrémente les sorties des étoiles</span></span>
-<span id="cb22-158"><a href="#cb22-158"></a>    eto<span class="sc">$</span>So_MA[e] <span class="ot">&lt;-</span> eto<span class="sc">$</span>So_MA[e] <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-159"><a href="#cb22-159"></a>    <span class="co"># incrémente tous les écarts des numéros</span></span>
-<span id="cb22-160"><a href="#cb22-160"></a>    num<span class="sc">$</span>Ec_MA <span class="ot">&lt;-</span> num<span class="sc">$</span>Ec_MA <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-161"><a href="#cb22-161"></a>    <span class="co"># incrémente tous les écarts des étoiles</span></span>
-<span id="cb22-162"><a href="#cb22-162"></a>    eto<span class="sc">$</span>Ec_MA <span class="ot">&lt;-</span> eto<span class="sc">$</span>Ec_MA <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-163"><a href="#cb22-163"></a>    <span class="co"># met les écarts des numéros sortis à 0</span></span>
-<span id="cb22-164"><a href="#cb22-164"></a>    num<span class="sc">$</span>Ec_MA[b] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb22-165"><a href="#cb22-165"></a>    <span class="co"># met les écarts des étoiles sorties à 0</span></span>
-<span id="cb22-166"><a href="#cb22-166"></a>    eto<span class="sc">$</span>Ec_MA[e] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb22-167"><a href="#cb22-167"></a>  }   <span class="co"># fin du test   if (j == "MA")</span></span>
-<span id="cb22-168"><a href="#cb22-168"></a>  </span>
-<span id="cb22-169"><a href="#cb22-169"></a>  <span class="co"># pour les tirages du VEndredi</span></span>
-<span id="cb22-170"><a href="#cb22-170"></a>  <span class="cf">if</span> (j <span class="sc">==</span> <span class="st">"VE"</span>) {</span>
-<span id="cb22-171"><a href="#cb22-171"></a>    flag_jour <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
-<span id="cb22-172"><a href="#cb22-172"></a>    <span class="co"># incrémente les sorties des numéros</span></span>
-<span id="cb22-173"><a href="#cb22-173"></a>    num<span class="sc">$</span>So_VE[b] <span class="ot">&lt;-</span> num<span class="sc">$</span>So_VE[b] <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-174"><a href="#cb22-174"></a>    <span class="co"># incrémente les sorties des étoiles</span></span>
-<span id="cb22-175"><a href="#cb22-175"></a>    eto<span class="sc">$</span>So_VE[e] <span class="ot">&lt;-</span> eto<span class="sc">$</span>So_VE[e] <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-176"><a href="#cb22-176"></a>    <span class="co"># incrémente tous les écarts des numéros</span></span>
-<span id="cb22-177"><a href="#cb22-177"></a>    num<span class="sc">$</span>Ec_VE <span class="ot">&lt;-</span> num<span class="sc">$</span>Ec_VE <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-178"><a href="#cb22-178"></a>    <span class="co"># incrémente tous les écarts des étoiles</span></span>
-<span id="cb22-179"><a href="#cb22-179"></a>    eto<span class="sc">$</span>Ec_VE <span class="ot">&lt;-</span> eto<span class="sc">$</span>Ec_VE <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-180"><a href="#cb22-180"></a>    <span class="co"># met les écarts des numéros sortis à 0</span></span>
-<span id="cb22-181"><a href="#cb22-181"></a>    num<span class="sc">$</span>Ec_VE[b] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb22-182"><a href="#cb22-182"></a>    <span class="co"># met les écarts des étoiles sorties à 0</span></span>
-<span id="cb22-183"><a href="#cb22-183"></a>    eto<span class="sc">$</span>Ec_VE[e] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb22-184"><a href="#cb22-184"></a>  }   <span class="co"># fin du test   if (j == "VE")</span></span>
-<span id="cb22-185"><a href="#cb22-185"></a>  </span>
-<span id="cb22-186"><a href="#cb22-186"></a>  <span class="co"># si c'est bien un MA ou un VE qui a été </span></span>
-<span id="cb22-187"><a href="#cb22-187"></a>  <span class="co">#   traité avant</span></span>
-<span id="cb22-188"><a href="#cb22-188"></a>  <span class="co"># traite les tirages en TOut</span></span>
-<span id="cb22-189"><a href="#cb22-189"></a>  <span class="cf">if</span> (flag_jour <span class="sc">==</span> <span class="cn">TRUE</span>)  {</span>
-<span id="cb22-190"><a href="#cb22-190"></a>     <span class="co"># incrémente les sorties des numéros</span></span>
-<span id="cb22-191"><a href="#cb22-191"></a>    num<span class="sc">$</span>So_TO[b] <span class="ot">&lt;-</span> num<span class="sc">$</span>So_TO[b] <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-192"><a href="#cb22-192"></a>    <span class="co"># incrémente les sorties des étoiles</span></span>
-<span id="cb22-193"><a href="#cb22-193"></a>    eto<span class="sc">$</span>So_TO[e] <span class="ot">&lt;-</span> eto<span class="sc">$</span>So_TO[e] <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-194"><a href="#cb22-194"></a>    <span class="co"># incrémente tous les écarts des numéros</span></span>
-<span id="cb22-195"><a href="#cb22-195"></a>    num<span class="sc">$</span>Ec_TO <span class="ot">&lt;-</span> num<span class="sc">$</span>Ec_TO <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-196"><a href="#cb22-196"></a>    <span class="co"># incrémente tous les écarts des étoiles</span></span>
-<span id="cb22-197"><a href="#cb22-197"></a>    eto<span class="sc">$</span>Ec_TO <span class="ot">&lt;-</span> eto<span class="sc">$</span>Ec_TO <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-198"><a href="#cb22-198"></a>    <span class="co"># met les écarts des numéros sortis à 0</span></span>
-<span id="cb22-199"><a href="#cb22-199"></a>    num<span class="sc">$</span>Ec_TO[b] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb22-200"><a href="#cb22-200"></a>    <span class="co"># met les écarts des étoiles sorties à 0</span></span>
-<span id="cb22-201"><a href="#cb22-201"></a>    eto<span class="sc">$</span>Ec_TO[e] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb22-202"><a href="#cb22-202"></a>  }   <span class="co"># fin du test   if (flag_jour == TRUE)</span></span>
-<span id="cb22-203"><a href="#cb22-203"></a>  <span class="cf">else</span>  {</span>
-<span id="cb22-204"><a href="#cb22-204"></a>    <span class="co"># si le test du jour a raté</span></span>
-<span id="cb22-205"><a href="#cb22-205"></a>    <span class="co"># afficher le tirage incriminé</span></span>
-<span id="cb22-206"><a href="#cb22-206"></a>    <span class="fu">print</span>(<span class="st">"HORREUR, Y A ERREUR&nbsp;!!!!!!!!!"</span>)</span>
-<span id="cb22-207"><a href="#cb22-207"></a>    <span class="fu">print</span>(a)</span>
-<span id="cb22-208"><a href="#cb22-208"></a>    <span class="co"># et on arrête tout</span></span>
-<span id="cb22-209"><a href="#cb22-209"></a>    <span class="cf">break</span></span>
-<span id="cb22-210"><a href="#cb22-210"></a>  }   <span class="co"># fin du else</span></span>
-<span id="cb22-211"><a href="#cb22-211"></a>  </span>
-<span id="cb22-212"><a href="#cb22-212"></a>}   <span class="co"># fin de la boucle  for (i in 1:XX)</span></span>
-<span id="cb22-213"><a href="#cb22-213"></a><span class="in">```</span></span>
-<span id="cb22-214"><a href="#cb22-214"></a></span>
-<span id="cb22-215"><a href="#cb22-215"></a><span class="fu">#### Récapitulatif des numéros</span></span>
-<span id="cb22-216"><a href="#cb22-216"></a></span>
-<span id="cb22-217"><a href="#cb22-217"></a>:::{.callout-note}</span>
-<span id="cb22-218"><a href="#cb22-218"></a><span class="ss">- </span>$50$ numéros</span>
-<span id="cb22-219"><a href="#cb22-219"></a><span class="ss">- </span>$5$ numéros par tirage</span>
-<span id="cb22-220"><a href="#cb22-220"></a><span class="ss">- </span>$150$ tirages «&nbsp;analysés&nbsp;»</span>
-<span id="cb22-221"><a href="#cb22-221"></a></span>
-<span id="cb22-222"><a href="#cb22-222"></a>Donc&nbsp;:</span>
-<span id="cb22-223"><a href="#cb22-223"></a></span>
-<span id="cb22-224"><a href="#cb22-224"></a>$5 \times 150 = 750$ numéros tirés</span>
-<span id="cb22-225"><a href="#cb22-225"></a></span>
-<span id="cb22-226"><a href="#cb22-226"></a>$750 \div 50 = 15$&nbsp;; en moyenne, chaque numéro serait sorti $15$ fois pour tous les $150$ tirages et $7,5$ fois pour les $75$ tirages du mardi et du vendredi.</span>
-<span id="cb22-227"><a href="#cb22-227"></a>:::</span>
-<span id="cb22-228"><a href="#cb22-228"></a></span>
-<span id="cb22-229"><a href="#cb22-229"></a>Pour mardi&nbsp;:</span>
-<span id="cb22-232"><a href="#cb22-232"></a><span class="in">```{r}</span></span>
-<span id="cb22-233"><a href="#cb22-233"></a><span class="co">#| echo: false</span></span>
-<span id="cb22-234"><a href="#cb22-234"></a><span class="fu">summary</span>(num<span class="sc">$</span>So_MA)</span>
-<span id="cb22-235"><a href="#cb22-235"></a><span class="in">```</span></span>
-<span id="cb22-236"><a href="#cb22-236"></a>Pour vendredi&nbsp;:</span>
-<span id="cb22-239"><a href="#cb22-239"></a><span class="in">```{r}</span></span>
-<span id="cb22-240"><a href="#cb22-240"></a><span class="co">#| echo: false</span></span>
-<span id="cb22-241"><a href="#cb22-241"></a><span class="fu">summary</span>(num<span class="sc">$</span>So_VE)</span>
-<span id="cb22-242"><a href="#cb22-242"></a><span class="in">```</span></span>
-<span id="cb22-243"><a href="#cb22-243"></a>En tout&nbsp;:</span>
-<span id="cb22-246"><a href="#cb22-246"></a><span class="in">```{r}</span></span>
-<span id="cb22-247"><a href="#cb22-247"></a><span class="co">#| echo: false</span></span>
-<span id="cb22-248"><a href="#cb22-248"></a><span class="fu">summary</span>(num<span class="sc">$</span>So_TO)</span>
-<span id="cb22-249"><a href="#cb22-249"></a><span class="in">```</span></span>
-<span id="cb22-250"><a href="#cb22-250"></a></span>
-<span id="cb22-251"><a href="#cb22-251"></a><span class="fu">#### Récapitulatif des étoiles</span></span>
-<span id="cb22-252"><a href="#cb22-252"></a></span>
-<span id="cb22-253"><a href="#cb22-253"></a>En partant du même principe que ci-dessus pour les étoiles, on trouve&nbsp;:</span>
-<span id="cb22-254"><a href="#cb22-254"></a></span>
-<span id="cb22-255"><a href="#cb22-255"></a>$2 \times 150 = 300$ étoiles tirées&nbsp;;</span>
-<span id="cb22-256"><a href="#cb22-256"></a></span>
-<span id="cb22-257"><a href="#cb22-257"></a>$300 \div 12 = 25$&nbsp;; en moyenne, chaque étoile serait sortie $25$ fois fois pour tous les $150$ tirages et $12,5$ fois pour les $75$ tirages du mardi et du vendredi.</span>
-<span id="cb22-258"><a href="#cb22-258"></a></span>
-<span id="cb22-259"><a href="#cb22-259"></a>Dont acte&nbsp;:</span>
-<span id="cb22-260"><a href="#cb22-260"></a></span>
-<span id="cb22-261"><a href="#cb22-261"></a>Pour mardi&nbsp;:</span>
-<span id="cb22-264"><a href="#cb22-264"></a><span class="in">```{r}</span></span>
-<span id="cb22-265"><a href="#cb22-265"></a><span class="co">#| echo: false</span></span>
-<span id="cb22-266"><a href="#cb22-266"></a><span class="fu">summary</span>(eto<span class="sc">$</span>So_MA)</span>
-<span id="cb22-267"><a href="#cb22-267"></a><span class="in">```</span></span>
-<span id="cb22-268"><a href="#cb22-268"></a>Pour vendredi&nbsp;:</span>
-<span id="cb22-271"><a href="#cb22-271"></a><span class="in">```{r}</span></span>
-<span id="cb22-272"><a href="#cb22-272"></a><span class="co">#| echo: false</span></span>
-<span id="cb22-273"><a href="#cb22-273"></a><span class="fu">summary</span>(eto<span class="sc">$</span>So_VE)</span>
-<span id="cb22-274"><a href="#cb22-274"></a><span class="in">```</span></span>
-<span id="cb22-275"><a href="#cb22-275"></a>Et en tout&nbsp;:</span>
-<span id="cb22-278"><a href="#cb22-278"></a><span class="in">```{r}</span></span>
-<span id="cb22-279"><a href="#cb22-279"></a><span class="co">#| echo: false</span></span>
-<span id="cb22-280"><a href="#cb22-280"></a><span class="fu">summary</span>(eto<span class="sc">$</span>So_TO)</span>
-<span id="cb22-281"><a href="#cb22-281"></a><span class="in">```</span></span>
-<span id="cb22-282"><a href="#cb22-282"></a></span>
-<span id="cb22-285"><a href="#cb22-285"></a><span class="in">```{r}</span></span>
-<span id="cb22-286"><a href="#cb22-286"></a><span class="fu">head</span>(num)</span>
-<span id="cb22-287"><a href="#cb22-287"></a><span class="in">```</span></span>
-<span id="cb22-288"><a href="#cb22-288"></a></span>
-<span id="cb22-289"><a href="#cb22-289"></a></span>
-<span id="cb22-290"><a href="#cb22-290"></a></span>
-<span id="cb22-291"><a href="#cb22-291"></a></span>
-<span id="cb22-292"><a href="#cb22-292"></a></span>
-<span id="cb22-295"><a href="#cb22-295"></a><span class="in">```{r}</span></span>
-<span id="cb22-296"><a href="#cb22-296"></a>num_long <span class="ot">&lt;-</span> </span>
-<span id="cb22-297"><a href="#cb22-297"></a>  num <span class="sc">|&gt;</span> </span>
-<span id="cb22-298"><a href="#cb22-298"></a>  <span class="fu">select</span>(numero<span class="sc">:</span>So_VE) <span class="sc">|&gt;</span> </span>
-<span id="cb22-299"><a href="#cb22-299"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(So_MA, So_VE),</span>
-<span id="cb22-300"><a href="#cb22-300"></a>               <span class="at">values_to =</span> <span class="st">"sorties"</span>,</span>
-<span id="cb22-301"><a href="#cb22-301"></a>               <span class="at">names_to =</span> <span class="st">"jour"</span>)</span>
-<span id="cb22-302"><a href="#cb22-302"></a></span>
-<span id="cb22-303"><a href="#cb22-303"></a>eto_long <span class="ot">&lt;-</span> </span>
-<span id="cb22-304"><a href="#cb22-304"></a>  eto <span class="sc">|&gt;</span> </span>
-<span id="cb22-305"><a href="#cb22-305"></a>  <span class="fu">select</span>(etoile<span class="sc">:</span>So_VE) <span class="sc">|&gt;</span> </span>
-<span id="cb22-306"><a href="#cb22-306"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> So_MA<span class="sc">:</span>So_VE,</span>
-<span id="cb22-307"><a href="#cb22-307"></a>               <span class="at">values_to =</span> <span class="st">"sorties"</span>,</span>
-<span id="cb22-308"><a href="#cb22-308"></a>               <span class="at">names_to =</span> <span class="st">"jour"</span>)</span>
-<span id="cb22-309"><a href="#cb22-309"></a><span class="in">```</span></span>
-<span id="cb22-310"><a href="#cb22-310"></a></span>
-<span id="cb22-313"><a href="#cb22-313"></a><span class="in">```{r}</span></span>
-<span id="cb22-314"><a href="#cb22-314"></a>num_long</span>
-<span id="cb22-315"><a href="#cb22-315"></a>eto_long</span>
-<span id="cb22-316"><a href="#cb22-316"></a><span class="in">```</span></span>
-<span id="cb22-317"><a href="#cb22-317"></a></span>
-<span id="cb22-318"><a href="#cb22-318"></a>Pas très explicite. Faut essayer de faire mieux&nbsp;:</span>
-<span id="cb22-319"><a href="#cb22-319"></a></span>
-<span id="cb22-320"><a href="#cb22-320"></a></span>
-<span id="cb22-321"><a href="#cb22-321"></a></span>
-<span id="cb22-324"><a href="#cb22-324"></a><span class="in">```{r}</span></span>
-<span id="cb22-325"><a href="#cb22-325"></a><span class="fu">ggplot</span>(eto_long) <span class="sc">+</span></span>
-<span id="cb22-326"><a href="#cb22-326"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(etoile), </span>
-<span id="cb22-327"><a href="#cb22-327"></a>      <span class="at">y =</span> sorties, </span>
-<span id="cb22-328"><a href="#cb22-328"></a>      <span class="at">fill =</span> jour) <span class="sc">+</span></span>
-<span id="cb22-329"><a href="#cb22-329"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, </span>
-<span id="cb22-330"><a href="#cb22-330"></a>           <span class="at">fun =</span> <span class="st">"sum"</span>,</span>
-<span id="cb22-331"><a href="#cb22-331"></a>           <span class="at">position =</span> <span class="st">"dodge2"</span>) <span class="sc">+</span></span>
-<span id="cb22-332"><a href="#cb22-332"></a>  <span class="fu">labs</span>(</span>
-<span id="cb22-333"><a href="#cb22-333"></a>    <span class="at">x =</span> <span class="st">"étoiles"</span>,</span>
-<span id="cb22-334"><a href="#cb22-334"></a>    <span class="at">y =</span> <span class="st">"nombre de sorties"</span>,</span>
-<span id="cb22-335"><a href="#cb22-335"></a>    <span class="at">title =</span> <span class="st">"Nombres de sorties par jour des étoiles"</span></span>
-<span id="cb22-336"><a href="#cb22-336"></a>  )</span>
-<span id="cb22-337"><a href="#cb22-337"></a><span class="in">```</span></span>
-<span id="cb22-338"><a href="#cb22-338"></a>À vue de nez, il n'y a que la $4$ et la $11$ qui soient au même nombre de sorties. Il ne semble pas y avoir de règle pour les autres étoiles.</span>
-<span id="cb22-339"><a href="#cb22-339"></a></span>
-<span id="cb22-340"><a href="#cb22-340"></a>Je vais partager le tableau des numéros en deux pour que ce soit plus visible.</span>
-<span id="cb22-343"><a href="#cb22-343"></a><span class="in">```{r}</span></span>
-<span id="cb22-344"><a href="#cb22-344"></a>num_long1 <span class="ot">&lt;-</span> </span>
-<span id="cb22-345"><a href="#cb22-345"></a>  num_long <span class="sc">|&gt;</span> </span>
-<span id="cb22-346"><a href="#cb22-346"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>)</span>
-<span id="cb22-347"><a href="#cb22-347"></a>num_long2 <span class="ot">&lt;-</span> </span>
-<span id="cb22-348"><a href="#cb22-348"></a>  num_long <span class="sc">|&gt;</span> </span>
-<span id="cb22-349"><a href="#cb22-349"></a>  <span class="fu">slice</span>(<span class="dv">51</span><span class="sc">:</span><span class="dv">100</span>)</span>
-<span id="cb22-350"><a href="#cb22-350"></a><span class="in">```</span></span>
-<span id="cb22-351"><a href="#cb22-351"></a></span>
-<span id="cb22-352"><a href="#cb22-352"></a>Voyons !</span>
-<span id="cb22-353"><a href="#cb22-353"></a></span>
-<span id="cb22-356"><a href="#cb22-356"></a><span class="in">```{r}</span></span>
-<span id="cb22-357"><a href="#cb22-357"></a><span class="fu">ggplot</span>(num_long1) <span class="sc">+</span></span>
-<span id="cb22-358"><a href="#cb22-358"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(numero), </span>
-<span id="cb22-359"><a href="#cb22-359"></a>      <span class="at">y =</span> sorties, </span>
-<span id="cb22-360"><a href="#cb22-360"></a>      <span class="at">fill =</span> jour) <span class="sc">+</span></span>
-<span id="cb22-361"><a href="#cb22-361"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, </span>
-<span id="cb22-362"><a href="#cb22-362"></a>           <span class="at">fun =</span> <span class="st">"sum"</span>,</span>
-<span id="cb22-363"><a href="#cb22-363"></a>           <span class="at">position =</span> <span class="st">"dodge2"</span>) <span class="sc">+</span></span>
-<span id="cb22-364"><a href="#cb22-364"></a>  <span class="fu">labs</span>(</span>
-<span id="cb22-365"><a href="#cb22-365"></a>    <span class="at">x =</span> <span class="st">"numéros de 1 à 25"</span>,</span>
-<span id="cb22-366"><a href="#cb22-366"></a>    <span class="at">y =</span> <span class="st">"nombre de sorties"</span>,</span>
-<span id="cb22-367"><a href="#cb22-367"></a>    <span class="at">title =</span> <span class="st">"Nombres de sorties par jour des numéros de 1 à 25"</span></span>
-<span id="cb22-368"><a href="#cb22-368"></a>  )</span>
-<span id="cb22-369"><a href="#cb22-369"></a><span class="in">```</span></span>
-<span id="cb22-370"><a href="#cb22-370"></a></span>
-<span id="cb22-373"><a href="#cb22-373"></a><span class="in">```{r}</span></span>
-<span id="cb22-374"><a href="#cb22-374"></a><span class="fu">ggplot</span>(num_long2) <span class="sc">+</span></span>
-<span id="cb22-375"><a href="#cb22-375"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(numero), </span>
-<span id="cb22-376"><a href="#cb22-376"></a>      <span class="at">y =</span> sorties, </span>
-<span id="cb22-377"><a href="#cb22-377"></a>      <span class="at">fill =</span> jour) <span class="sc">+</span></span>
-<span id="cb22-378"><a href="#cb22-378"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, </span>
-<span id="cb22-379"><a href="#cb22-379"></a>           <span class="at">fun =</span> <span class="st">"sum"</span>,</span>
-<span id="cb22-380"><a href="#cb22-380"></a>           <span class="at">position =</span> <span class="st">"dodge2"</span>) <span class="sc">+</span></span>
-<span id="cb22-381"><a href="#cb22-381"></a>  <span class="fu">labs</span>(</span>
-<span id="cb22-382"><a href="#cb22-382"></a>    <span class="at">x =</span> <span class="st">"numéros de 26 à 50"</span>,</span>
-<span id="cb22-383"><a href="#cb22-383"></a>    <span class="at">y =</span> <span class="st">"nombre de sorties"</span>,</span>
-<span id="cb22-384"><a href="#cb22-384"></a>    <span class="at">title =</span> <span class="st">"Nombres de sorties par jour des numéros de 26 à 50"</span></span>
-<span id="cb22-385"><a href="#cb22-385"></a>  )</span>
-<span id="cb22-386"><a href="#cb22-386"></a><span class="in">```</span></span>
-<span id="cb22-387"><a href="#cb22-387"></a>Là aussi, à part les $11$, $26$ et $48$^<span class="co">[</span><span class="ot">Ces affirmations sont exactes le 30-07-2024</span><span class="co">]</span>, il y a disparité…</span>
-<span id="cb22-388"><a href="#cb22-388"></a></span>
+<div class="sourceCode" id="cb27" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1"></a><span class="co">---</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="an">author:</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="co">    - name: "Roger MARTIN"</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a><span class="co">      email: Roger57que@free.fr</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb27-6"><a href="#cb27-6"></a><span class="co">  echo: fenced</span></span>
+<span id="cb27-7"><a href="#cb27-7"></a><span class="an">date:</span><span class="co"> 2024-07-08</span></span>
+<span id="cb27-8"><a href="#cb27-8"></a><span class="co">---</span></span>
+<span id="cb27-9"><a href="#cb27-9"></a></span>
+<span id="cb27-10"><a href="#cb27-10"></a>On a les tirages bien propres sur eux. Et on va apprendre à compter après avoir chargé le <span class="in">`tidyverse`</span><span class="co">[</span><span class="ot">voir @tidyverse</span><span class="co">]</span> et les données.</span>
+<span id="cb27-11"><a href="#cb27-11"></a></span>
+<span id="cb27-14"><a href="#cb27-14"></a><span class="in">```{r}</span></span>
+<span id="cb27-15"><a href="#cb27-15"></a><span class="fu">load</span>(<span class="st">"~/PROJETS/EM/euromil.RData"</span>)</span>
+<span id="cb27-16"><a href="#cb27-16"></a><span class="fu">library</span>(tidyverse, <span class="at">quietly =</span> <span class="cn">TRUE</span>, <span class="at">warn.conflicts =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb27-17"><a href="#cb27-17"></a><span class="in">```</span></span>
+<span id="cb27-18"><a href="#cb27-18"></a></span>
+<span id="cb27-19"><a href="#cb27-19"></a><span class="fu"># Compter</span></span>
+<span id="cb27-20"><a href="#cb27-20"></a></span>
+<span id="cb27-21"><a href="#cb27-21"></a><span class="fu">## Les groupes</span></span>
+<span id="cb27-22"><a href="#cb27-22"></a></span>
+<span id="cb27-23"><a href="#cb27-23"></a>Je pense qu'il est illusoire et inutile de se baser simplement sur les numéros sortis. Si c'était possible, cela aurait surement déjà était fait. Et comme ce n'est pas la cas…</span>
+<span id="cb27-24"><a href="#cb27-24"></a></span>
+<span id="cb27-25"><a href="#cb27-25"></a><span class="fu">### Les sorties et les écarts</span></span>
+<span id="cb27-26"><a href="#cb27-26"></a></span>
+<span id="cb27-27"><a href="#cb27-27"></a>Les sorties correspondant aux nombres de fois que chaque numéro et étoile est sorti<span class="ot">[^compter-1]</span>.</span>
+<span id="cb27-28"><a href="#cb27-28"></a></span>
+<span id="cb27-29"><a href="#cb27-29"></a><span class="ot">[^compter-1]: </span>en bon français, on appelle ça «&nbsp;enfoncer une porte ouverte&nbsp;»</span>
+<span id="cb27-30"><a href="#cb27-30"></a></span>
+<span id="cb27-31"><a href="#cb27-31"></a>Les écarts correspondent aux nonbre de tirages entre deux sorties.</span>
+<span id="cb27-32"><a href="#cb27-32"></a></span>
+<span id="cb27-33"><a href="#cb27-33"></a>::: callout-note</span>
+<span id="cb27-34"><a href="#cb27-34"></a><span class="fu">## Par exemple</span></span>
+<span id="cb27-35"><a href="#cb27-35"></a></span>
+<span id="cb27-36"><a href="#cb27-36"></a>Soient les $3$ tirages suivants&nbsp;:</span>
+<span id="cb27-37"><a href="#cb27-37"></a></span>
+<span id="cb27-38"><a href="#cb27-38"></a><span class="in">```         </span></span>
+<span id="cb27-39"><a href="#cb27-39"></a><span class="in"> T1  1  2  3</span></span>
+<span id="cb27-40"><a href="#cb27-40"></a><span class="in"> T2  2  4  5</span></span>
+<span id="cb27-41"><a href="#cb27-41"></a><span class="in"> T3  1  3  6</span></span>
+<span id="cb27-42"><a href="#cb27-42"></a><span class="in">```</span></span>
+<span id="cb27-43"><a href="#cb27-43"></a>:::</span>
+<span id="cb27-44"><a href="#cb27-44"></a></span>
+<span id="cb27-45"><a href="#cb27-45"></a>On part du principe que avant ce tirage toutes les sorties et tous les écarts étaient à $0$.</span>
+<span id="cb27-46"><a href="#cb27-46"></a></span>
+<span id="cb27-47"><a href="#cb27-47"></a>pour le tirage T1 tous les sorties et les écarts sont à $0$</span>
+<span id="cb27-48"><a href="#cb27-48"></a></span>
+<span id="cb27-49"><a href="#cb27-49"></a>| numéros |  1  |  2  |  3  |  4  |  5  |  6  |</span>
+<span id="cb27-50"><a href="#cb27-50"></a>|:-------:|:---:|:---:|:---:|:---:|:---:|:---:|</span>
+<span id="cb27-51"><a href="#cb27-51"></a>| sorties |  0  |  0  |  0  |  0  |  0  |  0  |</span>
+<span id="cb27-52"><a href="#cb27-52"></a>| écarts  |  0  |  0  |  0  |  0  |  0  |  0  |</span>
+<span id="cb27-53"><a href="#cb27-53"></a></span>
+<span id="cb27-54"><a href="#cb27-54"></a>pour le tirage T2 les sorties du tirage précédent augmentent de $1$ alors que les écarts restent à $0$&nbsp;; par contre les écarts des numéros *non sortis* augmentent de $1$&nbsp;;</span>
+<span id="cb27-55"><a href="#cb27-55"></a></span>
+<span id="cb27-56"><a href="#cb27-56"></a>| numéros |  1  |  2  |  3  |  4  |  5  |  6  |</span>
+<span id="cb27-57"><a href="#cb27-57"></a>|:-------:|:---:|:---:|:---:|:---:|:---:|:---:|</span>
+<span id="cb27-58"><a href="#cb27-58"></a>| sorties |  1  |  1  |  1  |  0  |  0  |  0  |</span>
+<span id="cb27-59"><a href="#cb27-59"></a>| écarts  |  0  |  0  |  0  |  1  |  1  |  1  |</span>
+<span id="cb27-60"><a href="#cb27-60"></a></span>
+<span id="cb27-61"><a href="#cb27-61"></a>pour le tirage T3, c'est pareil</span>
+<span id="cb27-62"><a href="#cb27-62"></a></span>
+<span id="cb27-63"><a href="#cb27-63"></a>| numéros |  1  |  2  |  3  |  4  |  5  |  6  |</span>
+<span id="cb27-64"><a href="#cb27-64"></a>|:-------:|:---:|:---:|:---:|:---:|:---:|:---:|</span>
+<span id="cb27-65"><a href="#cb27-65"></a>| sorties |  1  |  2  |  1  |  1  |  1  |  0  |</span>
+<span id="cb27-66"><a href="#cb27-66"></a>| écarts  |  1  |  0  |  1  |  0  |  0  |  2  |</span>
+<span id="cb27-67"><a href="#cb27-67"></a></span>
+<span id="cb27-68"><a href="#cb27-68"></a>pour le tirage T4, on met à jour les d'après le tirage T3</span>
+<span id="cb27-69"><a href="#cb27-69"></a></span>
+<span id="cb27-70"><a href="#cb27-70"></a>| numéros |  1  |  2  |  3  |  4  |  5  |  6  |</span>
+<span id="cb27-71"><a href="#cb27-71"></a>|:-------:|:---:|:---:|:---:|:---:|:---:|:---:|</span>
+<span id="cb27-72"><a href="#cb27-72"></a>| sorties |  2  |  2  |  2  |  1  |  1  |  1  |</span>
+<span id="cb27-73"><a href="#cb27-73"></a>| écarts  |  0  |  1  |  0  |  1  |  1  |  0  |</span>
+<span id="cb27-74"><a href="#cb27-74"></a></span>
+<span id="cb27-75"><a href="#cb27-75"></a>etc.</span>
+<span id="cb27-76"><a href="#cb27-76"></a></span>
+<span id="cb27-77"><a href="#cb27-77"></a><span class="fu">## Le code</span></span>
+<span id="cb27-78"><a href="#cb27-78"></a></span>
+<span id="cb27-79"><a href="#cb27-79"></a>On va fabriquer deux <span class="in">`tibble`</span></span>
+<span id="cb27-80"><a href="#cb27-80"></a></span>
+<span id="cb27-81"><a href="#cb27-81"></a><span class="fu">### Les colonnes</span></span>
+<span id="cb27-82"><a href="#cb27-82"></a></span>
+<span id="cb27-83"><a href="#cb27-83"></a><span class="in">`S_MA`</span></span>
+<span id="cb27-84"><a href="#cb27-84"></a></span>
+<span id="cb27-85"><a href="#cb27-85"></a>:   pour le nombre de sorties du mardli</span>
+<span id="cb27-86"><a href="#cb27-86"></a></span>
+<span id="cb27-87"><a href="#cb27-87"></a><span class="in">`S_VE`</span></span>
+<span id="cb27-88"><a href="#cb27-88"></a></span>
+<span id="cb27-89"><a href="#cb27-89"></a>:   pour le nombre de sorties du vendredi</span>
+<span id="cb27-90"><a href="#cb27-90"></a></span>
+<span id="cb27-91"><a href="#cb27-91"></a><span class="in">`S_TO`</span></span>
+<span id="cb27-92"><a href="#cb27-92"></a></span>
+<span id="cb27-93"><a href="#cb27-93"></a>:   pour le nombre de sorties en tout</span>
+<span id="cb27-94"><a href="#cb27-94"></a></span>
+<span id="cb27-95"><a href="#cb27-95"></a><span class="in">`E_MA`</span></span>
+<span id="cb27-96"><a href="#cb27-96"></a></span>
+<span id="cb27-97"><a href="#cb27-97"></a>:   pour les écarts du mardi</span>
+<span id="cb27-98"><a href="#cb27-98"></a></span>
+<span id="cb27-99"><a href="#cb27-99"></a><span class="in">`E_VE`</span></span>
+<span id="cb27-100"><a href="#cb27-100"></a></span>
+<span id="cb27-101"><a href="#cb27-101"></a>:   pour les écarts du vendredi</span>
+<span id="cb27-102"><a href="#cb27-102"></a></span>
+<span id="cb27-103"><a href="#cb27-103"></a><span class="in">`E_TO`</span></span>
+<span id="cb27-104"><a href="#cb27-104"></a></span>
+<span id="cb27-105"><a href="#cb27-105"></a>:   pour les écarts en tout</span>
+<span id="cb27-106"><a href="#cb27-106"></a></span>
+<span id="cb27-107"><a href="#cb27-107"></a>Construire le <span class="in">`tibble`</span> vide<span class="ot">[^compter-2]</span> pour les numéros&nbsp;:</span>
+<span id="cb27-108"><a href="#cb27-108"></a></span>
+<span id="cb27-109"><a href="#cb27-109"></a><span class="ot">[^compter-2]: </span>pas vide, mais rempli de $0$</span>
+<span id="cb27-110"><a href="#cb27-110"></a></span>
+<span id="cb27-113"><a href="#cb27-113"></a><span class="in">```{r}</span></span>
+<span id="cb27-114"><a href="#cb27-114"></a>num <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">numero =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>,</span>
+<span id="cb27-115"><a href="#cb27-115"></a>               <span class="at">So_MA =</span> <span class="dv">0</span>, <span class="at">So_VE =</span> <span class="dv">0</span>, <span class="at">So_TO =</span> <span class="dv">0</span>,</span>
+<span id="cb27-116"><a href="#cb27-116"></a>               <span class="at">Ec_MA =</span> <span class="dv">0</span>, <span class="at">Ec_VE =</span> <span class="dv">0</span>, <span class="at">Ec_TO =</span> <span class="dv">0</span>)</span>
+<span id="cb27-117"><a href="#cb27-117"></a><span class="in">```</span></span>
+<span id="cb27-118"><a href="#cb27-118"></a></span>
+<span id="cb27-119"><a href="#cb27-119"></a>et pour les étoiles, même motif, même punition&nbsp;:</span>
+<span id="cb27-120"><a href="#cb27-120"></a></span>
+<span id="cb27-123"><a href="#cb27-123"></a><span class="in">```{r}</span></span>
+<span id="cb27-124"><a href="#cb27-124"></a>eto <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">etoile =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,</span>
+<span id="cb27-125"><a href="#cb27-125"></a>               <span class="at">So_MA =</span> <span class="dv">0</span>, <span class="at">So_VE =</span> <span class="dv">0</span>, <span class="at">So_TO =</span> <span class="dv">0</span>,</span>
+<span id="cb27-126"><a href="#cb27-126"></a>               <span class="at">Ec_MA =</span> <span class="dv">0</span>, <span class="at">Ec_VE =</span> <span class="dv">0</span>, <span class="at">Ec_TO =</span> <span class="dv">0</span>)</span>
+<span id="cb27-127"><a href="#cb27-127"></a><span class="in">```</span></span>
+<span id="cb27-128"><a href="#cb27-128"></a></span>
+<span id="cb27-129"><a href="#cb27-129"></a><span class="fu">### Classement</span></span>
+<span id="cb27-130"><a href="#cb27-130"></a></span>
+<span id="cb27-131"><a href="#cb27-131"></a>Je vais utiliser les verbes de <span class="in">`dplyr`</span><span class="co">[</span><span class="ot">voir @dplyr</span><span class="co">]</span>.</span>
+<span id="cb27-132"><a href="#cb27-132"></a></span>
+<span id="cb27-133"><a href="#cb27-133"></a>Le fonctionnement de $R$ est basé sur les vecteurs. <span class="in">`dplyr`</span> est basé sur les <span class="in">`tibble`</span>. C'est précisé en première <span class="co">[</span><span class="ot">page de la présentation de `dplyr`</span><span class="co">](https://dplyr.tidyverse.org/articles/base.html)</span></span>
+<span id="cb27-134"><a href="#cb27-134"></a></span>
+<span id="cb27-135"><a href="#cb27-135"></a><span class="at">&gt; Aperçu : Le code dplyr n'utilise en entrée et en sortie que des jeux de données. Cela contraste avec les fonctions $R$ de base qui fonctionnent plus fréquemment avec des vecteurs individuels.</span></span>
+<span id="cb27-136"><a href="#cb27-136"></a></span>
+<span id="cb27-139"><a href="#cb27-139"></a><span class="in">```{r}</span></span>
+<span id="cb27-140"><a href="#cb27-140"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">150</span>) {</span>
+<span id="cb27-141"><a href="#cb27-141"></a>  a <span class="ot">&lt;-</span> </span>
+<span id="cb27-142"><a href="#cb27-142"></a>    euromil <span class="sc">|&gt;</span> </span>
+<span id="cb27-143"><a href="#cb27-143"></a>    <span class="fu">slice</span>(i)</span>
+<span id="cb27-144"><a href="#cb27-144"></a>  j <span class="ot">&lt;-</span> a<span class="sc">$</span>jt</span>
+<span id="cb27-145"><a href="#cb27-145"></a>  b <span class="ot">&lt;-</span> <span class="fu">c</span>(a<span class="sc">$</span>b1, a<span class="sc">$</span>b2, a<span class="sc">$</span>b3, a<span class="sc">$</span>b4, a<span class="sc">$</span>b5)</span>
+<span id="cb27-146"><a href="#cb27-146"></a>  e <span class="ot">&lt;-</span> <span class="fu">c</span>(a<span class="sc">$</span>e1, a<span class="sc">$</span>e2)</span>
+<span id="cb27-147"><a href="#cb27-147"></a>  </span>
+<span id="cb27-148"><a href="#cb27-148"></a>  <span class="co"># pour être sûr que les jours ne soient QUE MA ou VE</span></span>
+<span id="cb27-149"><a href="#cb27-149"></a>  <span class="co">#   un petit test ne fait pas de mal</span></span>
+<span id="cb27-150"><a href="#cb27-150"></a>  flag_jour <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb27-151"><a href="#cb27-151"></a>  </span>
+<span id="cb27-152"><a href="#cb27-152"></a>  <span class="co"># pour les tirages du MArdi</span></span>
+<span id="cb27-153"><a href="#cb27-153"></a>  <span class="cf">if</span> (j <span class="sc">==</span> <span class="st">"MA"</span>) {</span>
+<span id="cb27-154"><a href="#cb27-154"></a>    flag_jour <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb27-155"><a href="#cb27-155"></a>    <span class="co"># incrémente les sorties des numéros</span></span>
+<span id="cb27-156"><a href="#cb27-156"></a>    num<span class="sc">$</span>So_MA[b] <span class="ot">&lt;-</span> num<span class="sc">$</span>So_MA[b] <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb27-157"><a href="#cb27-157"></a>    <span class="co"># incrémente les sorties des étoiles</span></span>
+<span id="cb27-158"><a href="#cb27-158"></a>    eto<span class="sc">$</span>So_MA[e] <span class="ot">&lt;-</span> eto<span class="sc">$</span>So_MA[e] <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb27-159"><a href="#cb27-159"></a>    <span class="co"># incrémente tous les écarts des numéros</span></span>
+<span id="cb27-160"><a href="#cb27-160"></a>    num<span class="sc">$</span>Ec_MA <span class="ot">&lt;-</span> num<span class="sc">$</span>Ec_MA <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb27-161"><a href="#cb27-161"></a>    <span class="co"># incrémente tous les écarts des étoiles</span></span>
+<span id="cb27-162"><a href="#cb27-162"></a>    eto<span class="sc">$</span>Ec_MA <span class="ot">&lt;-</span> eto<span class="sc">$</span>Ec_MA <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb27-163"><a href="#cb27-163"></a>    <span class="co"># met les écarts des numéros sortis à 0</span></span>
+<span id="cb27-164"><a href="#cb27-164"></a>    num<span class="sc">$</span>Ec_MA[b] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-165"><a href="#cb27-165"></a>    <span class="co"># met les écarts des étoiles sorties à 0</span></span>
+<span id="cb27-166"><a href="#cb27-166"></a>    eto<span class="sc">$</span>Ec_MA[e] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-167"><a href="#cb27-167"></a>  }   <span class="co"># fin du test   if (j == "MA")</span></span>
+<span id="cb27-168"><a href="#cb27-168"></a>  </span>
+<span id="cb27-169"><a href="#cb27-169"></a>  <span class="co"># pour les tirages du VEndredi</span></span>
+<span id="cb27-170"><a href="#cb27-170"></a>  <span class="cf">if</span> (j <span class="sc">==</span> <span class="st">"VE"</span>) {</span>
+<span id="cb27-171"><a href="#cb27-171"></a>    flag_jour <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb27-172"><a href="#cb27-172"></a>    <span class="co"># incrémente les sorties des numéros</span></span>
+<span id="cb27-173"><a href="#cb27-173"></a>    num<span class="sc">$</span>So_VE[b] <span class="ot">&lt;-</span> num<span class="sc">$</span>So_VE[b] <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb27-174"><a href="#cb27-174"></a>    <span class="co"># incrémente les sorties des étoiles</span></span>
+<span id="cb27-175"><a href="#cb27-175"></a>    eto<span class="sc">$</span>So_VE[e] <span class="ot">&lt;-</span> eto<span class="sc">$</span>So_VE[e] <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb27-176"><a href="#cb27-176"></a>    <span class="co"># incrémente tous les écarts des numéros</span></span>
+<span id="cb27-177"><a href="#cb27-177"></a>    num<span class="sc">$</span>Ec_VE <span class="ot">&lt;-</span> num<span class="sc">$</span>Ec_VE <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb27-178"><a href="#cb27-178"></a>    <span class="co"># incrémente tous les écarts des étoiles</span></span>
+<span id="cb27-179"><a href="#cb27-179"></a>    eto<span class="sc">$</span>Ec_VE <span class="ot">&lt;-</span> eto<span class="sc">$</span>Ec_VE <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb27-180"><a href="#cb27-180"></a>    <span class="co"># met les écarts des numéros sortis à 0</span></span>
+<span id="cb27-181"><a href="#cb27-181"></a>    num<span class="sc">$</span>Ec_VE[b] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-182"><a href="#cb27-182"></a>    <span class="co"># met les écarts des étoiles sorties à 0</span></span>
+<span id="cb27-183"><a href="#cb27-183"></a>    eto<span class="sc">$</span>Ec_VE[e] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-184"><a href="#cb27-184"></a>  }   <span class="co"># fin du test   if (j == "VE")</span></span>
+<span id="cb27-185"><a href="#cb27-185"></a>  </span>
+<span id="cb27-186"><a href="#cb27-186"></a>  <span class="co"># si c'est bien un MA ou un VE qui a été </span></span>
+<span id="cb27-187"><a href="#cb27-187"></a>  <span class="co">#   traité avant</span></span>
+<span id="cb27-188"><a href="#cb27-188"></a>  <span class="co"># traite les tirages en TOut</span></span>
+<span id="cb27-189"><a href="#cb27-189"></a>  <span class="cf">if</span> (flag_jour <span class="sc">==</span> <span class="cn">TRUE</span>)  {</span>
+<span id="cb27-190"><a href="#cb27-190"></a>     <span class="co"># incrémente les sorties des numéros</span></span>
+<span id="cb27-191"><a href="#cb27-191"></a>    num<span class="sc">$</span>So_TO[b] <span class="ot">&lt;-</span> num<span class="sc">$</span>So_TO[b] <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb27-192"><a href="#cb27-192"></a>    <span class="co"># incrémente les sorties des étoiles</span></span>
+<span id="cb27-193"><a href="#cb27-193"></a>    eto<span class="sc">$</span>So_TO[e] <span class="ot">&lt;-</span> eto<span class="sc">$</span>So_TO[e] <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb27-194"><a href="#cb27-194"></a>    <span class="co"># incrémente tous les écarts des numéros</span></span>
+<span id="cb27-195"><a href="#cb27-195"></a>    num<span class="sc">$</span>Ec_TO <span class="ot">&lt;-</span> num<span class="sc">$</span>Ec_TO <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb27-196"><a href="#cb27-196"></a>    <span class="co"># incrémente tous les écarts des étoiles</span></span>
+<span id="cb27-197"><a href="#cb27-197"></a>    eto<span class="sc">$</span>Ec_TO <span class="ot">&lt;-</span> eto<span class="sc">$</span>Ec_TO <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb27-198"><a href="#cb27-198"></a>    <span class="co"># met les écarts des numéros sortis à 0</span></span>
+<span id="cb27-199"><a href="#cb27-199"></a>    num<span class="sc">$</span>Ec_TO[b] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-200"><a href="#cb27-200"></a>    <span class="co"># met les écarts des étoiles sorties à 0</span></span>
+<span id="cb27-201"><a href="#cb27-201"></a>    eto<span class="sc">$</span>Ec_TO[e] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb27-202"><a href="#cb27-202"></a>  }   <span class="co"># fin du test   if (flag_jour == TRUE)</span></span>
+<span id="cb27-203"><a href="#cb27-203"></a>  <span class="cf">else</span>  {</span>
+<span id="cb27-204"><a href="#cb27-204"></a>    <span class="co"># si le test du jour a raté</span></span>
+<span id="cb27-205"><a href="#cb27-205"></a>    <span class="co"># afficher le tirage incriminé</span></span>
+<span id="cb27-206"><a href="#cb27-206"></a>    <span class="fu">print</span>(<span class="st">"HORREUR, Y A ERREUR&nbsp;!!!!!!!!!"</span>)</span>
+<span id="cb27-207"><a href="#cb27-207"></a>    <span class="fu">print</span>(a)</span>
+<span id="cb27-208"><a href="#cb27-208"></a>    <span class="co"># et on arrête tout</span></span>
+<span id="cb27-209"><a href="#cb27-209"></a>    <span class="cf">break</span></span>
+<span id="cb27-210"><a href="#cb27-210"></a>  }   <span class="co"># fin du else</span></span>
+<span id="cb27-211"><a href="#cb27-211"></a>  </span>
+<span id="cb27-212"><a href="#cb27-212"></a>}   <span class="co"># fin de la boucle  for (i in 1:XX)</span></span>
+<span id="cb27-213"><a href="#cb27-213"></a><span class="in">```</span></span>
+<span id="cb27-214"><a href="#cb27-214"></a></span>
+<span id="cb27-215"><a href="#cb27-215"></a><span class="fu">#### Récapitulatif des numéros</span></span>
+<span id="cb27-216"><a href="#cb27-216"></a></span>
+<span id="cb27-217"><a href="#cb27-217"></a>:::{.callout-note}</span>
+<span id="cb27-218"><a href="#cb27-218"></a><span class="ss">- </span>$50$ numéros</span>
+<span id="cb27-219"><a href="#cb27-219"></a><span class="ss">- </span>$5$ numéros par tirage</span>
+<span id="cb27-220"><a href="#cb27-220"></a><span class="ss">- </span>$150$ tirages «&nbsp;analysés&nbsp;»</span>
+<span id="cb27-221"><a href="#cb27-221"></a></span>
+<span id="cb27-222"><a href="#cb27-222"></a>Donc&nbsp;:</span>
+<span id="cb27-223"><a href="#cb27-223"></a></span>
+<span id="cb27-224"><a href="#cb27-224"></a>$5 \times 150 = 750$ numéros tirés</span>
+<span id="cb27-225"><a href="#cb27-225"></a></span>
+<span id="cb27-226"><a href="#cb27-226"></a>$750 \div 50 = 15$&nbsp;; en moyenne, chaque numéro serait sorti $15$ fois pour tous les $150$ tirages et $7,5$ fois pour les $75$ tirages du mardi et du vendredi.</span>
+<span id="cb27-227"><a href="#cb27-227"></a>:::</span>
+<span id="cb27-228"><a href="#cb27-228"></a></span>
+<span id="cb27-229"><a href="#cb27-229"></a>Pour mardi&nbsp;:</span>
+<span id="cb27-232"><a href="#cb27-232"></a><span class="in">```{r}</span></span>
+<span id="cb27-233"><a href="#cb27-233"></a><span class="fu">summary</span>(num<span class="sc">$</span>So_MA)</span>
+<span id="cb27-234"><a href="#cb27-234"></a><span class="in">```</span></span>
+<span id="cb27-235"><a href="#cb27-235"></a>Pour vendredi&nbsp;:</span>
+<span id="cb27-238"><a href="#cb27-238"></a><span class="in">```{r}</span></span>
+<span id="cb27-239"><a href="#cb27-239"></a><span class="fu">summary</span>(num<span class="sc">$</span>So_VE)</span>
+<span id="cb27-240"><a href="#cb27-240"></a><span class="in">```</span></span>
+<span id="cb27-241"><a href="#cb27-241"></a>En tout&nbsp;:</span>
+<span id="cb27-244"><a href="#cb27-244"></a><span class="in">```{r}</span></span>
+<span id="cb27-245"><a href="#cb27-245"></a><span class="fu">summary</span>(num<span class="sc">$</span>So_TO)</span>
+<span id="cb27-246"><a href="#cb27-246"></a><span class="in">```</span></span>
+<span id="cb27-247"><a href="#cb27-247"></a></span>
+<span id="cb27-248"><a href="#cb27-248"></a><span class="fu">#### Récapitulatif des étoiles</span></span>
+<span id="cb27-249"><a href="#cb27-249"></a></span>
+<span id="cb27-250"><a href="#cb27-250"></a>En partant du même principe que ci-dessus pour les étoiles, on trouve&nbsp;:</span>
+<span id="cb27-251"><a href="#cb27-251"></a></span>
+<span id="cb27-252"><a href="#cb27-252"></a>$2 \times 150 = 300$ étoiles tirées&nbsp;;</span>
+<span id="cb27-253"><a href="#cb27-253"></a></span>
+<span id="cb27-254"><a href="#cb27-254"></a>$300 \div 12 = 25$&nbsp;; en moyenne, chaque étoile serait sortie $25$ fois fois pour tous les $150$ tirages et $12,5$ fois pour les $75$ tirages du mardi et du vendredi.</span>
+<span id="cb27-255"><a href="#cb27-255"></a></span>
+<span id="cb27-256"><a href="#cb27-256"></a>Dont acte&nbsp;:</span>
+<span id="cb27-257"><a href="#cb27-257"></a></span>
+<span id="cb27-258"><a href="#cb27-258"></a>Pour mardi&nbsp;:</span>
+<span id="cb27-261"><a href="#cb27-261"></a><span class="in">```{r}</span></span>
+<span id="cb27-262"><a href="#cb27-262"></a><span class="fu">summary</span>(eto<span class="sc">$</span>So_MA)</span>
+<span id="cb27-263"><a href="#cb27-263"></a><span class="in">```</span></span>
+<span id="cb27-264"><a href="#cb27-264"></a>Pour vendredi&nbsp;:</span>
+<span id="cb27-267"><a href="#cb27-267"></a><span class="in">```{r}</span></span>
+<span id="cb27-268"><a href="#cb27-268"></a><span class="fu">summary</span>(eto<span class="sc">$</span>So_VE)</span>
+<span id="cb27-269"><a href="#cb27-269"></a><span class="in">```</span></span>
+<span id="cb27-270"><a href="#cb27-270"></a>Et en tout&nbsp;:</span>
+<span id="cb27-273"><a href="#cb27-273"></a><span class="in">```{r}</span></span>
+<span id="cb27-274"><a href="#cb27-274"></a><span class="fu">summary</span>(eto<span class="sc">$</span>So_TO)</span>
+<span id="cb27-275"><a href="#cb27-275"></a><span class="in">```</span></span>
+<span id="cb27-276"><a href="#cb27-276"></a></span>
+<span id="cb27-279"><a href="#cb27-279"></a><span class="in">```{r}</span></span>
+<span id="cb27-280"><a href="#cb27-280"></a><span class="fu">head</span>(num)</span>
+<span id="cb27-281"><a href="#cb27-281"></a><span class="in">```</span></span>
+<span id="cb27-282"><a href="#cb27-282"></a></span>
+<span id="cb27-283"><a href="#cb27-283"></a></span>
+<span id="cb27-284"><a href="#cb27-284"></a></span>
+<span id="cb27-285"><a href="#cb27-285"></a></span>
+<span id="cb27-286"><a href="#cb27-286"></a></span>
+<span id="cb27-289"><a href="#cb27-289"></a><span class="in">```{r}</span></span>
+<span id="cb27-290"><a href="#cb27-290"></a>num_long <span class="ot">&lt;-</span> </span>
+<span id="cb27-291"><a href="#cb27-291"></a>  num <span class="sc">|&gt;</span> </span>
+<span id="cb27-292"><a href="#cb27-292"></a>  <span class="fu">select</span>(numero<span class="sc">:</span>So_VE) <span class="sc">|&gt;</span> </span>
+<span id="cb27-293"><a href="#cb27-293"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(So_MA, So_VE),</span>
+<span id="cb27-294"><a href="#cb27-294"></a>               <span class="at">values_to =</span> <span class="st">"sorties"</span>,</span>
+<span id="cb27-295"><a href="#cb27-295"></a>               <span class="at">names_to =</span> <span class="st">"jour"</span>)</span>
+<span id="cb27-296"><a href="#cb27-296"></a></span>
+<span id="cb27-297"><a href="#cb27-297"></a>eto_long <span class="ot">&lt;-</span> </span>
+<span id="cb27-298"><a href="#cb27-298"></a>  eto <span class="sc">|&gt;</span> </span>
+<span id="cb27-299"><a href="#cb27-299"></a>  <span class="fu">select</span>(etoile<span class="sc">:</span>So_VE) <span class="sc">|&gt;</span> </span>
+<span id="cb27-300"><a href="#cb27-300"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> So_MA<span class="sc">:</span>So_VE,</span>
+<span id="cb27-301"><a href="#cb27-301"></a>               <span class="at">values_to =</span> <span class="st">"sorties"</span>,</span>
+<span id="cb27-302"><a href="#cb27-302"></a>               <span class="at">names_to =</span> <span class="st">"jour"</span>)</span>
+<span id="cb27-303"><a href="#cb27-303"></a><span class="in">```</span></span>
+<span id="cb27-304"><a href="#cb27-304"></a></span>
+<span id="cb27-307"><a href="#cb27-307"></a><span class="in">```{r}</span></span>
+<span id="cb27-308"><a href="#cb27-308"></a>num_long</span>
+<span id="cb27-309"><a href="#cb27-309"></a>eto_long</span>
+<span id="cb27-310"><a href="#cb27-310"></a><span class="in">```</span></span>
+<span id="cb27-311"><a href="#cb27-311"></a></span>
+<span id="cb27-312"><a href="#cb27-312"></a>Pas très explicite. Faut essayer de faire mieux&nbsp;:</span>
+<span id="cb27-313"><a href="#cb27-313"></a></span>
+<span id="cb27-314"><a href="#cb27-314"></a></span>
+<span id="cb27-315"><a href="#cb27-315"></a></span>
+<span id="cb27-318"><a href="#cb27-318"></a><span class="in">```{r}</span></span>
+<span id="cb27-319"><a href="#cb27-319"></a><span class="fu">ggplot</span>(eto_long) <span class="sc">+</span></span>
+<span id="cb27-320"><a href="#cb27-320"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(etoile), </span>
+<span id="cb27-321"><a href="#cb27-321"></a>      <span class="at">y =</span> sorties, </span>
+<span id="cb27-322"><a href="#cb27-322"></a>      <span class="at">fill =</span> jour) <span class="sc">+</span></span>
+<span id="cb27-323"><a href="#cb27-323"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, </span>
+<span id="cb27-324"><a href="#cb27-324"></a>           <span class="at">fun =</span> <span class="st">"sum"</span>,</span>
+<span id="cb27-325"><a href="#cb27-325"></a>           <span class="at">position =</span> <span class="st">"dodge2"</span>) <span class="sc">+</span></span>
+<span id="cb27-326"><a href="#cb27-326"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-327"><a href="#cb27-327"></a>    <span class="at">x =</span> <span class="st">"étoiles"</span>,</span>
+<span id="cb27-328"><a href="#cb27-328"></a>    <span class="at">y =</span> <span class="st">"nombre de sorties"</span>,</span>
+<span id="cb27-329"><a href="#cb27-329"></a>    <span class="at">title =</span> <span class="st">"Nombres de sorties par jour des étoiles"</span></span>
+<span id="cb27-330"><a href="#cb27-330"></a>  )</span>
+<span id="cb27-331"><a href="#cb27-331"></a><span class="in">```</span></span>
+<span id="cb27-332"><a href="#cb27-332"></a>À vue de nez, il n'y a que la $4$ et la $11$ qui soient au même nombre de sorties. Il ne semble pas y avoir de règle pour les autres étoiles.</span>
+<span id="cb27-333"><a href="#cb27-333"></a></span>
+<span id="cb27-334"><a href="#cb27-334"></a>Je vais partager le tableau des numéros en deux pour que ce soit plus visible.</span>
+<span id="cb27-337"><a href="#cb27-337"></a><span class="in">```{r}</span></span>
+<span id="cb27-338"><a href="#cb27-338"></a>num_long1 <span class="ot">&lt;-</span> </span>
+<span id="cb27-339"><a href="#cb27-339"></a>  num_long <span class="sc">|&gt;</span> </span>
+<span id="cb27-340"><a href="#cb27-340"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>)</span>
+<span id="cb27-341"><a href="#cb27-341"></a>num_long2 <span class="ot">&lt;-</span> </span>
+<span id="cb27-342"><a href="#cb27-342"></a>  num_long <span class="sc">|&gt;</span> </span>
+<span id="cb27-343"><a href="#cb27-343"></a>  <span class="fu">slice</span>(<span class="dv">51</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb27-344"><a href="#cb27-344"></a><span class="in">```</span></span>
+<span id="cb27-345"><a href="#cb27-345"></a></span>
+<span id="cb27-346"><a href="#cb27-346"></a>Voyons !</span>
+<span id="cb27-347"><a href="#cb27-347"></a></span>
+<span id="cb27-350"><a href="#cb27-350"></a><span class="in">```{r}</span></span>
+<span id="cb27-351"><a href="#cb27-351"></a><span class="fu">ggplot</span>(num_long1) <span class="sc">+</span></span>
+<span id="cb27-352"><a href="#cb27-352"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(numero), </span>
+<span id="cb27-353"><a href="#cb27-353"></a>      <span class="at">y =</span> sorties, </span>
+<span id="cb27-354"><a href="#cb27-354"></a>      <span class="at">fill =</span> jour) <span class="sc">+</span></span>
+<span id="cb27-355"><a href="#cb27-355"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, </span>
+<span id="cb27-356"><a href="#cb27-356"></a>           <span class="at">fun =</span> <span class="st">"sum"</span>,</span>
+<span id="cb27-357"><a href="#cb27-357"></a>           <span class="at">position =</span> <span class="st">"dodge2"</span>) <span class="sc">+</span></span>
+<span id="cb27-358"><a href="#cb27-358"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-359"><a href="#cb27-359"></a>    <span class="at">x =</span> <span class="st">"numéros de 1 à 25"</span>,</span>
+<span id="cb27-360"><a href="#cb27-360"></a>    <span class="at">y =</span> <span class="st">"nombre de sorties"</span>,</span>
+<span id="cb27-361"><a href="#cb27-361"></a>    <span class="at">title =</span> <span class="st">"Nombres de sorties par jour des numéros de 1 à 25"</span></span>
+<span id="cb27-362"><a href="#cb27-362"></a>  )</span>
+<span id="cb27-363"><a href="#cb27-363"></a><span class="in">```</span></span>
+<span id="cb27-364"><a href="#cb27-364"></a></span>
+<span id="cb27-367"><a href="#cb27-367"></a><span class="in">```{r}</span></span>
+<span id="cb27-368"><a href="#cb27-368"></a><span class="co">#| eval: true</span></span>
+<span id="cb27-369"><a href="#cb27-369"></a><span class="co">#| echo: fenced</span></span>
+<span id="cb27-370"><a href="#cb27-370"></a><span class="fu">ggplot</span>(num_long2) <span class="sc">+</span></span>
+<span id="cb27-371"><a href="#cb27-371"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(numero), </span>
+<span id="cb27-372"><a href="#cb27-372"></a>      <span class="at">y =</span> sorties, </span>
+<span id="cb27-373"><a href="#cb27-373"></a>      <span class="at">fill =</span> jour) <span class="sc">+</span></span>
+<span id="cb27-374"><a href="#cb27-374"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"summary"</span>, </span>
+<span id="cb27-375"><a href="#cb27-375"></a>           <span class="at">fun =</span> <span class="st">"sum"</span>,</span>
+<span id="cb27-376"><a href="#cb27-376"></a>           <span class="at">position =</span> <span class="st">"dodge2"</span>) <span class="sc">+</span></span>
+<span id="cb27-377"><a href="#cb27-377"></a>  <span class="fu">labs</span>(</span>
+<span id="cb27-378"><a href="#cb27-378"></a>    <span class="at">x =</span> <span class="st">"numéros de 26 à 50"</span>,</span>
+<span id="cb27-379"><a href="#cb27-379"></a>    <span class="at">y =</span> <span class="st">"nombre de sorties"</span>,</span>
+<span id="cb27-380"><a href="#cb27-380"></a>    <span class="at">title =</span> <span class="st">"Nombres de sorties par jour des numéros de 26 à 50"</span></span>
+<span id="cb27-381"><a href="#cb27-381"></a>  )</span>
+<span id="cb27-382"><a href="#cb27-382"></a><span class="in">```</span></span>
+<span id="cb27-383"><a href="#cb27-383"></a>Là aussi, à part les $11$, $26$ et $48$^<span class="co">[</span><span class="ot">Ces affirmations sont exactes le 30-07-2024</span><span class="co">]</span>, il y a disparité…</span>
+<span id="cb27-384"><a href="#cb27-384"></a></span>
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
@@ -1929,7 +1947,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Merci à <a href="https://git-scm.com/">Git</a>, <a href="https://github.com/">Github</a>, <a href="https://quarto.org/">Quarto</a>, <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a>, <a href="https://cran.rstudio.com/">R</a> et <a href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal">Wikipédia</a></p>
+<p>Merci à <a href="https://git-scm.com/">Git</a>, <a href="https://github.com/">Github</a>, <a href="https://quarto.org/">Quarto</a>, <a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a>, <a href="https://cran.rstudio.com/">R</a>, <a href="https://www.tidyverse.org/packages/">Tidyverse</a> et <a href="https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal">Wikipédia</a></p>
 </div>
     <div class="nav-footer-right">
       &nbsp;

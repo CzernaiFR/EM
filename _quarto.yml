@@ -7,7 +7,10 @@ toc-location: left
 toc-title: "Menu de cette page"
 
 number-sections: true
-
+execute: 
+  echo: true
+  warning: false
+  
 license: "CC BY-NC-SA"
 code-block-border-left: true
 code-line-numbers: true
@@ -18,10 +21,16 @@ date-format: "ddd D MMM YYYY"
 date: 2024/06/19
 
 reference-location: margin
-citation-location: document
+citation-location: margin
 book:
   title: "Décortiquer l'EuroMillions"
-  page-footer: "Merci à [Git](https://git-scm.com/), [Github](https://github.com/), [Quarto](https://quarto.org/), [RStudio Desktop](https://posit.co/download/rstudio-desktop/), [R](https://cran.rstudio.com/) et [Wikipédia](https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal)"
+  page-footer: "Merci à [Git](https://git-scm.com/), 
+  [Github](https://github.com/),
+  [Quarto](https://quarto.org/), 
+  [RStudio Desktop](https://posit.co/download/rstudio-desktop/), 
+  [R](https://cran.rstudio.com/),
+  [Tidyverse](https://www.tidyverse.org/packages/) et 
+  [Wikipédia](https://fr.wikipedia.org/wiki/Wikip%C3%A9dia:Accueil_principal)"
   
   chapters:
     - index.qmd
@@ -57,7 +66,7 @@ format:
       sidebar-width: 240px
       margin-width: 240px
       body-width: 800px
-      gutter-width: 0.5rem
+      gutter-width: 2.0rem
     
 
 

@@ -220,17 +220,14 @@ $750 \div 50 = 15$ ; en moyenne, chaque numéro serait sorti $15$ fois pour tou
 
 Pour mardi :
 ```{r}
-#| echo: false
 summary(num$So_MA)
 ```
 Pour vendredi :
 ```{r}
-#| echo: false
 summary(num$So_VE)
 ```
 En tout :
 ```{r}
-#| echo: false
 summary(num$So_TO)
 ```
 
@@ -246,17 +243,14 @@ Dont acte :
 
 Pour mardi :
 ```{r}
-#| echo: false
 summary(eto$So_MA)
 ```
 Pour vendredi :
 ```{r}
-#| echo: false
 summary(eto$So_VE)
 ```
 Et en tout :
 ```{r}
-#| echo: false
 summary(eto$So_TO)
 ```
 
@@ -337,6 +331,8 @@ ggplot(num_long1) +
 ```
 
 ```{r}
+#| eval: true
+#| echo: fenced
 ggplot(num_long2) +
   aes(x = factor(numero), 
       y = sorties, 

@@ -229,6 +229,44 @@
             "title": "Dplyr: A grammar of data manipulation",
             "title-short": "Dplyr",
             "type": "book"
+        },
+        {
+            "DOI": "10.5281/zenodo.5960048",
+            "URL": "https://github.com/quarto-dev/quarto-cli",
+            "author": [
+                {
+                    "family": "Allaire",
+                    "given": "J. J."
+                },
+                {
+                    "family": "Teague",
+                    "given": "Charles"
+                },
+                {
+                    "family": "Scheidegger",
+                    "given": "Carlos"
+                },
+                {
+                    "family": "Xie",
+                    "given": "Yihui"
+                },
+                {
+                    "family": "Dervieux",
+                    "given": "Christophe"
+                }
+            ],
+            "id": "Quarto_2024",
+            "issued": {
+                "date-parts": [
+                    [
+                        2024,
+                        2
+                    ]
+                ]
+            },
+            "title": "Quarto",
+            "type": "software",
+            "version": "1.4"
         }
     ],
     "project_biblios": [

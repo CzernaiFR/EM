@@ -313,39 +313,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2"></a><span class="in">library(tidyverse)</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
 </div>
 <section id="usage" class="level2" data-number="D.1">
 <h2 data-number="D.1" class="anchored" data-anchor-id="usage"><span class="header-section-number">D.1</span> Usage</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a>attr_getter(attr)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="in">```</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="in">## Arguments</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="in">`attr`</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="in">: Un nom d'attribut sous forme de chaîne de caratères</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a></span>
-<span id="cb3-9"><a href="#cb3-9"></a><span class="in">## Exemples</span></span>
-<span id="cb3-10"><a href="#cb3-10"></a></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="in">`attr_getter()` prend un nom d'attribut et renvoie une fonction pour accéder à l'attribut&nbsp;:</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="in">::: {.cell}</span></span>
-<span id="cb3-13"><a href="#cb3-13"></a></span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="in">````{.cell-code}</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="in">```{r}</span></span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="in">get_rownames &lt;- attr_getter("row.names")</span></span>
-<span id="cb3-17"><a href="#cb3-17"></a><span class="in">get_rownames(mtcars)</span></span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a>attr_getter(attr)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="in">```</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="in">## Arguments</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="in">`attr`</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="in">: Un nom d'attribut sous forme de chaîne de caratères</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="in">## Exemples</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="in">`attr_getter()` prend un nom d'attribut et renvoie une fonction pour accéder à l'attribut&nbsp;:</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="in">::: {.cell}</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="in">````{.cell-code}</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="in">```{r}</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="in">get_rownames &lt;- attr_getter("row.names")</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="in">get_rownames(mtcars)</span></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Mazda RX4"           "Mazda RX4 Wag"       "Datsun 710"         
  [4] "Hornet 4 Drive"      "Hornet Sportabout"   "Valiant"            
@@ -362,12 +350,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>::: Ces fonctions <code>getter</code> sont pratiques en conjonction avec <code>pluck()</code> pour extraire en profondeur une structure de données. Ici, nous allons d’abord extraire par position, puis par attribut&nbsp;: ::: {.cell}</p>
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="in">```{r}</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="in">obj1 &lt;- structure("obj", obj_attr = "foo")</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="in">obj2 &lt;- structure("obj", obj_attr = "bar")</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="in">x &lt;- list(obj1, obj2)</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="in">x</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="in">obj1 &lt;- structure("obj", obj_attr = "foo")</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="in">obj2 &lt;- structure("obj", obj_attr = "bar")</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="in">x &lt;- list(obj1, obj2)</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="in">x</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
@@ -383,10 +371,10 @@ attr(,"obj_attr")
 <p>::: ::: {.cell}</p>
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="in">pluck(x, 1, attr_getter("obj_attr"))  # depuis le premier objet</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="in">pluck(x, 2, attr_getter("obj_attr"))  # depuis le second objet</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="in">pluck(x, 1, attr_getter("obj_attr"))  # depuis le premier objet</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="in">pluck(x, 2, attr_getter("obj_attr"))  # depuis le second objet</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="in">```</span></span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "foo"
@@ -1016,54 +1004,54 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Code source</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb9" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">---</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="an">author:</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="co">    - name: "Roger MARTIN"</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co">      email: Roger57que@free.fr</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="an">execute:</span><span class="co"> </span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">  echo: fenced</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="an">date:</span><span class="co"> 2024-07-14</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="an">title:</span><span class="co"> attr_getter</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co">---</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="co">[</span><span class="ot">Source</span><span class="co">](https://purrr.tidyverse.org/reference/attr_getter.html)</span></span>
-<span id="cb9-12"><a href="#cb9-12"></a></span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="in">`attr_getter()`</span> permet de créer une fonction de récupération d'attribut</span>
-<span id="cb9-14"><a href="#cb9-14"></a></span>
-<span id="cb9-17"><a href="#cb9-17"></a><span class="in">```{r}</span></span>
-<span id="cb9-18"><a href="#cb9-18"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb9-19"><a href="#cb9-19"></a><span class="in">```</span></span>
-<span id="cb9-20"><a href="#cb9-20"></a></span>
-<span id="cb9-21"><a href="#cb9-21"></a><span class="fu">## Usage</span></span>
-<span id="cb9-22"><a href="#cb9-22"></a></span>
-<span id="cb9-23"><a href="#cb9-23"></a><span class="in">````</span></span>
-<span id="cb9-24"><a href="#cb9-24"></a><span class="in">attr_getter(attr)</span></span>
-<span id="cb9-25"><a href="#cb9-25"></a><span class="in">```</span></span>
-<span id="cb9-26"><a href="#cb9-26"></a></span>
-<span id="cb9-27"><a href="#cb9-27"></a><span class="in">## Arguments</span></span>
-<span id="cb9-28"><a href="#cb9-28"></a></span>
-<span id="cb9-29"><a href="#cb9-29"></a><span class="in">`attr`</span></span>
-<span id="cb9-30"><a href="#cb9-30"></a><span class="in">: Un nom d'attribut sous forme de chaîne de caratères</span></span>
-<span id="cb9-31"><a href="#cb9-31"></a></span>
-<span id="cb9-32"><a href="#cb9-32"></a><span class="in">## Exemples</span></span>
-<span id="cb9-33"><a href="#cb9-33"></a></span>
-<span id="cb9-34"><a href="#cb9-34"></a><span class="in">`attr_getter()` prend un nom d'attribut et renvoie une fonction pour accéder à l'attribut&nbsp;:</span></span>
-<span id="cb9-37"><a href="#cb9-37"></a><span class="in">```{r}</span></span>
-<span id="cb9-38"><a href="#cb9-38"></a><span class="in">get_rownames &lt;- attr_getter("row.names")</span></span>
-<span id="cb9-39"><a href="#cb9-39"></a><span class="in">get_rownames(mtcars)</span></span>
-<span id="cb9-40"><a href="#cb9-40"></a><span class="in">```</span></span>
-<span id="cb9-41"><a href="#cb9-41"></a><span class="in">Ces fonctions `getter` sont pratiques en conjonction avec `pluck()` pour extraire en profondeur une structure de données. Ici, nous allons d'abord extraire par position, puis par attribut&nbsp;:</span></span>
-<span id="cb9-44"><a href="#cb9-44"></a><span class="in">```{r}</span></span>
-<span id="cb9-45"><a href="#cb9-45"></a><span class="in">obj1 &lt;- structure("obj", obj_attr = "foo")</span></span>
-<span id="cb9-46"><a href="#cb9-46"></a><span class="in">obj2 &lt;- structure("obj", obj_attr = "bar")</span></span>
-<span id="cb9-47"><a href="#cb9-47"></a><span class="in">x &lt;- list(obj1, obj2)</span></span>
-<span id="cb9-48"><a href="#cb9-48"></a><span class="in">x</span></span>
-<span id="cb9-49"><a href="#cb9-49"></a><span class="in">```</span></span>
-<span id="cb9-52"><a href="#cb9-52"></a><span class="in">```{r}</span></span>
-<span id="cb9-53"><a href="#cb9-53"></a><span class="in">pluck(x, 1, attr_getter("obj_attr"))  # depuis le premier objet</span></span>
-<span id="cb9-54"><a href="#cb9-54"></a><span class="in">pluck(x, 2, attr_getter("obj_attr"))  # depuis le second objet</span></span>
-<span id="cb9-55"><a href="#cb9-55"></a><span class="in">```</span></span>
-<span id="cb9-56"><a href="#cb9-56"></a></span>
+<div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="an">author:</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co">    - name: "Roger MARTIN"</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">      email: Roger57que@free.fr</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="an">execute:</span><span class="co"> </span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">  echo: fenced</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="an">date:</span><span class="co"> 2024-07-14</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="an">title:</span><span class="co"> attr_getter</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co">---</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="co">[</span><span class="ot">Source</span><span class="co">](https://purrr.tidyverse.org/reference/attr_getter.html)</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="in">`attr_getter()`</span> permet de créer une fonction de récupération d'attribut</span>
+<span id="cb8-14"><a href="#cb8-14"></a></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="in">```{r}</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb8-19"><a href="#cb8-19"></a><span class="in">```</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a></span>
+<span id="cb8-21"><a href="#cb8-21"></a><span class="fu">## Usage</span></span>
+<span id="cb8-22"><a href="#cb8-22"></a></span>
+<span id="cb8-23"><a href="#cb8-23"></a><span class="in">````</span></span>
+<span id="cb8-24"><a href="#cb8-24"></a><span class="in">attr_getter(attr)</span></span>
+<span id="cb8-25"><a href="#cb8-25"></a><span class="in">```</span></span>
+<span id="cb8-26"><a href="#cb8-26"></a></span>
+<span id="cb8-27"><a href="#cb8-27"></a><span class="in">## Arguments</span></span>
+<span id="cb8-28"><a href="#cb8-28"></a></span>
+<span id="cb8-29"><a href="#cb8-29"></a><span class="in">`attr`</span></span>
+<span id="cb8-30"><a href="#cb8-30"></a><span class="in">: Un nom d'attribut sous forme de chaîne de caratères</span></span>
+<span id="cb8-31"><a href="#cb8-31"></a></span>
+<span id="cb8-32"><a href="#cb8-32"></a><span class="in">## Exemples</span></span>
+<span id="cb8-33"><a href="#cb8-33"></a></span>
+<span id="cb8-34"><a href="#cb8-34"></a><span class="in">`attr_getter()` prend un nom d'attribut et renvoie une fonction pour accéder à l'attribut&nbsp;:</span></span>
+<span id="cb8-37"><a href="#cb8-37"></a><span class="in">```{r}</span></span>
+<span id="cb8-38"><a href="#cb8-38"></a><span class="in">get_rownames &lt;- attr_getter("row.names")</span></span>
+<span id="cb8-39"><a href="#cb8-39"></a><span class="in">get_rownames(mtcars)</span></span>
+<span id="cb8-40"><a href="#cb8-40"></a><span class="in">```</span></span>
+<span id="cb8-41"><a href="#cb8-41"></a><span class="in">Ces fonctions `getter` sont pratiques en conjonction avec `pluck()` pour extraire en profondeur une structure de données. Ici, nous allons d'abord extraire par position, puis par attribut&nbsp;:</span></span>
+<span id="cb8-44"><a href="#cb8-44"></a><span class="in">```{r}</span></span>
+<span id="cb8-45"><a href="#cb8-45"></a><span class="in">obj1 &lt;- structure("obj", obj_attr = "foo")</span></span>
+<span id="cb8-46"><a href="#cb8-46"></a><span class="in">obj2 &lt;- structure("obj", obj_attr = "bar")</span></span>
+<span id="cb8-47"><a href="#cb8-47"></a><span class="in">x &lt;- list(obj1, obj2)</span></span>
+<span id="cb8-48"><a href="#cb8-48"></a><span class="in">x</span></span>
+<span id="cb8-49"><a href="#cb8-49"></a><span class="in">```</span></span>
+<span id="cb8-52"><a href="#cb8-52"></a><span class="in">```{r}</span></span>
+<span id="cb8-53"><a href="#cb8-53"></a><span class="in">pluck(x, 1, attr_getter("obj_attr"))  # depuis le premier objet</span></span>
+<span id="cb8-54"><a href="#cb8-54"></a><span class="in">pluck(x, 2, attr_getter("obj_attr"))  # depuis le second objet</span></span>
+<span id="cb8-55"><a href="#cb8-55"></a><span class="in">```</span></span>
+<span id="cb8-56"><a href="#cb8-56"></a></span>
 </code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
